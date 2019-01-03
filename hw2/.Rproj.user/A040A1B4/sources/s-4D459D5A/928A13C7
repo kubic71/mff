@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1542914308781.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "928A13C7",
+    "lastKnownWriteTime" : 1542982265,
+    "last_content_update" : 1542982265370,
+    "path" : "C:/Users/Jakub/school/intro-into-machine-learning/hw2/hw2.R",
+    "project_path" : "hw2.R",
+    "properties" : {
+        "cursorPosition" : "72,29",
+        "scrollLine" : "70",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

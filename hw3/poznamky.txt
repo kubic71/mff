@@ -1,0 +1,28 @@
+Uvodni analyzu dat provadet dohromady na D1 a D2
+
+Neoptimalizovat na accuracy, protoze podil P:N = 1:20
+
+Priznaky s malou entropii jsou k nicemu (priznaky s m)
+( Pokud ma diskretni priznak vyskyt hodnoty pouze 2x vs 8000 prikladech, je to nejspis sum )
+
+AUC0.1 = plocha v ROC krivce, kde FPR <= 0.1, z toho plyne, ze me zajima plocha v ROC, kde
+precision muze byt alespon 1/3 (predpokladame, ze zname pomer P:N = 1:20, pokud by FPR = 0.1 )
+
+AUC0.1 <= 0.1 
+
+2c) k vyladeni parametru cp nestaci krosvalidace rpartu
+    cp je treba ladit na AUC0.1
+    
+    
+
+delat si graficke vizualizace, i kdyz nemusim
+
+tipy:
+ - nazornost (vizualni), upouta pozornost graf
+ - neni treba vysvetlovat moc co funguje (mozna u ROC krivky)
+ - 
+    
+    
+ 
+
+

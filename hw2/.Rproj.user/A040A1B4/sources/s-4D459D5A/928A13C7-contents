@@ -1,0 +1,98 @@
+library(ISLR)
+
+entropy = function(vector) { 
+  dist = table(vector) / NROW(vector)
+  return (-sum(dist * log2(dist)))
+}
+
+set.seed(1)
+data = Auto
+data$name = NULL
+
+message("--------------------")
+message("-------TASK 1-------")
+message("--------------------")
+
+
+
+message("\n\n 1.1 \n")
+
+message("Performing multiple linear regression...")
+lm1 = lm(mpg~ ., data)
+print(lm1)
+
+message("\n\n 1.2 \n")
+message("Fitting mpg ~ acceleration with polynomials")
+
+
+plot(mpg ~ acceleration, data, main="Polynomial regression")
+colors = c("red", "blue", "green", "yellow", "pink")
+for (degree in 1:5) {
+  fit = lm(mpg ~ poly(acceleration,degree), data)
+  fr = data.frame(acceleration = seq(0, 30, 0.1))
+  fr$pred = predict(fit, fr)
+  lines(fr, col=colors[degree], lwd=3)
+  
+  message("polynomial degree: ", degree, ", R^2: ", summary(fit)$r.squared)
+}
+
+
+
+legend("topleft",
+       legend = c("degree 1", "degree 2", "degree 3", "degree 4", "degree 5"),
+       col = colors,
+       lty = 1,
+       lwd = 2,
+)
+
+
+
+
+
+message("--------------------")
+message("-------TASK 2-------")
+message("--------------------")
+
+# make results deterministic
+set.seed(1)
+
+message("2.1")
+d = Auto
+mpg.median = median(d$mpg)
+d$mpg01 = as.numeric(d$mpg > mpg.median)
+d$name = NULL
+
+
+message("Entropy of d$mpg01: ", entropy(d$mpg01))
+
+message("\n\n2.2")
+message("splitting dataset to train/test set\n")
+# lets shuffle the data, to make the distribution equal across all parts of dataset
+d = d[sample(1:NROW(d)), ]
+
+# split dataset to train and test sets in ration 80:20
+train_size = round(NROW(d) * 0.8)
+train = d[1:train_size, ]
+
+test = d[(train_size+1):NROW(d), ]
+
+message("2.3")
+
+# most frequent classifier on test data
+
+# get the most frequent value in train dataset
+most_frequent = as.numeric(names(sort(table(train$mpg01),decreasing=TRUE))[1])
+
+# compute the accuracy in test dataset
+accuracy = sum(test$mpg01 == most_frequent) / NROW(test)
+message("Accuracy of MFC is: ", accuracy, "\n\n")
+
+
+message("2.4")
+
+glm.model = glm(mpg01 ~ ., data=train, family= 'binomial')
+
+print(glm.model)
+
+
+
