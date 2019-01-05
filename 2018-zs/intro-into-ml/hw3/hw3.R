@@ -1,5 +1,8 @@
-library("data.table")
+library(data.table)
 library(FSelector)
+library(rpart)
+library(rpart.plot)
+library(ROCR)
 
 # load development data
 d1 = fread("devel1.csv")
@@ -8,9 +11,9 @@ d = rbind(d1, d2)
 t.blind = fread("test.blind.csv")
 
 
-#------------------------------------
+#####################################
 #-------------- TASK 1 --------------
-#------------------------------------
+#####################################
 
 n_d1 = NROW(d1)
 n_d2 = NROW(d2)
@@ -76,7 +79,8 @@ frt_condition = function(x) {
   return((min(frq, NROW(x) - frq)) >= frt)
 }
 
-bin_features_names = names(get_discrete_features(d))[ sapply(discrete_features, n_unique_vals) == 2] 
+discrete_features = get_discrete_features(d)
+bin_features_names = names(discrete_features)[ sapply(discrete_features, n_unique_vals) == 2] 
 bin_features = d[, colnames(d) %in% bin_features_names, with=FALSE]
 
 
@@ -92,7 +96,6 @@ message("Using ", NCOL(get_discrete_features(d)), " discrete features")
 message("\n\n\n--- task 1f ---")
 discrete = get_discrete_features(d)
 discrete$active = d$active
-discrete$active2 = d$active
 
 inf = information.gain(active~., discrete)
 inf_gain = data.frame(f_name=rownames(inf), i_gain=inf[, 1])
@@ -107,9 +110,131 @@ hist(inf_gain$i_gain, breaks=15, main="Histogram of feature information gain ", 
 
 
 
-#------------------------------------
+#####################################
 #-------------- TASK 2 --------------
-#------------------------------------
+#####################################
+message("\n\n\n\n\n\n")
+message("##############################")
+message("----------- TASK 2 -----------")
+message("##############################")
+
+
+d1 = d[1:(n_d1), ]
+d2 = d[(n_d1+1):(n_d1 + n_d2)]
+
+       
+
+# --- task 2b ---
+message("\n\n\n--- task 2b ---")
+set.seed(1)
+
+
+# get stratified folds from data
+get_folds = function(data, k) {
+  #shuffle data
+  data = data[sample(nrow(data)),]
+  
+  positive = data[data$active == 1 , ]
+  negative = data[data$active == 0 , ]
+  
+  pos.folds = cut(seq(1,nrow(positive)),breaks=k,labels=FALSE)
+  neg.folds = cut(seq(1,nrow(negative)),breaks=k,labels=FALSE)
+  
+  #list initialization
+  folds = vector("list", k)
+  
+  for(i in 1:k) {
+    pos.fold = positive[which(pos.folds==i,arr.ind=TRUE), ]
+    neg.fold = negative[which(neg.folds==i,arr.ind=TRUE), ]
+    folds[[i]] = rbind(pos.fold, neg.fold)
+  }
+  
+  return(folds)
+}
+
+get_auc01 = function(pred) {
+  auc01 = performance(pred, measure = "auc", fpr.stop=0.1)
+  return(as.numeric(auc01@y.values))
+}
+
+# k-fold cross-validation
+cv = function(data, k=10, cp=NULL) {
+  #message("Running ", k, "-fold cross-validation")
+  #if(!is.null(cp)) { message("Using cp=", cp)}
+  folds = get_folds(data, k)
+  auc = c()
+  
+  for(i in 1:k) {
+    d.test = as.data.frame(folds[i])
+    d.train = do.call("rbind", folds[-c(i)])
+    
+    if(is.null(cp)) {
+      fit = rpart(active ~ ., data=d.train)
+    } else {
+      fit = rpart(active ~ ., data=d.train, cp=cp)
+    }
+    prob = predict(fit, newdata=d.test)
+    pred = prediction(prob, d.test$active)
+    auc = c(auc, get_auc01(pred))    
+    #message("iteration: ", i, ", auc01: ", auc01)
+  }
+  return(auc)
+  
+}
+
+auc01.vec = cv(d1, k=10)
+auc01 = t.test(auc01.vec, conf.level=0.95)
+
+message("AUC0.1 mean estimate:\t", round(auc01$estimate, 4))
+message("Standard deviation:\t", sd(auc01.vec))
+message("Confidence interval:\t", auc01$conf.int[1], ", ", auc01$conf.int[2])
+
+
+
+# --- task 2c ---
+message("\n\n\n--- task 2c ---")
+# initial cp parameter
+cp = 0.3
+k = 10
+iterations = 25
+means = c()
+cps = c()
+ses = c()
+message("cp\t\tauc01\t\tsd\t\tse")
+
+for(i in 1:iterations) {
+  auc01.vec = cv(d1, k=k, cp=cp)
+  auc01 = t.test(auc01.vec, conf.level=0.95)
+  means = c(means, as.numeric(auc01$estimate))
+  cps = c(cps, cp)
+  se = sd(auc01.vec)/sqrt(k)
+  ses = c(ses, se)
+  message(round(cp, 5), "\t\t", round(auc01$estimate, 5), "\t\t",round(sd(auc01.vec), 5), "\t\t", round(se, 5))
+  cp = cp * 0.8
+  
+}
+
+plot(x=-log(cps), y=means)
+
+
+
+
+# --- task 2d ---
+message("\n\n\n--- task 2d ---")
+
+optimal_cp = 0.00676
+
+# train on whole d1
+fit = rpart(active ~ ., data=d1, cp=optimal_cp)
+prob = predict(fit, newdata=d2)
+pred = prediction(prob, d2$active)
+message("AUC01 on D2: ", get_auc01(pred))
+
+# plot whole ROC curve
+perf.dt <- performance(pred ,measure = "tpr", x.measure = "fpr")
+plot(perf.dt, main="ROC curve: DT trained on D1, evaluated on D2", col = 2)
+
+rpart.plot(fit)
 
 
 
@@ -117,13 +242,13 @@ hist(inf_gain$i_gain, breaks=15, main="Histogram of feature information gain ", 
 
 
 
+#####################################
+#-------------- TASK 3 --------------
+#####################################
 
 
-
-
-
-
-
-
-
+message("\n\n\n\n\n\n")
+message("##############################")
+message("----------- TASK 3 -----------")
+message("##############################")
 
