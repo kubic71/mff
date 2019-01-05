@@ -22,8 +22,8 @@ message("--- task 1a ---")
 td1 = table(d1$active)
 td2 = table(d2$active)
 
-message("Proportion of active ligands in d1 is ", td1[2] / td1[1])
-message("Proportion of active ligands in d2 is ", td2[2] / td2[1])
+message("the ratio active/non-active ligands in d1 is ", td1[2] / td1[1])
+message("the ratio active/non-active ligands in d2 is ", td2[2] / td2[1])
 
 
 # --- task 1b ---
@@ -69,7 +69,7 @@ barplot(val_feature_table, xlab = "number of distinct values", ylab = "number of
 
 
 # --- task 1e ---
-
+message("\n\n\n--- task 1e ---")
 frt = 4
 frt_condition = function(x) {
   frq = sum(x > 0)
@@ -83,19 +83,27 @@ bin_features = d[, colnames(d) %in% bin_features_names, with=FALSE]
 features_to_remove = names(bin_features)[ sapply(bin_features, frt_condition) == FALSE ] 
 message("Removing these binary features:")
 print(features_to_remove)
+
 d = subset(d, select=names(d)[ !(names(d) %in% features_to_remove) ])
-message("Using ", NCOL(d) - 1 , " features")
+message("Using ", NCOL(get_discrete_features(d)), " discrete features")
 
 
 # --- task 1f ---
+message("\n\n\n--- task 1f ---")
 discrete = get_discrete_features(d)
 discrete$active = d$active
+discrete$active2 = d$active
 
-inf_gain = data.frame(f_name=rownames(inf), i_gain=information.gain(active~., discrete)[, 1])
+inf = information.gain(active~., discrete)
+inf_gain = data.frame(f_name=rownames(inf), i_gain=inf[, 1])
 inf_gain = inf_gain[order(inf_gain$i_gain, decreasing=TRUE), ]
+message("information gain between features and 'active' target class")
+print(inf_gain)
 
-plot(1:NROW(inf_gain), inf_gain$i_gain, xlab="x", ylab="y", main = "discrete feature information gain",pch=16)
+plot(1:NROW(inf_gain), inf_gain$i_gain, xlab="feature #", ylab="information gain", main = "discrete feature information gain",pch=16)
 lines(1:NROW(inf_gain), inf_gain$i_gain, pch=16)
+
+hist(inf_gain$i_gain, breaks=15, main="Histogram of feature information gain ", xlab="Information gain")
 
 
 
