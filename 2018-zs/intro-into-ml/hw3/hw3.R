@@ -388,3 +388,35 @@ auc01.vec = cv_rf(NULL, d2)
 report_mean_auc01(auc01.vec)
 
 
+
+
+
+
+#####################################
+#-------------- TASK 5 --------------
+#####################################
+
+
+message("\n\n\n\n\n\n")
+message("##############################")
+message("----------- TASK 5 -----------")
+message("##############################")
+
+
+# --- task 5a ---
+message("--- task 5a ---")
+
+# lets train very large forest for the final evaluation
+ntree = 400
+mtry = 10
+
+fit = randomForest(active ~ .,  rbind(d1, d2), ntree=ntree, mtry=mtry)
+prob = predict(fit, newdata=t.blind)
+#pred = prediction(prob, d2$active)
+
+ prob = sort(prob, decreasing = TRUE)
+ t.50 = names(prob)[1:50]
+ t.150 = names(prob)[1:150]
+ t.250 = names(prob)[1:250]
+ 
+ 
