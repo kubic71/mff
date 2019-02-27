@@ -164,7 +164,6 @@ d2 = d[(n_d1+1):(n_d1 + n_d2)]
 
 # --- task 2b ---
 message("\n\n\n--- task 2b ---")
-set.seed(1)
 
 
 
@@ -274,7 +273,7 @@ evaluate_rf = function(train, test, ntree, mtry) {
 
 plot(c(), c(), xlab="mtry", ylab="auc01 on test set (D2)", main="Dependency of AUC01 on ntree and mtry", xlim = c(0,30), ylim=c(0, 0.1))
 
-for (ntree in c(500)) {
+for (ntree in c(1, 10, 100, 500, 1000)) {
   auc01s = c()
   
   mtries = c(1, 2, 4, 8, 16, 25)
@@ -403,20 +402,72 @@ message("----------- TASK 5 -----------")
 message("##############################")
 
 
+make_t.prediction = function(prob, k=50) {
+  prob = sort(prob, decreasing = TRUE)
+  selected = names(prob)[1:k]
+  selected = sapply(selected, as.numeric)
+  indeces = 1:NROW(t.blind)
+  return(as.character(as.numeric(indeces %in% selected)))
+}
+
 # --- task 5a ---
 message("--- task 5a ---")
 
 # lets train very large forest for the final evaluation
-ntree = 400
+ntree = 2000
 mtry = 10
 
 fit = randomForest(active ~ .,  rbind(d1, d2), ntree=ntree, mtry=mtry)
 prob = predict(fit, newdata=t.blind)
 #pred = prediction(prob, d2$active)
+t.50 = make_t.prediction(prob, 50)
+t.150 = make_t.prediction(prob, 150)
+t.250 = make_t.prediction(prob, 250)
 
- prob = sort(prob, decreasing = TRUE)
- t.50 = names(prob)[1:50]
- t.150 = names(prob)[1:150]
- t.250 = names(prob)[1:250]
- 
- 
+f.50 = file("T.prediction.50")
+writeLines(t.50, f.50)
+close(f.50)
+
+
+f.150 = file("T.prediction.150")
+writeLines(t.150, f.150)
+close(f.150)
+
+
+f.250 = file("T.prediction.250")
+writeLines(t.250, f.250)
+close(f.250)
+
+
+
+
+# --- task 5c ---
+message("--- task 5c ---")
+# estimate precision by measuring it on d2
+# the problem that we cannot use the same model as in 5a, because it had already seen all the data during training
+# so we will split d2 into 2 parts, test part will have the same number of examples as blind set and the rest will be used for the training
+
+data = d2[sample(nrow(d2)),]
+
+positive = data[data$active == 1 , ]
+negative = data[data$active == 0 , ]
+
+# we want 1722 test examples in total, which means 82 active ligands and 1640 passive ligands
+d2.test = rbind(positive[1:82, ], negative[1:1640, ])
+d2.train = rbind(positive[83:NROW(positive), ], negative[1641:NROW(negative), ])
+
+fit = randomForest(active ~ .,  rbind(d1, d2.train), ntree=ntree, mtry=mtry)
+
+
+prob = predict(fit, newdata=d2.test)
+d.50 = as.numeric(make_t.prediction(prob, 50))
+d.150 = as.numeric(make_t.prediction(prob, 150))
+d.250 = as.numeric(make_t.prediction(prob, 250))
+
+message("d.50 precision:", sum((d.50 == d2.test$active) & d.50) / 50)
+message("d.150 precision:", sum((d.150 == d2.test$active) & d.150) / 150)
+message("d.250 precision:", sum((d.250 == d2.test$active) & d.250) / 250)
+
+
+
+
