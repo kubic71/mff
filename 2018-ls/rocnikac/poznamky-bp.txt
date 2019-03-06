@@ -1,0 +1,49 @@
+Typy bp:
+- softwarova
+- implementacne-experimentalni, overeni hypotezy pomoci softwaru
+- teoreticka - nenavazuje na rocnikovy projekt
+
+Rocnikovy projekt je 1/3 bakalarky
+Rocnikovy projekt a bakalarska prace nema presne danou prechodovou hranici
+
+Zapocet za rocnikovy projekt se udeluje za castecne vypracovanou praci bez jejiho dokonceni. 
+
+Pokud se tema rocnikace a bakalarky lisi, je treba k ziskani zapoctu za RP ho dokoncit.
+
+
+--- Softwarova ---
+- implementovat nejaky novy kus softwaru, ktery neexistuje, chyby mi
+
+--- Implementacne-experimentalni ---
+- treba stanovit si hypotezy a pote navrhnout experimenty
+- experimenty zautomatizovat, mely by byt replikovatelne
+spatny priklad - simulace svabu konecnym automatem, bez nejakeho cile
+dobry priklad - biologove neco nevi, lze simulovat na pocitaci, testujeme hypotezu, delame zaver, interpretujeme
+
+s experimenty se muzeme setkat pokud narazime na problem, ktery neumime resit dokonale
+
+
+
+--- Teoreticka bakalarka ---
+- overovani nejake matematicke hypotezy
+- vymysleni nejakeho vlastniho algoritmu
+- mozno, ze teoreticka bakalarka se zrodi z problemu objeveneho pri reseni rocnikoveho projektu
+
+
+
+-------------------------
+prace by mela prinaset neco noveho
+- software ktery neexistuje
+- experiment, ktery nikdo neudelal
+- veta, kterou nikdo nedokazal
+
+jasne si zodpovedet otazky PROC a CO
+
+
+LOGOVAT si progress, myslenky, popsat cestu, kterou jsem se vydal a proc, popsat slepe ulicky a duvody, pro jsou slepe
+Zjistit si vsechny formality
+
+
+do 9.3. - zapsat se do RP 
+do 28.3 - byt ve spravne skupine u spravneho vedouciho, abych mohl dostat zapocet na konci semestru
+
