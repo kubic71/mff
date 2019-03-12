@@ -21,24 +21,18 @@ f(X) :- X = 5.
 % ?- starsibratr(Kdo,pavel).
 %  Kdo = jan ;
 %  Kdo = petr
-
-vyberMuze([X | Zbytek], [X | Bratri]) :-
-    muz(X).
-
-
     
-bratri(Koho) :- 
-    rodina(_, _, Deti),
-    select(Koho, Deti, Sourozenci),
-    vyberMuze(Sourozenci, Bratri). 
+%bratri(Koho) :- 
+%    rodina(_, _, Deti),
+%    select(Koho, Deti, Sourozenci),
+%    vyberMuze(Sourozenci, Bratri). 
     
 
 % nejstarsibratr(?Kdo, +Koho) :- Kdo je nejstarším bratrem osoby Koho.
-nejstarsibratr(Kdo, Koho) :-
-    bratri([Kdo | _], Koho).
+%nejstarsibratr(Kdo, Koho) :-
+%    bratri([Kdo | _], Koho).
 
 
-otestuj([H | T]) := muz(H).
 % ?- nejstarsibratr(Kdo, petr). 
 %  Kdo = jan
 
@@ -50,3 +44,11 @@ otestuj([H | T]) := muz(H).
 
 % ?- bratri(Bratri, petr). 
 %  Bratri = [jan, pavel]
+
+
+
+otoc(Xs, Ys) :- otoc(Xs, [], Ys).
+
+otoc([], Y, Y).
+
+otoc([X | Xs], A, Y) :- otoc(Xs, [X | A], Y).
