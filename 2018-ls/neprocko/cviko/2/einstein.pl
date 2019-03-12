@@ -1,4 +1,4 @@
-% domy: 
+`% domy: 
 % dum(barva, skola, os, prace, jazyk)
 dum(_, mu, linux, _, _).
 dum(cerveny, zcu, _, _, _).
@@ -10,7 +10,7 @@ dum(_, _, macos, _, scala).
 dum(zeleny, _, _, google, _).
 
 
-ulice(,
+ulice(dum(_, _, ,
       _,
       _,
       _,

@@ -16,7 +16,7 @@ startsibratr(Kdo, Koho) :-
     muz(Kdo).
 
 % starsibratr(?Kdo, +Koho) :- Kdo je starším bratrem Koho. 
-
+f(X) :- X = 5.
 
 % ?- starsibratr(Kdo,pavel).
 %  Kdo = jan ;
@@ -38,6 +38,7 @@ nejstarsibratr(Kdo, Koho) :-
     bratri([Kdo | _], Koho).
 
 
+otestuj([H | T]) := muz(H).
 % ?- nejstarsibratr(Kdo, petr). 
 %  Kdo = jan
 

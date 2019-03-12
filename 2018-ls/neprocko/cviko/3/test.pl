@@ -28,3 +28,9 @@ rshift(Xs, [Z | Ys]) :-
 % WTF this shit does? TODO
 rshift2([X], [X]).
 rshift2([X | Xs], [Z, X | Ys]) :- rshift2(Xs, [Z | Ys]).
+
+
+
+% DU bonusova uloha:
+% seznam delime na tretiny, aby v kazde bylo stejne zen (az na jednu), a naslo vsechna reseni
+
