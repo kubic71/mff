@@ -89,5 +89,5 @@ tret(S, T1, T2, T3) :-
 
 % tret([z1, a, b, z2, c,  z3, z4], T1, T2, T3).
 
-pul(S, P1, P2) :-
+pul(+S, -P1, -P2) :-
     append(P1, P2, S).

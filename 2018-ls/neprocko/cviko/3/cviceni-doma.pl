@@ -6,3 +6,4 @@ vypustvse(X, [Y | Xs], Ys) :-
     X \= Y,
     vypustvse(X, Xs, Zs),
     append([Y], Zs, Ys).
+
