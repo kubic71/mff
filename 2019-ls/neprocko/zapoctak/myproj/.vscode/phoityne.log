@@ -1,0 +1,1024 @@
+2019-08-20 13:46:34.681879200000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 13:46:34.706815000000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Main' is not interpreted; try ':add *Main' first
+2019-08-20 13:47:25.205034600000 [$pid(ThreadId 5)] ERROR APP - invalid HANDLE. eof.
+2019-08-20 13:47:44.815446900000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 13:47:44.835393800000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Main' is not interpreted; try ':add *Main' first
+2019-08-20 13:48:06.941289900000 [$pid(ThreadId 5)] ERROR APP - invalid HANDLE. eof.
+2019-08-20 13:48:35.634988500000 [$pid(ThreadId 5)] DEBUG APP - tasks.json file exists. C:\Users\Jakub\mff\2019-ls\neprocko\zapoctak\myproj\.vscode\tasks.json
+2019-08-20 13:48:35.637026700000 [$pid(ThreadId 5)] DEBUG APP - ["stack","ghci","--test","--no-load","--no-build","--main-is","TARGET","--ghci-options","-fprint-evld-with-show","--with-ghc=haskell-dap"]
+2019-08-20 13:48:35.638026100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 2, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "Configuration read.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:35.639018200000 [$pid(ThreadId 5)] INFO APP - can not use haskell-dap. deleting "--with-ghc=haskell-dap"
+2019-08-20 13:48:35.641012700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":2,"type":"event","event":"output","body":{"category":"stdout","output":"Configuration read.\n","data":null}}
+2019-08-20 13:48:35.641970400000 [$pid(ThreadId 5)] INFO APP - "--with-ghc" option not found. adding "--with-ghc=ghci-dap"
+2019-08-20 13:48:35.643995300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:35.644965800000 [$pid(ThreadId 5)] DEBUG APP - ghci initial prompt [Prelude>].
+2019-08-20 13:48:35.645959000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:35.647953000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:35.648980600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 3, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "console", outputOutputEventBody = "Starting GHCi.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:35.652941400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":3,"type":"event","event":"output","body":{"category":"console","output":"Starting GHCi.\n","data":null}}
+2019-08-20 13:48:35.654936500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:35.655932200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:35.657926700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:35.658924000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 4, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stderr", outputOutputEventBody = "Wait for a moment.\n\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:35.661919400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":4,"type":"event","event":"output","body":{"category":"stderr","output":"Wait for a moment.\n\n","data":null}}
+2019-08-20 13:48:35.663910800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:35.664908600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:35.666902700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:35.666902700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 5, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] [\"stack\",\"ghci\",\"--test\",\"--no-load\",\"--no-build\",\"--main-is\",\"TARGET\",\"--ghci-options\",\"-fprint-evld-with-show\",\"--with-ghc=haskell-dap\"]\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:35.670894300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":5,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] [\"stack\",\"ghci\",\"--test\",\"--no-load\",\"--no-build\",\"--main-is\",\"TARGET\",\"--ghci-options\",\"-fprint-evld-with-show\",\"--with-ghc=haskell-dap\"]\n","data":null}}
+2019-08-20 13:48:35.673885100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:35.674881800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:35.675881200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:35.676878400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 6, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[INFO][APP] can not use haskell-dap. deleting \"--with-ghc=haskell-dap\"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:35.681862700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":6,"type":"event","event":"output","body":{"category":"stdout","output":"[INFO][APP] can not use haskell-dap. deleting \"--with-ghc=haskell-dap\"\n","data":null}}
+2019-08-20 13:48:35.683858300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:35.684854500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:35.684854500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:35.685851800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 7, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[INFO][APP] \"--with-ghc\" option not found. adding \"--with-ghc=ghci-dap\"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:35.688843600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":7,"type":"event","event":"output","body":{"category":"stdout","output":"[INFO][APP] \"--with-ghc\" option not found. adding \"--with-ghc=ghci-dap\"\n","data":null}}
+2019-08-20 13:48:35.690838600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:35.691835400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:35.692833700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:35.692833700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 8, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "CWD:C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:35.697822600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":8,"type":"event","event":"output","body":{"category":"stdout","output":"CWD:C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\n","data":null}}
+2019-08-20 13:48:35.699816100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:35.699816100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:35.700814400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:35.701811700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 9, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "CMD:stack ghci --with-ghc=ghci-dap --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:35.704803500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":9,"type":"event","event":"output","body":{"category":"stdout","output":"CMD:stack ghci --with-ghc=ghci-dap --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show\n","data":null}}
+2019-08-20 13:48:35.707795300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:35.707795300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:35.708792600000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:35.709789800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 10, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:35.712782200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":10,"type":"event","event":"output","body":{"category":"stdout","output":"\n","data":null}}
+2019-08-20 13:48:35.713779900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:35.714775700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:35.715774500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.626370900000 [$pid(ThreadId 7)] INFO WATCH - start watching C:\Users\Jakub\mff\2019-ls\neprocko\zapoctak\myproj
+2019-08-20 13:48:36.764966100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 11, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "The following GHC options are incompatible with GHCi and have not been passed to it: -threaded\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.767960400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":11,"type":"event","event":"output","body":{"category":"stdout","output":"The following GHC options are incompatible with GHCi and have not been passed to it: -threaded\n","data":null}}
+2019-08-20 13:48:36.769955000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.770952200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.770952200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.771949500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 12, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "Configuring GHCi with the following packages: myproj\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.774941800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":12,"type":"event","event":"output","body":{"category":"stdout","output":"Configuring GHCi with the following packages: myproj\n","data":null}}
+2019-08-20 13:48:36.776936400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.777932100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.778933500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.779926600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 13, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][INFO] start ghci-dap-0.0.12.0.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.782917900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":13,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][INFO] start ghci-dap-0.0.12.0.\n","data":null}}
+2019-08-20 13:48:36.784950500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.784950500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.785911300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.786940400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 14, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "GHCi, version 8.6.5: http://www.haskell.org/ghc/  :? for help\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.789899300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":14,"type":"event","event":"output","body":{"category":"stdout","output":"GHCi, version 8.6.5: http://www.haskell.org/ghc/  :? for help\n","data":null}}
+2019-08-20 13:48:36.790931000000 [$pid(ThreadId 5)] DEBUG APP - :dap-launch LaunchRequestArguments {noDebugLaunchRequestArguments = Nothing, nameLaunchRequestArguments = "haskell-debug-adapter", typeLaunchRequestArguments = "ghc", requestLaunchRequestArguments = "launch", startupLaunchRequestArguments = "c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\app\\Main.hs", workspaceLaunchRequestArguments = "C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj", logFileLaunchRequestArguments = "C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj/.vscode/phoityne.log", logLevelLaunchRequestArguments = "DEBUG", ghciPromptLaunchRequestArguments = "H>>= ", ghciCmdLaunchRequestArguments = "stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show --with-ghc=haskell-dap", stopOnEntryLaunchRequestArguments = False, mainArgsLaunchRequestArguments = Just "", ghciEnvLaunchRequestArguments = fromList [], ghciInitialPromptLaunchRequestArguments = Just "Prelude>", startupFuncLaunchRequestArguments = Just "main", startupArgsLaunchRequestArguments = Just "", forceInspectLaunchRequestArguments = Just False}
+2019-08-20 13:48:36.791926800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.802866900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.803864700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.803864700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 15, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "Prelude>", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.806856500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":15,"type":"event","event":"output","body":{"category":"stdout","output":"Prelude>","data":null}}
+2019-08-20 13:48:36.808849000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.808849000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.809846200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.811843900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 16, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":set prompt \"<<DAP_CMD_END2>>\\nH>>= \"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.813836800000 [$pid(ThreadId 5)] DEBUG APP - InitState exitAction called.
+2019-08-20 13:48:36.814868000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":16,"type":"event","event":"output","body":{"category":"stdout","output":":set prompt \"<<DAP_CMD_END2>>\\nH>>= \"\n","data":null}}
+2019-08-20 13:48:36.815862200000 [$pid(ThreadId 5)] DEBUG APP - GHCiRunState entryAction called.
+2019-08-20 13:48:36.816829700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.817826400000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:48:36.818824700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.819855400000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:48:36.819855400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.821817100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 17, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.823810600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":17,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:48:36.825805600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.826803400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.826803400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.827800200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 18, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":set prompt-cont \"<<DAP_CMD_END2>>\\nH>>= \"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.830791400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":18,"type":"event","event":"output","body":{"category":"stdout","output":":set prompt-cont \"<<DAP_CMD_END2>>\\nH>>= \"\n","data":null}}
+2019-08-20 13:48:36.832817300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.833816700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.834813400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.834813400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 19, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.837805200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":19,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:48:36.838803500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.839799300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.839799300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.840796000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 20, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":dap-launch ...\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.843767300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":20,"type":"event","event":"output","body":{"category":"stdout","output":":dap-launch ...\n","data":null}}
+2019-08-20 13:48:36.844754200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.845751000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.846750300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.847745000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 21, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] :dap-launch LaunchRequestArguments {noDebugLaunchRequestArguments = Nothing, nameLaunchRequestArguments = \"haskell-debug-adapter\", typeLaunchRequestArguments = \"ghc\", requestLaunchRequestArguments = \"launch\", startupLaunchRequestArguments = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\app\\\\Main.hs\", workspaceLaunchRequestArguments = \"C:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\", logFileLaunchRequestArguments = \"C:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj/.vscode/phoityne.log\", logLevelLaunchRequestArguments = \"DEBUG\", ghciPromptLaunchRequestArguments = \"H>>= \", ghciCmdLaunchRequestArguments = \"stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show --with-ghc=haskell-dap\", stopOnEntryLaunchRequestArguments = False, mainArgsLaunchRequestArguments = Just \"\", ghciEnvLaunchRequestArguments = fromList [], ghciInitialPromptLaunchRequestArguments = Just \"Prelude>\", startupFuncLaunchRequestArguments = Just \"main\", startupArgsLaunchRequestArguments = Just \"\", forceInspectLaunchRequestArguments = Just False}\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.858762800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":21,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] :dap-launch LaunchRequestArguments {noDebugLaunchRequestArguments = Nothing, nameLaunchRequestArguments = \"haskell-debug-adapter\", typeLaunchRequestArguments = \"ghc\", requestLaunchRequestArguments = \"launch\", startupLaunchRequestArguments = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\app\\\\Main.hs\", workspaceLaunchRequestArguments = \"C:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\", logFileLaunchRequestArguments = \"C:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj/.vscode/phoityne.log\", logLevelLaunchRequestArguments = \"DEBUG\", ghciPromptLaunchRequestArguments = \"H>>= \", ghciCmdLaunchRequestArguments = \"stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show --with-ghc=haskell-dap\", stopOnEntryLaunchRequestArguments = False, mainArgsLaunchRequestArguments = Just \"\", ghciEnvLaunchRequestArguments = fromList [], ghciInitialPromptLaunchRequestArguments = Just \"Prelude>\", startupFuncLaunchRequestArguments = Just \"main\", startupArgsLaunchRequestArguments = Just \"\", forceInspectLaunchRequestArguments = Just False}\n","data":null}}
+2019-08-20 13:48:36.869730700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.870684800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.871711900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.871711900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 22, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "<<DAP>>Right ()\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.874699500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":22,"type":"event","event":"output","body":{"category":"stdout","output":"<<DAP>>Right ()\n","data":null}}
+2019-08-20 13:48:36.875698900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.876696100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.878667000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.879660700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 23, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.881688700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":23,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:48:36.883684200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.883684200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.884646000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.885676200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 24, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":load c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/Main.hs\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.888668500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":24,"type":"event","event":"output","body":{"category":"stdout","output":":load c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/Main.hs\n","data":null}}
+2019-08-20 13:48:36.890663000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.890663000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.891667500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.892661700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 25, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "Ok, two modules loaded.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.895652000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":25,"type":"event","event":"output","body":{"category":"stdout","output":"Ok, two modules loaded.\n","data":null}}
+2019-08-20 13:48:36.896642500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.897660900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.898611400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.899606600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 26, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.901602200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":26,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:48:36.903644000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.904595000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.904595000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.905632400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. InitializedEvent (InitializedEvent {seqInitializedEvent = 27, typeInitializedEvent = "event", eventInitializedEvent = "initialized"})
+2019-08-20 13:48:36.907624300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":27,"type":"event","event":"initialized"}
+2019-08-20 13:48:36.908622600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.909606000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.909606000000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req get data. {"command":"setBreakpoints","arguments":{"source":{"name":"Lib.hs","path":"c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs"},"lines":[6],"breakpoints":[{"line":6}],"sourceModified":false},"type":"request","seq":3}
+2019-08-20 13:48:36.910578100000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.914593400000 [$pid(ThreadId 4)] DEBUG REQUEST - sink start waiting.
+2019-08-20 13:48:36.915564400000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req start waiting.
+2019-08-20 13:48:36.916563200000 [$pid(ThreadId 5)] DEBUG APP - GHCiRunState SetBreakpointsRequest called. SetBreakpointsRequest {seqSetBreakpointsRequest = 3, typeSetBreakpointsRequest = "request", commandSetBreakpointsRequest = "setBreakpoints", argumentsSetBreakpointsRequest = SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just "Lib.hs", pathSource = "c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 6, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}}
+2019-08-20 13:48:36.916563200000 [$pid(ThreadId 4)] DEBUG REQUEST - src start waiting.
+2019-08-20 13:48:36.923542600000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req get data. {"command":"setBreakpoints","arguments":{"source":{"name":"Main.hs","path":"c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\app\\Main.hs"},"lines":[8],"breakpoints":[{"line":8}],"sourceModified":false},"type":"request","seq":4}
+2019-08-20 13:48:36.924539900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 28, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":dap-set-breakpoints ...\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.925536600000 [$pid(ThreadId 4)] DEBUG REQUEST - sink start waiting.
+2019-08-20 13:48:36.928534600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":28,"type":"event","event":"output","body":{"category":"stdout","output":":dap-set-breakpoints ...\n","data":null}}
+2019-08-20 13:48:36.929526700000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req start waiting.
+2019-08-20 13:48:36.931520700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.932518000000 [$pid(ThreadId 4)] DEBUG REQUEST - src start waiting.
+2019-08-20 13:48:36.933516300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.935511900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.938534500000 [$pid(ThreadId 5)] DEBUG APP - :dap-set-breakpoints SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just "Lib.hs", pathSource = "c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 6, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}
+2019-08-20 13:48:36.945489700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 29, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] :dap-set-breakpoints SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just \"Lib.hs\", pathSource = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\src\\\\Lib.hs\", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 6, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.949472600000 [$pid(ThreadId 5)] DEBUG APP - <<DAP>>Left "<command line>: module 'Lib' is not interpreted; try ':add *Lib' first"
+2019-08-20 13:48:36.953461700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":29,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] :dap-set-breakpoints SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just \"Lib.hs\", pathSource = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\src\\\\Lib.hs\", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 6, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}\n","data":null}}
+2019-08-20 13:48:36.954493400000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 13:48:36.960445100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.962445300000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:48:36.963435400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.964433700000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:48:36.964433700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.965430400000 [$pid(ThreadId 5)] DEBUG APP - GHCiRunState SetBreakpointsRequest called. SetBreakpointsRequest {seqSetBreakpointsRequest = 4, typeSetBreakpointsRequest = "request", commandSetBreakpointsRequest = "setBreakpoints", argumentsSetBreakpointsRequest = SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just "Main.hs", pathSource = "c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\app\\Main.hs", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 8, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}}
+2019-08-20 13:48:36.966431300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 30, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][DEBUG]<dapSetBreakpointsCommand> C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs -> Lib\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.975403700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":30,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][DEBUG]<dapSetBreakpointsCommand> C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs -> Lib\n","data":null}}
+2019-08-20 13:48:36.978404200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.981387800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.981387800000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.982387600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 31, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][DEBUG]<dapSetBreakpointsCommand> delete src bps []\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.986376700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":31,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][DEBUG]<dapSetBreakpointsCommand> delete src bps []\n","data":null}}
+2019-08-20 13:48:36.988401600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:36.988401600000 [$pid(ThreadId 5)] DEBUG APP - :dap-set-breakpoints SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just "Main.hs", pathSource = "c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\app\\Main.hs", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 8, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}
+2019-08-20 13:48:36.988401600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:36.994355400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:36.995360300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 32, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][DEBUG]<dapSetBreakpointsCommand> C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs -> Lib\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:36.999341700000 [$pid(ThreadId 5)] DEBUG APP - <<DAP>>Left "<command line>: module 'Main' is not interpreted; try ':add *Main' first"
+2019-08-20 13:48:36.999341700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":32,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][DEBUG]<dapSetBreakpointsCommand> C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs -> Lib\n","data":null}}
+2019-08-20 13:48:37.001368600000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Main' is not interpreted; try ':add *Main' first
+2019-08-20 13:48:37.003330800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.004358900000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:48:37.005325800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.006355000000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:48:37.006355000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.008318100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 33, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] <<DAP>>Left \"<command line>: module 'Lib' is not interpreted; try ':add *Lib' first\"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.012320100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":33,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] <<DAP>>Left \"<command line>: module 'Lib' is not interpreted; try ':add *Lib' first\"\n","data":null}}
+2019-08-20 13:48:37.014334100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.015330400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.016295300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.016295300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 34, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[ERROR][APP] <command line>: module 'Lib' is not interpreted; try ':add *Lib' first\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.019288600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":34,"type":"event","event":"output","body":{"category":"stdout","output":"[ERROR][APP] <command line>: module 'Lib' is not interpreted; try ':add *Lib' first\n","data":null}}
+2019-08-20 13:48:37.022280900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.022280900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.023278200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.024275000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. SetBreakpointsResponse (SetBreakpointsResponse {seqSetBreakpointsResponse = 35, typeSetBreakpointsResponse = "response", request_seqSetBreakpointsResponse = 3, successSetBreakpointsResponse = False, commandSetBreakpointsResponse = "setBreakpoints", messageSetBreakpointsResponse = "<command line>: module 'Lib' is not interpreted; try ':add *Lib' first", bodySetBreakpointsResponse = SetBreakpointsResponseBody {breakpointsSetBreakpointsResponseBody = []}})
+2019-08-20 13:48:37.028263000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":35,"type":"response","request_seq":3,"success":false,"command":"setBreakpoints","message":"<command line>: module 'Lib' is not interpreted; try ':add *Lib' first","body":{"breakpoints":[]}}
+2019-08-20 13:48:37.031254800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.032251600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.033248800000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.033248800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 36, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.034246600000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req get data. {"command":"configurationDone","type":"request","seq":5}
+2019-08-20 13:48:37.036243200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":36,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:48:37.037238400000 [$pid(ThreadId 4)] DEBUG REQUEST - sink start waiting.
+2019-08-20 13:48:37.039234500000 [$pid(ThreadId 5)] DEBUG APP - GHCiRunState ConfigurationDoneRequest called. ConfigurationDoneRequest {seqConfigurationDoneRequest = 5, typeConfigurationDoneRequest = "request", commandConfigurationDoneRequest = "configurationDone"}
+2019-08-20 13:48:37.039234500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.039234500000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req start waiting.
+2019-08-20 13:48:37.041261400000 [$pid(ThreadId 5)] DEBUG APP - GHCiRunState exitAction called.
+2019-08-20 13:48:37.042226800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.043257500000 [$pid(ThreadId 4)] DEBUG REQUEST - src start waiting.
+2019-08-20 13:48:37.044220900000 [$pid(ThreadId 5)] DEBUG APP - DebugRunState entryAction called.
+2019-08-20 13:48:37.045217100000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.049208200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 37, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":dap-set-breakpoints ...\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.051203300000 [$pid(ThreadId 5)] DEBUG APP - :dap-continue ContinueRequestArguments {threadIdContinueRequestArguments = 0, exprContinueRequestArguments = Just "main"}
+2019-08-20 13:48:37.051203300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":37,"type":"event","event":"output","body":{"category":"stdout","output":":dap-set-breakpoints ...\n","data":null}}
+2019-08-20 13:48:37.055192400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.056188100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.056188100000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.057187400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 38, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] :dap-set-breakpoints SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just \"Main.hs\", pathSource = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\app\\\\Main.hs\", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 8, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.065166100000 [$pid(ThreadId 5)] DEBUG APP - <<DAP>>Right (StoppedEventBody {reasonStoppedEventBody = "complete", descriptionStoppedEventBody = "", threadIdStoppedEventBody = 0, textStoppedEventBody = "", allThreadsStoppedStoppedEventBody = True})
+2019-08-20 13:48:37.067158600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":38,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] :dap-set-breakpoints SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just \"Main.hs\", pathSource = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\app\\\\Main.hs\", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 8, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}\n","data":null}}
+2019-08-20 13:48:37.069186000000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:48:37.075138800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.075138800000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:48:37.076136500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.077132800000 [$pid(ThreadId 5)] DEBUG APP - DebugRunState InternalTerminateRequest called. HdaInternalTerminateRequest {msgHdaInternalTerminateRequest = ""}
+2019-08-20 13:48:37.078129500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.081121300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 39, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][DEBUG]<dapSetBreakpointsCommand> c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/Main.hs -> Main\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.084113100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":39,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][DEBUG]<dapSetBreakpointsCommand> c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/Main.hs -> Main\n","data":null}}
+2019-08-20 13:48:37.087105000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.088102200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.088102200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.089099500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 40, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][DEBUG]<dapSetBreakpointsCommand> delete src bps []\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.092091300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":40,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][DEBUG]<dapSetBreakpointsCommand> delete src bps []\n","data":null}}
+2019-08-20 13:48:37.094086400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.095086700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.096080900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.097078200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 41, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][DEBUG]<dapSetBreakpointsCommand> c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/Main.hs -> Main\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.101067200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":41,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][DEBUG]<dapSetBreakpointsCommand> c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/Main.hs -> Main\n","data":null}}
+2019-08-20 13:48:37.103061800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.104059600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.104059600000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.105056800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 42, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] <<DAP>>Left \"<command line>: module 'Main' is not interpreted; try ':add *Main' first\"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.109045900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":42,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] <<DAP>>Left \"<command line>: module 'Main' is not interpreted; try ':add *Main' first\"\n","data":null}}
+2019-08-20 13:48:37.112039200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.113036500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.114033800000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.114033800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 43, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[ERROR][APP] <command line>: module 'Main' is not interpreted; try ':add *Main' first\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.118070700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":43,"type":"event","event":"output","body":{"category":"stdout","output":"[ERROR][APP] <command line>: module 'Main' is not interpreted; try ':add *Main' first\n","data":null}}
+2019-08-20 13:48:37.120066200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.120066200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.121062500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.122012400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. SetBreakpointsResponse (SetBreakpointsResponse {seqSetBreakpointsResponse = 44, typeSetBreakpointsResponse = "response", request_seqSetBreakpointsResponse = 4, successSetBreakpointsResponse = False, commandSetBreakpointsResponse = "setBreakpoints", messageSetBreakpointsResponse = "<command line>: module 'Main' is not interpreted; try ':add *Main' first", bodySetBreakpointsResponse = SetBreakpointsResponseBody {breakpointsSetBreakpointsResponseBody = []}})
+2019-08-20 13:48:37.126034900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":44,"type":"response","request_seq":4,"success":false,"command":"setBreakpoints","message":"<command line>: module 'Main' is not interpreted; try ':add *Main' first","body":{"breakpoints":[]}}
+2019-08-20 13:48:37.128992800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.129992700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.129992700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.130990400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 45, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.132983900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":45,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:48:37.134976900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.135976800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.136973500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.136973500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. ConfigurationDoneResponse (ConfigurationDoneResponse {seqConfigurationDoneResponse = 46, typeConfigurationDoneResponse = "response", request_seqConfigurationDoneResponse = 5, successConfigurationDoneResponse = True, commandConfigurationDoneResponse = "configurationDone", messageConfigurationDoneResponse = ""})
+2019-08-20 13:48:37.139965900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":46,"type":"response","request_seq":5,"success":true,"command":"configurationDone","message":""}
+2019-08-20 13:48:37.141959900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.142957700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.143952900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.144953700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. LaunchResponse (LaunchResponse {seqLaunchResponse = 47, typeLaunchResponse = "response", request_seqLaunchResponse = 2, successLaunchResponse = True, commandLaunchResponse = "launch", messageLaunchResponse = ""})
+2019-08-20 13:48:37.147974900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":47,"type":"response","request_seq":2,"success":true,"command":"launch","message":""}
+2019-08-20 13:48:37.149937000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.150935800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.151963900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.152962700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 48, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":dap-continue ...\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.155955600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":48,"type":"event","event":"output","body":{"category":"stdout","output":":dap-continue ...\n","data":null}}
+2019-08-20 13:48:37.157954700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.158912900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.159943100000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.160917200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 49, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] :dap-continue ContinueRequestArguments {threadIdContinueRequestArguments = 0, exprContinueRequestArguments = Just \"main\"}\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.164898600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":49,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] :dap-continue ContinueRequestArguments {threadIdContinueRequestArguments = 0, exprContinueRequestArguments = Just \"main\"}\n","data":null}}
+2019-08-20 13:48:37.166893100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.167891400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.168888700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.168888700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 50, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "someFunc\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.171880000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":50,"type":"event","event":"output","body":{"category":"stdout","output":"someFunc\n","data":null}}
+2019-08-20 13:48:37.173875100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.173875100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.174872300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.175867500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 51, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] <<DAP>>Right (StoppedEventBody {reasonStoppedEventBody = \"complete\", descriptionStoppedEventBody = \"\", threadIdStoppedEventBody = 0, textStoppedEventBody = \"\", allThreadsStoppedStoppedEventBody = True})\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.179858200000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req get data. {"command":"threads","type":"request","seq":6}
+2019-08-20 13:48:37.180860600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":51,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] <<DAP>>Right (StoppedEventBody {reasonStoppedEventBody = \"complete\", descriptionStoppedEventBody = \"\", threadIdStoppedEventBody = 0, textStoppedEventBody = \"\", allThreadsStoppedStoppedEventBody = True})\n","data":null}}
+2019-08-20 13:48:37.182882900000 [$pid(ThreadId 4)] DEBUG REQUEST - sink start waiting.
+2019-08-20 13:48:37.185842800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.185842800000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req start waiting.
+2019-08-20 13:48:37.186840100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.187836800000 [$pid(ThreadId 4)] DEBUG REQUEST - src start waiting.
+2019-08-20 13:48:37.188834600000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.189859100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 52, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "console", outputOutputEventBody = "debugging completed. \n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.192823700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":52,"type":"event","event":"output","body":{"category":"console","output":"debugging completed. \n","data":null}}
+2019-08-20 13:48:37.194819200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.195824700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.196821000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.196821000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 53, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.199805600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":53,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:48:37.201800100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.201800100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.202797900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.203795700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 54, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":quit\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.206787000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":54,"type":"event","event":"output","body":{"category":"stdout","output":":quit\n","data":null}}
+2019-08-20 13:48:37.207784300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.209778300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.210810500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:37.211780000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 55, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "Leaving GHCi.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:37.214796000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":55,"type":"event","event":"output","body":{"category":"stdout","output":"Leaving GHCi.\n","data":null}}
+2019-08-20 13:48:37.215793800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:37.216758600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:37.216758600000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:38.147849400000 [$pid(ThreadId 5)] DEBUG APP - DebugRunState exitAction called.
+2019-08-20 13:48:38.148839500000 [$pid(ThreadId 5)] DEBUG APP - ShutdownState entryAction called.
+2019-08-20 13:48:38.149836200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. TerminatedEvent (TerminatedEvent {seqTerminatedEvent = 56, typeTerminatedEvent = "event", eventTerminatedEvent = "terminated", bodyTerminatedEvent = TerminatedEventBody {restartTerminatedEventBody = False}})
+2019-08-20 13:48:38.149836200000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:48:38.151831300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":56,"type":"event","event":"terminated","body":{"restart":false}}
+2019-08-20 13:48:38.152828600000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:48:38.153825800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:38.154822600000 [$pid(ThreadId 5)] INFO APP - ShutdownState does not support any request.
+2019-08-20 13:48:38.155820400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:38.155820400000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:48:38.156815600000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req get data. {"command":"disconnect","arguments":{"restart":false},"type":"request","seq":7}
+2019-08-20 13:48:38.157812900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:38.157812900000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:48:38.159810500000 [$pid(ThreadId 4)] INFO REQUEST - disconnect. end of request thread.
+2019-08-20 13:48:38.159810500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. ExitedEvent (ExitedEvent {seqExitedEvent = 57, typeExitedEvent = "event", eventExitedEvent = "exited", bodyExitedEvent = ExitedEventBody {exitCodeExitedEventBody = 0}})
+2019-08-20 13:48:38.161807100000 [$pid(ThreadId 5)] DEBUG APP - DisconnectRequest {seqDisconnectRequest = 7, typeDisconnectRequest = "request", commandDisconnectRequest = "disconnect", argumentsDisconnectRequest = Just (DisconnectArguments {restartDisconnectRequestArguments = Just False})}
+2019-08-20 13:48:38.162814600000 [$pid(ThreadId 4)] DEBUG REQUEST - end request app
+2019-08-20 13:48:38.164794300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":57,"type":"event","event":"exited","body":{"exitCode":0}}
+2019-08-20 13:48:38.166789300000 [$pid(ThreadId 5)] INFO APP - disconnect. end of application thread.
+2019-08-20 13:48:38.169815000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:38.169815000000 [$pid(ThreadId 5)] DEBUG APP - end application app
+2019-08-20 13:48:38.170779900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:38.172772900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:38.172772900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 58, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[INFO][APP] ShutdownState does not support any request.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:48:38.175764200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":58,"type":"event","event":"output","body":{"category":"stdout","output":"[INFO][APP] ShutdownState does not support any request.\n","data":null}}
+2019-08-20 13:48:38.178762700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:48:38.180756200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:48:38.181748900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:48:38.182746100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. DisconnectResponse (DisconnectResponse {seqDisconnectResponse = 59, typeDisconnectResponse = "response", request_seqDisconnectResponse = 7, successDisconnectResponse = True, commandDisconnectResponse = "disconnect", messageDisconnectResponse = ""})
+2019-08-20 13:48:38.184740100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":59,"type":"response","request_seq":7,"success":true,"command":"disconnect","message":""}
+2019-08-20 13:48:38.186735200000 [$pid(ThreadId 6)] INFO RESPONSE - disconnect. end of response thread.
+2019-08-20 13:48:38.186735200000 [$pid(ThreadId 6)] DEBUG RESPONSE - end response app
+2019-08-20 13:52:48.641072400000 [$pid(ThreadId 5)] DEBUG APP - tasks.json file exists. C:\Users\Jakub\mff\2019-ls\neprocko\zapoctak\myproj\.vscode\tasks.json
+2019-08-20 13:52:48.643067400000 [$pid(ThreadId 5)] DEBUG APP - ["stack","ghci","--test","--no-load","--no-build","--main-is","TARGET","--ghci-options","-fprint-evld-with-show","--with-ghc=haskell-dap"]
+2019-08-20 13:52:48.644065200000 [$pid(ThreadId 5)] INFO APP - can not use haskell-dap. deleting "--with-ghc=haskell-dap"
+2019-08-20 13:52:48.645022900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 2, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "Configuration read.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:48.645022900000 [$pid(ThreadId 5)] INFO APP - "--with-ghc" option not found. adding "--with-ghc=ghci-dap"
+2019-08-20 13:52:48.648061000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":2,"type":"event","event":"output","body":{"category":"stdout","output":"Configuration read.\n","data":null}}
+2019-08-20 13:52:48.649013500000 [$pid(ThreadId 5)] DEBUG APP - ghci initial prompt [Prelude>].
+2019-08-20 13:52:48.651005000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:48.652003300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:48.653033400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:48.653997300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 3, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "console", outputOutputEventBody = "Starting GHCi.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:48.658984100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":3,"type":"event","event":"output","body":{"category":"console","output":"Starting GHCi.\n","data":null}}
+2019-08-20 13:52:48.659982900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:48.660979200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:48.661977000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:48.662975300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 4, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stderr", outputOutputEventBody = "Wait for a moment.\n\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:48.666000000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":4,"type":"event","event":"output","body":{"category":"stderr","output":"Wait for a moment.\n\n","data":null}}
+2019-08-20 13:52:48.667961600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:48.668957900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:48.669957700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:48.669957700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 5, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] [\"stack\",\"ghci\",\"--test\",\"--no-load\",\"--no-build\",\"--main-is\",\"TARGET\",\"--ghci-options\",\"-fprint-evld-with-show\",\"--with-ghc=haskell-dap\"]\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:48.673947300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":5,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] [\"stack\",\"ghci\",\"--test\",\"--no-load\",\"--no-build\",\"--main-is\",\"TARGET\",\"--ghci-options\",\"-fprint-evld-with-show\",\"--with-ghc=haskell-dap\"]\n","data":null}}
+2019-08-20 13:52:48.676939100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:48.677934800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:48.678931600000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:48.679930900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 6, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[INFO][APP] can not use haskell-dap. deleting \"--with-ghc=haskell-dap\"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:48.682923200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":6,"type":"event","event":"output","body":{"category":"stdout","output":"[INFO][APP] can not use haskell-dap. deleting \"--with-ghc=haskell-dap\"\n","data":null}}
+2019-08-20 13:52:48.684917200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:48.685914500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:48.686911800000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:48.686911800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 7, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[INFO][APP] \"--with-ghc\" option not found. adding \"--with-ghc=ghci-dap\"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:48.690900800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":7,"type":"event","event":"output","body":{"category":"stdout","output":"[INFO][APP] \"--with-ghc\" option not found. adding \"--with-ghc=ghci-dap\"\n","data":null}}
+2019-08-20 13:52:48.692895900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:48.692895900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:48.693893200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:48.694890400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 8, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "CWD:C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:48.698880000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":8,"type":"event","event":"output","body":{"category":"stdout","output":"CWD:C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\n","data":null}}
+2019-08-20 13:52:48.699876800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:48.700874600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:48.701871800000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:48.702869600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 9, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "CMD:stack ghci --with-ghc=ghci-dap --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:48.705861400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":9,"type":"event","event":"output","body":{"category":"stdout","output":"CMD:stack ghci --with-ghc=ghci-dap --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show\n","data":null}}
+2019-08-20 13:52:48.707856000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:48.708852700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:48.709850500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:48.710848300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 10, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:48.712840200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":10,"type":"event","event":"output","body":{"category":"stdout","output":"\n","data":null}}
+2019-08-20 13:52:48.714836300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:48.715833600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:48.716862200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.633387200000 [$pid(ThreadId 7)] INFO WATCH - start watching C:\Users\Jakub\mff\2019-ls\neprocko\zapoctak\myproj
+2019-08-20 13:52:49.753060500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 11, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "The following GHC options are incompatible with GHCi and have not been passed to it: -threaded\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.756050300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":11,"type":"event","event":"output","body":{"category":"stdout","output":"The following GHC options are incompatible with GHCi and have not been passed to it: -threaded\n","data":null}}
+2019-08-20 13:52:49.758044800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.759043100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.760040400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.761039700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 12, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "Configuring GHCi with the following packages: myproj\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.764029400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":12,"type":"event","event":"output","body":{"category":"stdout","output":"Configuring GHCi with the following packages: myproj\n","data":null}}
+2019-08-20 13:52:49.766025000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.767021200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.768018500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.769015800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 13, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][INFO] start ghci-dap-0.0.12.0.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.772008100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":13,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][INFO] start ghci-dap-0.0.12.0.\n","data":null}}
+2019-08-20 13:52:49.773005400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.774003700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.775000400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.775997200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 14, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "GHCi, version 8.6.5: http://www.haskell.org/ghc/  :? for help\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.775997200000 [$pid(ThreadId 5)] DEBUG APP - :dap-launch LaunchRequestArguments {noDebugLaunchRequestArguments = Nothing, nameLaunchRequestArguments = "haskell-debug-adapter", typeLaunchRequestArguments = "ghc", requestLaunchRequestArguments = "launch", startupLaunchRequestArguments = "c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\app\\Main.hs", workspaceLaunchRequestArguments = "C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj", logFileLaunchRequestArguments = "C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj/.vscode/phoityne.log", logLevelLaunchRequestArguments = "DEBUG", ghciPromptLaunchRequestArguments = "H>>= ", ghciCmdLaunchRequestArguments = "stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show --with-ghc=haskell-dap", stopOnEntryLaunchRequestArguments = False, mainArgsLaunchRequestArguments = Just "", ghciEnvLaunchRequestArguments = fromList [], ghciInitialPromptLaunchRequestArguments = Just "Prelude>", startupFuncLaunchRequestArguments = Just "main", startupArgsLaunchRequestArguments = Just "", forceInspectLaunchRequestArguments = Just False}
+2019-08-20 13:52:49.779986800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":14,"type":"event","event":"output","body":{"category":"stdout","output":"GHCi, version 8.6.5: http://www.haskell.org/ghc/  :? for help\n","data":null}}
+2019-08-20 13:52:49.791954500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.792951800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.793951600000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.794948900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 15, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "Prelude>", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.797938600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":15,"type":"event","event":"output","body":{"category":"stdout","output":"Prelude>","data":null}}
+2019-08-20 13:52:49.799937800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.800931500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.801929300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.802926500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 16, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":set prompt \"<<DAP_CMD_END2>>\\nH>>= \"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.802926500000 [$pid(ThreadId 5)] DEBUG APP - InitState exitAction called.
+2019-08-20 13:52:49.805968700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":16,"type":"event","event":"output","body":{"category":"stdout","output":":set prompt \"<<DAP_CMD_END2>>\\nH>>= \"\n","data":null}}
+2019-08-20 13:52:49.805968700000 [$pid(ThreadId 5)] DEBUG APP - GHCiRunState entryAction called.
+2019-08-20 13:52:49.807947300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.808909600000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:52:49.809906400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.809906400000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:52:49.810904200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.812900200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 17, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.815941400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":17,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:52:49.816935100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.817917900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.818883900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.818883900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 18, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":set prompt-cont \"<<DAP_CMD_END2>>\\nH>>= \"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.821926000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":18,"type":"event","event":"output","body":{"category":"stdout","output":":set prompt-cont \"<<DAP_CMD_END2>>\\nH>>= \"\n","data":null}}
+2019-08-20 13:52:49.823915900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.824867000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.824867000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.825914600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 19, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.828858600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":19,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:52:49.829855400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.830852100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.831850900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.832848200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 20, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":dap-launch ...\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.834841700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":20,"type":"event","event":"output","body":{"category":"stdout","output":":dap-launch ...\n","data":null}}
+2019-08-20 13:52:49.836836700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.837834500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.837834500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.838831800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 21, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] :dap-launch LaunchRequestArguments {noDebugLaunchRequestArguments = Nothing, nameLaunchRequestArguments = \"haskell-debug-adapter\", typeLaunchRequestArguments = \"ghc\", requestLaunchRequestArguments = \"launch\", startupLaunchRequestArguments = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\app\\\\Main.hs\", workspaceLaunchRequestArguments = \"C:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\", logFileLaunchRequestArguments = \"C:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj/.vscode/phoityne.log\", logLevelLaunchRequestArguments = \"DEBUG\", ghciPromptLaunchRequestArguments = \"H>>= \", ghciCmdLaunchRequestArguments = \"stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show --with-ghc=haskell-dap\", stopOnEntryLaunchRequestArguments = False, mainArgsLaunchRequestArguments = Just \"\", ghciEnvLaunchRequestArguments = fromList [], ghciInitialPromptLaunchRequestArguments = Just \"Prelude>\", startupFuncLaunchRequestArguments = Just \"main\", startupArgsLaunchRequestArguments = Just \"\", forceInspectLaunchRequestArguments = Just False}\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.851794800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":21,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] :dap-launch LaunchRequestArguments {noDebugLaunchRequestArguments = Nothing, nameLaunchRequestArguments = \"haskell-debug-adapter\", typeLaunchRequestArguments = \"ghc\", requestLaunchRequestArguments = \"launch\", startupLaunchRequestArguments = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\app\\\\Main.hs\", workspaceLaunchRequestArguments = \"C:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\", logFileLaunchRequestArguments = \"C:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj/.vscode/phoityne.log\", logLevelLaunchRequestArguments = \"DEBUG\", ghciPromptLaunchRequestArguments = \"H>>= \", ghciCmdLaunchRequestArguments = \"stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show --with-ghc=haskell-dap\", stopOnEntryLaunchRequestArguments = False, mainArgsLaunchRequestArguments = Just \"\", ghciEnvLaunchRequestArguments = fromList [], ghciInitialPromptLaunchRequestArguments = Just \"Prelude>\", startupFuncLaunchRequestArguments = Just \"main\", startupArgsLaunchRequestArguments = Just \"\", forceInspectLaunchRequestArguments = Just False}\n","data":null}}
+2019-08-20 13:52:49.862770400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.863763000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.863763000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.864793200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 22, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "<<DAP>>Right ()\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.867784500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":22,"type":"event","event":"output","body":{"category":"stdout","output":"<<DAP>>Right ()\n","data":null}}
+2019-08-20 13:52:49.868781700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.869749200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.870746500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.870746500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 23, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.873737700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":23,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:52:49.874736000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.875732800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.876730600000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.877727900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 24, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":load c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/Main.hs\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.880719100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":24,"type":"event","event":"output","body":{"category":"stdout","output":":load c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/Main.hs\n","data":null}}
+2019-08-20 13:52:49.882712700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.883711500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.884709800000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.884709800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 25, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "Ok, two modules loaded.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.887749900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":25,"type":"event","event":"output","body":{"category":"stdout","output":"Ok, two modules loaded.\n","data":null}}
+2019-08-20 13:52:49.889743900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.890691300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.890691300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.891735400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 26, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.893734000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":26,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:52:49.895712600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.896676500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.897705100000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.898705500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. InitializedEvent (InitializedEvent {seqInitializedEvent = 27, typeInitializedEvent = "event", eventInitializedEvent = "initialized"})
+2019-08-20 13:52:49.899666700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":27,"type":"event","event":"initialized"}
+2019-08-20 13:52:49.900663500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.901661800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.902659100000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.902659100000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req get data. {"command":"setBreakpoints","arguments":{"source":{"name":"Lib.hs","path":"c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs"},"lines":[6],"breakpoints":[{"line":6}],"sourceModified":false},"type":"request","seq":3}
+2019-08-20 13:52:49.905650400000 [$pid(ThreadId 4)] DEBUG REQUEST - sink start waiting.
+2019-08-20 13:52:49.906647600000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req start waiting.
+2019-08-20 13:52:49.907644900000 [$pid(ThreadId 4)] DEBUG REQUEST - src start waiting.
+2019-08-20 13:52:49.907644900000 [$pid(ThreadId 5)] DEBUG APP - GHCiRunState SetBreakpointsRequest called. SetBreakpointsRequest {seqSetBreakpointsRequest = 3, typeSetBreakpointsRequest = "request", commandSetBreakpointsRequest = "setBreakpoints", argumentsSetBreakpointsRequest = SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just "Lib.hs", pathSource = "c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 6, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}}
+2019-08-20 13:52:49.907644900000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req get data. {"command":"setBreakpoints","arguments":{"source":{"name":"Main.hs","path":"c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\app\\Main.hs"},"lines":[8],"breakpoints":[{"line":8}],"sourceModified":false},"type":"request","seq":4}
+2019-08-20 13:52:49.915626600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 28, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":dap-set-breakpoints ...\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.917621200000 [$pid(ThreadId 4)] DEBUG REQUEST - sink start waiting.
+2019-08-20 13:52:49.920610400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":28,"type":"event","event":"output","body":{"category":"stdout","output":":dap-set-breakpoints ...\n","data":null}}
+2019-08-20 13:52:49.921610800000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req start waiting.
+2019-08-20 13:52:49.922604900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.923602700000 [$pid(ThreadId 4)] DEBUG REQUEST - src start waiting.
+2019-08-20 13:52:49.924599500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.926594000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.927591800000 [$pid(ThreadId 5)] DEBUG APP - :dap-set-breakpoints SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just "Lib.hs", pathSource = "c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 6, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}
+2019-08-20 13:52:49.934573700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 29, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] :dap-set-breakpoints SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just \"Lib.hs\", pathSource = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\src\\\\Lib.hs\", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 6, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.937565500000 [$pid(ThreadId 5)] DEBUG APP - <<DAP>>Left "<command line>: module 'Lib' is not interpreted; try ':add *Lib' first"
+2019-08-20 13:52:49.940558400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":29,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] :dap-set-breakpoints SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just \"Lib.hs\", pathSource = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\src\\\\Lib.hs\", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 6, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}\n","data":null}}
+2019-08-20 13:52:49.942585300000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 13:52:49.949533300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.950530500000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:52:49.950530500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.951534000000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:52:49.952558000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.953522300000 [$pid(ThreadId 5)] DEBUG APP - GHCiRunState SetBreakpointsRequest called. SetBreakpointsRequest {seqSetBreakpointsRequest = 4, typeSetBreakpointsRequest = "request", commandSetBreakpointsRequest = "setBreakpoints", argumentsSetBreakpointsRequest = SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just "Main.hs", pathSource = "c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\app\\Main.hs", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 8, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}}
+2019-08-20 13:52:49.953522300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 30, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][DEBUG]<dapSetBreakpointsCommand> C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs -> Lib\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.965494200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":30,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][DEBUG]<dapSetBreakpointsCommand> C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs -> Lib\n","data":null}}
+2019-08-20 13:52:49.968482400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.969479700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.969479700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.970478000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 31, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][DEBUG]<dapSetBreakpointsCommand> delete src bps []\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.973469300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":31,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][DEBUG]<dapSetBreakpointsCommand> delete src bps []\n","data":null}}
+2019-08-20 13:52:49.975467400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.975467400000 [$pid(ThreadId 5)] DEBUG APP - :dap-set-breakpoints SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just "Main.hs", pathSource = "c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\app\\Main.hs", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 8, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}
+2019-08-20 13:52:49.976461600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.984442300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.985439100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 32, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][DEBUG]<dapSetBreakpointsCommand> C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs -> Lib\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:49.987432000000 [$pid(ThreadId 5)] DEBUG APP - <<DAP>>Left "<command line>: module 'Main' is not interpreted; try ':add *Main' first"
+2019-08-20 13:52:49.989463600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":32,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][DEBUG]<dapSetBreakpointsCommand> C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs -> Lib\n","data":null}}
+2019-08-20 13:52:49.990423900000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Main' is not interpreted; try ':add *Main' first
+2019-08-20 13:52:49.992452300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:49.993416200000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:52:49.994413400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:49.995413300000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:52:49.996416700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:49.998403000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 33, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] <<DAP>>Left \"<command line>: module 'Lib' is not interpreted; try ':add *Lib' first\"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.001395400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":33,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] <<DAP>>Left \"<command line>: module 'Lib' is not interpreted; try ':add *Lib' first\"\n","data":null}}
+2019-08-20 13:52:50.003389400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.004386600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.005384400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.006381700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 34, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[ERROR][APP] <command line>: module 'Lib' is not interpreted; try ':add *Lib' first\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.009373500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":34,"type":"event","event":"output","body":{"category":"stdout","output":"[ERROR][APP] <command line>: module 'Lib' is not interpreted; try ':add *Lib' first\n","data":null}}
+2019-08-20 13:52:50.012376100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.013364600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.014362900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.014362900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. SetBreakpointsResponse (SetBreakpointsResponse {seqSetBreakpointsResponse = 35, typeSetBreakpointsResponse = "response", request_seqSetBreakpointsResponse = 3, successSetBreakpointsResponse = False, commandSetBreakpointsResponse = "setBreakpoints", messageSetBreakpointsResponse = "<command line>: module 'Lib' is not interpreted; try ':add *Lib' first", bodySetBreakpointsResponse = SetBreakpointsResponseBody {breakpointsSetBreakpointsResponseBody = []}})
+2019-08-20 13:52:50.019349300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":35,"type":"response","request_seq":3,"success":false,"command":"setBreakpoints","message":"<command line>: module 'Lib' is not interpreted; try ':add *Lib' first","body":{"breakpoints":[]}}
+2019-08-20 13:52:50.021343800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.022341100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.022341100000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.023338400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 36, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.025333400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":36,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:52:50.026328100000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req get data. {"command":"configurationDone","type":"request","seq":5}
+2019-08-20 13:52:50.027330000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.029320900000 [$pid(ThreadId 4)] DEBUG REQUEST - sink start waiting.
+2019-08-20 13:52:50.030317700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.031317000000 [$pid(ThreadId 5)] DEBUG APP - GHCiRunState ConfigurationDoneRequest called. ConfigurationDoneRequest {seqConfigurationDoneRequest = 5, typeConfigurationDoneRequest = "request", commandConfigurationDoneRequest = "configurationDone"}
+2019-08-20 13:52:50.031317000000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req start waiting.
+2019-08-20 13:52:50.032348200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.034354100000 [$pid(ThreadId 5)] DEBUG APP - GHCiRunState exitAction called.
+2019-08-20 13:52:50.035304000000 [$pid(ThreadId 4)] DEBUG REQUEST - src start waiting.
+2019-08-20 13:52:50.035304000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 37, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":dap-set-breakpoints ...\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.036302300000 [$pid(ThreadId 5)] DEBUG APP - DebugRunState entryAction called.
+2019-08-20 13:52:50.039328600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":37,"type":"event","event":"output","body":{"category":"stdout","output":":dap-set-breakpoints ...\n","data":null}}
+2019-08-20 13:52:50.042284900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.043282200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.043282200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.044279500000 [$pid(ThreadId 5)] DEBUG APP - :dap-continue ContinueRequestArguments {threadIdContinueRequestArguments = 0, exprContinueRequestArguments = Just "main"}
+2019-08-20 13:52:50.044279500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 38, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] :dap-set-breakpoints SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just \"Main.hs\", pathSource = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\app\\\\Main.hs\", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 8, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.056248200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":38,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] :dap-set-breakpoints SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just \"Main.hs\", pathSource = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\app\\\\Main.hs\", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 8, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}\n","data":null}}
+2019-08-20 13:52:50.062233900000 [$pid(ThreadId 5)] DEBUG APP - <<DAP>>Right (StoppedEventBody {reasonStoppedEventBody = "complete", descriptionStoppedEventBody = "", threadIdStoppedEventBody = 0, textStoppedEventBody = "", allThreadsStoppedStoppedEventBody = True})
+2019-08-20 13:52:50.065263700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.067219200000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:52:50.068218000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.069213200000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:52:50.069213200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.070242900000 [$pid(ThreadId 5)] DEBUG APP - DebugRunState InternalTerminateRequest called. HdaInternalTerminateRequest {msgHdaInternalTerminateRequest = ""}
+2019-08-20 13:52:50.071243800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 39, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][DEBUG]<dapSetBreakpointsCommand> c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/Main.hs -> Main\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.076194100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":39,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][DEBUG]<dapSetBreakpointsCommand> c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/Main.hs -> Main\n","data":null}}
+2019-08-20 13:52:50.079192100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.081182500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.082180800000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.083179100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 40, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][DEBUG]<dapSetBreakpointsCommand> delete src bps []\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.086169900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":40,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][DEBUG]<dapSetBreakpointsCommand> delete src bps []\n","data":null}}
+2019-08-20 13:52:50.088165500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.089160700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.090158400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.091187600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 41, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][DEBUG]<dapSetBreakpointsCommand> c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/Main.hs -> Main\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.094146500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":41,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][DEBUG]<dapSetBreakpointsCommand> c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/Main.hs -> Main\n","data":null}}
+2019-08-20 13:52:50.098136100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.099133900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.100130600000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.101127900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 42, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] <<DAP>>Left \"<command line>: module 'Main' is not interpreted; try ':add *Main' first\"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.104121800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":42,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] <<DAP>>Left \"<command line>: module 'Main' is not interpreted; try ':add *Main' first\"\n","data":null}}
+2019-08-20 13:52:50.106116800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.107114100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.108110300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.108110300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 43, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[ERROR][APP] <command line>: module 'Main' is not interpreted; try ':add *Main' first\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.112102000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":43,"type":"event","event":"output","body":{"category":"stdout","output":"[ERROR][APP] <command line>: module 'Main' is not interpreted; try ':add *Main' first\n","data":null}}
+2019-08-20 13:52:50.115091700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.115091700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.116089500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.117122200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. SetBreakpointsResponse (SetBreakpointsResponse {seqSetBreakpointsResponse = 44, typeSetBreakpointsResponse = "response", request_seqSetBreakpointsResponse = 4, successSetBreakpointsResponse = False, commandSetBreakpointsResponse = "setBreakpoints", messageSetBreakpointsResponse = "<command line>: module 'Main' is not interpreted; try ':add *Main' first", bodySetBreakpointsResponse = SetBreakpointsResponseBody {breakpointsSetBreakpointsResponseBody = []}})
+2019-08-20 13:52:50.121125200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":44,"type":"response","request_seq":4,"success":false,"command":"setBreakpoints","message":"<command line>: module 'Main' is not interpreted; try ':add *Main' first","body":{"breakpoints":[]}}
+2019-08-20 13:52:50.123116600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.124111900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.125064400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.126107900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 45, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.129055500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":45,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:52:50.131096300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.132048400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.133081600000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.134075300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. ConfigurationDoneResponse (ConfigurationDoneResponse {seqConfigurationDoneResponse = 46, typeConfigurationDoneResponse = "response", request_seqConfigurationDoneResponse = 5, successConfigurationDoneResponse = True, commandConfigurationDoneResponse = "configurationDone", messageConfigurationDoneResponse = ""})
+2019-08-20 13:52:50.138031500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":46,"type":"response","request_seq":5,"success":true,"command":"configurationDone","message":""}
+2019-08-20 13:52:50.140023900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.141021200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.143018300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.144015600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. LaunchResponse (LaunchResponse {seqLaunchResponse = 47, typeLaunchResponse = "response", request_seqLaunchResponse = 2, successLaunchResponse = True, commandLaunchResponse = "launch", messageLaunchResponse = ""})
+2019-08-20 13:52:50.147011000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":47,"type":"response","request_seq":2,"success":true,"command":"launch","message":""}
+2019-08-20 13:52:50.149002400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.149999700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.150996500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.150996500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 48, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":dap-continue ...\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.153986700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":48,"type":"event","event":"output","body":{"category":"stdout","output":":dap-continue ...\n","data":null}}
+2019-08-20 13:52:50.156013700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.156013700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.157015600000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.158008700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 49, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] :dap-continue ContinueRequestArguments {threadIdContinueRequestArguments = 0, exprContinueRequestArguments = Just \"main\"}\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.161965400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":49,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] :dap-continue ContinueRequestArguments {threadIdContinueRequestArguments = 0, exprContinueRequestArguments = Just \"main\"}\n","data":null}}
+2019-08-20 13:52:50.164994200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.165987900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.166987200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.167982400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 50, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "someFunc\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.170990700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":50,"type":"event","event":"output","body":{"category":"stdout","output":"someFunc\n","data":null}}
+2019-08-20 13:52:50.171939100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.172936900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.173935200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.174962300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 51, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] <<DAP>>Right (StoppedEventBody {reasonStoppedEventBody = \"complete\", descriptionStoppedEventBody = \"\", threadIdStoppedEventBody = 0, textStoppedEventBody = \"\", allThreadsStoppedStoppedEventBody = True})\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.175961600000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req get data. {"command":"threads","type":"request","seq":6}
+2019-08-20 13:52:50.178922600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":51,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] <<DAP>>Right (StoppedEventBody {reasonStoppedEventBody = \"complete\", descriptionStoppedEventBody = \"\", threadIdStoppedEventBody = 0, textStoppedEventBody = \"\", allThreadsStoppedStoppedEventBody = True})\n","data":null}}
+2019-08-20 13:52:50.180916100000 [$pid(ThreadId 4)] DEBUG REQUEST - sink start waiting.
+2019-08-20 13:52:50.183940800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.184903600000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req start waiting.
+2019-08-20 13:52:50.185901400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.185901400000 [$pid(ThreadId 4)] DEBUG REQUEST - src start waiting.
+2019-08-20 13:52:50.186899700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.188929700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 52, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "console", outputOutputEventBody = "debugging completed. \n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.190888300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":52,"type":"event","event":"output","body":{"category":"console","output":"debugging completed. \n","data":null}}
+2019-08-20 13:52:50.192882800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.192882800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.193880100000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.194882500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 53, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.197915900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":53,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:52:50.199864700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.200864500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.200864500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.201861800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 54, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":quit\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.204853600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":54,"type":"event","event":"output","body":{"category":"stdout","output":":quit\n","data":null}}
+2019-08-20 13:52:50.206883600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.207843900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.207843900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:50.208880200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 55, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "Leaving GHCi.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:50.211834500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":55,"type":"event","event":"output","body":{"category":"stdout","output":"Leaving GHCi.\n","data":null}}
+2019-08-20 13:52:50.213828000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:50.214824200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:50.215885300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:51.140411500000 [$pid(ThreadId 5)] DEBUG APP - DebugRunState exitAction called.
+2019-08-20 13:52:51.141153300000 [$pid(ThreadId 5)] DEBUG APP - ShutdownState entryAction called.
+2019-08-20 13:52:51.142146000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. TerminatedEvent (TerminatedEvent {seqTerminatedEvent = 56, typeTerminatedEvent = "event", eventTerminatedEvent = "terminated", bodyTerminatedEvent = TerminatedEventBody {restartTerminatedEventBody = False}})
+2019-08-20 13:52:51.142146000000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:52:51.144124600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":56,"type":"event","event":"terminated","body":{"restart":false}}
+2019-08-20 13:52:51.145138300000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:52:51.146138600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:51.147097900000 [$pid(ThreadId 5)] INFO APP - ShutdownState does not support any request.
+2019-08-20 13:52:51.147097900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:51.147097900000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req get data. {"command":"disconnect","arguments":{"restart":false},"type":"request","seq":7}
+2019-08-20 13:52:51.148096700000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:52:51.149091900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:51.151086900000 [$pid(ThreadId 4)] INFO REQUEST - disconnect. end of request thread.
+2019-08-20 13:52:51.151086900000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:52:51.152117600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. ExitedEvent (ExitedEvent {seqExitedEvent = 57, typeExitedEvent = "event", eventExitedEvent = "exited", bodyExitedEvent = ExitedEventBody {exitCodeExitedEventBody = 0}})
+2019-08-20 13:52:51.153133900000 [$pid(ThreadId 4)] DEBUG REQUEST - end request app
+2019-08-20 13:52:51.153133900000 [$pid(ThreadId 5)] DEBUG APP - DisconnectRequest {seqDisconnectRequest = 7, typeDisconnectRequest = "request", commandDisconnectRequest = "disconnect", argumentsDisconnectRequest = Just (DisconnectArguments {restartDisconnectRequestArguments = Just False})}
+2019-08-20 13:52:51.155112000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":57,"type":"event","event":"exited","body":{"exitCode":0}}
+2019-08-20 13:52:51.158103800000 [$pid(ThreadId 5)] INFO APP - disconnect. end of application thread.
+2019-08-20 13:52:51.160100900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:51.161059100000 [$pid(ThreadId 5)] DEBUG APP - end application app
+2019-08-20 13:52:51.161059100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:51.163095300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:51.163095300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 58, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[INFO][APP] ShutdownState does not support any request.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:52:51.166083500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":58,"type":"event","event":"output","body":{"category":"stdout","output":"[INFO][APP] ShutdownState does not support any request.\n","data":null}}
+2019-08-20 13:52:51.168079100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:52:51.169039300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:52:51.170072100000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:52:51.170072100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. DisconnectResponse (DisconnectResponse {seqDisconnectResponse = 59, typeDisconnectResponse = "response", request_seqDisconnectResponse = 7, successDisconnectResponse = True, commandDisconnectResponse = "disconnect", messageDisconnectResponse = ""})
+2019-08-20 13:52:51.173063900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":59,"type":"response","request_seq":7,"success":true,"command":"disconnect","message":""}
+2019-08-20 13:52:51.174068900000 [$pid(ThreadId 6)] INFO RESPONSE - disconnect. end of response thread.
+2019-08-20 13:52:51.175059400000 [$pid(ThreadId 6)] DEBUG RESPONSE - end response app
+2019-08-20 13:58:33.899365500000 [$pid(ThreadId 5)] DEBUG APP - tasks.json file exists. C:\Users\Jakub\mff\2019-ls\neprocko\zapoctak\myproj\.vscode\tasks.json
+2019-08-20 13:58:33.901372900000 [$pid(ThreadId 5)] DEBUG APP - ["stack","ghci","--test","--no-load","--no-build","--main-is","TARGET","--ghci-options","-fprint-evld-with-show","--with-ghc=haskell-dap"]
+2019-08-20 13:58:33.902369600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 2, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "Configuration read.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:33.902369600000 [$pid(ThreadId 5)] INFO APP - can not use haskell-dap. deleting "--with-ghc=haskell-dap"
+2019-08-20 13:58:33.905365600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":2,"type":"event","event":"output","body":{"category":"stdout","output":"Configuration read.\n","data":null}}
+2019-08-20 13:58:33.906363300000 [$pid(ThreadId 5)] INFO APP - "--with-ghc" option not found. adding "--with-ghc=ghci-dap"
+2019-08-20 13:58:33.908367700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:33.909314500000 [$pid(ThreadId 5)] DEBUG APP - ghci initial prompt [Prelude>].
+2019-08-20 13:58:33.910364800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:33.912303800000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:33.912303800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 3, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "console", outputOutputEventBody = "Starting GHCi.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:33.917290100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":3,"type":"event","event":"output","body":{"category":"console","output":"Starting GHCi.\n","data":null}}
+2019-08-20 13:58:33.919284700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:33.920283500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:33.921282300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:33.922279000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 4, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stderr", outputOutputEventBody = "Wait for a moment.\n\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:33.925301700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":4,"type":"event","event":"output","body":{"category":"stderr","output":"Wait for a moment.\n\n","data":null}}
+2019-08-20 13:58:33.926266100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:33.927263800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:33.929259900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:33.929259900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 5, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] [\"stack\",\"ghci\",\"--test\",\"--no-load\",\"--no-build\",\"--main-is\",\"TARGET\",\"--ghci-options\",\"-fprint-evld-with-show\",\"--with-ghc=haskell-dap\"]\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:33.933247500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":5,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] [\"stack\",\"ghci\",\"--test\",\"--no-load\",\"--no-build\",\"--main-is\",\"TARGET\",\"--ghci-options\",\"-fprint-evld-with-show\",\"--with-ghc=haskell-dap\"]\n","data":null}}
+2019-08-20 13:58:33.937239100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:33.939266500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:33.940230900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:33.940230900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 6, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[INFO][APP] can not use haskell-dap. deleting \"--with-ghc=haskell-dap\"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:33.943223200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":6,"type":"event","event":"output","body":{"category":"stdout","output":"[INFO][APP] can not use haskell-dap. deleting \"--with-ghc=haskell-dap\"\n","data":null}}
+2019-08-20 13:58:33.946215000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:33.947210800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:33.948210100000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:33.948210100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 7, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[INFO][APP] \"--with-ghc\" option not found. adding \"--with-ghc=ghci-dap\"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:33.951201400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":7,"type":"event","event":"output","body":{"category":"stdout","output":"[INFO][APP] \"--with-ghc\" option not found. adding \"--with-ghc=ghci-dap\"\n","data":null}}
+2019-08-20 13:58:33.953195900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:33.954193700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:33.955191000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:33.955191000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 8, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "CWD:C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:33.959180600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":8,"type":"event","event":"output","body":{"category":"stdout","output":"CWD:C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\n","data":null}}
+2019-08-20 13:58:33.961176100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:33.961176100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:33.962170800000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:33.963170700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 9, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "CMD:stack ghci --with-ghc=ghci-dap --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:33.966194300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":9,"type":"event","event":"output","body":{"category":"stdout","output":"CMD:stack ghci --with-ghc=ghci-dap --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show\n","data":null}}
+2019-08-20 13:58:33.969186100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:33.970153100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:33.970153100000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:33.971178600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 10, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:33.974174500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":10,"type":"event","event":"output","body":{"category":"stdout","output":"\n","data":null}}
+2019-08-20 13:58:33.975168700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:33.976133100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:33.977133400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:34.891951300000 [$pid(ThreadId 7)] INFO WATCH - start watching C:\Users\Jakub\mff\2019-ls\neprocko\zapoctak\myproj
+2019-08-20 13:58:34.985703300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 11, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "The following GHC options are incompatible with GHCi and have not been passed to it: -threaded\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:34.988695100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":11,"type":"event","event":"output","body":{"category":"stdout","output":"The following GHC options are incompatible with GHCi and have not been passed to it: -threaded\n","data":null}}
+2019-08-20 13:58:34.990689600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:34.991686400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:34.992684700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:34.992684700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 12, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "Configuring GHCi with the following packages: myproj\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:34.996671700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":12,"type":"event","event":"output","body":{"category":"stdout","output":"Configuring GHCi with the following packages: myproj\n","data":null}}
+2019-08-20 13:58:34.998668300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:34.999665600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.000663300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.000663300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 13, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][INFO] start ghci-dap-0.0.12.0.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.003654600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":13,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][INFO] start ghci-dap-0.0.12.0.\n","data":null}}
+2019-08-20 13:58:35.005647600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.006644400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.007641700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.007641700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 14, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "GHCi, version 8.6.5: http://www.haskell.org/ghc/  :? for help\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.011633300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":14,"type":"event","event":"output","body":{"category":"stdout","output":"GHCi, version 8.6.5: http://www.haskell.org/ghc/  :? for help\n","data":null}}
+2019-08-20 13:58:35.014623600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.014623600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.015620800000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.016621700000 [$pid(ThreadId 5)] DEBUG APP - :dap-launch LaunchRequestArguments {noDebugLaunchRequestArguments = Nothing, nameLaunchRequestArguments = "haskell-debug-adapter", typeLaunchRequestArguments = "ghc", requestLaunchRequestArguments = "launch", startupLaunchRequestArguments = "c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\app\\Main.hs", workspaceLaunchRequestArguments = "C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj", logFileLaunchRequestArguments = "C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj/.vscode/phoityne.log", logLevelLaunchRequestArguments = "DEBUG", ghciPromptLaunchRequestArguments = "H>>= ", ghciCmdLaunchRequestArguments = "stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show --with-ghc=haskell-dap", stopOnEntryLaunchRequestArguments = False, mainArgsLaunchRequestArguments = Just "", ghciEnvLaunchRequestArguments = fromList [], ghciInitialPromptLaunchRequestArguments = Just "Prelude>", startupFuncLaunchRequestArguments = Just "main", startupArgsLaunchRequestArguments = Just "", forceInspectLaunchRequestArguments = Just False}
+2019-08-20 13:58:35.016621700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 15, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "Prelude>", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.030581400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":15,"type":"event","event":"output","body":{"category":"stdout","output":"Prelude>","data":null}}
+2019-08-20 13:58:35.031578700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.032575900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.033573200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.034572500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 16, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":set prompt \"<<DAP_CMD_END2>>\\nH>>= \"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.037562300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":16,"type":"event","event":"output","body":{"category":"stdout","output":":set prompt \"<<DAP_CMD_END2>>\\nH>>= \"\n","data":null}}
+2019-08-20 13:58:35.038592500000 [$pid(ThreadId 5)] DEBUG APP - InitState exitAction called.
+2019-08-20 13:58:35.039589700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.039589700000 [$pid(ThreadId 5)] DEBUG APP - GHCiRunState entryAction called.
+2019-08-20 13:58:35.040555600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.041584800000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:58:35.042581500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.042581500000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:58:35.043547400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 17, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.047541700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":17,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:58:35.048567700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.049531600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.050561200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.050561200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 18, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":set prompt-cont \"<<DAP_CMD_END2>>\\nH>>= \"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.053554600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":18,"type":"event","event":"output","body":{"category":"stdout","output":":set prompt-cont \"<<DAP_CMD_END2>>\\nH>>= \"\n","data":null}}
+2019-08-20 13:58:35.055548100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.056515000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.056515000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.057547200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 19, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.060503100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":19,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:58:35.061498800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.062495500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.063492800000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.064491600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 20, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":dap-launch ...\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.066532400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":20,"type":"event","event":"output","body":{"category":"stdout","output":":dap-launch ...\n","data":null}}
+2019-08-20 13:58:35.068479700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.068479700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.069479000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.070524100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 21, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] :dap-launch LaunchRequestArguments {noDebugLaunchRequestArguments = Nothing, nameLaunchRequestArguments = \"haskell-debug-adapter\", typeLaunchRequestArguments = \"ghc\", requestLaunchRequestArguments = \"launch\", startupLaunchRequestArguments = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\app\\\\Main.hs\", workspaceLaunchRequestArguments = \"C:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\", logFileLaunchRequestArguments = \"C:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj/.vscode/phoityne.log\", logLevelLaunchRequestArguments = \"DEBUG\", ghciPromptLaunchRequestArguments = \"H>>= \", ghciCmdLaunchRequestArguments = \"stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show --with-ghc=haskell-dap\", stopOnEntryLaunchRequestArguments = False, mainArgsLaunchRequestArguments = Just \"\", ghciEnvLaunchRequestArguments = fromList [], ghciInitialPromptLaunchRequestArguments = Just \"Prelude>\", startupFuncLaunchRequestArguments = Just \"main\", startupArgsLaunchRequestArguments = Just \"\", forceInspectLaunchRequestArguments = Just False}\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.082442500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":21,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] :dap-launch LaunchRequestArguments {noDebugLaunchRequestArguments = Nothing, nameLaunchRequestArguments = \"haskell-debug-adapter\", typeLaunchRequestArguments = \"ghc\", requestLaunchRequestArguments = \"launch\", startupLaunchRequestArguments = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\app\\\\Main.hs\", workspaceLaunchRequestArguments = \"C:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\", logFileLaunchRequestArguments = \"C:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj/.vscode/phoityne.log\", logLevelLaunchRequestArguments = \"DEBUG\", ghciPromptLaunchRequestArguments = \"H>>= \", ghciCmdLaunchRequestArguments = \"stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show --with-ghc=haskell-dap\", stopOnEntryLaunchRequestArguments = False, mainArgsLaunchRequestArguments = Just \"\", ghciEnvLaunchRequestArguments = fromList [], ghciInitialPromptLaunchRequestArguments = Just \"Prelude>\", startupFuncLaunchRequestArguments = Just \"main\", startupArgsLaunchRequestArguments = Just \"\", forceInspectLaunchRequestArguments = Just False}\n","data":null}}
+2019-08-20 13:58:35.092453200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.093412900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.094462100000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.095414200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 22, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "<<DAP>>Right ()\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.097404600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":22,"type":"event","event":"output","body":{"category":"stdout","output":"<<DAP>>Right ()\n","data":null}}
+2019-08-20 13:58:35.099399100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.100396400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.100396400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.101394200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 23, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.104383400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":23,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:58:35.105429500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.106379500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.107376800000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.107376800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 24, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":load c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/Main.hs\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.111402300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":24,"type":"event","event":"output","body":{"category":"stdout","output":":load c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/Main.hs\n","data":null}}
+2019-08-20 13:58:35.113359900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.114359700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.114359700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.115405300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 25, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "Ok, two modules loaded.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.118394500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":25,"type":"event","event":"output","body":{"category":"stdout","output":"Ok, two modules loaded.\n","data":null}}
+2019-08-20 13:58:35.120392100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.120392100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.121380700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.122375900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 26, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.124370400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":26,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:58:35.126365500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.127323200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.128384200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.129322300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. InitializedEvent (InitializedEvent {seqInitializedEvent = 27, typeInitializedEvent = "event", eventInitializedEvent = "initialized"})
+2019-08-20 13:58:35.131311700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":27,"type":"event","event":"initialized"}
+2019-08-20 13:58:35.132354200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.133334500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.134303500000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req get data. {"command":"setBreakpoints","arguments":{"source":{"name":"Lib.hs","path":"c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs"},"lines":[6],"breakpoints":[{"line":6}],"sourceModified":false},"type":"request","seq":3}
+2019-08-20 13:58:35.134303500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.137335900000 [$pid(ThreadId 4)] DEBUG REQUEST - sink start waiting.
+2019-08-20 13:58:35.137335900000 [$pid(ThreadId 5)] DEBUG APP - GHCiRunState SetBreakpointsRequest called. SetBreakpointsRequest {seqSetBreakpointsRequest = 3, typeSetBreakpointsRequest = "request", commandSetBreakpointsRequest = "setBreakpoints", argumentsSetBreakpointsRequest = SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just "Lib.hs", pathSource = "c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 6, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}}
+2019-08-20 13:58:35.138333700000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req start waiting.
+2019-08-20 13:58:35.145274000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 28, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":dap-set-breakpoints ...\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.145274000000 [$pid(ThreadId 4)] DEBUG REQUEST - src start waiting.
+2019-08-20 13:58:35.148267300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":28,"type":"event","event":"output","body":{"category":"stdout","output":":dap-set-breakpoints ...\n","data":null}}
+2019-08-20 13:58:35.151263800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.152257500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.152257500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.159238800000 [$pid(ThreadId 5)] DEBUG APP - :dap-set-breakpoints SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just "Lib.hs", pathSource = "c:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 6, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}
+2019-08-20 13:58:35.169212100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 29, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] :dap-set-breakpoints SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just \"Lib.hs\", pathSource = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\src\\\\Lib.hs\", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 6, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.169212100000 [$pid(ThreadId 5)] DEBUG APP - <<DAP>>Left "<command line>: module 'Lib' is not interpreted; try ':add *Lib' first"
+2019-08-20 13:58:35.175227000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":29,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] :dap-set-breakpoints SetBreakpointsRequestArguments {sourceSetBreakpointsRequestArguments = Source {nameSource = Just \"Lib.hs\", pathSource = \"c:\\\\Users\\\\Jakub\\\\mff\\\\2019-ls\\\\neprocko\\\\zapoctak\\\\myproj\\\\src\\\\Lib.hs\", sourceReferenceSource = Nothing, origineSource = Nothing}, breakpointsSetBreakpointsRequestArguments = [SourceBreakpoint {lineSourceBreakpoint = 6, columnSourceBreakpoint = Nothing, conditionSourceBreakpoint = Nothing, hitConditionSourceBreakpoint = Nothing, logMessageSourceBreakpoint = Nothing}]}\n","data":null}}
+2019-08-20 13:58:35.177195300000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 13:58:35.183223700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.184171600000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:58:35.185216700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.186214500000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:58:35.186214500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.188210000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 30, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][DEBUG]<dapSetBreakpointsCommand> C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs -> Lib\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.191201800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":30,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][DEBUG]<dapSetBreakpointsCommand> C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs -> Lib\n","data":null}}
+2019-08-20 13:58:35.194146300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.195146700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.196139900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.196139900000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 31, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][DEBUG]<dapSetBreakpointsCommand> delete src bps []\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.200128900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":31,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][DEBUG]<dapSetBreakpointsCommand> delete src bps []\n","data":null}}
+2019-08-20 13:58:35.202123500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.202123500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.203170100000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.204167400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 32, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DAP][DEBUG]<dapSetBreakpointsCommand> C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs -> Lib\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.207159200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":32,"type":"event","event":"output","body":{"category":"stdout","output":"[DAP][DEBUG]<dapSetBreakpointsCommand> C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\src\\Lib.hs -> Lib\n","data":null}}
+2019-08-20 13:58:35.209153200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.211109200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.212098200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.212098200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 33, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] <<DAP>>Left \"<command line>: module 'Lib' is not interpreted; try ':add *Lib' first\"\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.216124300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":33,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] <<DAP>>Left \"<command line>: module 'Lib' is not interpreted; try ':add *Lib' first\"\n","data":null}}
+2019-08-20 13:58:35.218124000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.219121200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.220101000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.221107000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 34, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[ERROR][APP] <command line>: module 'Lib' is not interpreted; try ':add *Lib' first\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.224099400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":34,"type":"event","event":"output","body":{"category":"stdout","output":"[ERROR][APP] <command line>: module 'Lib' is not interpreted; try ':add *Lib' first\n","data":null}}
+2019-08-20 13:58:35.226090800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.227057800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.228059700000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.229085700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. SetBreakpointsResponse (SetBreakpointsResponse {seqSetBreakpointsResponse = 35, typeSetBreakpointsResponse = "response", request_seqSetBreakpointsResponse = 3, successSetBreakpointsResponse = False, commandSetBreakpointsResponse = "setBreakpoints", messageSetBreakpointsResponse = "<command line>: module 'Lib' is not interpreted; try ':add *Lib' first", bodySetBreakpointsResponse = SetBreakpointsResponseBody {breakpointsSetBreakpointsResponseBody = []}})
+2019-08-20 13:58:35.234070000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":35,"type":"response","request_seq":3,"success":false,"command":"setBreakpoints","message":"<command line>: module 'Lib' is not interpreted; try ':add *Lib' first","body":{"breakpoints":[]}}
+2019-08-20 13:58:35.236064000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.237063300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.237063300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.238059600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 36, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.241018000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":36,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:58:35.242014700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.243012500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.244014400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.259969200000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req get data. {"command":"configurationDone","type":"request","seq":4}
+2019-08-20 13:58:35.261968300000 [$pid(ThreadId 4)] DEBUG REQUEST - sink start waiting.
+2019-08-20 13:58:35.262960500000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req start waiting.
+2019-08-20 13:58:35.263957200000 [$pid(ThreadId 5)] DEBUG APP - GHCiRunState ConfigurationDoneRequest called. ConfigurationDoneRequest {seqConfigurationDoneRequest = 4, typeConfigurationDoneRequest = "request", commandConfigurationDoneRequest = "configurationDone"}
+2019-08-20 13:58:35.263957200000 [$pid(ThreadId 4)] DEBUG REQUEST - src start waiting.
+2019-08-20 13:58:35.266001100000 [$pid(ThreadId 5)] DEBUG APP - GHCiRunState exitAction called.
+2019-08-20 13:58:35.267002000000 [$pid(ThreadId 5)] DEBUG APP - DebugRunState entryAction called.
+2019-08-20 13:58:35.268945600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. ConfigurationDoneResponse (ConfigurationDoneResponse {seqConfigurationDoneResponse = 37, typeConfigurationDoneResponse = "response", request_seqConfigurationDoneResponse = 4, successConfigurationDoneResponse = True, commandConfigurationDoneResponse = "configurationDone", messageConfigurationDoneResponse = ""})
+2019-08-20 13:58:35.271935900000 [$pid(ThreadId 5)] DEBUG APP - :dap-continue ContinueRequestArguments {threadIdContinueRequestArguments = 0, exprContinueRequestArguments = Just "main"}
+2019-08-20 13:58:35.271935900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":37,"type":"response","request_seq":4,"success":true,"command":"configurationDone","message":""}
+2019-08-20 13:58:35.274927700000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.275927500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.277923600000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req get data. {"command":"threads","type":"request","seq":5}
+2019-08-20 13:58:35.277923600000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.279916100000 [$pid(ThreadId 4)] DEBUG REQUEST - sink start waiting.
+2019-08-20 13:58:35.280912800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. LaunchResponse (LaunchResponse {seqLaunchResponse = 38, typeLaunchResponse = "response", request_seqLaunchResponse = 2, successLaunchResponse = True, commandLaunchResponse = "launch", messageLaunchResponse = ""})
+2019-08-20 13:58:35.281911700000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req start waiting.
+2019-08-20 13:58:35.284902400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":38,"type":"response","request_seq":2,"success":true,"command":"launch","message":""}
+2019-08-20 13:58:35.284902400000 [$pid(ThreadId 4)] DEBUG REQUEST - src start waiting.
+2019-08-20 13:58:35.286897500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.287894800000 [$pid(ThreadId 5)] DEBUG APP - <<DAP>>Right (StoppedEventBody {reasonStoppedEventBody = "complete", descriptionStoppedEventBody = "", threadIdStoppedEventBody = 0, textStoppedEventBody = "", allThreadsStoppedStoppedEventBody = True})
+2019-08-20 13:58:35.287894800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.290885500000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:58:35.290885500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.291884300000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:58:35.292881100000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 39, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":dap-continue ...\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.293885000000 [$pid(ThreadId 5)] DEBUG APP - DebugRunState InternalTerminateRequest called. HdaInternalTerminateRequest {msgHdaInternalTerminateRequest = ""}
+2019-08-20 13:58:35.298900200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":39,"type":"event","event":"output","body":{"category":"stdout","output":":dap-continue ...\n","data":null}}
+2019-08-20 13:58:35.301858600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.302853800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.303851100000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.304847800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 40, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] :dap-continue ContinueRequestArguments {threadIdContinueRequestArguments = 0, exprContinueRequestArguments = Just \"main\"}\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.309834200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":40,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] :dap-continue ContinueRequestArguments {threadIdContinueRequestArguments = 0, exprContinueRequestArguments = Just \"main\"}\n","data":null}}
+2019-08-20 13:58:35.314821000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.315818300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.316815500000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.317813300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 41, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "someFunc\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.320804600000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":41,"type":"event","event":"output","body":{"category":"stdout","output":"someFunc\n","data":null}}
+2019-08-20 13:58:35.322799200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.323796400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.324794200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.325791500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 42, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[DEBUG][APP] <<DAP>>Right (StoppedEventBody {reasonStoppedEventBody = \"complete\", descriptionStoppedEventBody = \"\", threadIdStoppedEventBody = 0, textStoppedEventBody = \"\", allThreadsStoppedStoppedEventBody = True})\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.331775100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":42,"type":"event","event":"output","body":{"category":"stdout","output":"[DEBUG][APP] <<DAP>>Right (StoppedEventBody {reasonStoppedEventBody = \"complete\", descriptionStoppedEventBody = \"\", threadIdStoppedEventBody = 0, textStoppedEventBody = \"\", allThreadsStoppedStoppedEventBody = True})\n","data":null}}
+2019-08-20 13:58:35.334767400000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.335764700000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.336762000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.337759200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 43, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "console", outputOutputEventBody = "debugging completed. \n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.340751000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":43,"type":"event","event":"output","body":{"category":"console","output":"debugging completed. \n","data":null}}
+2019-08-20 13:58:35.342782100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.343743300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.344741600000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.344741600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 44, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "H>>= ", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.347732900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":44,"type":"event","event":"output","body":{"category":"stdout","output":"H>>= ","data":null}}
+2019-08-20 13:58:35.348730200000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.349727500000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.350725300000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.350725300000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 45, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = ":quit\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.353716500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":45,"type":"event","event":"output","body":{"category":"stdout","output":":quit\n","data":null}}
+2019-08-20 13:58:35.355711100000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.356708400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.356708400000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:35.357705600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 46, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "Leaving GHCi.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:35.360697900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":46,"type":"event","event":"output","body":{"category":"stdout","output":"Leaving GHCi.\n","data":null}}
+2019-08-20 13:58:35.362692500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:35.363689800000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:35.364687000000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:36.370716900000 [$pid(ThreadId 5)] DEBUG APP - DebugRunState exitAction called.
+2019-08-20 13:58:36.372739200000 [$pid(ThreadId 5)] DEBUG APP - ShutdownState entryAction called.
+2019-08-20 13:58:36.373735400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. TerminatedEvent (TerminatedEvent {seqTerminatedEvent = 47, typeTerminatedEvent = "event", eventTerminatedEvent = "terminated", bodyTerminatedEvent = TerminatedEventBody {restartTerminatedEventBody = False}})
+2019-08-20 13:58:36.373735400000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:58:36.376701500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":47,"type":"event","event":"terminated","body":{"restart":false}}
+2019-08-20 13:58:36.377729100000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:58:36.379692800000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:36.380691100000 [$pid(ThreadId 5)] INFO APP - ShutdownState does not support any request.
+2019-08-20 13:58:36.381689400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:36.381689400000 [$pid(ThreadId 4)] DEBUG REQUEST - lbs2req get data. {"command":"disconnect","arguments":{"restart":false},"type":"request","seq":6}
+2019-08-20 13:58:36.382684100000 [$pid(ThreadId 5)] DEBUG APP - sink start waiting.
+2019-08-20 13:58:36.383682900000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:36.384692000000 [$pid(ThreadId 4)] INFO REQUEST - disconnect. end of request thread.
+2019-08-20 13:58:36.385704700000 [$pid(ThreadId 5)] DEBUG APP - src start waiting.
+2019-08-20 13:58:36.386705600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. ExitedEvent (ExitedEvent {seqExitedEvent = 48, typeExitedEvent = "event", eventExitedEvent = "exited", bodyExitedEvent = ExitedEventBody {exitCodeExitedEventBody = 0}})
+2019-08-20 13:58:36.386705600000 [$pid(ThreadId 4)] DEBUG REQUEST - end request app
+2019-08-20 13:58:36.387685400000 [$pid(ThreadId 5)] DEBUG APP - DisconnectRequest {seqDisconnectRequest = 6, typeDisconnectRequest = "request", commandDisconnectRequest = "disconnect", argumentsDisconnectRequest = Just (DisconnectArguments {restartDisconnectRequestArguments = Just False})}
+2019-08-20 13:58:36.389692300000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":48,"type":"event","event":"exited","body":{"exitCode":0}}
+2019-08-20 13:58:36.393657200000 [$pid(ThreadId 5)] INFO APP - disconnect. end of application thread.
+2019-08-20 13:58:36.394655500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:36.395649600000 [$pid(ThreadId 5)] DEBUG APP - end application app
+2019-08-20 13:58:36.396647400000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:36.397644200000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:36.398642000000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. OutputEvent (OutputEvent {seqOutputEvent = 49, typeOutputEvent = "event", eventOutputEvent = "output", bodyOutputEvent = OutputEventBody {categoryOutputEventBody = "stdout", outputOutputEventBody = "[INFO][APP] ShutdownState does not support any request.\n", dataOutputEventBody = Nothing}})
+2019-08-20 13:58:36.401675900000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":49,"type":"event","event":"output","body":{"category":"stdout","output":"[INFO][APP] ShutdownState does not support any request.\n","data":null}}
+2019-08-20 13:58:36.403671000000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink start start.
+2019-08-20 13:58:36.404626600000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs start waiting.
+2019-08-20 13:58:36.404626600000 [$pid(ThreadId 6)] DEBUG RESPONSE - src start waiting.
+2019-08-20 13:58:36.405673200000 [$pid(ThreadId 6)] DEBUG RESPONSE - res2lbs get data. DisconnectResponse (DisconnectResponse {seqDisconnectResponse = 50, typeDisconnectResponse = "response", request_seqDisconnectResponse = 6, successDisconnectResponse = True, commandDisconnectResponse = "disconnect", messageDisconnectResponse = ""})
+2019-08-20 13:58:36.408664500000 [$pid(ThreadId 6)] DEBUG RESPONSE - sink get data. {"seq":50,"type":"response","request_seq":6,"success":true,"command":"disconnect","message":""}
+2019-08-20 13:58:36.409659700000 [$pid(ThreadId 6)] INFO RESPONSE - disconnect. end of response thread.
+2019-08-20 13:58:36.411607500000 [$pid(ThreadId 6)] DEBUG RESPONSE - end response app
+2019-08-20 13:58:54.197605900000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 14:23:00.308375800000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 14:23:00.332311300000 [$pid(ThreadId 5)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
+2019-08-20 14:24:40.694527000000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 14:24:46.090007800000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 14:24:52.999294900000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 14:25:01.102779600000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 14:25:01.185809900000 [$pid(ThreadId 5)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
+2019-08-20 14:26:15.870166600000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 14:26:15.897093900000 [$pid(ThreadId 5)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
+2019-08-20 14:26:37.779794500000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 14:26:37.810710900000 [$pid(ThreadId 5)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
+2019-08-20 14:27:28.748948600000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 14:27:40.226003400000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 14:27:40.249942000000 [$pid(ThreadId 5)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
+2019-08-20 14:28:14.035484000000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 15:44:34.443134000000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 15:47:23.151150200000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-20 15:48:45.838944400000 [$pid(ThreadId 5)] ERROR APP - <command line>: module 'Lib' is not interpreted; try ':add *Lib' first
+2019-08-29 15:58:04.835132700000 [$pid(ThreadId 5)] ERROR APP - user error (loaded module can not find from path. <c:\Users\Jakub\mff\2019-ls\neprocko\zapoctak\myproj\src\Lib.hs> [("Geometry","C:\\Users\\Jakub\\mff\\2019-ls\\neprocko\\zapoctak\\myproj\\app\\Geometry.hs")])
+2019-08-29 15:58:04.883003100000 [$pid(ThreadId 5)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
+2019-08-29 15:58:38.912517600000 [$pid(ThreadId 5)] ERROR APP - user error (loaded module can not find from path. <c:\Users\Jakub\mff\2019-ls\neprocko\zapoctak\myproj\src\Lib.hs> [("Main","c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/HelloWorld.hs")])
+2019-08-29 16:02:32.402454700000 [$pid(ThreadId 5)] ERROR APP - user error (loaded module can not find from path. <c:\Users\Jakub\mff\2019-ls\neprocko\zapoctak\myproj\src\Lib.hs> [("Main","c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/HelloWorld.hs")])
+2019-08-29 16:02:33.639934800000 [$pid(ThreadId 8)] CRITICAL THREAD_MGR - Critical exit started.
+2019-08-29 16:03:07.990082500000 [$pid(ThreadId 5)] ERROR APP - user error (loaded module can not find from path. <c:\Users\Jakub\mff\2019-ls\neprocko\zapoctak\myproj\src\Lib.hs> [("Main","c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/HelloWorld.hs")])
+2019-08-29 16:04:00.814256300000 [$pid(ThreadId 5)] ERROR APP - user error (loaded module can not find from path. <c:\Users\Jakub\mff\2019-ls\neprocko\zapoctak\myproj\src\Lib.hs> [("Main","c:/Users/Jakub/mff/2019-ls/neprocko/zapoctak/myproj/app/HelloWorld.hs")])

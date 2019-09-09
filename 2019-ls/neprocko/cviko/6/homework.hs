@@ -21,3 +21,28 @@ getClosestBiggerInt :: Int -> Double -> Int
 getClosestBiggerInt bigger x
     | (fromIntegral(bigger) - x) < 1 = bigger
     | otherwise = getClosestBiggerInt (bigger - biggestPowerOfTwo(fromIntegral(bigger) - x)) x
+
+head' :: [a] -> a  
+head' [] = error "Can't call head on an empty list, dummy!"  
+head' (x:_) = x  
+
+
+getFirstTwo :: [a] -> [a]
+getFirstTwo (x:y:_) = [x, y]
+
+lastTwo :: [a] -> [a]
+lastTwo l = reverse(getFirstTwo(reverse l))
+
+bmiTell weight height  
+     | bmi <= skinny = "You're underweight, you emo, you!"  
+        | bmi <= normal = "You're supposedly normal. Pffft, I bet you're ugly!"  
+     | bmi <= fat    = "You're fat! Lose some weight, fatty!"  
+ | otherwise     = "You're a whale, congratulations!"  
+    where 
+        bmi = weight / height ^ 2  
+        skinny = 18.5
+        normal = 24.2
+        fat = 30
+
+cal :: (RealFloat a) => a -> a -> a
+cal x y = s * y where s = x ** 2; t = y ** 3 
