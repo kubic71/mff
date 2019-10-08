@@ -1,0 +1,8 @@
+vgs
+pvs
+pvcreate
+pvmove
+rsync -aAxXP src dst  # nekopiruje /proc /sys
+lsmod
+smartctl
+
