@@ -1,0 +1,7 @@
+Stacked Corss Attention for Image-Text Matching
+	https://arxiv.org/pdf/1803.08024.pdf
+
+where to find relevant papers:
+http://www.arxiv-sanity.com/
+https://deeplearn.org/
+various conference pages
