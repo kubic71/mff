@@ -1,0 +1,11 @@
+/home/kubik/mff/2019-zs/csharp/multi_block_alignment/multi_block_project/bin/Debug/netcoreapp2.2/multi_block_alignment.deps.json
+/home/kubik/mff/2019-zs/csharp/multi_block_alignment/multi_block_project/bin/Debug/netcoreapp2.2/multi_block_alignment.runtimeconfig.json
+/home/kubik/mff/2019-zs/csharp/multi_block_alignment/multi_block_project/bin/Debug/netcoreapp2.2/multi_block_alignment.runtimeconfig.dev.json
+/home/kubik/mff/2019-zs/csharp/multi_block_alignment/multi_block_project/bin/Debug/netcoreapp2.2/multi_block_alignment.dll
+/home/kubik/mff/2019-zs/csharp/multi_block_alignment/multi_block_project/bin/Debug/netcoreapp2.2/multi_block_alignment.pdb
+/home/kubik/mff/2019-zs/csharp/multi_block_alignment/multi_block_project/obj/Debug/netcoreapp2.2/block_alignment.csprojAssemblyReference.cache
+/home/kubik/mff/2019-zs/csharp/multi_block_alignment/multi_block_project/obj/Debug/netcoreapp2.2/block_alignment.csproj.CoreCompileInputs.cache
+/home/kubik/mff/2019-zs/csharp/multi_block_alignment/multi_block_project/obj/Debug/netcoreapp2.2/block_alignment.AssemblyInfoInputs.cache
+/home/kubik/mff/2019-zs/csharp/multi_block_alignment/multi_block_project/obj/Debug/netcoreapp2.2/block_alignment.AssemblyInfo.cs
+/home/kubik/mff/2019-zs/csharp/multi_block_alignment/multi_block_project/obj/Debug/netcoreapp2.2/multi_block_alignment.dll
+/home/kubik/mff/2019-zs/csharp/multi_block_alignment/multi_block_project/obj/Debug/netcoreapp2.2/multi_block_alignment.pdb

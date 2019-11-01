@@ -1,0 +1,219 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+namespace block_alignment
+{
+
+    class Aligner
+    {
+        private readonly StreamReader _inputFile;
+        private readonly StreamWriter _outputFile;
+        private readonly int _maxLen;
+
+        private new List<string> _line;
+        private int _lineLength;
+
+        private char _c;
+        private StringBuilder _currentWord;
+        private bool _blankLine;
+
+
+        public Aligner(string inputFile, string outputFile, int maxLen)
+        {
+            this._inputFile = new StreamReader(inputFile);
+            this._outputFile = new StreamWriter(outputFile);
+            this._maxLen = maxLen;
+        }
+
+        private void print_line(bool lastParagraphLine)
+        {
+            if (_line.Count == 0)
+            {
+                return;
+            }
+            else if (_line.Count == 1)
+            {
+                // write one word on its own line, even if it doesn't fit
+                _outputFile.WriteLine(_line[0]);
+            }
+            else
+            {
+                if (lastParagraphLine)   // word in the last line of a paragraph should be separated only by 1 space
+                {
+                    for (int j = 0; j < _line.Count; j++)
+                    {
+                        if (j == _line.Count - 1)
+                        {
+                            _outputFile.WriteLine(_line[j]);
+                        }
+                        else
+                        {
+                            _outputFile.Write(_line[j] + " ");    
+                        }
+                    }
+                }
+                else
+                {
+                    int wordsLen = 0;
+                    foreach (var word in _line)
+                    {
+                        wordsLen += word.Length;
+                    }
+
+                    int spareSpaces = _maxLen - wordsLen;
+                    int spaceBetweenWords = spareSpaces / (_line.Count - 1) + 1 ;
+                    for (int i = 0; i < _line.Count - 1; i++)
+                    {
+                        _outputFile.Write(_line[i]);
+                        
+                        int wordSpacesRemaining = _line.Count - 1 - i;
+                        if ((spaceBetweenWords-1) * wordSpacesRemaining == spareSpaces)
+                        {
+                            spaceBetweenWords -= 1;
+                        }
+
+                        for (int j = 0; j < spaceBetweenWords; j++)
+                        {
+                            _outputFile.Write(' ');
+                        }
+
+                        spareSpaces -= spaceBetweenWords;
+
+                    } 
+                    
+                    _outputFile.Write(_line[_line.Count - 1]);
+                    _outputFile.Write('\n');
+                }
+            }
+
+        }
+
+        public void Process()
+        {
+            _line = new List<string>();
+            _currentWord = new StringBuilder();
+            _blankLine = true;
+
+            bool separateParagraphs = false;  // tels me, whether there should be paragraph separation before the next line is printed
+            bool addedSpaceAtTheEnd = false; // artificially add space to the input, so that there aren't that many edgecases       
+            while (!addedSpaceAtTheEnd)
+            {
+                if (_inputFile.EndOfStream)
+                {
+                    _c = ' ';
+                    addedSpaceAtTheEnd = true;
+                } else
+                {
+                    _c = (char) _inputFile.Read();
+                }
+
+                if (_c == ' ' || _c == '\t' || _c == '\n')
+                {
+                    if (_currentWord.Length > 0)   // end of word
+                    {
+                        if (_lineLength + _currentWord.Length > _maxLen)   
+                        {
+                            // if current word wont fit into the current line, we should print current line and 
+                            // then add current word to empty line
+                            
+                            if (separateParagraphs)
+                            {
+                                _outputFile.Write('\n');
+                                separateParagraphs = false;
+                            }
+                            
+                            print_line(false);  // last_paragraph_line is false, because there will be at lease one more line with current_word in it
+                            _line.Clear();
+                            _lineLength = 0;
+                        }
+                        // end of word
+                        _line.Add(_currentWord.ToString());
+                        _lineLength += _currentWord.Length + 1;
+                        _currentWord.Clear();
+
+                    } else if (_c == '\n' && _blankLine) // newline after blank line -> paragraph separation
+                    {
+                        if (separateParagraphs)
+                        {
+                            _outputFile.Write('\n');
+                        }
+                        
+                        print_line(true); // print the last line of paragraph
+                        _line.Clear();
+                        _lineLength = 0;
+                        separateParagraphs = true;  
+                        
+                        // read until some non blank character, in case there are multiple blank lines
+                        while (_c == ' ' || _c == '\t' || _c == '\n')
+                        {
+                            if (_inputFile.EndOfStream)
+                            {
+                                _outputFile.Close();
+                                return;
+                            }
+                            _c = (char) _inputFile.Read();
+                        }
+                        
+                        // c is non-blank
+                        _currentWord.Append(_c);
+                        _blankLine = false;
+                    }
+
+                    if (_c == '\n')
+                    {
+                        _blankLine = true;
+                    }
+                }
+                else
+                {
+                    // c is non-blank character
+                    _blankLine = false;
+                    _currentWord.Append(_c);
+                }
+            }
+
+            // current_word is definitely empty, because we added space at the end of the input
+            // it may happen, that we still have line to print 
+            if (_line.Count > 0)
+            {
+                if (separateParagraphs)
+                {
+                    _outputFile.Write('\n');
+                }
+                print_line(true);
+            }
+            _inputFile.Close();
+            _outputFile.Close();
+        }
+    }
+
+
+    static class Program
+    {
+        static bool args_are_valid(string[] args, out int lineLength)
+        {
+            lineLength = -1;
+            if (args.Length != 3) return false;
+            return int.TryParse(args[2], out lineLength);
+        }
+        
+        static void Main(string[] args)
+        {
+            if (!args_are_valid(args, out int lineLength))
+            {
+                Console.WriteLine("Argument Error");
+            }
+
+            try
+            {
+                Aligner aligner = new Aligner(args[0], args[1], lineLength);
+                aligner.Process();
+
+            } catch (IOException) {
+                Console.WriteLine("File Error");
+            }
+        }
+    }
+}
