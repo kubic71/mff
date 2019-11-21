@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "/home/kubik/.dotnet/store/|arch|/|tfm|",
-      "/home/kubik/.nuget/packages"
-    ]
-  }
-}
