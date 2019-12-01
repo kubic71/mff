@@ -26,13 +26,11 @@ namespace huffmann
             
             try
             {
-                FileStream fs = new FileStream(args[0], FileMode.Open);
-                HuffmannTree huffmannTree = HuffmannTree.BuildTree(fs);
-                
+                FileStream inputFile = new FileStream(args[0], FileMode.Open);
                 FileStream outputFile = new FileStream(args[0] + ".huff", FileMode.Create);
                 
-                outputFile.Write(new byte[]{0x7B, 0x68, 0x75, 0x7C, 0x6D, 0x7D, 0x66, 0x66}); // write header
-                huffmannTree.PrintTree(outputFile, true);
+                HuffmannEncoder.Encode(inputFile, outputFile);
+                outputFile.Close();
             }
             
             catch (Exception ex)            

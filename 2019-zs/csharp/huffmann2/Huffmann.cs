@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace huffmann
 {
-    class HuffmannTree
+    public class HuffmannTree
     {
         public HuffmannTree Left { get; private set; }
         public HuffmannTree Right { get; private set; }
@@ -18,6 +19,30 @@ namespace huffmann
             return Left == null;
         }
 
+        public Dictionary<char, byte[]> paths;
+
+
+        void BuildPathsDictionary()
+        {
+            BuildPathsDictionary(this, new List<byte>());
+        }
+        void BuildPathsDictionary(HuffmannTree node, List<byte> path)
+        {
+            if (node.IsLeaf())
+            {
+                paths.Add((char)node.Symbol,  path.ToArray());
+            }
+            else
+            {
+                path.Add(0);
+                BuildPathsDictionary(node.Left, path);
+                path.RemoveAt(path.Count - 1);
+                path.Add(1);
+                BuildPathsDictionary(node.Right, path);
+                path.RemoveAt(path.Count - 1);
+            }
+        }
+        
         public void PrintTree(Stream outputStream, bool binary)
         {
             // print itself
@@ -43,6 +68,10 @@ namespace huffmann
                     UInt64 node = 0x0; // inner node has first bit 0
                     node = node | ((Weight & 0x7FFFFFFFFFFFFF) << 1);   // bits 1-55 contain lower 55 bits of Weight
                     outputStream.Write(BitConverter.GetBytes(node));
+                    
+                    Left.PrintTree(outputStream, binary);
+                    Right.PrintTree(outputStream, binary);
+                    
                 }
                 else
                 {
@@ -156,7 +185,13 @@ namespace huffmann
                 SortInsert(forest, parent);
             }
 
-            return forest[0];
+            HuffmannTree huffmannTree = forest[0];
+            huffmannTree.paths = new Dictionary<char, byte[]>();
+            huffmannTree.BuildPathsDictionary();
+            return huffmannTree;
         }
+
+
+        
     }
 }
