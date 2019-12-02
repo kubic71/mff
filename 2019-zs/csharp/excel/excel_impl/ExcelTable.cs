@@ -64,13 +64,9 @@ namespace excel_impl
                     throw;
                 }
             }
-
-            if (sheets[sheetName].ContainsKey(index))
-            {
-                return sheets[sheetName].GetCell(index);
-            }
-
-            return null;
+            
+            // returns null when cell doesn't exist in given sheet
+            return sheets[sheetName].GetCell(index);
         }
 
         public TableCell GetCell(int row, int col)

@@ -65,11 +65,78 @@ namespace excel_impl
             row = Int32.Parse(addrParts[1]);
         }
 
+
+        public static bool IsValidLocalCellKey(string key)
+        {
+            // something like B232, AZ2344
+            bool numbers = false;
+            foreach (var c in key)
+            {
+                if (numbers)
+                {
+                    if (!('0' <= c && c <= '9'))
+                        return false;
+                    continue;
+                }
+                else
+                {
+                    if ('A' <= c && c <= 'Z')
+                        continue;
+                    else if ('1' <= c && c <= '9')
+                    {
+                        numbers = true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            if (!numbers)
+            {
+                return false;
+            }
+
+            char first = key[0];
+            if (!('A' <= first && first <= 'Z'))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public static bool IsValidCellKey(string key)
         {
-            var regex = new Regex(@"^[A-Z]+[1-9][0-9]*$");
-            var regex2 = new Regex(@"^[A-Za-z0-9_-]+![A-Z]+[1-9][0-9]*$");
-            return regex.Match(key).Success || regex2.Match(key).Success;
+            // check for local and global version 
+            // Sheetname!A234, AZ24
+            
+            if (key.Contains("!"))
+            {
+                string[] parts = key.Split("!");
+                if (parts.Length != 2)
+                    return false;
+                return parts[0].Length != 0 && IsValidLocalCellKey(parts[1]);
+            }
+            
+            return IsValidLocalCellKey(key);
+//            var regex = new Regex(@"^[A-Z]+[1-9][0-9]*$");
+//            var regex2 = new Regex(@"^[A-Za-z0-9_-]+![A-Z]+[1-9][0-9]*$");
+//            return regex.Match(key).Success || regex2.Match(key).Success;
+        }
+
+        bool StringCharsInRange(string s, char min, char max)
+        {
+            foreach (var c in s)
+            {
+                if (!(min <= c && c <= max))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
 
