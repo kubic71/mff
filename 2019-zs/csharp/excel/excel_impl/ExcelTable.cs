@@ -244,11 +244,14 @@ namespace excel_impl
 
         public void Evaluate()
         {
-            foreach (var cell in sheets[mainSheet].AllCells)
+            foreach (var row in sheets[mainSheet].data)
             {
-                Stack<TableCell> seen = new Stack<TableCell>();
-                seen.Push(cell);
-                EvaluateRecursively(cell, seen, mainSheet);
+                foreach (var cell in row)
+                {
+                    Stack<TableCell> seen = new Stack<TableCell>();
+                    seen.Push(cell);
+                    EvaluateRecursively(cell, seen, mainSheet);
+                }
             }
         }
 

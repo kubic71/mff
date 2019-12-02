@@ -4,7 +4,7 @@ namespace excel_impl
 {
     public class TableData
     {
-        private List<TableCell[]> data;
+        public List<TableCell[]> data;
 
         public List<TableCell[]> Rows => data;
 
