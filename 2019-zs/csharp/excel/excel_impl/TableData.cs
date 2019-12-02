@@ -4,15 +4,15 @@ namespace excel_impl
 {
     public class TableData
     {
-        public List<TableCell[]> data;
+        public List<ICell[]> data;
 
-        public List<TableCell[]> Rows => data;
+        public List<ICell[]> Rows => data;
 
-        public List<TableCell> AllCells                                                         
+        public List<ICell> AllCells                                                         
         {                                                                               
             get
             {
-                List<TableCell> cells = new List<TableCell>();
+                List<ICell> cells = new List<ICell>();
                 foreach (var row in data)
                 {
                     foreach (var cell in row)
@@ -25,31 +25,24 @@ namespace excel_impl
             }
         }
 
+        public void AddRow(ICell[] row)
+        {
+            data.Add(row);
+        }
+
         public TableData()
         {
-            data = new List<TableCell[]>();
+            data = new List<ICell[]>();
         }
 
-        public void AddRow(string[] row)
-        {
-            TableCell[] cellRow = new TableCell[row.Length];
-            for (int i = 0; i < row.Length; i++)
-            {
-                TableCell cell = new TableCell();
-                cell.content = row[i];
-                cell.evaluated = false;
-                cellRow[i] = cell;
-            }
-            data.Add(cellRow);
-        }
 
-        public TableCell GetCell(string index)
+        public ICell GetCell(string index)
         {
             Utils.GetRowColFromAddr(index, out int row, out int col);
             return GetCell(row, col);
         }
 
-        public TableCell GetCell(int row, int col)
+        public ICell GetCell(int row, int col)
         {
             if (row >= 1 && data.Count >= row && col >= 1 && data[row - 1].Length >= col)
             {

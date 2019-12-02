@@ -9,65 +9,52 @@ namespace Tests
 
 
 
-        public static ExcelTable SetupTable1()
+        public static TableData SetupTable1()
         {
             //A  B C  D
-            string query = " A11 3 5 [] \n" +        // 1
-                           " []  [] 43 B12*B3\n" +   // 2
-                           " []  []  []   [] \n" +   // 3
-                           " [] ";                   // 4
-
-            ExcelTable table = new ExcelTable();
+            string query = " A11 3 5 [] \n" + // 1
+                           "=B12*B3 =2rs5 =34*BAc\n" + // 2
+                           " []  [] \n";   // 3
+                           
             TestUtils.SaveToFile(query, "Main.sheet");
-            table.Load("Main.sheet");
-            return table;
+            return TableFileLoader.Load("Main.sheet");
         }
 
         [Test]
         public void TestContentTable1()
         {
-            ExcelTable table = SetupTable1();
+            TableData table = SetupTable1();
             
-            Assert.AreEqual("A11", table.GetCell("Main!A1").content);
-            Assert.AreEqual("A11", table.GetCell(1, 1).content);
-            Assert.AreEqual("3", table.GetCell("Main!B1").content);
-            Assert.AreEqual("3", table.GetCell(1, 2).content);
-            Assert.AreEqual("5", table.GetCell("Main!C1").content);
-            Assert.AreEqual("5", table.GetCell(1, 3).content);
-            Assert.AreEqual("[]", table.GetCell("Main!D1").content);
-            Assert.AreEqual("[]", table.GetCell(1,4).content);
+            Assert.AreEqual(Error.INVVAL, table.GetCell(1, 1).Status);
+            Assert.AreEqual(3, table.GetCell(1, 2).Val);
+            Assert.AreEqual(Error.OK, table.GetCell(1, 2).Status);
+            Assert.AreEqual(true, table.GetCell(1, 2).IsEvaluated());
+            Assert.AreEqual(0, table.GetCell(1, 4).Val);
+            Assert.AreEqual(Error.OK, table.GetCell(1, 4).Status);
             
-            Assert.AreEqual("[]", table.GetCell("Main!A2").content);
-            Assert.AreEqual("[]", table.GetCell(2, 1).content);
-            Assert.AreEqual("[]", table.GetCell("Main!B2").content);
-            Assert.AreEqual("[]", table.GetCell(2,2).content);
-            Assert.AreEqual("43", table.GetCell("Main!C2").content);
-            Assert.AreEqual("43", table.GetCell(2,3).content);
-            Assert.AreEqual("B12*B3", table.GetCell("Main!D2").content);
-            Assert.AreEqual("B12*B3", table.GetCell(2,4).content);
             
-            Assert.AreEqual("[]", table.GetCell("Main!A3").content);
-            Assert.AreEqual("[]", table.GetCell(3,1).content);
-            Assert.AreEqual("[]", table.GetCell("Main!B3").content);
-            Assert.AreEqual("[]", table.GetCell(3,2).content);
-            Assert.AreEqual("[]", table.GetCell("Main!C3").content);
-            Assert.AreEqual("[]", table.GetCell(3,3).content);
-            Assert.AreEqual("[]", table.GetCell("Main!D3").content);
-            Assert.AreEqual("[]", table.GetCell(3,4).content);
-            
-            Assert.AreEqual("[]", table.GetCell("Main!A4").content);
-            Assert.AreEqual("[]", table.GetCell(4,1).content);
-            Assert.AreEqual(null, table.GetCell("Main!B4"));
-            Assert.AreEqual(null, table.GetCell(4,2));
-            Assert.AreEqual(null, table.GetCell("Main!AZC3"));
-            Assert.AreEqual(null, table.GetCell("Main!AXD1234"));
-            
-            Assert.AreEqual(null, table.GetCell(-1, 1));
-            Assert.AreEqual(null, table.GetCell(3, -100));
-            Assert.AreEqual(null, table.GetCell(-342, -341));
-            Assert.AreEqual(null, table.GetCell(43, 2));
-            Assert.AreEqual(null, table.GetCell(3, 243));
+            Assert.AreEqual(Error.OK, table.GetCell(2, 1).Status);
+            Assert.AreEqual(Error.MISSOP, table.GetCell(2, 2).Status);
+            Assert.AreEqual(Error.FORMULA, table.GetCell(2, 3).Status);
+        }
+        
+        public static TableData SetupTable2()
+        {
+            string query = "=B12*B3";
+            TestUtils.SaveToFile(query, "Main.sheet");
+            return TableFileLoader.Load("Main.sheet");
+        }
+
+        [Test]
+        public void TestContentTable2()
+        {
+            TableData table = SetupTable2();
+
+            Assert.AreEqual(Error.OK, table.GetCell(1, 1).Status);
 
         }
+        
     }
+    
+    
 }

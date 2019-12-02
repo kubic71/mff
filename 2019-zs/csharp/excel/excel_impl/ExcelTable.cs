@@ -6,24 +6,7 @@ using System.Text;
 
 namespace excel_impl
 {
-    public class TableCell
-    {
-        public bool evaluated = false;
-
-
-        public const string INVVAL = "I";
-        public const string MISSOP = "M";
-        public const string ERROR = "E";
-        public const string DIV0 = "D";
-        public const string CYCLE = "C";
-        public const string FORMULA = "F";
-
-        public string content { get; set; }
-
-        // helper data item used during evaluation
-//        public string val { get; set; }
-    }
-
+ 
     public class ExcelTable
     {
         private string mainSheet;
@@ -31,21 +14,12 @@ namespace excel_impl
         private Dictionary<string, TableData> sheets =
             new Dictionary<string, TableData>();
 
-        public TableCell GetCell(string index)
-        {
-            string[] parts = index.Split("!");
-            string sheetName = parts[0];
-            string cellIndex = parts[1];
-            return GetCell(cellIndex, sheetName);
-        }
-
         /// <summary>
-        /// Get TableCell object
+        /// Get ICell object
         /// </summary>
-        /// <param name="index">index of main or external sheet cell (B23, Sheet1!A32 ... )</param>
-        /// <returns>TableCell if this cell appeared in input sheet file or null if cell didn't appear in sheet file, but sheet file does exists (and thus has value of 0)</returns>
+        /// <returns>ICell if this cell appeared in input sheet file or null if cell didn't appear in sheet file, but sheet file does exists (and thus has value of 0)</returns>
         /// <exception cref="SheetFileNotFoundException">When index refers to external sheet and this sheet doesn't exist</exception>
-        public TableCell GetCell(string index, string sheetName)
+        public ICell GetCell(int row, int col, string sheetName)
         {
             if (!sheets.ContainsKey(sheetName))
             {
@@ -60,23 +34,12 @@ namespace excel_impl
                     {
                         throw new SheetFileNotFoundException();
                     }
-
                     throw;
                 }
             }
             
             // returns null when cell doesn't exist in given sheet
-            return sheets[sheetName].GetCell(index);
-        }
-
-        public TableCell GetCell(int row, int col)
-        {
-            return GetCell(row, col, mainSheet);
-        }
-
-        public TableCell GetCell(int row, int col, string sheetName)
-        {
-            return GetCell(Utils.GetExcelIndex(row, col), sheetName);
+            return sheets[sheetName].GetCell(row, col);
         }
 
         // load main sheet
@@ -84,110 +47,68 @@ namespace excel_impl
         {
             Load(filename, true);
         }
-
-
-        private void Load(string filename, bool isMainSheet)
+       
+        public void Load(string filename, bool isMainSheet)
         {
-            TableData sheet = new TableData();
-            
-            string line;
-            StreamReader inputFile = new StreamReader(filename);
-            while ((line = inputFile.ReadLine()) != null)
-            {
-                string[] tokens = Tokenizer.Tokenize(line);
-                sheet.AddRow(tokens);
-            }
-
+            TableData sheet = TableFileLoader.Load(filename);
             string sheetIdentifier = filename.Replace(".sheet", "");
             if (isMainSheet)
-            {
                 mainSheet = sheetIdentifier;
-            }
 
             sheets.Add(sheetIdentifier, sheet);
         }
 
-        /// <summary>
-        /// Returns two operands, or null, if formula is invalid
-        /// Method already assumes, that formula contains given operator
-        /// </summary>
-        /// <param name="formula"></param>
-        /// <param name="op"></param>
-        private static string[] GetOperands(string formula, string op)
+        private void EvaluateRecursively(ICell cell, Stack<ICell> seen, string sheetName)
         {
-            string[] operands = formula.Split(op);
-
-            if (operands.Length == 2 && Utils.IsValidCellKey(operands[0]) && Utils.IsValidCellKey(operands[1]))
-            {
-                return operands;
-            }
-
-            return null;
-        }
-
-        private void EvaluateRecursively(TableCell cell, Stack<TableCell> seen, string sheetname)
-        {
-            if (cell.evaluated) // if cell was evaluated already, skip evaluation
-            {
+            if (cell.IsEvaluated()) // if cell was evaluated already, skip evaluation
                 return;
-            }
 
-            // cell needs no further evaluation
-            if (Utils.IsInteger(cell.content) || cell.content == "[]")
+            if (cell is FormulaCell)
             {
-                cell.evaluated = true;
-                return;
-            }
-            else if (cell.content[0] == '=') // Is some kind of formula
-            {
-                string formula = cell.content.Substring(1);
-                string op = "";
-
-                if (formula.Contains("+"))
-                    op = "+";
-                else if (formula.Contains("-"))
-                    op = "-";
-                else if (formula.Contains("*"))
-                    op = "*";
-                else if (formula.Contains("/"))
-                    op = "/";
-
-                if (op == "") // formula doesn't contain an operator
-                {
-                    cell.content = TableCell.MISSOP;
-                    cell.evaluated = true;
-                    return;
-                }
-
-                string[] operands = ExcelTable.GetOperands(formula, op);
-                if (operands == null)
-                {
-                    // formula syntax error
-                    cell.content = TableCell.FORMULA;
-                    cell.evaluated = true;
-                    return;
-                }
-
-
+                FormulaCell formulaCell = (FormulaCell) cell;
                 // string values of operands
-                List<string> vals = new List<string>();
 
+                List<int> vals = new List<int>();
                 // rewrite relative address to absolute address
-                for (int i = 0; i < operands.Length; i++)
+                foreach(ILink link in formulaCell.Operands)
                 {
-                    if (!operands[i].Contains("!"))
+                    ICell operandCell;
+                    string newSheetName;
+
+                    if (link is AbsoluteLink)
                     {
-                        operands[i] = sheetname + "!" + operands[i];
+                        AbsoluteLink absLink = (AbsoluteLink) link;
+                        
+                        // can fail if sheetfile doesn't exist
+                        try
+                        {
+                            operandCell = GetCell(absLink.Row, absLink.Col, absLink.SheetName);
+                        } catch (Exception ex)
+                        {
+                            if (ex is SheetFileNotFoundException)
+                            {
+                                formulaCell.Evaluated = true;
+                                formulaCell.Status = Error.ERROR;
+                                return;
+                            }
+                            throw;
+                        }
+                        newSheetName = absLink.SheetName;
+                    }
+                    else
+                    {
+                        operandCell = GetCell(link.Row, link.Col, sheetName);
+                        newSheetName = sheetName;
                     }
 
-                    TableCell operand = GetCell(operands[i]);
-                    if (operand == null)
+                    if (operandCell == null)
                     {
-                        vals.Add("0");
+                        vals.Add(0);
                         continue;
                     }
 
-                    if (seen.Contains(operand))
+
+                    if (seen.Contains(operandCell))
                     {
                         // Seen stack together with operand contains exactly 1 cycle, operand lies in this cycle
                         // eg. operand = C3  --------------------------->  
@@ -200,42 +121,57 @@ namespace excel_impl
                         bool cycleStarted = false;
                         foreach (var cycleCell in seen.Reverse())
                         {
-                            if (cycleCell == operand)
+                            if (cycleCell == operandCell)
                                 cycleStarted = true;
 
                             if (cycleStarted)
                             {
-                                cycleCell.content = TableCell.CYCLE;
-                                cycleCell.evaluated = true;
+                                cycleCell.Status = Error.CYCLE;
+                                ((FormulaCell) cycleCell).Evaluated = true;
                             }
                         }
-
-                        vals.Add("#CYCLE");
                     }
                     else
                     {
-                        seen.Push(operand);
-                        EvaluateRecursively(operand, seen, operands[i].Split("!")[0]);
+                        seen.Push(operandCell);
+                        EvaluateRecursively(operandCell, seen, newSheetName);
                         seen.Pop();
-                        vals.Add(operand.content);
+                        
+                        // Cycle detection can set current cell value to #CYCLE, end evaluation in that case
+                        if (formulaCell.Status == Error.CYCLE)
+                        {
+                            return;
+                        }
+
+                        if (operandCell.Status != Error.OK)
+                        {
+                            formulaCell.Evaluated = true;
+                            formulaCell.Status = Error.ERROR;
+                            return;
+                        }
+                        
+                        vals.Add(operandCell.Val);
                     }
                 }
 
-                // Cycle detection can set current cell value to #CYCLE, end evaluation in that case
-                if (cell.content == TableCell.CYCLE)
+
+                try
                 {
-                    return;
+                    formulaCell.Val = formulaCell.Operation(vals[0], vals[1]);
+                    formulaCell.Evaluated = true;
                 }
-
-                cell.content = ExpressionEvaluator.EvaluateFormula(vals.ToArray(), op);
-                cell.evaluated = true;
+                catch (Exception e)
+                {
+                    if (e is DivideByZeroException)
+                    {
+                        formulaCell.Status = Error.DIV0;
+                        formulaCell.Evaluated = true;
+                    }
+                }
             }
-
-            else // Not an integer number and not a formula => #INVVAL
-            {
-                cell.content = TableCell.INVVAL;
-                cell.evaluated = true;
-            }
+            
+            
+            // shouldn't happen
         }
 
         public void Evaluate()
@@ -244,7 +180,7 @@ namespace excel_impl
             {
                 foreach (var cell in row)
                 {
-                    Stack<TableCell> seen = new Stack<TableCell>();
+                    Stack<ICell> seen = new Stack<ICell>();
                     seen.Push(cell);
                     EvaluateRecursively(cell, seen, mainSheet);
                 }
@@ -264,24 +200,24 @@ namespace excel_impl
         }
 
 
-        private string StatusRewrite(string content)
+        private string StatusRewrite(Error status)
         {
-            switch (content)
+            switch (status)
             {
-                case TableCell.ERROR:
+                case Error.ERROR:
                     return "#ERROR";
-                case TableCell.INVVAL:
+                case Error.INVVAL:
                     return "#INVVAL";
-                case TableCell.DIV0:
+                case Error.DIV0:
                     return "#DIV0";
-                case TableCell.CYCLE:
+                case Error.CYCLE:
                     return "#CYCLE";
-                case TableCell.MISSOP:
+                case Error.MISSOP:
                     return "#MISSOP";
-                case TableCell.FORMULA:
+                case Error.FORMULA:
                     return "#FORMULA";
                 default:
-                    return content;
+                    return null;
             }
         }
 
@@ -296,8 +232,21 @@ namespace excel_impl
                 for(int j = 0; j < row.Length; j++)
                 {
                     bool lastCell = j == (row.Length - 1);
-                    TableCell cell = row[j];
-                    writer.Write(StatusRewrite(cell.content));
+                    ICell cell = row[j];
+
+                    if (cell is EmptyCell)
+                    {
+                        writer.Write("[]");
+                    } else 
+                    {
+                        if(cell.Status == Error.OK)
+                            writer.Write(cell.Val);
+                        else
+                        {
+                            writer.Write(StatusRewrite(cell.Status));
+                        }
+                    }
+                    
                     if (!lastCell)
                         writer.Write(" ");
                 }

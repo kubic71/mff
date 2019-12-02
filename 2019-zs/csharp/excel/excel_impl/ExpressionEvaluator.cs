@@ -5,6 +5,8 @@ namespace excel_impl
 {
     public class ExpressionEvaluator
     {
+        
+        /*
         public static string EvaluateFormula(string[] vals, string op)
         {
             for (int i = 0; i < vals.Length; i++)
@@ -44,5 +46,6 @@ namespace excel_impl
             throw new DivideByZeroException();
             return null;
         }
+        */
     }
 }
