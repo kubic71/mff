@@ -18,8 +18,10 @@ namespace excel_impl
             {
                 ExcelTable table = new ExcelTable();
                 table.Load(args[0]);
+
                 table.Evaluate();
 
+                
                 StreamWriter writer = new StreamWriter(args[1]);
                 table.WriteTo(writer);
                 writer.Close();

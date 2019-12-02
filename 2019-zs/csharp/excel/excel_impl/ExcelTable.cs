@@ -28,11 +28,8 @@ namespace excel_impl
     {
         private string mainSheet;
 
-        private Dictionary<string, Dictionary<string, TableCell>> sheets =
-            new Dictionary<string, Dictionary<string, TableCell>>();
-
-        public int rows { get; private set; }
-        public int cols { get; private set; }
+        private Dictionary<string, TableData> sheets =
+            new Dictionary<string, TableData>();
 
         public TableCell GetCell(string index)
         {
@@ -70,7 +67,7 @@ namespace excel_impl
 
             if (sheets[sheetName].ContainsKey(index))
             {
-                return sheets[sheetName][index];
+                return sheets[sheetName].GetCell(index);
             }
 
             return null;
@@ -95,34 +92,14 @@ namespace excel_impl
 
         private void Load(string filename, bool isMainSheet)
         {
-            Dictionary<string, TableCell> sheet = new Dictionary<string, TableCell>();
-
-            cols = 0;
+            TableData sheet = new TableData();
+            
             string line;
-            int r = 1;
             StreamReader inputFile = new StreamReader(filename);
             while ((line = inputFile.ReadLine()) != null)
             {
                 string[] tokens = Tokenizer.Tokenize(line);
-                for (int c = 1; c <= tokens.Length; c++)
-                {
-                    string index = Utils.GetExcelIndex(r, c);
-                    TableCell cell = new TableCell();
-                    cell.content = tokens[c - 1];
-                    sheet[index] = cell;
-
-                    if (isMainSheet)
-                    {
-                        cols = Math.Max(tokens.Length, cols);
-                    }
-                }
-
-                r++;
-            }
-
-            if (isMainSheet)
-            {
-                rows = r - 1;
+                sheet.AddRow(tokens);
             }
 
             string sheetIdentifier = filename.Replace(".sheet", "");
@@ -206,6 +183,7 @@ namespace excel_impl
                     {
                         operands[i] = sheetname + "!" + operands[i];
                     }
+
                     TableCell operand = GetCell(operands[i]);
                     if (operand == null)
                     {
@@ -235,6 +213,7 @@ namespace excel_impl
                                 cycleCell.evaluated = true;
                             }
                         }
+
                         vals.Add("#CYCLE");
                     }
                     else
@@ -265,7 +244,7 @@ namespace excel_impl
 
         public void Evaluate()
         {
-            foreach (var cell in sheets[mainSheet].Values)
+            foreach (var cell in sheets[mainSheet].AllCells)
             {
                 Stack<TableCell> seen = new Stack<TableCell>();
                 seen.Push(cell);
@@ -309,29 +288,23 @@ namespace excel_impl
 
         public void WriteTo(StreamWriter writer)
         {
-            TableCell cell;
-            for (int r = 1; r <= rows; r++)
+            var rows = sheets[mainSheet].Rows;
+            for(int i = 0; i < rows.Count; i ++)
             {
-                int c = 1;
-                while (true)
+                var row = rows[i];
+                bool lastRow = i == (rows.Count - 1);
+                
+                for(int j = 0; j < row.Length; j++)
                 {
-                    cell = GetCell(r, c);
-                    bool last = GetCell(r, c + 1) == null;
-                    if (cell == null)
-                    {
-                        break;
-                    }
-
+                    bool lastCell = j == (row.Length - 1);
+                    TableCell cell = row[j];
                     writer.Write(StatusRewrite(cell.content));
-                    if (!last)
+                    if (!lastCell)
                         writer.Write(" ");
-                    c++;
                 }
-
-                if (r < rows)
-                {
+                
+                if (!lastRow)
                     writer.Write("\n");
-                }
             }
         }
     }

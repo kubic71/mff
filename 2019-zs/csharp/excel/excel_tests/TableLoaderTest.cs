@@ -68,8 +68,6 @@ namespace Tests
             Assert.AreEqual(null, table.GetCell(43, 2));
             Assert.AreEqual(null, table.GetCell(3, 243));
 
-            Assert.IsTrue(table.cols == 4 && table.rows == 4);
-
         }
     }
 }

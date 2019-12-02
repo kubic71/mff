@@ -21,7 +21,7 @@ namespace Tests
             Assert.AreEqual("AAB", Utils.ConvertNumToCol(704));
         }
 
-        /*
+
         [Test]
         public void ConvertNumToColTest()
         {
@@ -36,7 +36,6 @@ namespace Tests
             Assert.AreEqual(704, Utils.ConvertColToNum("AAB"));
             
         }
-        */
 
 
         [Test]
