@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace excel_impl
@@ -47,23 +48,12 @@ namespace excel_impl
     }
 
     
-    public interface ILink
-    {
-        int Row { get; set; }
-        int Col { get; set;  }
-    }
     
-    public class RelativeLink : ILink
+    public struct Link
     {
-        public int Row { get; set; }
-        public int Col { get; set; }
-    }
-    
-    public class AbsoluteLink : ILink
-    {
-        public string SheetName;
-        public int Row { get; set; }
-        public int Col { get; set; }
+        public int sheetHash;
+        public int Row;
+        public int Col;
     }
     
     public class FormulaCell : ICell
@@ -93,11 +83,12 @@ namespace excel_impl
         {
         }
         public const char NO_OP = '0';
+        public const int SHEET_RELATIVE = 0;   // hash code of relative link sheetHash
         public bool Evaluated = false;
         public int Val { get; set; }
         public Error Status { get; set; }
         
-        public ILink[] Operands;
+        public Link[] Operands;
         public char Operator = NO_OP;
 
         public int GetVal(int v1, int v2)
@@ -128,7 +119,7 @@ namespace excel_impl
     
     public static class TableFileLoader
     {
-        public static TableData Load(string filename)
+        public static TableData Load(string filename, Dictionary<int, string> sheetHashToString)
         {
             TableData sheet = new TableData();
             string line;
@@ -139,7 +130,7 @@ namespace excel_impl
                 ICell[] row = new ICell[tokens.Length];
                 for (int i = 0; i < tokens.Length; i++)
                 {
-                    row[i] = TokenToCell(tokens[i]);
+                    row[i] = TokenToCell(tokens[i], sheetHashToString);
                 }
                 
                 sheet.AddRow(row);
@@ -149,7 +140,7 @@ namespace excel_impl
         }
 
         // return EmptyCell, ValueCell or FormulaCell based on string token
-        public static ICell TokenToCell(string token)
+        public static ICell TokenToCell(string token, Dictionary<int, string> sheetHashToString)
         {
             // cell needs no further evaluation
             if (token == "[]")
@@ -205,32 +196,29 @@ namespace excel_impl
                     return cell;
                 }
 
-                ILink[] links = new ILink[2];
-                
+                cell.Operands = new Link[2];
+
                 for (int i = 0; i < operands.Length; i++)
                 {
                     if (operands[i].Contains('!'))
                     {
                         string[] parts = operands[i].Split('!');
                         string addr = parts[1];
-                        AbsoluteLink link = new AbsoluteLink();
-                        link.SheetName = parts[0];
+                        cell.Operands[i].sheetHash = parts[0].GetHashCode();
+                        sheetHashToString[cell.Operands[i].sheetHash] = parts[0];
                         Utils.GetRowColFromAddr(addr, out int row, out int col);
-                        link.Row = row;
-                        link.Col = col;
-                        links[i] = link;
+                        cell.Operands[i].Row = row;
+                        cell.Operands[i].Col = col;
                     }
                     else
                     {
-                        RelativeLink link = new RelativeLink();
+                        cell.Operands[i].sheetHash = 0;
                         Utils.GetRowColFromAddr(operands[i], out int row, out int col);
-                        link.Row = row;
-                        link.Col = col;
-                        links[i] = link;
+                        cell.Operands[i].Row = row;
+                        cell.Operands[i].Col = col;
                     } 
                 }
-
-                cell.Operands = links;
+                
                 return cell;
             }
             

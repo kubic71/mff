@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using excel_impl;
 using NUnit.Framework;
@@ -17,7 +18,8 @@ namespace Tests
                            " []  [] \n";   // 3
                            
             TestUtils.SaveToFile(query, "Main.sheet");
-            return TableFileLoader.Load("Main.sheet");
+            Dictionary<int, string> hashToString  = new Dictionary<int, string>();
+            return TableFileLoader.Load("Main.sheet", hashToString);
         }
 
         [Test]
@@ -42,7 +44,8 @@ namespace Tests
         {
             string query = "=B12*B3";
             TestUtils.SaveToFile(query, "Main.sheet");
-            return TableFileLoader.Load("Main.sheet");
+            Dictionary<int, string> hashToString  = new Dictionary<int, string>();
+            return TableFileLoader.Load("Main.sheet", hashToString);
         }
 
         [Test]
