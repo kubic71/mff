@@ -68,25 +68,22 @@ namespace excel_impl
     
     public class FormulaCell : ICell
     {
-        public static int Divide(int x, int y)
+        public int GetVal(int x, int y)
         {
-            return x / y;
-        }
-        
-        public static int Add(int x, int y)
-        {
-            return x + y;
-        }
-        
-        public static int Substract(int x, int y)
-        {
-            return x - y;
-        }
-        
-        public static int Multiply(int x, int y)
-        {
-            return x * y;
-        }
+            switch (Operation) 
+            {
+                case '+':
+                    return x + y;
+                case '-':
+                    return x - y;
+                case '*':
+                    return x * y;
+                case '/':
+                    return x / y;
+                default:
+                    throw new NotImplementedException();
+            }
+        } 
         
         
         public FormulaCell()
@@ -98,7 +95,7 @@ namespace excel_impl
         public Error Status { get; set; }
         
         public ILink[] Operands;
-        public Func<int, int ,int> Operation = null; 
+        public char Operation = '0'; 
 
         public bool IsEvaluated()
         {
@@ -154,36 +151,31 @@ namespace excel_impl
             {
                 string formula = token.Substring(1);
                 Func<int, int ,int> op = null;
-                string strOp = "";
                 FormulaCell cell = new FormulaCell();
 
                 
-                if (formula.Contains("+")) {
-                    cell.Operation = FormulaCell.Add;
-                    strOp = "+";
+                if (formula.Contains('+')) {
+                    cell.Operation = '+';
                 }
                 else if (formula.Contains("-")) {
-                    cell.Operation = FormulaCell.Substract;
-                    strOp = "-";
+                    cell.Operation = '-';
                 }
                 else if (formula.Contains("*")) {
-                    cell.Operation = FormulaCell.Multiply;
-                    strOp = "*";
+                    cell.Operation = '*';
                 }
                 else if (formula.Contains("/"))
                 {
-                    cell.Operation = FormulaCell.Divide;
-                    strOp = "/";
+                    cell.Operation = '/';
                 }
 
-                if (cell.Operation == null) // formula doesn't contain an operator
+                if (cell.Operation == '0') // formula doesn't contain an operator
                 {
                     cell.Status = Error.MISSOP;
                     cell.Evaluated = true;
                     return cell;
                 }
 
-                string[] operands = TableFileLoader.GetOperands(formula, strOp);
+                string[] operands = TableFileLoader.GetOperands(formula, cell.Operation);
                 if (operands == null)
                 {
                     // formula syntax error
@@ -234,7 +226,7 @@ namespace excel_impl
         /// </summary>
         /// <param name="formula"></param>
         /// <param name="op"></param>
-        private static string[] GetOperands(string formula, string op)
+        private static string[] GetOperands(string formula, char op)
         {
             string[] operands = formula.Split(op);
 
