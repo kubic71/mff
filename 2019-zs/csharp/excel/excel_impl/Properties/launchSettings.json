@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "excel_impl": {
+      "commandName": "Project",
+      "commandLineArgs": "1000000.in 1000000.out"
+    }
+  }
+}

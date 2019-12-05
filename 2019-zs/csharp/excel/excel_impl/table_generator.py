@@ -7,8 +7,8 @@ for i in range(int(sys.argv[1])):
 
 print()
 
-# for i in range(int(sys.argv[1])):
-#    print("=A1*A2", end = " ")
+for i in range(int(sys.argv[1])):
+    print("=A1*A2", end = " ")
 
 
 
