@@ -157,7 +157,7 @@ namespace excel_impl
 
                 try
                 {
-                    formulaCell.Val = formulaCell.Operation(vals[0], vals[1]);
+                    formulaCell.Val = formulaCell.GetVal(vals[0], vals[1]);
                     formulaCell.Evaluated = true;
                 }
                 catch (Exception e)

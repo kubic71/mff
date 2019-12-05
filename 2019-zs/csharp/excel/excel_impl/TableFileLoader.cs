@@ -92,13 +92,30 @@ namespace excel_impl
         public FormulaCell()
         {
         }
-
+        public const char NO_OP = '0';
         public bool Evaluated = false;
         public int Val { get; set; }
         public Error Status { get; set; }
         
         public ILink[] Operands;
-        public Func<int, int ,int> Operation = null; 
+        public char Operator = NO_OP;
+
+        public int GetVal(int v1, int v2)
+        {
+            switch (Operator) 
+            {
+                case '+':
+                    return v1 + v2;
+                case '-':
+                    return v1 - v2;
+                case '*':
+                    return v1 * v2;
+                case '/':
+                    return v1 / v2;
+                default:
+                    throw new NotImplementedException();
+            }
+        }
 
         public bool IsEvaluated()
         {
@@ -152,38 +169,34 @@ namespace excel_impl
 
             if (token[0] == '=') // Is some kind of formula
             {
-                string formula = token.Substring(1);
-                Func<int, int ,int> op = null;
-                string strOp = "";
                 FormulaCell cell = new FormulaCell();
 
                 
-                if (formula.Contains("+")) {
-                    cell.Operation = FormulaCell.Add;
-                    strOp = "+";
-                }
-                else if (formula.Contains("-")) {
-                    cell.Operation = FormulaCell.Substract;
-                    strOp = "-";
-                }
-                else if (formula.Contains("*")) {
-                    cell.Operation = FormulaCell.Multiply;
-                    strOp = "*";
-                }
-                else if (formula.Contains("/"))
+                if (token.Contains('+'))
                 {
-                    cell.Operation = FormulaCell.Divide;
-                    strOp = "/";
+                    cell.Operator = '+';
+                }
+                else if (token.Contains('-'))
+                {
+                    cell.Operator = '-';
+                }
+                else if (token.Contains('*'))
+                {
+                    cell.Operator = '*';
+                }
+                else if (token.Contains('/'))
+                {
+                    cell.Operator = '/';
                 }
 
-                if (cell.Operation == null) // formula doesn't contain an operator
+                if (cell.Operator == FormulaCell.NO_OP) // formula doesn't contain an operator
                 {
                     cell.Status = Error.MISSOP;
                     cell.Evaluated = true;
                     return cell;
                 }
 
-                string[] operands = TableFileLoader.GetOperands(formula, strOp);
+                string[] operands = TableFileLoader.GetOperands(token, cell.Operator);
                 if (operands == null)
                 {
                     // formula syntax error
@@ -234,9 +247,10 @@ namespace excel_impl
         /// </summary>
         /// <param name="formula"></param>
         /// <param name="op"></param>
-        private static string[] GetOperands(string formula, string op)
+        private static string[] GetOperands(string formula, char op)
         {
-            string[] operands = formula.Split(op);
+            
+            string[] operands = formula.Substring(1).Split(op);
 
             if (operands.Length == 2 && Utils.IsValidCellKey(operands[0]) && Utils.IsValidCellKey(operands[1]))
             {
