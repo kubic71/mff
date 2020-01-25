@@ -1,0 +1,92 @@
+// designed for default level 5 Hilbert SFC
+// tested with param: level=5, size=0.2, cdetail=16, radius=0.75, bdetail=9, period=100,start=0
+
+orientation=manual
+
+
+// dive down for fast sweep through the cube
+// looking forward
+
+pos=[0, 1.5, -3.5];lookAt=[0, 1,-3.1];up=[0, 0, 1]
+pos=[0, 1, -3.1];lookAt=[0, 0, -2.5];up=[0,1,0]
+pos=[0, 0.5, -2.3];lookAt=[0, 0, -1.5];up=[0,1,0]
+pos=[0, 0, -1];lookAt=[0, 0, 1];up=[0,1,0]
+
+// sharp left
+pos=[0, 0, 1];lookAt=[1, 0,1.2];up=[0,0.6,-1]
+pos=[0.5, 0.05, 1.5];lookAt=[1, 0,1];up=[-0.5,1,-0.5]
+
+// cube side fly-by with left turn
+pos=[1, 0, 1];lookAt=[1.25, -0.25,0];up=[-0.25,1,0]
+pos=[1.05, 0, -0.5];lookAt=[0.5, 0,-1];up=[-0.75,1,0]
+
+pos=[1, 0, -1];lookAt=[0, -0.25,-1.25];up=[0,1,0.25]
+pos=[-0.5, 0, -1.05];lookAt=[-1, 0,-0.5];up=[0,1,0.75]
+
+pos=[-1, 0, -1];lookAt=[-1.25, -0.25,0];up=[0.25,1,0]
+pos=[-1.05, 0, 0.5];lookAt=[-0.5, 0,1];up=[0.75,1,0]
+
+pos=[-1, 0, 1];lookAt=[0, -0.25,1.25];up=[0,1,-0.25]
+pos=[0.5, 0, 1.05];lookAt=[1, 0,0.5];up=[0,1,-0.75]
+
+// diagonal with turn 
+pos=[1,0,1];lookAt=[0.25, -0.5, -0.25];up=[-1,1,0]
+pos=[0.25,0,-0.25];lookAt=[-1, 0, -0.5];up=[0,1,0]
+
+pos=[-1,0,-1];lookAt=[-0.25, -0.5, 0.25];up=[1,1,0]
+pos=[-0.25,0,0.25];lookAt=[-1, 0, 1];up=[0,1,0]
+
+// fly up and dive from the above to the middle
+pos=[-0.8,0,0.8];lookAt=[0,0,-1];up=[0,1,0]
+pos=[-1,0.1,1.1];lookAt=[0,0,1];up=[0,1,0]
+pos=[0,1,1];lookAt=[0,0.5,0];up=[0,1,0]
+pos=[0,1.75,0.75];lookAt=[0.5,1,0];up=[0,1,0]
+pos=[0,2,0.5];lookAt=[0,1,0];up=[0,-1,0]
+pos=[0,1.75,0.25];lookAt=[0,1,0];up=[-1,0,-1]
+pos=[0,1,0];lookAt=[0,-1,0];up=[1,0,0]
+
+pos=[0,-1,0];lookAt=[-1,-1.5,1];up=[-1,0.5,1]
+pos=[-0.3,-1.1,0.3];lookAt=[-1,-1.3,1];up=[0,1,0]
+pos=[-0.5,-1.05,0.5];lookAt=[-1,-1.25,1];up=[0,1,0.5]
+pos=[-0.7,-1.03,0.9];lookAt=[-1,-1,1];up=[0,1,0]
+pos=[-1,-1.02,1];lookAt=[-1,-2,-1];up=[0,1,0]
+
+
+// side fly and view of the cube from distance
+pos=[-1.1,-0.75,0];lookAt=[-1,-0.5,-1];up=[0,1,0]
+pos=[-1.1,-0.75,-1.2];lookAt=[0,0,-1];up=[0,1,0]
+pos=[-1.1,-0.75,-2.0];lookAt=[0,0,-1];up=[0,1,0]
+pos=[-1.1,-0.75,-2.6];lookAt=[0,0,-1];up=[0,1,0]
+pos=[-1.1,-0.75,-3.0];lookAt=[0,0,-1];up=[0,1,0]
+pos=[-1.1,-0.75,-3.2];lookAt=[0,0,-1];up=[0,1,0]
+
+
+
+// ride wall backwards
+pos=[-1.3,-1,-2.4];lookAt=[-0.5,-0.5,-1];up=[0,1,0]
+pos=[-1.1,-1,-1.3];lookAt=[0,0,-1];up=[0,0,-1]
+pos=[0.5, 0.5,-1.05];lookAt=[-1,-1,-1];up=[0,0,-1]
+pos=[1.5, 2,-1];lookAt=[0, 1, 0];up=[0,1,0]
+pos=[2, 3,-0.5];lookAt=[0, 1, 0];up=[0,0,1]
+
+// dive in
+pos=[1.5, 3,-0.25];lookAt=[0, 1, 0];up=[0,-1,0]
+pos=[1.2, 2.6,0];lookAt=[-1, 1, 0];up=[0,-0.5,-1]
+pos=[0.9, 1.3,0];lookAt=[-0.5, -1, -1];up=[0,0,-1]
+pos=[0.5, 0.5,0];lookAt=[-0.5, -1, -1];up=[0,0,-1]
+pos=[0.3, 0.1,0];lookAt=[0, -0.5, -0.5];up=[0,1,-1]
+pos=[0.1, 0.1,0];lookAt=[-1, 0, 0];up=[0,1,0]
+pos=[0, 0.1,0];lookAt=[-1, 0, 0];up=[0,1,0]
+
+// pitch backwards 360deg
+pos=[-0.2, 0.1,0];lookAt=[0,1,0];up=[1,0,0]
+pos=[-0.4, 0.1,0];lookAt=[1,0,0];up=[0,-1,0]
+pos=[-0.6, 0.1,0];lookAt=[0,-1,0];up=[-1,0,0]
+pos=[-0.8, 0.1,0];lookAt=[-2,1,0];up=[0,1,0]
+
+
+// dissapear into the distance
+pos=[2, 0.1,0];lookAt=[1,0,0];up=[0,-1,0]
+pos=[8, 0.1,0];lookAt=[1,0,0];up=[0,-1,0]
+pos=[18, 0.1,0];lookAt=[1,0,0];up=[0,-1,0]
+pos=[32, 0.1,0];lookAt=[1,0,0];up=[0,-1,0]

@@ -1,0 +1,32 @@
+
+2020-01-25 02:04:05: .NET Framework 4.6.1 (4.0.30319.42000), OpenTK 3.0.0.0
+2020-01-25 02:04:05: OpenGL version: 4.6.0 - Build 26.20.100.7262, shading language: 4.60 - Build 26.20.100.7262
+2020-01-25 02:04:05: Vendor: Intel, driver: Intel(R) UHD Graphics 620
+2020-01-25 02:04:05: Max-vertices: 1048576, max-indices: 1048576, extensions: 231
+2020-01-25 02:04:05: GLSL program 'default': 3, shaders: 2
+2020-01-25 02:04:05:   VertexShader: 1
+2020-01-25 02:04:05:   FragmentShader: 2
+2020-01-25 02:04:05: Attributes[ 4 ]:
+2020-01-25 02:04:05:   color: 3, FloatVec3, 1
+2020-01-25 02:04:05:   normal: 2, FloatVec3, 1
+2020-01-25 02:04:05:   position: 0, FloatVec4, 1
+2020-01-25 02:04:05:   texCoords: 1, FloatVec2, 1
+2020-01-25 02:04:05: Uniforms[ 18 ]:
+2020-01-25 02:04:06:   Ka: 7, FloatVec3, 1
+2020-01-25 02:04:06:   Kd: 8, FloatVec3, 1
+2020-01-25 02:04:06:   Ks: 14, FloatVec3, 1
+2020-01-25 02:04:06:   eyePosition: 4, FloatVec3, 1
+2020-01-25 02:04:06:   globalAmbient: 10, FloatVec3, 1
+2020-01-25 02:04:06:   globalColor: 6, Bool, 1
+2020-01-25 02:04:06:   lightColor: 12, FloatVec3, 1
+2020-01-25 02:04:06:   lightPosition: 3, FloatVec3, 1
+2020-01-25 02:04:06:   matrixModelView: 1, FloatMat4, 1
+2020-01-25 02:04:06:   matrixProjection: 0, FloatMat4, 1
+2020-01-25 02:04:06:   shadingPhong: 2, Bool, 1
+2020-01-25 02:04:06:   shininess: 5, Float, 1
+2020-01-25 02:04:06:   useAmbient: 9, Bool, 1
+2020-01-25 02:04:06:   useDiffuse: 11, Bool, 1
+2020-01-25 02:04:06:   useSpecular: 13, Bool, 1
+2020-01-25 02:04:06:   shadingGouraud: 17, Bool, 1
+2020-01-25 02:04:06:   texSurface: 16, Sampler2D, 1
+2020-01-25 02:04:06:   useTexture: 15, Bool, 1
