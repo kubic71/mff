@@ -1,0 +1,4 @@
+orientation=auto;up=[0,1,0];lookAhead=1
+pos=[0, 0, 0]
+pos=[-0.4666667, 0, 0]
+pos=[-0.4666667, 0, 0]

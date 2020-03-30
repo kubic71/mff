@@ -1,0 +1,16 @@
+C:\Users\kubik\school\086shader\bin\x64\Release\fragment.glsl
+C:\Users\kubik\school\086shader\bin\x64\Release\vertex.glsl
+C:\Users\kubik\school\086shader\bin\x64\Release\086shader.exe.config
+C:\Users\kubik\school\086shader\bin\x64\Release\086shader.exe
+C:\Users\kubik\school\086shader\bin\x64\Release\086shader.pdb
+C:\Users\kubik\school\086shader\bin\x64\Release\OpenTK.dll
+C:\Users\kubik\school\086shader\bin\x64\Release\OpenTK.GLControl.dll
+C:\Users\kubik\school\086shader\bin\x64\Release\OpenTK.dll.config
+C:\Users\kubik\school\086shader\bin\x64\Release\OpenTK.GLControl.xml
+C:\Users\kubik\school\086shader\obj\x64\Release\086shader.csprojAssemblyReference.cache
+C:\Users\kubik\school\086shader\obj\x64\Release\_086shader.Form1.resources
+C:\Users\kubik\school\086shader\obj\x64\Release\_086shader.Properties.Resources.resources
+C:\Users\kubik\school\086shader\obj\x64\Release\086shader.csproj.GenerateResource.cache
+C:\Users\kubik\school\086shader\obj\x64\Release\086shader.csproj.CopyComplete
+C:\Users\kubik\school\086shader\obj\x64\Release\086shader.exe
+C:\Users\kubik\school\086shader\obj\x64\Release\086shader.pdb

@@ -13,18 +13,14 @@ namespace excel_impl
 
         private Dictionary<string, TableData> sheets =
             new Dictionary<string, TableData>();
-        
-        private Dictionary<int, string> sheetHashToString = new Dictionary<int, string>();
 
         /// <summary>
         /// Get ICell object
         /// </summary>
         /// <returns>ICell if this cell appeared in input sheet file or null if cell didn't appear in sheet file, but sheet file does exists (and thus has value of 0)</returns>
         /// <exception cref="SheetFileNotFoundException">When index refers to external sheet and this sheet doesn't exist</exception>
-        public ICell GetCell(int row, int col, int sheetHash)
+        public ICell GetCell(int row, int col, string sheetName)
         {
-            string sheetName = sheetHashToString[sheetHash];
-            
             if (!sheets.ContainsKey(sheetName))
             {
                 // Load external sheet
@@ -54,16 +50,15 @@ namespace excel_impl
        
         public void Load(string filename, bool isMainSheet)
         {
-            TableData sheet = TableFileLoader.Load(filename, sheetHashToString);
+            TableData sheet = TableFileLoader.Load(filename);
             string sheetIdentifier = filename.Replace(".sheet", "");
-            sheetHashToString[sheetIdentifier.GetHashCode()] = sheetIdentifier;
             if (isMainSheet)
                 mainSheet = sheetIdentifier;
 
             sheets.Add(sheetIdentifier, sheet);
         }
 
-        private void EvaluateRecursively(ICell cell, Stack<ICell> seen, int sheetHash)
+        private void EvaluateRecursively(ICell cell, Stack<ICell> seen, string sheetName)
         {
             if (cell.IsEvaluated()) // if cell was evaluated already, skip evaluation
                 return;
@@ -75,17 +70,19 @@ namespace excel_impl
 
                 List<int> vals = new List<int>();
                 // rewrite relative address to absolute address
-                foreach(Link link in formulaCell.Operands)
+                foreach(ILink link in formulaCell.Operands)
                 {
                     ICell operandCell;
-                    int newSheetHash;
+                    string newSheetName;
 
-                    if (link.sheetHash != FormulaCell.SHEET_RELATIVE)   // absolute link
+                    if (link is AbsoluteLink)
                     {
+                        AbsoluteLink absLink = (AbsoluteLink) link;
+                        
                         // can fail if sheetfile doesn't exist
                         try
                         {
-                            operandCell = GetCell(link.Row, link.Col, link.sheetHash);
+                            operandCell = GetCell(absLink.Row, absLink.Col, absLink.SheetName);
                         } catch (Exception ex)
                         {
                             if (ex is SheetFileNotFoundException)
@@ -96,12 +93,12 @@ namespace excel_impl
                             }
                             throw;
                         }
-                        newSheetHash = link.sheetHash;
+                        newSheetName = absLink.SheetName;
                     }
                     else
                     {
-                        operandCell = GetCell(link.Row, link.Col, sheetHash);
-                        newSheetHash = sheetHash;
+                        operandCell = GetCell(link.Row, link.Col, sheetName);
+                        newSheetName = sheetName;
                     }
 
                     if (operandCell == null)
@@ -137,7 +134,7 @@ namespace excel_impl
                     else
                     {
                         seen.Push(operandCell);
-                        EvaluateRecursively(operandCell, seen, newSheetHash);
+                        EvaluateRecursively(operandCell, seen, newSheetName);
                         seen.Pop();
                         
                         // Cycle detection can set current cell value to #CYCLE, end evaluation in that case
@@ -185,7 +182,7 @@ namespace excel_impl
                 {
                     Stack<ICell> seen = new Stack<ICell>();
                     seen.Push(cell);
-                    EvaluateRecursively(cell, seen, mainSheet.GetHashCode());
+                    EvaluateRecursively(cell, seen, mainSheet);
                 }
             }
         }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 
 namespace excel_impl
@@ -48,65 +47,55 @@ namespace excel_impl
     }
 
     
-    
-    public struct Link
+    public interface ILink
     {
-        public int sheetHash;
-        public int Row;
-        public int Col;
+        int Row { get; set; }
+        int Col { get; set;  }
+    }
+    
+    public class RelativeLink : ILink
+    {
+        public int Row { get; set; }
+        public int Col { get; set; }
+    }
+    
+    public class AbsoluteLink : ILink
+    {
+        public string SheetName;
+        public int Row { get; set; }
+        public int Col { get; set; }
     }
     
     public class FormulaCell : ICell
     {
-        public static int Divide(int x, int y)
+        public int GetVal(int x, int y)
         {
-            return x / y;
-        }
-        
-        public static int Add(int x, int y)
-        {
-            return x + y;
-        }
-        
-        public static int Substract(int x, int y)
-        {
-            return x - y;
-        }
-        
-        public static int Multiply(int x, int y)
-        {
-            return x * y;
-        }
+            switch (Operation) 
+            {
+                case '+':
+                    return x + y;
+                case '-':
+                    return x - y;
+                case '*':
+                    return x * y;
+                case '/':
+                    return x / y;
+                default:
+                    throw new NotImplementedException();
+            }
+        } 
         
         
         public FormulaCell()
         {
         }
-        public const char NO_OP = '0';
-        public const int SHEET_RELATIVE = 0;   // hash code of relative link sheetHash
+
         public bool Evaluated = false;
         public int Val { get; set; }
         public Error Status { get; set; }
         
-        public Link[] Operands;
-        public char Operator = NO_OP;
-
-        public int GetVal(int v1, int v2)
-        {
-            switch (Operator) 
-            {
-                case '+':
-                    return v1 + v2;
-                case '-':
-                    return v1 - v2;
-                case '*':
-                    return v1 * v2;
-                case '/':
-                    return v1 / v2;
-                default:
-                    throw new NotImplementedException();
-            }
-        }
+        public ILink[] Operands;
+        public char Operation = '0'; 
 
         public bool IsEvaluated()
         {
@@ -119,7 +108,7 @@ namespace excel_impl
     
     public static class TableFileLoader
     {
-        public static TableData Load(string filename, Dictionary<int, string> sheetHashToString)
+        public static TableData Load(string filename)
         {
             TableData sheet = new TableData();
             string line;
@@ -130,7 +119,7 @@ namespace excel_impl
                 ICell[] row = new ICell[tokens.Length];
                 for (int i = 0; i < tokens.Length; i++)
                 {
-                    row[i] = TokenToCell(tokens[i], sheetHashToString);
+                    row[i] = TokenToCell(tokens[i]);
                 }
                 
                 sheet.AddRow(row);
@@ -140,7 +129,7 @@ namespace excel_impl
         }
 
         // return EmptyCell, ValueCell or FormulaCell based on string token
-        public static ICell TokenToCell(string token, Dictionary<int, string> sheetHashToString)
+        public static ICell TokenToCell(string token)
         {
             // cell needs no further evaluation
             if (token == "[]")
@@ -160,34 +149,33 @@ namespace excel_impl
 
             if (token[0] == '=') // Is some kind of formula
             {
+                string formula = token.Substring(1);
+                Func<int, int ,int> op = null;
                 FormulaCell cell = new FormulaCell();
 
                 
-                if (token.Contains('+'))
-                {
-                    cell.Operator = '+';
+                if (formula.Contains('+')) {
+                    cell.Operation = '+';
                 }
-                else if (token.Contains('-'))
-                {
-                    cell.Operator = '-';
+                else if (formula.Contains("-")) {
+                    cell.Operation = '-';
                 }
-                else if (token.Contains('*'))
-                {
-                    cell.Operator = '*';
+                else if (formula.Contains("*")) {
+                    cell.Operation = '*';
                 }
-                else if (token.Contains('/'))
+                else if (formula.Contains("/"))
                 {
-                    cell.Operator = '/';
+                    cell.Operation = '/';
                 }
 
-                if (cell.Operator == FormulaCell.NO_OP) // formula doesn't contain an operator
+                if (cell.Operation == '0') // formula doesn't contain an operator
                 {
                     cell.Status = Error.MISSOP;
                     cell.Evaluated = true;
                     return cell;
                 }
 
-                string[] operands = TableFileLoader.GetOperands(token, cell.Operator);
+                string[] operands = TableFileLoader.GetOperands(formula, cell.Operation);
                 if (operands == null)
                 {
                     // formula syntax error
@@ -196,29 +184,32 @@ namespace excel_impl
                     return cell;
                 }
 
-                cell.Operands = new Link[2];
-
+                ILink[] links = new ILink[2];
+                
                 for (int i = 0; i < operands.Length; i++)
                 {
                     if (operands[i].Contains('!'))
                     {
                         string[] parts = operands[i].Split('!');
                         string addr = parts[1];
-                        cell.Operands[i].sheetHash = parts[0].GetHashCode();
-                        sheetHashToString[cell.Operands[i].sheetHash] = parts[0];
+                        AbsoluteLink link = new AbsoluteLink();
+                        link.SheetName = parts[0];
                         Utils.GetRowColFromAddr(addr, out int row, out int col);
-                        cell.Operands[i].Row = row;
-                        cell.Operands[i].Col = col;
+                        link.Row = row;
+                        link.Col = col;
+                        links[i] = link;
                     }
                     else
                     {
-                        cell.Operands[i].sheetHash = 0;
+                        RelativeLink link = new RelativeLink();
                         Utils.GetRowColFromAddr(operands[i], out int row, out int col);
-                        cell.Operands[i].Row = row;
-                        cell.Operands[i].Col = col;
+                        link.Row = row;
+                        link.Col = col;
+                        links[i] = link;
                     } 
                 }
-                
+
+                cell.Operands = links;
                 return cell;
             }
             
@@ -237,8 +228,7 @@ namespace excel_impl
         /// <param name="op"></param>
         private static string[] GetOperands(string formula, char op)
         {
-            
-            string[] operands = formula.Substring(1).Split(op);
+            string[] operands = formula.Split(op);
 
             if (operands.Length == 2 && Utils.IsValidCellKey(operands[0]) && Utils.IsValidCellKey(operands[1]))
             {
