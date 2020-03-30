@@ -1,0 +1,18 @@
+Assignment Base = Object is invalid
+Assignment Base = Object is invalid
+Assignment Base = Base is invalid
+
+Assignment Derived = Middle is invalid
+Assignment Derived = Base is invalid
+Assignment Derived = Base is invalid
+Assignment Derived = Middle is invalid
+
+Assignment Base = F is invalid
+Assignment F = Base is invalid
+Assignment Derived = E is invalid
+Assignment E = Derived is invalid
+
+Cannot find type Undeclared
+Cannot find type Undeclared
+Cannot find type Undeclared
+Cannot find type Undeclared

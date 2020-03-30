@@ -1,0 +1,18 @@
+Base = Object
+Base = Object Object
+Base = Object Base
+
+Derived = Middle
+Derived = Base
+Derived = Middle Base
+Derived = Base Middle
+
+Base = F
+F = Base
+Derived = E
+E = Derived
+
+Base = Undeclared
+Undeclared = Base
+Base = Middle Undeclared
+Base = Undeclared Middle

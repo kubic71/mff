@@ -1,0 +1,6 @@
+Base
+Middle : Base
+Derived : Middle
+D : Middle
+E : Base
+F

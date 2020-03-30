@@ -1,0 +1,19 @@
+Assignment Object = Object is valid
+Assignment Object = Object is valid
+Assignment Object = Object is valid
+
+Assignment Object = Base is valid
+Assignment Object = Middle is valid
+Assignment Object = Derived is valid
+Assignment Base = Middle is valid
+Assignment Base = Derived is valid
+Assignment Middle = Derived is valid
+
+Assignment Middle = Base is valid
+Assignment Derived = Base is valid
+Assignment Derived = Base is valid
+
+Assignment D = Derived is valid
+
+Assignment Base = Middle is valid
+Assignment Base = Middle is valid

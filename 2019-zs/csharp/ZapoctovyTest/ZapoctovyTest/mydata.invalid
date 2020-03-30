@@ -1,0 +1,5 @@
+1: Duplicate type Object. First declared on line 0
+2: Non existing base type A
+3: Non existing base type A
+6: Duplicate type D. First declared on line 5
+4 errors. Stopping.

@@ -1,0 +1,19 @@
+Object = Object
+Object = Object Object
+Object = Object Object Object
+
+Object = Base
+Object = Middle
+Object = Derived
+Base = Middle
+Base = Derived
+Middle = Derived
+
+Middle = Middle Base
+Derived = Derived Base
+Derived = Derived Middle Base
+
+D = D Middle Derived
+
+Base = Base Middle
+Base = Middle Middle
