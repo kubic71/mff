@@ -52,8 +52,9 @@ namespace huffmann
                 {
                     UInt64 node = 0x1; // leaf node has first bit 1
                     node = node | ((Weight & 0x7FFFFFFFFFFFFF) << 1);   // bits 1-55 contain lower 55 bits of Weight
-                    node = node | ((UInt64)Symbol << 56); // bits 56-63 contain 8-bit value of symbol  
-                    outputStream.Write(BitConverter.GetBytes(node));
+                    node = node | ((UInt64)Symbol << 56); // bits 56-63 contain 8-bit value of symbol
+                    byte[] bytes = BitConverter.GetBytes(node);
+                    outputStream.Write(bytes, 0, bytes.Length);
                 } else
                 {
                     outputStream.Write(Encoding.ASCII.GetBytes($"*{(int) Symbol}:{Weight}"));
@@ -67,7 +68,8 @@ namespace huffmann
                 {
                     UInt64 node = 0x0; // inner node has first bit 0
                     node = node | ((Weight & 0x7FFFFFFFFFFFFF) << 1);   // bits 1-55 contain lower 55 bits of Weight
-                    outputStream.Write(BitConverter.GetBytes(node));
+                    byte[] bytes = BitConverter.GetBytes(node);
+                    outputStream.Write(bytes, 0, bytes.Length);
                     
                     Left.PrintTree(outputStream, binary);
                     Right.PrintTree(outputStream, binary);

@@ -44,6 +44,7 @@ namespace huffmann
                 byte toWrite = (byte)(buffer[i * 8] | buffer[i * 8 + 1] << 1 | buffer[i * 8 + 2] << 2 | buffer[i * 8 + 3] << 3 |
                     buffer[i * 8 + 4] << 4 | buffer[i * 8 + 5] << 5 | buffer[i * 8 + 6] << 6 | buffer[i * 8 + 7] << 7);
                 
+
                 outputStream.WriteByte(toWrite);
             }
         }
@@ -53,10 +54,9 @@ namespace huffmann
         public static void Encode(Stream inputStream, Stream outputStream)
         {
             HuffmannTree huffmannTree = HuffmannTree.BuildTree(inputStream);
-            outputStream.Write(new byte[]{0x7B, 0x68, 0x75, 0x7C, 0x6D, 0x7D, 0x66, 0x66}); // write header
-            
+            outputStream.Write(new byte[]{0x7B, 0x68, 0x75, 0x7C, 0x6D, 0x7D, 0x66, 0x66}, 0, 8); // write header
             huffmannTree.PrintTree(outputStream, true);
-            outputStream.Write(new byte[]{0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}); // huffmann tree representation is ended with 8 bytes of zeros
+            outputStream.Write(new byte[]{0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}, 0, 8); // huffmann tree representation is ended with 8 bytes of zeros
             
             inputStream.Position = 0;
 
@@ -78,7 +78,6 @@ namespace huffmann
                 }
                 Console.WriteLine();
                 */
-                
                 
                 writer.WriteBits(path);
             }

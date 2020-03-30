@@ -27,10 +27,13 @@ namespace huffmann
             try
             {
                 FileStream inputFile = new FileStream(args[0], FileMode.Open);
-                FileStream outputFile = new FileStream(args[0] + ".huff", FileMode.Create);
-                
-                HuffmannEncoder.Encode(inputFile, outputFile);
-                outputFile.Close();
+
+                string outputFilePath = args[0] + ".huff";
+
+                using (FileStream outputFile = File.Create(outputFilePath))
+                {
+                    HuffmannEncoder.Encode(inputFile, outputFile);
+                }
             }
             
             catch (Exception ex)            
