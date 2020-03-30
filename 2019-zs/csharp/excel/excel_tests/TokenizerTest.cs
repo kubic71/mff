@@ -7,7 +7,7 @@ namespace Tests
     public class TokenizerTests
     {
         [SetUp]
-        public void Setup()
+            public void Setup()
         {
         }
 
