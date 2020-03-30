@@ -1,0 +1,67 @@
+--- clibrary_test1 vs syscall_test1 ---
+
+clibrary_test1 uses fopen and fprintf library functions, which serve as a programmer-friendly interface for POSIX syscalls. 
+- fopen("t1.dat", "a") calls those syscalls:
+    openat(AT_FDCWD, "t1.dat", O_WRONLY|O_CREAT|O_APPEND, 0666)
+    lseek(3, 0, SEEK_END) - looks like lseek is unneccessary, syscall_test1 doesn't need it to achieve the same effect 
+    fstat(3, {st_mode=S_IFREG|0644, st_size=2725, ...}) - probably some checks, whether the file t1.dat can be written to, etc. 
+
+- fprintf(f,"%s",m1) - format m1 and add it to buffer when exiting, fclose calls fwrite, which subsequently result in this syscall:
+    write(3, "message1.", 9)  - which means: write 9 bytes of string "message1." to file with file descriptor 3
+
+syscall_test1 calls those syscalls directly (or almost directly, open gets mapped to openat syscall, which means that t2.dat is treated as a relative path to the file)
+- open("t2.dat", O_WRONLY|O_CREAT|O_APPEND, S_IRUSR|S_IWUSR) calls:
+    openat(AT_FDCWD, "t2.dat", O_WRONLY|O_CREAT|O_APPEND, 0600) - the mode is different compared to clibrary - 0666 vs 0600
+- write(f, m1, strlen(m1)) - direct syscall
+
+
+
+--- clibrary_test2 vs syscall_test2 ---
+
+--- syscall_test2 ---
+What is happening?
+    - 'open' syscall opens t2.dat file and returns file descriptor
+    - write syscall writes to t2.dat "message1."
+    - proccess is forked
+    - parent finishes
+    - child process is scheduled and it additionally appends "message2" to t2.dat by calling another write syscall
+
+At the end, t2.dat contains "message1.message2", that's what we would expect.
+
+
+
+clibrary-case is little bit more interesting :) 
+
+--- clibrary_test2 ---
+strace says this:
+
+openat(AT_FDCWD, "t1.dat", O_WRONLY|O_CREAT|O_APPEND, 0666) = 3
+lseek(3, 0, SEEK_END)                   = 0
+fstat(3, {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 34094 attached
+, child_tidptr=0x7f305ff18810) = 34094
+[pid 34093] write(3, "message1.", 9 <unfinished ...>
+[pid 34094] write(3, "message1.message2.", 18 <unfinished ...>
+[pid 34093] <... write resumed>)        = 9
+[pid 34094] <... write resumed>)        = 18
+[pid 34093] exit_group(0 <unfinished ...>
+[pid 34094] exit_group(0 <unfinished ...>
+[pid 34093] <... exit_group resumed>)   = ?
+[pid 34094] <... exit_group resumed>)   = ?
+[pid 34094] +++ exited with 0 +++
+
+What is happening?
+    - t1.dat is opened
+    - fprintf(f, m1) adds m1 to the FILE buffer, write syscall is called only if the buffer is full or fclose is called
+    - process is forked (clone syscall) (not scheduled yet)
+    - parent process calls exit(0), which triggers closing of IO streams, namely FILE f
+        - for FILE f to be closed, the content of the buffer must be written to t1.dat, which is "message1."
+
+    - now child process is scheduled, FILE f has the same buffer content as the parent had when fork was called, namely "message1."
+    - fprint(f, m2) adds m2 to the FILE buffer, which is now "message1.message2." 
+    - child process exits, which calls fclose(f) as it did in the parent
+    - child buffer content "message1.message2." is appended to t1.dat and the file is closed
+    - whole program ends
+
+- that's why t1.dat contains "message1.message1.message2", little bit unexpected, huh?
+
