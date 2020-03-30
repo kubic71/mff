@@ -1,0 +1,651 @@
+using System.Collections.Generic;
+using System.Linq;
+
+namespace SPath
+{
+    public static class Filter
+    {
+        public static List<TreeNode> FilterQuery(List<TreeNode> nodes, Query query)
+        {
+            if (query == null)
+                return nodes;
+            
+            foreach (Step step in query.steps)
+            {
+                nodes = FilterStep(nodes, step);
+            }
+
+            return nodes;
+        }
+        
+        public static List<TreeNode> FilterStep(List<TreeNode> nodes, Step step)
+        {
+            nodes = FilterID(nodes, step.ID);
+            nodes = RemoveNeighbouringDuplicates(nodes);
+            
+            foreach (var predicate in step.Predicates)
+            {
+                List<TreeNode> newNodes = new List<TreeNode>();
+                
+                if (predicate is NumberPredicate)
+                {
+                    int index = ((NumberPredicate) predicate).index;
+                    if(index < nodes.Count)
+                        newNodes.Add(nodes[index]);
+                }
+                else
+                {
+                    Query q = ((QueryPredicate) predicate).Query;
+                    foreach (var node in nodes)
+                    {
+                        if (FilterQuery(new List<TreeNode>() {node}, q).Count > 0)
+                            newNodes.Add(node);
+                    }
+                }
+
+                nodes = newNodes;
+            }
+
+            return nodes;
+        }
+
+        private static List<TreeNode> RemoveNeighbouringDuplicates(List<TreeNode> nodes)
+        {
+            List<TreeNode> newNodes = new List<TreeNode>();
+            TreeNode last = null;
+            foreach (var node in nodes)
+            {
+                if (node != last)
+                {
+                    newNodes.Add(node);
+                    last = node;
+                }
+            }
+
+            return newNodes;
+        }
+
+        public static List<TreeNode> FilterID(List<TreeNode> nodes, string id)
+        {
+            List<TreeNode> newNodes = new List<TreeNode>();
+            foreach (var node in nodes)
+            {
+                switch (id)
+                {
+                    case "*":
+                        if(node.Children == null)
+                            continue;
+                        newNodes.AddRange(node.Children);
+                        break;
+                    
+                    case "..":
+                        if (node.Parent == null)
+                            continue;
+                        newNodes.Add(node.Parent);
+                        break;
+                    default:
+                        if(node.Children == null)
+                            continue;
+                        foreach (var child in node.Children)
+                        {
+                            if (child.ID == id)
+                            {
+                                newNodes.Add(child);
+                            }                            
+                        }
+                        break;
+                }
+            }
+
+            return newNodes;
+        }
+        
+    }
+}namespace SPath
+{
+    public class NumberPredicate : Predicate
+    {
+        public int index { get; set; }
+    }
+}namespace SPath
+{
+    public abstract class Predicate
+    {
+    }
+}﻿using System;
+using System.Collections.Generic;
+using System.IO;
+
+namespace SPath
+{
+    class ParsedTreeInvalidException : Exception
+    {
+        public ParsedTreeInvalidException(string msg) : base(msg)
+        {
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            StreamReader input = new StreamReader("data.in");
+            TreeParser treeParser = new TreeParser(input);
+            TreeNode tree = treeParser.ParseTree();
+
+            if (!treeParser.IsParsedTreeValid())
+            {
+                // What to do here?
+                throw new ParsedTreeInvalidException("Parsed data in data.in is invalid!");
+            }
+
+            StreamReader queryFile = new StreamReader("query.in");
+            StreamWriter outputFile = new StreamWriter("results.out");
+
+            var queryParser = new QueryParser(QueryParser.StripFirstForwardSlash(queryFile.ReadLine()));
+            var query = queryParser.ParseQuery();
+
+            foreach (var node in Filter.FilterQuery(new List<TreeNode>() {tree}, query))
+            {
+                outputFile.WriteLine(node.ToString());
+            }
+            
+            input.Close();
+            queryFile.Close();
+            outputFile.Close();
+        }
+    }
+}using System.Collections.Generic;
+
+namespace SPath
+{
+    public class Query
+    {
+        public List<Step> steps { get; set; } = new List<Step>();
+    }
+}using System;
+using System.Linq;
+using System.Text;
+
+namespace SPath
+{
+    /**
+     * Parse queries without forward slash (/)
+     * possible forward slash should be removed before executing parser
+     *
+     * Empty queries are not parsed!
+     * 
+     * Parsing grammar:
+     * query : step , '/' , query | step
+     * step : [space], ID , [space], { predicate , [space] }
+     * predicate : '[', [space] , ( index | query ) , [space] , ']'
+     * ID : 
+     */
+
+
+    public class QueryParser
+    {
+        private static readonly char[] FORBIDDEN_ID_CHARS = new char[]{
+            '/', '[', ']', ' ', '\n', '\t'
+        };
+
+        private string queryStr;
+        private int index;
+        private Query query;
+        
+        public QueryParser(string queryStr)
+        {
+            this.queryStr = queryStr;
+            index = 0;
+            query = new Query();
+        }
+
+        private bool IndexOutOfRange()
+        {
+            return index >= queryStr.Length;
+        }
+
+
+        public void SkipWhiteSpace()
+        {
+            while (true)
+            {
+                if (IndexOutOfRange() || !Char.IsWhiteSpace(queryStr[index]))
+                {
+                    return;
+                }
+
+                index++;
+            }            
+        }
+        
+        public bool ParseChar(char c)
+        {
+            if (IndexOutOfRange() || queryStr[index] != c)
+            {
+                return false;
+            }
+
+            index++;
+            return true;
+        }
+
+        public string ParseID()
+        {
+             
+            StringBuilder sb = new StringBuilder();
+            while (true)
+            {
+                if (IndexOutOfRange() || FORBIDDEN_ID_CHARS.Contains(queryStr[index]))
+                {
+                    break;
+                }
+                
+                sb.Append(queryStr[index]);
+                index++;
+            }
+
+            if (sb.Length == 0)
+            {
+                return null;
+            }
+
+            return sb.ToString();
+        }
+
+        public int? ParseInt()
+        {
+            // Ambiguity: Is positive integer starting with 0 valid? eg. 00023
+            // We suppose it is not!
+            
+            if (IndexOutOfRange())
+                return null;
+
+            if (queryStr[index] == '0')
+            {
+                index++;
+                return 0;
+            }
+
+            string intStr = "";
+            while (true)
+            {
+                if (IndexOutOfRange() || !Char.IsDigit(queryStr[index]))
+                {
+                    break;
+                }
+
+                intStr += queryStr[index];
+                index++;
+            }
+
+            if (intStr == "")
+            {
+                return null;
+            }
+            return int.Parse(intStr);
+        }
+
+        /// <summary>
+        ///`Returns true when query string was fully matched
+        /// Do not call before calling some Parse method
+        /// </summary>
+        public bool QueryMatched()
+        {
+            return index == queryStr.Length;
+        }
+
+
+        public Predicate ParsePredicate()
+        {
+            // predicate : '[', [space] , ( index | query ) , [space] , ']'
+            int startBacktrack = index;
+            if(!ParseChar('['))
+                return null;
+            
+            SkipWhiteSpace();
+            
+            // try to parse number first
+            int? predicateIndex = ParseInt();
+            Predicate predicate;
+            if (predicateIndex == null)
+            {
+                Query q = ParseQuery();
+                if (q == null)
+                {
+                    index = startBacktrack;
+                    return null;
+                }
+                else
+                {
+                    predicate = new QueryPredicate();
+                    ((QueryPredicate) predicate).Query = q;
+                }
+            }
+            else
+            {
+                predicate = new NumberPredicate();
+                ((NumberPredicate) predicate).index = predicateIndex.Value;
+            }
+            
+            SkipWhiteSpace();
+            if (!ParseChar(']'))
+            {
+                index = startBacktrack;
+                return null;
+            }
+
+            return predicate;
+        }
+        
+
+        public Step ParseStep()
+        {
+            // step : [space], ID , [space], { predicate , [space] }
+
+            int backtrack = index;
+            SkipWhiteSpace();
+            string ID = ParseID();
+            if (ID == null)
+            {
+                index = backtrack;
+                return null;
+            }
+            SkipWhiteSpace();
+            
+            Step step = new Step();
+            step.ID = ID;
+
+            Predicate p;
+            while (true)
+            {
+                if ((p = ParsePredicate()) == null)
+                {
+                    break;
+                }
+                step.Predicates.Add(p);
+                SkipWhiteSpace();
+            }
+
+            return step;
+        }
+
+        public Query ParseQuery()
+        {
+            Step step = ParseStep();
+            if (step == null)
+            {
+                return null;
+            }
+            else
+            {
+                // step, '/', query
+                int backtrack = index;
+                Query queryRest;
+                if (ParseChar('/') && (queryRest = ParseQuery())!=null )
+                {
+                    queryRest.steps.Insert(0, step);
+                    return queryRest;
+                }
+
+                index = backtrack;
+                // step
+                Query oneStepQuery = new Query();
+                oneStepQuery.steps.Add(step);
+                return oneStepQuery;
+            }
+        }
+
+
+        public static string StripFirstForwardSlash(string qStr)
+        {
+            int i = 0;
+            while (true)
+            {
+                if (i >= qStr.Length)
+                    return "";
+                
+                if (!Char.IsWhiteSpace(qStr[i]))
+                {
+                    if (qStr[i] == '/')
+                    {
+                        // skip it
+                        return qStr.Substring(i + 1);
+                    }
+                    else
+                    {
+                        return qStr.Substring(i);
+                    }
+                }
+
+                i++;
+            }
+        }
+    }
+}namespace SPath
+{
+    public class QueryPredicate : Predicate
+    {
+        public Query Query { get; set; }
+    }
+}using System.Collections.Generic;
+
+namespace SPath
+{
+    public class Step
+    {
+        public string ID { get; set; }
+        public List<Predicate> Predicates = new List<Predicate>();
+    }
+}using System;
+using System.IO;
+
+namespace SPath
+{
+    public static class Tokenizer
+    {
+        public static readonly char[] WHITESPACE = new char[] {' ', '\t', '\n'};
+
+        public static string[] Tokenize(StreamReader input)
+        {
+            return input.ReadToEnd().Split(WHITESPACE, StringSplitOptions.RemoveEmptyEntries);
+        }
+    }
+}using System.Collections.Generic;
+using System.Text;
+
+namespace SPath
+{
+    public class TreeNode
+    {
+        public bool OutputThisNode = false;
+        public string ID { get; set; }
+        public TreeNode Parent { get; set; }
+        
+        public int Index { get; set; } 
+        public List<TreeNode> Children { get; set; }
+        
+
+        public bool IsLeaf()
+        {
+            return this.Children == null || this.Children.Count == 0;
+        }
+        
+        public bool IsRoot()
+        {
+            return Parent == null;
+        }
+
+        
+        // add path from node to root to path-list 
+        private void GetPathFromRoot(TreeNode node, List<TreeNode> path)
+        {
+            if (node != null)
+            {
+                path.Add(node);
+                GetPathFromRoot(node.Parent, path);
+            }
+        }
+        
+        public List<TreeNode> GetPathFromRoot()
+        {
+            List<TreeNode> path = new List<TreeNode>();
+            path.Add(this);
+            GetPathFromRoot(this.Parent, path);
+            path.Reverse();
+            return path;
+        }
+
+        public override string ToString()
+        {
+            var path = GetPathFromRoot();
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var node in path)
+            {
+                if (!node.IsRoot())
+                {
+                    sb.Append($"/{node.ID}({node.Index})");
+                }
+            }
+
+            if (sb.Length == 0)
+            {
+                return "/";
+            }
+            
+            return sb.ToString();
+        }
+    }
+}using System;
+using System.Collections.Generic;
+using System.IO;
+
+namespace SPath
+{
+
+    public class NotParsedYetException : Exception
+    {
+        public NotParsedYetException(string message) : base(message)
+        {
+        }
+    } 
+
+    public class TreeParser
+    {
+
+        private string[] tokens;
+        private int index;
+        private bool parsedYet;
+        
+        public TreeParser(StreamReader inputStream)
+        {
+            tokens = Tokenizer.Tokenize(inputStream);
+            index = 0;
+            parsedYet = false;
+        }
+
+        private bool IndexOutOfRange()
+        {
+            // index never gets negative
+            return index >= tokens.Length;
+        }
+
+        private string ParseID()
+        {
+            if (IndexOutOfRange()) return null;
+            
+            string token = tokens[index];
+            if (!token.Contains('/') && !token.Contains('*') && !token.Contains('[') && !token.Contains(']')
+                && !token.Contains('(') && !token.Contains(')') && !Char.IsDigit(token[0])) {
+                index++;
+                return token;
+            }
+
+            return null;
+        }
+
+        private bool ParseString(string s)
+        {
+            if (IndexOutOfRange()) return false;
+            if (tokens[index] == s)
+            {
+                index++;
+                return true;
+            }
+
+            return false;
+        }
+        
+        private TreeNode ParseRootedTree()
+        {
+            string id = ParseID();
+            if (id == null)
+            {
+                return null;
+            }
+
+            int backtrack = index;
+            // Tree
+            TreeNode root;            
+            if (ParseString("(") && ((root = ParseTree()) != null) && ParseString(")"))
+            {
+                root.ID = id;
+                return root;
+            }
+
+            index = backtrack;
+            // Leaf
+            root = new TreeNode();
+            root.ID = id;
+            return root;
+        }
+
+
+        public bool IsParsedTreeValid()
+        {
+            if (!parsedYet)
+            {
+                throw new NotParsedYetException("Tree was not yet parsed!");
+            }
+        
+            return index == tokens.Length && tokens.Length > 0;
+        }
+
+        public TreeNode ParseTree()
+        {
+            parsedYet = true;
+            
+            TreeNode tree = new TreeNode();
+            tree.Children = new List<TreeNode>();
+
+            TreeNode rootedTree;
+            int index = 0;
+            while(true)
+            {
+                rootedTree = ParseRootedTree();
+                if (rootedTree == null)
+                {
+                    break;
+                }
+
+                rootedTree.Index = index;
+                tree.Children.Add(rootedTree);
+                rootedTree.Parent = tree;
+
+                index++;
+            }
+
+            if (tree.Children.Count == 0)
+            {
+                return null;
+            }
+
+            return tree;
+        }
+    }
+}
+
+// Parsing Grammar:
+// RootedTree : ID, '(', Tree, ')' | ID
+// Tree: RootedTree { RootedTree }

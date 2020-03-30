@@ -1,0 +1,1252 @@
+using System.IO;
+using NUnit.Framework;
+using SPath;
+
+namespace Tests
+{
+    public class Tests
+    {
+
+        string exampleTree = "a a ( b b c ) a ( b b ) x ( y ( z ) )";
+        string exampleTreeWithWhitespace = "     \n\n\na  \n a (\n         \n            b  \n       b \nc    \n    )        \n  a (         b           b ) x ( y ( \nz ) )    \n                  ";
+        
+        [SetUp]
+        public void Setup()
+        {
+        }
+
+        [Test]
+        public void TestExample()
+        {
+            TestExampleTreeHelper(exampleTree);
+        }
+        
+        [Test]
+        public void TestExample2()
+        {
+            // parser should parse the longest possible sequence that makes sense
+            string treeStr = exampleTree + " ( )";
+            TestExampleTreeHelper(exampleTree);
+        }
+        
+        [Test]
+        public void TestTree4()
+        {
+            // parser should parse the longest possible sequence that makes sense
+            string treeStr = "abcd";
+            TreeNode tree = Utils.GetTreeFromString(treeStr);
+            Assert.AreEqual(1, tree.Children.Count);
+            Assert.AreEqual("abcd", tree.Children[0].ID);
+        }
+        
+        [Test]
+        public void TestTree5()
+        {
+            // parser should parse the longest possible sequence that makes sense
+            string treeStr = "a ( c d] ) b c ( d )";
+            TreeNode tree = Utils.GetTreeFromString(treeStr);
+            Assert.AreEqual(1, tree.Children.Count);
+            Assert.AreEqual("a", tree.Children[0].ID);
+        }
+        
+        [Test]
+        public void TestTree6()
+        {
+            // parser should parse the longest possible sequence that makes sense
+            string treeStr = "2asd";
+            TreeNode tree = Utils.GetTreeFromString(treeStr);
+            Assert.AreEqual(null, tree);
+        }
+
+
+        [Test]
+        public void TestValid1()
+        {
+            string treeStr = "                   ";
+            StreamReader stream = Utils.GenerateStreamFromString(treeStr);
+            TreeParser parser = new TreeParser(stream);
+            TreeNode tree = parser.ParseTree();
+            Assert.IsFalse(parser.IsParsedTreeValid());
+        }
+        
+        [Test]
+        public void TestValid2()
+        {
+            string treeStr = "  sf as ";
+            StreamReader stream = Utils.GenerateStreamFromString(treeStr);
+            TreeParser parser = new TreeParser(stream);
+            TreeNode tree = parser.ParseTree();
+            Assert.IsTrue(parser.IsParsedTreeValid());
+        }
+        
+        [Test]
+        public void TestValid3()
+        {
+            StreamReader stream = Utils.GenerateStreamFromString(exampleTree);
+            TreeParser parser = new TreeParser(stream);
+            TreeNode tree = parser.ParseTree();
+            Assert.IsTrue(parser.IsParsedTreeValid());
+        }
+        
+        [Test]
+        public void TestValid4()
+        {
+            StreamReader stream = Utils.GenerateStreamFromString(exampleTreeWithWhitespace);
+            TreeParser parser = new TreeParser(stream);
+            TreeNode tree = parser.ParseTree();
+            Assert.IsTrue(parser.IsParsedTreeValid());
+        }
+        
+        [Test]
+        public void TestValid5()
+        {
+            StreamReader stream = Utils.GenerateStreamFromString(exampleTree + " ( ) ");
+            TreeParser parser = new TreeParser(stream);
+            TreeNode tree = parser.ParseTree();
+            Assert.IsFalse(parser.IsParsedTreeValid());
+        }
+        
+        [Test]
+        public void TestExampleWithWhitespace()
+        {
+
+            // should give the same result, no mather the whitespace between tokens
+            TestExampleTreeHelper(exampleTreeWithWhitespace);
+        }
+
+
+        private void TestExampleTreeHelper(string exTree)
+        {
+            TreeNode tree = Utils.GetTreeFromString(exTree);
+            Assert.AreEqual(true, tree.IsRoot());
+            Assert.AreEqual(4, tree.Children.Count);
+            
+            Assert.AreEqual("a", tree.Children[0].ID);
+            Assert.AreEqual(true, tree.Children[0].IsLeaf());
+            
+            Assert.AreEqual("a", tree.Children[1].ID);
+            Assert.AreEqual(3, tree.Children[1].Children.Count);
+            Assert.AreEqual("b", tree.Children[1].Children[0].ID);
+            Assert.AreEqual("b", tree.Children[1].Children[1].ID);
+            Assert.AreEqual("c", tree.Children[1].Children[2].ID);
+            Assert.AreEqual(true, tree.Children[1].Children[0].IsLeaf());
+            Assert.AreEqual(true, tree.Children[1].Children[1].IsLeaf());
+            Assert.AreEqual(true, tree.Children[1].Children[2].IsLeaf());
+            
+            Assert.AreEqual(tree.Children[1], tree.Children[1].Children[1].Parent);
+            
+            Assert.AreEqual("a", tree.Children[2].ID);
+            Assert.IsFalse(tree.Children[2].IsLeaf());
+            Assert.IsFalse(tree.Children[2].IsRoot());
+            Assert.AreEqual(2, tree.Children[2].Children.Count);
+            Assert.AreEqual("b", tree.Children[2].Children[0].ID);
+            Assert.AreEqual("b", tree.Children[2].Children[1].ID);
+            Assert.AreEqual(true, tree.Children[2].Children[0].IsLeaf());
+            Assert.AreEqual(true, tree.Children[2].Children[1].IsLeaf());
+            
+            Assert.AreEqual("x", tree.Children[3].ID);
+            Assert.AreEqual(1, tree.Children[3].Children.Count);
+            Assert.AreEqual("y", tree.Children[3].Children[0].ID);
+            Assert.AreEqual(1, tree.Children[3].Children[0].Children.Count);
+            Assert.AreEqual("z", tree.Children[3].Children[0].Children[0].ID);
+            Assert.AreEqual(true, tree.Children[3].Children[0].Children[0].IsLeaf());
+            
+            Assert.AreEqual(tree.Children[3].Children[0], tree.Children[3].Children[0].Children[0].Parent);
+            Assert.AreEqual(tree.Children[3], tree.Children[3].Children[0].Parent);
+            Assert.AreEqual(tree, tree.Children[3].Parent);
+            Assert.AreEqual(null, tree.Parent);
+        }
+    }
+}using System.IO;
+using System.Text;
+using SPath;
+
+namespace Tests
+{
+    public static class Utils
+    {
+        public static StreamReader GenerateStreamFromString(string value)
+        {
+            return new StreamReader(new MemoryStream(Encoding.UTF8.GetBytes(value ?? "")), Encoding.UTF8);
+        }
+        
+        public static TreeNode GetTreeFromString(string treeStr)
+        {
+            StreamReader stream = Utils.GenerateStreamFromString(treeStr);
+            TreeParser parser = new TreeParser(stream);
+            TreeNode tree = parser.ParseTree();
+            return tree;
+        }
+    }
+}<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="nunit" Version="3.11.0" />
+        <PackageReference Include="NUnit3TestAdapter" Version="3.11.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SPath\SPath.csproj" />
+    </ItemGroup>
+
+</Project>
+using NUnit.Framework;
+using SPath;
+
+namespace Tests
+{
+    public class QueryParserTest
+    {
+        [SetUp]
+        public void Setup()
+        {
+        }
+
+        [Test]
+        public void TestParseIndex ()
+        {
+            string queryStr = "123";
+            QueryParser parser = new QueryParser(queryStr);
+            Assert.AreEqual(123, parser.ParseInt());
+            Assert.True(parser.QueryMatched());
+            
+            queryStr = "0";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(0, parser.ParseInt());
+            Assert.True(parser.QueryMatched());
+            
+            queryStr = "094";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(0, parser.ParseInt());
+            Assert.False(parser.QueryMatched());
+            
+            queryStr = "   123   ";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(null, parser.ParseInt());
+            Assert.False(parser.QueryMatched());
+
+            queryStr = "abc";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(null, parser.ParseInt());
+            Assert.False(parser.QueryMatched());
+
+            queryStr = "-123";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(null, parser.ParseInt());
+            Assert.False(parser.QueryMatched());
+        }
+        
+        
+        [Test]
+        public void TestParseWhitespace ()
+        {
+            string queryStr = "     \n \t   ";
+            QueryParser parser = new QueryParser(queryStr);
+            parser.SkipWhiteSpace();
+            Assert.True(parser.QueryMatched());
+            
+            queryStr = "       \t   f   \n";
+            parser = new QueryParser(queryStr);
+            parser.SkipWhiteSpace();
+            Assert.False(parser.QueryMatched());
+            
+            // whitespace + number test 
+            queryStr = "     \t  \n   94    \t \n ";
+            parser = new QueryParser(queryStr);
+            parser.SkipWhiteSpace();
+            Assert.AreEqual(94, parser.ParseInt());
+            parser.SkipWhiteSpace();
+            Assert.True(parser.QueryMatched());
+        }
+        
+        [Test]
+        public void TestParseID ()
+        {
+            
+            string queryStr = "abc_kocka_Prede";
+            QueryParser parser = new QueryParser(queryStr);
+            Assert.AreEqual(queryStr, parser.ParseID());
+            Assert.True(parser.QueryMatched());
+            
+            queryStr = "   abc_kocka_Prede";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(null, parser.ParseID());
+            Assert.False(parser.QueryMatched());
+            
+            
+            // Query id CAN start with number (and if I understand the instructions correctly, can even BE number)   
+            queryStr = "2abcd";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(queryStr, parser.ParseID());
+            Assert.True(parser.QueryMatched());
+            
+            queryStr = "2234";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(queryStr, parser.ParseID());
+            Assert.True(parser.QueryMatched());
+            
+            queryStr = "2234";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(queryStr, parser.ParseID());
+            Assert.True(parser.QueryMatched());
+            
+            queryStr = "abcd[abcd]";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual("abcd", parser.ParseID());
+            Assert.False(parser.QueryMatched());
+            
+            queryStr = "Haf/cdf";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual("Haf", parser.ParseID());
+            Assert.False(parser.QueryMatched());
+            
+            queryStr = "No space  in ID!";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual("No", parser.ParseID());
+            Assert.False(parser.QueryMatched());
+            
+            queryStr = "*";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual("*", parser.ParseID());
+            Assert.True(parser.QueryMatched());
+            
+            queryStr = "..";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual("..", parser.ParseID());
+            Assert.True(parser.QueryMatched());
+        }
+
+        [Test]
+        public void TestParseNumberPredicate()
+        {
+            string queryStr = "[ 195  ]";
+            QueryParser parser = new QueryParser(queryStr);
+            Predicate p = parser.ParsePredicate();
+            Assert.True(p is NumberPredicate);
+            Assert.AreEqual(195, ((NumberPredicate)p).index);
+            Assert.True(parser.QueryMatched());
+
+            queryStr = "[    ]";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(null, parser.ParsePredicate());
+            
+            queryStr = "[123";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(null, parser.ParsePredicate());
+
+            queryStr = "123]";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(null, parser.ParsePredicate());
+
+            queryStr = "[  \t \n 0 \t \n]";
+            parser = new QueryParser(queryStr);
+            p = parser.ParsePredicate();
+            Assert.True(p is NumberPredicate);
+            Assert.AreEqual(0, ((NumberPredicate)p).index);
+            Assert.True(parser.QueryMatched());
+        }
+
+        [Test]
+        public void TestParseQueryPredicate()
+        {
+            string queryStr = "[  someID  ]";
+            QueryParser parser = new QueryParser(queryStr);
+            Predicate p = parser.ParsePredicate();
+            Assert.True(p is QueryPredicate);
+            Assert.AreEqual("someID", ((QueryPredicate)p).Query.steps[0].ID);
+            Assert.True(parser.QueryMatched());
+            
+            // Nested Predicate 
+            queryStr = "[  someID/ ..  [33] / alfa ]";
+            parser = new QueryParser(queryStr);
+            p = parser.ParsePredicate();
+            Assert.True(p is QueryPredicate);
+            Query predQuery = ((QueryPredicate) p).Query;
+            Assert.AreEqual(3, predQuery.steps.Count);
+            Assert.AreEqual("someID", predQuery.steps[0].ID);
+            Assert.AreEqual("..", predQuery.steps[1].ID);
+            Assert.AreEqual(1, predQuery.steps[1].Predicates.Count);
+            Assert.True(predQuery.steps[1].Predicates[0] is NumberPredicate);
+            Assert.AreEqual(33, ((NumberPredicate)predQuery.steps[1].Predicates[0]).index);
+            Assert.AreEqual("alfa", predQuery.steps[2].ID);
+            Assert.True(parser.QueryMatched());
+        }
+
+        [Test]
+        public void TestParseStep()
+        {
+            string queryStr = "   wer   \t \n    ";
+            QueryParser parser = new QueryParser(queryStr);
+            Step step = parser.ParseStep();
+            Assert.True(step != null);
+            Assert.AreEqual("wer", step.ID);
+            Assert.AreEqual(0, step.Predicates.Count);
+            Assert.True(parser.QueryMatched());
+            
+            queryStr = "   wer  abc   ";
+            parser = new QueryParser(queryStr);
+            step = parser.ParseStep();
+            Assert.True(step != null);
+            Assert.AreEqual("wer", step.ID);
+            Assert.AreEqual(0, step.Predicates.Count);
+            Assert.False(parser.QueryMatched());
+            
+            queryStr = "   idagain  [1] [ 23 ] [ 5 4 ]  ";
+            parser = new QueryParser(queryStr);
+            step = parser.ParseStep();
+            Assert.True(step != null);
+            Assert.AreEqual("idagain", step.ID);
+            Assert.AreEqual(2, step.Predicates.Count);
+            Assert.True(step.Predicates[0] is NumberPredicate && step.Predicates[1] is NumberPredicate);
+            Assert.AreEqual(1, ((NumberPredicate)step.Predicates[0]).index);
+            Assert.AreEqual(23, ((NumberPredicate)step.Predicates[1]).index);
+            Assert.False(parser.QueryMatched());
+            
+            queryStr = "   idagain  [1] [ 23 ] [ this/is/query ]  ";
+            parser = new QueryParser(queryStr);
+            step = parser.ParseStep();
+            Assert.True(step != null);
+            Assert.AreEqual("idagain", step.ID);
+            Assert.AreEqual(3, step.Predicates.Count);
+            Assert.True(step.Predicates[0] is NumberPredicate && step.Predicates[1] is NumberPredicate && step.Predicates[2] is QueryPredicate);
+            Assert.AreEqual(1, ((NumberPredicate)step.Predicates[0]).index);
+            Assert.AreEqual(23, ((NumberPredicate)step.Predicates[1]).index);
+
+            Query q = ((QueryPredicate) step.Predicates[2]).Query;
+            Assert.AreEqual(3, q.steps.Count);
+            Assert.AreEqual("this", q.steps[0].ID);
+            Assert.AreEqual(0, q.steps[0].Predicates.Count);
+            Assert.AreEqual("is", q.steps[1].ID);
+            Assert.AreEqual("query", q.steps[2].ID);
+            
+            Assert.True(parser.QueryMatched());
+
+        }
+
+
+        [Test]
+        public void TestParseQuery()
+        {
+            string queryStr = " / not_allowed ";
+            QueryParser parser = new QueryParser(queryStr);
+            Assert.AreEqual(null, parser.ParseQuery());
+
+            queryStr = "/starting/with/backslash";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(null, parser.ParseQuery());
+
+            // backslash only
+            queryStr = "/";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(null, parser.ParseQuery());
+
+            queryStr = "   /   ";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(null, parser.ParseQuery());
+            
+            queryStr = " id123  /   ";
+            parser = new QueryParser(queryStr);
+            Query q = parser.ParseQuery();
+            Assert.AreEqual(1, q.steps.Count);
+            Assert.AreEqual("id123", q.steps[0].ID);
+
+            queryStr = "abcd / a b c";
+            parser = new QueryParser(queryStr);
+            q = parser.ParseQuery();
+            Assert.AreEqual(2, q.steps.Count);
+            Assert.AreEqual("abcd", q.steps[0].ID);
+            Assert.AreEqual("a", q.steps[1].ID);
+            
+            queryStr = "     ";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(null, parser.ParseQuery());
+            Assert.False(parser.QueryMatched());
+            
+            queryStr = "";
+            parser = new QueryParser(queryStr);
+            Assert.AreEqual(null, parser.ParseQuery());
+            Assert.True(parser.QueryMatched());
+            
+            queryStr = "abd/ /sdf";
+            parser = new QueryParser(queryStr);
+            q = parser.ParseQuery();
+            Assert.AreEqual(1, q.steps.Count );
+            Assert.AreEqual("abd", q.steps[0].ID);
+            Assert.False(parser.QueryMatched());
+        }
+
+        [Test]
+        public void TestQuerySlashStripper()
+        {
+            Assert.AreEqual("abcd/cdter[1]", QueryParser.StripFirstForwardSlash("/abcd/cdter[1]"));
+            Assert.AreEqual("  something / d234 / sfd", QueryParser.StripFirstForwardSlash("   /  something / d234 / sfd"));
+            Assert.AreEqual("", QueryParser.StripFirstForwardSlash("/"));
+            Assert.AreEqual(" ahoj/svete ", QueryParser.StripFirstForwardSlash(" ahoj/svete "));
+        }
+    }
+}using NUnit.Framework;
+using SPath;
+
+namespace Tests
+{
+    public class QueryTest
+    {
+        string exampleTreeStr = "a a ( b b c ) a ( b b ) x ( y ( z ) )";
+        private TreeNode exampleTree;
+
+        [SetUp]
+        public void Setup()
+        {
+            exampleTree = Utils.GetTreeFromString(exampleTreeStr);
+        }
+        
+        
+        [Test]
+        public void TestPathToString()
+        {
+            Assert.AreEqual("/", exampleTree.ToString());
+            Assert.AreEqual("/a(2)", exampleTree.Children[2].ToString());
+            Assert.AreEqual("/a(1)/c(2)", exampleTree.Children[1].Children[2].ToString());
+            Assert.AreEqual("/x(3)/y(0)/z(0)", exampleTree.Children[3].Children[0].Children[0].ToString());
+        }
+    }
+}using System.Collections.Generic;
+using NUnit.Framework;
+using SPath;
+
+namespace Tests
+{
+    public class FilterTest
+    {
+     
+        string exampleTreeStr = "a a ( b b c ) a ( b b ) x ( y ( z ) )";
+        private TreeNode exampleTree;
+
+        [SetUp]
+        public void Setup()
+        {
+            exampleTree = Utils.GetTreeFromString(exampleTreeStr);
+        }
+
+        [Test]
+        public void TestExample()
+        {
+            string queryStr = "/";
+            List<TreeNode> res = Filter.FilterQuery(new List<TreeNode>() { exampleTree }, GetParsedQuery(queryStr));
+            Assert.AreEqual(new List<TreeNode> { exampleTree }, res);
+
+            queryStr = "/a";
+            res = Filter.FilterQuery(new List<TreeNode>() { exampleTree }, GetParsedQuery(queryStr));
+            Assert.AreEqual(new List<TreeNode> {exampleTree.Children[0], exampleTree.Children[1], exampleTree.Children[2]}, res);
+            
+            queryStr = "/a/b";
+            res = Filter.FilterQuery(new List<TreeNode>() { exampleTree }, GetParsedQuery(queryStr));
+            Assert.AreEqual(new List<TreeNode> {exampleTree.Children[1].Children[0], exampleTree.Children[1].Children[1], exampleTree.Children[2].Children[0], exampleTree.Children[2].Children[1]}, res);
+            
+                
+            queryStr = "/a/z";
+            res = Filter.FilterQuery(new List<TreeNode>() { exampleTree }, GetParsedQuery(queryStr));
+            Assert.AreEqual(new List<TreeNode> {}, res);
+            
+            
+            queryStr = "/a[b]";
+            res = Filter.FilterQuery(new List<TreeNode>() { exampleTree }, GetParsedQuery(queryStr));
+            Assert.AreEqual(new List<TreeNode> {exampleTree.Children[1], exampleTree.Children[2]}, res);
+
+            queryStr = "/a[b][c]";
+            res = Filter.FilterQuery(new List<TreeNode>() { exampleTree }, GetParsedQuery(queryStr));
+            Assert.AreEqual(new List<TreeNode> {exampleTree.Children[1]}, res);
+
+
+            queryStr = "/*[y/z]";
+            res = Filter.FilterQuery(new List<TreeNode>() { exampleTree }, GetParsedQuery(queryStr));
+            Assert.AreEqual(new List<TreeNode> {exampleTree.Children[3]}, res);
+
+
+            queryStr = "/a[1]/b[1]";
+            res = Filter.FilterQuery(new List<TreeNode>() { exampleTree }, GetParsedQuery(queryStr));
+            Assert.AreEqual(new List<TreeNode> {exampleTree.Children[1].Children[1]}, res);
+
+
+            queryStr = "/*/*/z/../..";
+            res = Filter.FilterQuery(new List<TreeNode>() { exampleTree }, GetParsedQuery(queryStr));
+            Assert.AreEqual(new List<TreeNode> {exampleTree.Children[3]}, res);
+            
+
+            
+            
+        }
+
+        private Query GetParsedQuery(string queryStr)
+        {
+            QueryParser parser = new QueryParser(QueryParser.StripFirstForwardSlash(queryStr));
+            return parser.ParseQuery();
+        }
+        
+    }
+}using System.Collections.Generic;
+
+namespace SPath
+{
+    public class Step
+    {
+        public string ID { get; set; }
+        public List<Predicate> Predicates = new List<Predicate>();
+    }
+}using System;
+using System.IO;
+
+namespace SPath
+{
+    public static class Tokenizer
+    {
+        public static readonly char[] WHITESPACE = new char[] {' ', '\t', '\n'};
+
+        public static string[] Tokenize(StreamReader input)
+        {
+            return input.ReadToEnd().Split(WHITESPACE, StringSplitOptions.RemoveEmptyEntries);
+        }
+    }
+}using System.Collections.Generic;
+using System.Linq;
+
+namespace SPath
+{
+    public static class Filter
+    {
+        public static List<TreeNode> FilterQuery(List<TreeNode> nodes, Query query)
+        {
+            if (query == null)
+                return nodes;
+            
+            foreach (Step step in query.steps)
+            {
+                nodes = FilterStep(nodes, step);
+            }
+
+            return nodes;
+        }
+        
+        public static List<TreeNode> FilterStep(List<TreeNode> nodes, Step step)
+        {
+            nodes = FilterID(nodes, step.ID);
+            nodes = RemoveNeighbouringDuplicates(nodes);
+            
+            foreach (var predicate in step.Predicates)
+            {
+                List<TreeNode> newNodes = new List<TreeNode>();
+                
+                if (predicate is NumberPredicate)
+                {
+                    int index = ((NumberPredicate) predicate).index;
+                    if(index < nodes.Count)
+                        newNodes.Add(nodes[index]);
+                }
+                else
+                {
+                    Query q = ((QueryPredicate) predicate).Query;
+                    foreach (var node in nodes)
+                    {
+                        if (FilterQuery(new List<TreeNode>() {node}, q).Count > 0)
+                            newNodes.Add(node);
+                    }
+                }
+
+                nodes = newNodes;
+            }
+
+            return nodes;
+        }
+
+        private static List<TreeNode> RemoveNeighbouringDuplicates(List<TreeNode> nodes)
+        {
+            List<TreeNode> newNodes = new List<TreeNode>();
+            TreeNode last = null;
+            foreach (var node in nodes)
+            {
+                if (node != last)
+                {
+                    newNodes.Add(node);
+                    last = node;
+                }
+            }
+
+            return newNodes;
+        }
+
+        public static List<TreeNode> FilterID(List<TreeNode> nodes, string id)
+        {
+            List<TreeNode> newNodes = new List<TreeNode>();
+            foreach (var node in nodes)
+            {
+                switch (id)
+                {
+                    case "*":
+                        if(node.Children == null)
+                            continue;
+                        newNodes.AddRange(node.Children);
+                        break;
+                    
+                    case "..":
+                        if (node.Parent == null)
+                            continue;
+                        newNodes.Add(node.Parent);
+                        break;
+                    default:
+                        if(node.Children == null)
+                            continue;
+                        foreach (var child in node.Children)
+                        {
+                            if (child.ID == id)
+                            {
+                                newNodes.Add(child);
+                            }                            
+                        }
+                        break;
+                }
+            }
+
+            return newNodes;
+        }
+        
+    }
+}<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+
+</Project>
+using System.Collections.Generic;
+using System.Text;
+
+namespace SPath
+{
+    public class TreeNode
+    {
+        public bool OutputThisNode = false;
+        public string ID { get; set; }
+        public TreeNode Parent { get; set; }
+        
+        public int Index { get; set; } 
+        public List<TreeNode> Children { get; set; }
+        
+
+        public bool IsLeaf()
+        {
+            return this.Children == null || this.Children.Count == 0;
+        }
+        
+        public bool IsRoot()
+        {
+            return Parent == null;
+        }
+
+        
+        // add path from node to root to path-list 
+        private void GetPathFromRoot(TreeNode node, List<TreeNode> path)
+        {
+            if (node != null)
+            {
+                path.Add(node);
+                GetPathFromRoot(node.Parent, path);
+            }
+        }
+        
+        public List<TreeNode> GetPathFromRoot()
+        {
+            List<TreeNode> path = new List<TreeNode>();
+            path.Add(this);
+            GetPathFromRoot(this.Parent, path);
+            path.Reverse();
+            return path;
+        }
+
+        public override string ToString()
+        {
+            var path = GetPathFromRoot();
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var node in path)
+            {
+                if (!node.IsRoot())
+                {
+                    sb.Append($"/{node.ID}({node.Index})");
+                }
+            }
+
+            if (sb.Length == 0)
+            {
+                return "/";
+            }
+            
+            return sb.ToString();
+        }
+    }
+}namespace SPath
+{
+    public class QueryPredicate : Predicate
+    {
+        public Query Query { get; set; }
+    }
+}namespace SPath
+{
+    public abstract class Predicate
+    {
+    }
+}﻿using System;
+using System.Collections.Generic;
+using System.IO;
+
+namespace SPath
+{
+    class ParsedTreeInvalidException : Exception
+    {
+        public ParsedTreeInvalidException(string msg) : base(msg)
+        {
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            StreamReader input = new StreamReader("data.in");
+            TreeParser treeParser = new TreeParser(input);
+            TreeNode tree = treeParser.ParseTree();
+
+            if (!treeParser.IsParsedTreeValid())
+            {
+                // What to do here?
+                throw new ParsedTreeInvalidException("Parsed data in data.in is invalid!");
+            }
+
+            StreamReader queryFile = new StreamReader("query.in");
+            StreamWriter outputFile = new StreamWriter("results.out");
+
+            var queryParser = new QueryParser(QueryParser.StripFirstForwardSlash(queryFile.ReadLine()));
+            var query = queryParser.ParseQuery();
+
+            foreach (var node in Filter.FilterQuery(new List<TreeNode>() {tree}, query))
+            {
+                outputFile.WriteLine(node.ToString());
+            }
+            
+            input.Close();
+            queryFile.Close();
+            outputFile.Close();
+        }
+    }
+}using System.Collections.Generic;
+
+namespace SPath
+{
+    public class Query
+    {
+        public List<Step> steps { get; set; } = new List<Step>();
+    }
+}namespace SPath
+{
+    public class NumberPredicate : Predicate
+    {
+        public int index { get; set; }
+    }
+}using System;
+using System.Linq;
+using System.Text;
+
+namespace SPath
+{
+    /**
+     * Parse queries without forward slash (/)
+     * possible forward slash should be removed before executing parser
+     *
+     * Empty queries are not parsed!
+     * 
+     * Parsing grammar:
+     * query : step , '/' , query | step
+     * step : [space], ID , [space], { predicate , [space] }
+     * predicate : '[', [space] , ( index | query ) , [space] , ']'
+     * ID : 
+     */
+
+
+    public class QueryParser
+    {
+        private static readonly char[] FORBIDDEN_ID_CHARS = new char[]{
+            '/', '[', ']', ' ', '\n', '\t'
+        };
+
+        private string queryStr;
+        private int index;
+        private Query query;
+        
+        public QueryParser(string queryStr)
+        {
+            this.queryStr = queryStr;
+            index = 0;
+            query = new Query();
+        }
+
+        private bool IndexOutOfRange()
+        {
+            return index >= queryStr.Length;
+        }
+
+
+        public void SkipWhiteSpace()
+        {
+            while (true)
+            {
+                if (IndexOutOfRange() || !Char.IsWhiteSpace(queryStr[index]))
+                {
+                    return;
+                }
+
+                index++;
+            }            
+        }
+        
+        public bool ParseChar(char c)
+        {
+            if (IndexOutOfRange() || queryStr[index] != c)
+            {
+                return false;
+            }
+
+            index++;
+            return true;
+        }
+
+        public string ParseID()
+        {
+             
+            StringBuilder sb = new StringBuilder();
+            while (true)
+            {
+                if (IndexOutOfRange() || FORBIDDEN_ID_CHARS.Contains(queryStr[index]))
+                {
+                    break;
+                }
+                
+                sb.Append(queryStr[index]);
+                index++;
+            }
+
+            if (sb.Length == 0)
+            {
+                return null;
+            }
+
+            return sb.ToString();
+        }
+
+        public int? ParseInt()
+        {
+            // Ambiguity: Is positive integer starting with 0 valid? eg. 00023
+            // We suppose it is not!
+            
+            if (IndexOutOfRange())
+                return null;
+
+            if (queryStr[index] == '0')
+            {
+                index++;
+                return 0;
+            }
+
+            string intStr = "";
+            while (true)
+            {
+                if (IndexOutOfRange() || !Char.IsDigit(queryStr[index]))
+                {
+                    break;
+                }
+
+                intStr += queryStr[index];
+                index++;
+            }
+
+            if (intStr == "")
+            {
+                return null;
+            }
+            return int.Parse(intStr);
+        }
+
+        /// <summary>
+        ///`Returns true when query string was fully matched
+        /// Do not call before calling some Parse method
+        /// </summary>
+        public bool QueryMatched()
+        {
+            return index == queryStr.Length;
+        }
+
+
+        public Predicate ParsePredicate()
+        {
+            // predicate : '[', [space] , ( index | query ) , [space] , ']'
+            int startBacktrack = index;
+            if(!ParseChar('['))
+                return null;
+            
+            SkipWhiteSpace();
+            
+            // try to parse number first
+            int? predicateIndex = ParseInt();
+            Predicate predicate;
+            if (predicateIndex == null)
+            {
+                Query q = ParseQuery();
+                if (q == null)
+                {
+                    index = startBacktrack;
+                    return null;
+                }
+                else
+                {
+                    predicate = new QueryPredicate();
+                    ((QueryPredicate) predicate).Query = q;
+                }
+            }
+            else
+            {
+                predicate = new NumberPredicate();
+                ((NumberPredicate) predicate).index = predicateIndex.Value;
+            }
+            
+            SkipWhiteSpace();
+            if (!ParseChar(']'))
+            {
+                index = startBacktrack;
+                return null;
+            }
+
+            return predicate;
+        }
+        
+
+        public Step ParseStep()
+        {
+            // step : [space], ID , [space], { predicate , [space] }
+
+            int backtrack = index;
+            SkipWhiteSpace();
+            string ID = ParseID();
+            if (ID == null)
+            {
+                index = backtrack;
+                return null;
+            }
+            SkipWhiteSpace();
+            
+            Step step = new Step();
+            step.ID = ID;
+
+            Predicate p;
+            while (true)
+            {
+                if ((p = ParsePredicate()) == null)
+                {
+                    break;
+                }
+                step.Predicates.Add(p);
+                SkipWhiteSpace();
+            }
+
+            return step;
+        }
+
+        public Query ParseQuery()
+        {
+            Step step = ParseStep();
+            if (step == null)
+            {
+                return null;
+            }
+            else
+            {
+                // step, '/', query
+                int backtrack = index;
+                Query queryRest;
+                if (ParseChar('/') && (queryRest = ParseQuery())!=null )
+                {
+                    queryRest.steps.Insert(0, step);
+                    return queryRest;
+                }
+
+                index = backtrack;
+                // step
+                Query oneStepQuery = new Query();
+                oneStepQuery.steps.Add(step);
+                return oneStepQuery;
+            }
+        }
+
+
+        public static string StripFirstForwardSlash(string qStr)
+        {
+            int i = 0;
+            while (true)
+            {
+                if (i >= qStr.Length)
+                    return "";
+                
+                if (!Char.IsWhiteSpace(qStr[i]))
+                {
+                    if (qStr[i] == '/')
+                    {
+                        // skip it
+                        return qStr.Substring(i + 1);
+                    }
+                    else
+                    {
+                        return qStr.Substring(i);
+                    }
+                }
+
+                i++;
+            }
+        }
+    }
+}using System;
+using System.Collections.Generic;
+using System.IO;
+
+namespace SPath
+{
+
+    public class NotParsedYetException : Exception
+    {
+        public NotParsedYetException(string message) : base(message)
+        {
+        }
+    } 
+
+    public class TreeParser
+    {
+
+        private string[] tokens;
+        private int index;
+        private bool parsedYet;
+        
+        public TreeParser(StreamReader inputStream)
+        {
+            tokens = Tokenizer.Tokenize(inputStream);
+            index = 0;
+            parsedYet = false;
+        }
+
+        private bool IndexOutOfRange()
+        {
+            // index never gets negative
+            return index >= tokens.Length;
+        }
+
+        private string ParseID()
+        {
+            if (IndexOutOfRange()) return null;
+            
+            string token = tokens[index];
+            if (!token.Contains('/') && !token.Contains('*') && !token.Contains('[') && !token.Contains(']')
+                && !token.Contains('(') && !token.Contains(')') && !Char.IsDigit(token[0])) {
+                index++;
+                return token;
+            }
+
+            return null;
+        }
+
+        private bool ParseString(string s)
+        {
+            if (IndexOutOfRange()) return false;
+            if (tokens[index] == s)
+            {
+                index++;
+                return true;
+            }
+
+            return false;
+        }
+        
+        private TreeNode ParseRootedTree()
+        {
+            string id = ParseID();
+            if (id == null)
+            {
+                return null;
+            }
+
+            int backtrack = index;
+            // Tree
+            TreeNode root;            
+            if (ParseString("(") && ((root = ParseTree()) != null) && ParseString(")"))
+            {
+                root.ID = id;
+                return root;
+            }
+
+            index = backtrack;
+            // Leaf
+            root = new TreeNode();
+            root.ID = id;
+            return root;
+        }
+
+
+        public bool IsParsedTreeValid()
+        {
+            if (!parsedYet)
+            {
+                throw new NotParsedYetException("Tree was not yet parsed!");
+            }
+        
+            return index == tokens.Length && tokens.Length > 0;
+        }
+
+        public TreeNode ParseTree()
+        {
+            parsedYet = true;
+            
+            TreeNode tree = new TreeNode();
+            tree.Children = new List<TreeNode>();
+
+            TreeNode rootedTree;
+            int index = 0;
+            while(true)
+            {
+                rootedTree = ParseRootedTree();
+                if (rootedTree == null)
+                {
+                    break;
+                }
+
+                rootedTree.Index = index;
+                tree.Children.Add(rootedTree);
+                rootedTree.Parent = tree;
+
+                index++;
+            }
+
+            if (tree.Children.Count == 0)
+            {
+                return null;
+            }
+
+            return tree;
+        }
+    }
+}
+
+// Parsing Grammar:
+// RootedTree : ID, '(', Tree, ')' | ID
+// Tree: RootedTree { RootedTree }
