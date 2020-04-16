@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "cstdlib": "c",
+        "*.tcc": "c",
+        "string": "c",
+        "istream": "c",
+        "streambuf": "c"
+    }
+}
