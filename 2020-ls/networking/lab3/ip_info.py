@@ -43,7 +43,7 @@ def to_str(ip_num):
 def mask_prefix_to_num(prefix):
     """ converts subnet mask prefix representation to numerical one
     for example: 
-        to_str(mask_prefix_to_num(prefix)) == "255.255.255.0"
+        to_str(mask_prefix_to_num(21)) == "255.255.255.0"
     """
     res = 0
     for i in range(32 - prefix, 32):
