@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c8db110f-abc0-4eaf-8bbe-943ee1714511" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1bksh5VY8aAt4x5zN0TbpcI0vQI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last.edited.regexp" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager" selected="Application.BasicServerUDP">
+    <configuration name="BasicClientUDP" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
+      <module name="UDPApp" />
+      <option name="PROGRAM_PARAMETERS" value="ClientUDP 127.0.0.1 8080" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BasicServerUDP" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
+      <module name="UDPApp" />
+      <option name="PROGRAM_PARAMETERS" value="ServerUDP 8080" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.BasicClientUDP" />
+      <item itemvalue="Application.BasicServerUDP" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.BasicServerUDP" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c8db110f-abc0-4eaf-8bbe-943ee1714511" name="Default Changelist" comment="" />
+      <created>1589187541563</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589187541563</updated>
+      <workItem from="1589187547729" duration="433000" />
+      <workItem from="1589188133685" duration="15133000" />
+      <workItem from="1589322478084" duration="12000" />
+      <workItem from="1589535547104" duration="10752000" />
+      <workItem from="1589714220198" duration="15383000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="553" y="174" width="839" height="667" key="#Project_Structure" timestamp="1589714230319">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="553" y="174" width="839" height="667" key="#Project_Structure/0.0.1920.1080@0.0.1920.1080" timestamp="1589714230319" />
+    <state x="74" y="33" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589721643329">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="74" y="33" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1589721643329" />
+    <state x="766" y="224" width="378" height="567" key="#com.intellij.ide.util.MemberChooser" timestamp="1589735761869">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="766" y="224" width="378" height="567" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1589735761869" />
+    <state x="354" y="214" width="529" height="419" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1589226235198">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="354" y="214" width="529" height="419" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1589226235198" />
+    <state x="727" y="240" width="456" height="535" key="FileChooserDialogImpl" timestamp="1589628095970">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="727" y="240" width="456" height="535" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1589628095970" />
+    <state width="1870" height="350" key="GridCell.Tab.0.bottom" timestamp="1589736825932">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="350" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1589736825932" />
+    <state width="1870" height="350" key="GridCell.Tab.0.center" timestamp="1589736825932">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="350" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1589736825932" />
+    <state width="1870" height="350" key="GridCell.Tab.0.left" timestamp="1589736825932">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="350" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1589736825932" />
+    <state width="1870" height="350" key="GridCell.Tab.0.right" timestamp="1589736825932">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="350" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1589736825932" />
+    <state width="1870" height="350" key="GridCell.Tab.1.bottom" timestamp="1589736825932">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="350" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1589736825932" />
+    <state width="1870" height="350" key="GridCell.Tab.1.center" timestamp="1589736825932">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="350" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1589736825932" />
+    <state width="1870" height="350" key="GridCell.Tab.1.left" timestamp="1589736825932">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="350" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1589736825932" />
+    <state width="1870" height="350" key="GridCell.Tab.1.right" timestamp="1589736825932">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="350" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1589736825932" />
+    <state x="1097" y="322" key="com.intellij.ide.util.TipDialog" timestamp="1589322480883">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1097" y="322" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1589322480883" />
+    <state x="616" y="151" width="666" height="605" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589735415810">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="616" y="151" width="666" height="605" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1589735415810" />
+    <state x="622" y="245" key="run.anything.popup" timestamp="1589719796583">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="622" y="245" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1589719796583" />
+    <state x="1103" y="234" width="672" height="678" key="search.everywhere.popup" timestamp="1589720071400">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1103" y="234" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1589720071400" />
+  </component>
+</project>
