@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Surname: Hejhal
  */
 
-public class Bus {
+public class BusLocks {
     private Random r = new Random();
     private int currentlyOnboard = 0;
 

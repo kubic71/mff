@@ -6,9 +6,9 @@ package com.company;
  */
 class Ambulance extends Thread {
 	private int capacity;
-	private Bus b;
+	private BusSemaphores b;
 
-	Ambulance(Bus b, int cap) {
+	Ambulance(BusSemaphores b, int cap) {
 		this.capacity = cap;
 		this.b = b;
 		setDaemon(true);

@@ -12,7 +12,7 @@ public class Driver {
 	public static final int CAPACITY = 5;
 
 	public static void main(String[] args) {
-		Bus b = new Bus();
+		BusSemaphores b = new BusSemaphores();
 		Ambulance a = new Ambulance(b, CAPACITY);
 		Passenger[] p = new Passenger[NUM_PASSENGERS];
 		int i = 0;

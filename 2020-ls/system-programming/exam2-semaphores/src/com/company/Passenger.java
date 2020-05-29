@@ -7,9 +7,9 @@ package com.company;
 class Passenger extends Thread {
 	private PassengerType type;
 	private int id;
-	private Bus b;
+	private BusSemaphores b;
 
-	Passenger(Bus b, PassengerType pasType, int id) {
+	Passenger(BusSemaphores b, PassengerType pasType, int id) {
 		this.type = pasType;
 		this.id = id;
 		this.b = b;

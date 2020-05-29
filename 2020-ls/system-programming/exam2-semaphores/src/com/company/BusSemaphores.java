@@ -13,7 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Surname: Hejhal
  */
 
-public class Bus {
+public class BusSemaphores {
     private Random r = new Random();
     private volatile int alreadyTaken = 0;
 
@@ -22,7 +22,7 @@ public class Bus {
     private Ticket[] tickets = new Ticket[50];
 
 
-    public Bus() {
+    public BusSemaphores() {
         for (int i = 0; i < 50; i++) {
             tickets[i] = new Ticket();
         }
