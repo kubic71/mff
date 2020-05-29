@@ -18,7 +18,8 @@ class Passenger extends Thread {
 	@Override
 	public void run() {
 		b.waitDisinfection();
-		b.onBoardAmbulance(this.type);
-		System.out.println(type + " " + id + " is inside the ambulance.");
+
+		// I moved the info messages into onBoardAmbulance, and therefore have to pass passanger instance as param, so that I know it's id inside this method
+		b.onBoardAmbulance(this.type, id);
 	}
 }
