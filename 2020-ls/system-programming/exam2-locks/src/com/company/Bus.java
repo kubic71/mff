@@ -22,9 +22,9 @@ public class Bus {
 
 
     ReentrantLock lock = new ReentrantLock(true);
-    Condition criticalCond = lock.newCondition();
-    Condition minorCond = lock.newCondition();
-    Condition unharmedCond = lock.newCondition();
+
+    Condition minorCond = lock.newCondition();    // condition waiting for all CRITICALs to be onboard
+    Condition unharmedCond = lock.newCondition(); // condition waiting for all MINORs to be onboard
 
     Condition ambulanceFull = lock.newCondition();
 
@@ -39,7 +39,7 @@ public class Bus {
         }
     }
 
-    public void onBoardAmbulance(PassengerType type) {
+    public void onBoardAmbulance(PassengerType type, int passengerID) {
 
         lock.lock();
         try {
@@ -79,6 +79,7 @@ public class Bus {
                 }
             }
 
+            System.out.println(type + " " + passengerID + " is inside the ambulance.");
             currentlyOnboard++;
 
             if (currentlyOnboard == Driver.CAPACITY) {
@@ -98,6 +99,8 @@ public class Bus {
         try {
             currentlyOnboard = 0;
 
+
+            // ambulance has just arrived, give passengers a chance to board
             canBoard = true;
             canBoardCond.signalAll();
 

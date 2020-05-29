@@ -18,7 +18,6 @@ class Passenger extends Thread {
 	@Override
 	public void run() {
 		b.waitDisinfection();
-		b.onBoardAmbulance(this.type);
-		System.out.println(type + " " + id + " is inside the ambulance.");
+		b.onBoardAmbulance(this.type, id);
 	}
 }

@@ -23,6 +23,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../exam2-locks" />
   </component>
   <component name="RunManager">
     <configuration name="Driver" type="Application" factoryName="Application" temporary="true">
@@ -51,6 +52,8 @@
       <option name="presentableId" value="Default" />
       <updated>1590752719564</updated>
       <workItem from="1590752722159" duration="2270000" />
+      <workItem from="1590755049176" duration="291000" />
+      <workItem from="1590755672382" duration="938000" />
     </task>
     <servers />
   </component>
@@ -62,21 +65,29 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="834" y="170" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1590752800532" />
-    <state width="910" height="825" key="GridCell.Tab.0.bottom" timestamp="1590755134800">
+    <state x="741" y="270" width="428" height="474" key="FileChooserDialogImpl" timestamp="1590755875826">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="910" height="825" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1590755134800" />
-    <state width="910" height="825" key="GridCell.Tab.0.center" timestamp="1590755134799">
+    <state x="741" y="270" width="428" height="474" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1590755875826" />
+    <state width="910" height="825" key="GridCell.Tab.0.bottom" timestamp="1590756946346">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="910" height="825" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1590755134799" />
-    <state width="910" height="825" key="GridCell.Tab.0.left" timestamp="1590755134799">
+    <state width="910" height="825" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1590756946346" />
+    <state width="910" height="825" key="GridCell.Tab.0.center" timestamp="1590756946346">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="910" height="825" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1590755134799" />
-    <state width="910" height="825" key="GridCell.Tab.0.right" timestamp="1590755134800">
+    <state width="910" height="825" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1590756946346" />
+    <state width="910" height="825" key="GridCell.Tab.0.left" timestamp="1590756946346">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="910" height="825" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1590755134800" />
+    <state width="910" height="825" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1590756946346" />
+    <state width="910" height="825" key="GridCell.Tab.0.right" timestamp="1590756946346">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="910" height="825" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1590756946346" />
+    <state x="619" y="340" key="com.intellij.ide.util.TipDialog" timestamp="1590755746378">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="619" y="340" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1590755746378" />
   </component>
 </project>
