@@ -27,10 +27,11 @@ parser.add_argument("--epsilon", default=0.5, type=float,
                     help="Exploration factor.")
 parser.add_argument("--gamma", default=1, type=float,
                     help="Discounting factor.")
+parser.add_argument("--init_bias", default=0, type=float)
 
 def epsilon_schedule(args, episode):
     # exponentially descrease epsilon
-    return args.epsilon * 0.5**(5 * episode/args.episodes)
+    return args.epsilon * 0.5**(3 * episode/args.episodes)
 
 def alpha_schedule(args, episode):
     # exponentially descrease alpha learning rate
@@ -49,7 +50,8 @@ def main(env, args):
     np.random.seed(args.seed)
 
     # TODO: Variable creation and initialization
-    q = np.zeros((env.observation_space.n, env.action_space.n))
+    
+    q = np.ones((env.observation_space.n, env.action_space.n)) * args.init_bias
 
     for e in range(args.episodes):
         # Perform episode
@@ -79,7 +81,7 @@ if __name__ == "__main__":
 
     # Create the environment
     env = wrappers.EvaluationWrapper(wrappers.DiscreteMountainCarWrapper(
-        gym.make("MountainCar1000-v0")), args.seed, logname=f"alpha={args.alpha},epsilon={args.epsilon},gamma={args.gamma},de={args.decrease_epsilon},da={args.decrease_alpha},seed={args.seed}", evaluate_for=100)
+        gym.make("MountainCar1000-v0")), args.seed, logname=f"alpha={args.alpha},epsilon={args.epsilon},gamma={args.gamma},init_bias={args.init_bias},de={args.decrease_epsilon},da={args.decrease_alpha},seed={args.seed}", evaluate_for=100)
 
     main(env, args)
 

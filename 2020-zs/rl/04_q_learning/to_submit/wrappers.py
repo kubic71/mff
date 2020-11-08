@@ -40,8 +40,6 @@ class EvaluationWrapper(gym.Wrapper):
 
         observation, reward, done, info = super().step(action)
 
-        # also penalize firing orientation motors for faster training
-#        reward -= 0.3 * (action in (1, 3))
 
         self._episode_return += reward
         if done:

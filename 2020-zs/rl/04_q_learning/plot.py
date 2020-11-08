@@ -12,9 +12,10 @@ import argparse
 if len(sys.argv) == 1:
     logs = os.listdir("logs/")
 else:
-    logs = sys.argv[2:]
+    logs = sys.argv[1:]
 
 
+print(logs)
 for log in logs:
     # epsilon = list(map(lambda param: float(param.split("=")[1]), log.split(",")))
 
