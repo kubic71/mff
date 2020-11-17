@@ -156,16 +156,7 @@ def load_controller():
 
 
 
-def main():
-    print("hello")
-
-if __name__ == "__main__":
-    args = parser.parse_args([] if "__file__" not in globals() else None)
-
-    print(get_params_str(args.seed))
-
-    env = make_env(seed=args.seed)()
-
+def main(env, args):
     if args.load_from is not None:
         # print("loading model", args.load_from)
         # model = DQN.load(args.load_from)
@@ -197,3 +188,10 @@ if __name__ == "__main__":
         model.save("saved_models/" + get_params_str(f"envSeed-{args.seed}"))
 
     evaluate(model, args.seed)
+
+if __name__ == "__main__":
+    args = parser.parse_args([] if "__file__" not in globals() else None)
+    env = make_env(seed=args.seed)()
+
+
+    main(env, args)
