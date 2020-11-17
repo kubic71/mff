@@ -19,14 +19,16 @@ last_rewards = deque(maxlen=30)
     # def __init__(self, env):
 
 
-class TerminateEarlyWrapper(gym.Wrapper):
-    def __init__(self, env):
+class TerminateEarlyWrapper(gym.Wrapper, ):
+    def __init__(self, env, cumulative_reward_thres=-25):
         super().__init__(env)
+
+        self.cumulative_reward_thres = cumulative_reward_thres
         
     def step(self, action):
         next_state, reward, done, info = super().step(action)
 
-        if(sum(globals()["last_rewards"]) < -10):
+        if(sum(globals()["last_rewards"]) < self.cumulative_reward_thres):
             globals()["last_rewards"].clear()
             done = True
 
@@ -34,11 +36,14 @@ class TerminateEarlyWrapper(gym.Wrapper):
 
 
 class RewardWrapper(gym.RewardWrapper):
-    def __init__(self, env, green_penalty= 0.05, speed_limit=0.7):
+    def __init__(self, env, green_penalty= 0.05, speed_limit=0.7, speed_limit_end=500000, silent=False):
         super().__init__(env)
         
         self.speed_limit = speed_limit
+        self.speed_limit_end = speed_limit_end
         self.green_penalty = green_penalty
+
+        self.silent = silent
 
         self.i = 0
 
@@ -49,13 +54,14 @@ class RewardWrapper(gym.RewardWrapper):
         gp = self.green * self.green_penalty
         rew -= gp
 
-        speeding = abs(self.speed - 0.2) * self.speed_limit * max(0, 1 - self.i / 500000 )
-        print("speeding:\t", speeding, "green penalty:\t", gp)
+        speeding = abs(self.speed - 0.2)**2 * self.speed_limit * max(0, 1 - self.i / self.speed_limit_end)
         rew -= speeding
 
         globals()["last_rewards"].append(rew)
 
-        print("reward: ", rew)
+        if not self.silent:
+            print("speeding:\t", speeding, "green penalty:\t", gp)
+            print("reward: ", rew)
 
         return rew
 
@@ -82,7 +88,7 @@ class CarDiscretizatinoWrapper(gym.ActionWrapper):
 
 
 class VaeCarWrapper(gym.ObservationWrapper):
-    def __init__(self, env, context_size=3):
+    def __init__(self, env, silent=False):
         super().__init__(env)
 
 
@@ -96,6 +102,7 @@ class VaeCarWrapper(gym.ObservationWrapper):
             model_path_name, compile=False).get_weights())
 
         self.observation_space = Box(low=float("-inf"), high=float("inf"), shape=(40,))
+        self.silent = silent
 
     def _process_frame(self, frame):
         obs = (frame[0:84, :, :] * 255).astype(np.uint8)
@@ -106,7 +113,23 @@ class VaeCarWrapper(gym.ObservationWrapper):
         return np.array(self.vae.encode(obs.reshape(1, 64, 64, 3)/255)[0])
 
     def observation(self, frame):
-        self.green = min(80, np.sum((frame[63:77, 40:55, 1] > 0.5).flatten())) / 80.0
+        # far-front spike
+        car_body = np.sum((frame[56:59, 47, 1] > 0.5).flatten())
+
+        # main headlights
+        car_body = np.sum((frame[59:74, 46:49, 1] > 0.5).flatten())
+
+        # rear wheels
+        car_body += np.sum((frame[72:76, 44, 1] > 0.5).flatten())   
+        car_body += np.sum((frame[72:76, 50, 1] > 0.5).flatten())
+
+
+        #sides
+        car_body += np.sum((frame[67:77, 45, 1] > 0.5).flatten())   
+        car_body += np.sum((frame[67:77, 49, 1] > 0.5).flatten())
+
+        self.green = car_body / 55.0
+
         self.speed = sum(frame[85:, 2, 0]) / 5
 
 
@@ -123,7 +146,8 @@ class VaeCarWrapper(gym.ObservationWrapper):
         rotation_right = sum(frame[90, 72:85, 0])
         self.rotation = rotation_right - rotation_left
 
-        print(f"green:{self.green}\tspeed:{self.speed}\tabs:\t{self.abs1}\t{self.abs2}\t{self.abs3}\t{self.abs4}\tsteering:{self.steering}\trotation:{self.rotation}") 
+        if not self.silent:
+            print(f"green:{self.green}\tspeed:{self.speed}\tabs:\t{self.abs1}\t{self.abs2}\t{self.abs3}\t{self.abs4}\tsteering:{self.steering}\trotation:{self.rotation}") 
 
         features = self._process_frame(frame)
 

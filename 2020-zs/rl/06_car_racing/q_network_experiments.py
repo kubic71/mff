@@ -10,7 +10,7 @@ num_cuda_executing = 0
 
 # epsilon=1,epsilon_final=0.1,epsilon_final_at=0.4,episodes=3000,gamma=0.99,hidden_size=24,lr=0.003,target_update_freq=200,train_freq=100,buffer_size=500000
 
-seed = [10]
+seed = [13]
 
 # controller_size = [32, 64]
 controller_size = [64]
@@ -18,9 +18,9 @@ controller_depth = [2]
 tau = [1]
 
 
-epsilon = [0.5]
+epsilon = [0.3]
 epsilon_final = [0.05]
-epsilon_final_at = [0.1]
+epsilon_final_at = [1]
 
 total_timesteps = [500000]
 
@@ -28,13 +28,12 @@ gamma = [0.99]
 
 target_update_freq = [5000]
 train_freq = [8]
-green_penalty=[0.2]
+green_penalty=[0.75]
 
-frame_skip = [3]
+frame_skip = [1]
 context_length = [1]
 
-
-batch_size = [512]
+batch_size = [2048]
 discrete_actions = [True]
 
 
