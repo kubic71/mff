@@ -1,16 +1,90 @@
 #!/usr/bin/env python3
 import sys
+import os
+
+from collections import deque
 
 from gym.spaces.box import Box
 import gym
 import numpy as np
 from PIL import Image
 import tensorflow as tf
+import car_racing_environment
+
+
+last_rewards = deque(maxlen=30)
+
+
+# class SkipFirstFrames(gym.Wrapper):
+    # def __init__(self, env):
+
+
+class TerminateEarlyWrapper(gym.Wrapper):
+    def __init__(self, env):
+        super().__init__(env)
+        
+    def step(self, action):
+        next_state, reward, done, info = super().step(action)
+
+        if(sum(globals()["last_rewards"]) < -10):
+            globals()["last_rewards"].clear()
+            done = True
+
+        return next_state, reward, done, info
+
+
+class RewardWrapper(gym.RewardWrapper):
+    def __init__(self, env, green_penalty= 0.05, speed_limit=0.7):
+        super().__init__(env)
+        
+        self.speed_limit = speed_limit
+        self.green_penalty = green_penalty
+
+        self.i = 0
+
+    
+    def reward(self, rew):
+        self.i += 1
+
+        gp = self.green * self.green_penalty
+        rew -= gp
+
+        speeding = abs(self.speed - 0.2) * self.speed_limit * max(0, 1 - self.i / 500000 )
+        print("speeding:\t", speeding, "green penalty:\t", gp)
+        rew -= speeding
+
+        globals()["last_rewards"].append(rew)
+
+        print("reward: ", rew)
+
+        return rew
+
+class CarDiscretizatinoWrapper(gym.ActionWrapper):
+
+    def __init__(self, env):
+        super(CarDiscretizatinoWrapper, self).__init__(env)
+
+
+        self.action_map = [
+
+            [-1.0, 0.0, 0.0],  # Turn hard left
+            [+1.0, 0.0, 0.0],  # Turn hard right
+            [0.0, 0.0, 0.8],  # Brake
+            [0.0, 1.0, 0],  # Accelerate
+            [0.0, 0.0, 0.0],  # Do-(almost)-nothing
+        ]
+
+        self.action_space = gym.spaces.Discrete(len(self.action_map))
+
+    def action(self, action):
+        # print(self.action_map[action])
+        return self.action_map[action]
 
 
 class VaeCarWrapper(gym.ObservationWrapper):
-    def __init__(self, env):
+    def __init__(self, env, context_size=3):
         super().__init__(env)
+
 
         from vae.vae import CVAE
         from utils import PARSER
@@ -21,21 +95,43 @@ class VaeCarWrapper(gym.ObservationWrapper):
         self.vae.set_weights(tf.keras.models.load_model(
             model_path_name, compile=False).get_weights())
 
-        self.observation_space = Box(
-            low=float("-inf"), high=float("inf"), shape=(32,))
+        self.observation_space = Box(low=float("-inf"), high=float("inf"), shape=(40,))
 
     def _process_frame(self, frame):
         obs = (frame[0:84, :, :] * 255).astype(np.uint8)
         obs = Image.fromarray(obs, mode="RGB").resize((64, 64))
         obs = np.array(obs)
+
+
         return np.array(self.vae.encode(obs.reshape(1, 64, 64, 3)/255)[0])
 
-    def observation(self, observation):
-        return self._process_frame(observation)
+    def observation(self, frame):
+        self.green = min(80, np.sum((frame[63:77, 40:55, 1] > 0.5).flatten())) / 80.0
+        self.speed = sum(frame[85:, 2, 0]) / 5
+
+
+        self.abs1 = sum(frame[85:, 9, 2])
+        self.abs2 = sum(frame[85:, 14, 2])
+        self.abs3 = sum(frame[85:, 19, 2])
+        self.abs4 = sum(frame[85:, 24, 2])
+
+        steering_input_left = sum(frame[90, 37:48, 1])
+        steering_input_right = sum(frame[90, 47:58, 1])
+        self.steering = steering_input_right - steering_input_left
+
+        rotation_left = sum(frame[90, 59:72, 0])
+        rotation_right = sum(frame[90, 72:85, 0])
+        self.rotation = rotation_right - rotation_left
+
+        print(f"green:{self.green}\tspeed:{self.speed}\tabs:\t{self.abs1}\t{self.abs2}\t{self.abs3}\t{self.abs4}\tsteering:{self.steering}\trotation:{self.rotation}") 
+
+        features = self._process_frame(frame)
+
+        return np.concatenate([features, [self.speed, self.green, self.abs1, self.abs2, self.abs3, self.abs4, self.steering, self.rotation]])
 
 
 class EvaluationWrapper(gym.Wrapper):
-    def __init__(self, env, seed=None, evaluate_for=100, report_each=10):
+    def __init__(self, env, seed=None, evaluate_for=100, report_each=10, logname="logs/default", render_every=0):
         super().__init__(env)
         self._evaluate_for = evaluate_for
         self._report_each = report_each
@@ -47,6 +143,10 @@ class EvaluationWrapper(gym.Wrapper):
         self._episode_running = False
         self._episode_returns = []
         self._evaluating_from = None
+        self._render_every = render_every
+
+        _ = os.popen("mkdir -p logs").read()
+        self.logfile = open(logname, "w")
 
     @property
     def episode(self):
@@ -71,6 +171,9 @@ class EvaluationWrapper(gym.Wrapper):
 
         observation, reward, done, info = super().step(action)
 
+        if (self._render_every != 0 and self.episode % self._render_every == 0):
+            self.render()
+
         self._episode_return += reward
         if done:
             self._episode_running = False
@@ -81,11 +184,15 @@ class EvaluationWrapper(gym.Wrapper):
                     self.episode, self._evaluate_for, np.mean(
                         self._episode_returns[-self._evaluate_for:]),
                     np.std(self._episode_returns[-self._evaluate_for:])), file=sys.stderr)
+                self.logfile.write(f"{self.episode} {np.mean(self._episode_returns[-self._evaluate_for:])}\n")
+                self.logfile.flush()
             if self._evaluating_from is not None and self.episode >= self._evaluating_from + self._evaluate_for:
                 print("The mean {}-episode return after evaluation {:.2f} +-{:.2f}".format(
                     self._evaluate_for, np.mean(
                         self._episode_returns[-self._evaluate_for:]),
                     np.std(self._episode_returns[-self._evaluate_for:]), file=sys.stderr))
+                self.logfile.write(f"{self.episode} {np.mean(self._episode_returns[-self._evaluate_for:])}\n")
+                self.logfile.flush()
                 self.close()
                 sys.exit(0)
 
