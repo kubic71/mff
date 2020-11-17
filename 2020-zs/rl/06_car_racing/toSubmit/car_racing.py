@@ -126,6 +126,7 @@ def evaluate(model, seed, evaluate_for=15):
 
 
 def load_controller():
+    """
     seq = th.nn.Sequential(
             th.nn.Linear(in_features=40, out_features=64, bias=True),
             th.nn.ReLU(),
@@ -151,8 +152,9 @@ def load_controller():
     sd['2.bias'].copy_(b1)
     sd['4.weight'].copy_(w2)
     sd['4.bias'].copy_(b2)
+    """
 
-    return seq
+    return np.load("seq.npy") 
 
 
 
