@@ -153,8 +153,8 @@ def load_controller():
     sd['4.weight'].copy_(w2)
     sd['4.bias'].copy_(b2)
     """
-
-    return np.load("seq.npy") 
+    s = np.load("seq.npy", allow_pickle=True) 
+    return th.nn.Sequential(s[0], s[1], s[2], s[3], s[4])
 
 
 
