@@ -51,5 +51,5 @@ for log in logs:
 
         # plt.fill_between(episodes, lower, upper, alpha=0.25)
 
-plt.legend()
+# plt.legend()
 plt.show()

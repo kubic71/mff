@@ -8,6 +8,7 @@ import numpy as np
 class EvaluationWrapper(gym.Wrapper):
     def __init__(self, env, seed=None, logname="logs/default", evaluate_for=100, report_each=10):
         super().__init__(env)
+        print(logname)
         self._evaluate_for = evaluate_for
         self._report_each = report_each
 
@@ -37,6 +38,11 @@ class EvaluationWrapper(gym.Wrapper):
         self._episode_return = 0
         return super().reset()
 
+
+    def mean_score(self, for_the_last):
+        return np.mean(self._episode_returns[-for_the_last:])
+
+
     def step(self, action):
         if not self._episode_running:
             raise RuntimeError("Cannot run `step` on environments without an active episode, run `reset` first")
@@ -62,7 +68,8 @@ class EvaluationWrapper(gym.Wrapper):
                 self.logfile.write(f"{self.episode} {np.mean(self._episode_returns[-self._evaluate_for:])}\n")
                 self.logfile.close()
                 self.close()
-                raise KeyboardInterrupt
+                sys.exit(0)
+
 
         return observation, reward, done, info
 
