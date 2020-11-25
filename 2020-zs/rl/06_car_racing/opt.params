@@ -1,0 +1,2 @@
+frame_skip': 3, 'learning_rate': 0.00021537821803450485, 'gamma': 0.99, 'epsilon': 0.5362108911417153, 'epsilon_final': 0.052869175498958726, 'epsilon_final_at': 0.9028846735356665, 'controller_size': 118, 'controller_depth': 2, 'green_penalty': 8.38533228872203, 'skidding_penalty': 2.919007290818429, 'update_interval': 568.4531371371392}
+

@@ -93,8 +93,18 @@ class VaeCarWrapper(gym.ObservationWrapper):
         super().__init__(env)
 
 
-        from vae import CVAE
-        self.vae = CVAE()
+        from vae.vae import CVAE
+        from utils import PARSER
+        args = PARSER.parse_args(['--config_path', 'configs/carracing.config'])
+        model_path_name = "models/tf_vae"
+
+        self.vae = CVAE(args)
+
+
+
+        # self.vae.set_weights(tf.keras.models.load_model(
+        #     model_path_name, compile=False).get_weights())
+
         self.vae.set_weights(np.load("vae_weights.npy", allow_pickle=True))
 
 

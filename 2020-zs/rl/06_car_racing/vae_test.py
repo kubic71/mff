@@ -45,7 +45,6 @@ while True:
 
         batch_z = vae.encode(state.reshape(1, 64, 64, 3)/255)
         reconstruct = vae.decode(batch_z)
-
         screen.fill((0,0,0))
         screen.blit(pygame.surfarray.make_surface(resize(state, 3)), (0, 0))
         screen.blit(pygame.surfarray.make_surface(resize(reconstruct[0], 3)), (300, 0))

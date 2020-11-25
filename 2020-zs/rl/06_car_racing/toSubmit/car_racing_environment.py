@@ -818,6 +818,8 @@ if __name__=="__main__":
     import time
 
     from pyglet.window import key
+    from pygame.time import Clock
+    clock = Clock()
     a = np.array([0.0, 0.0, 0.0])
 
     def key_press(k, mod):
@@ -850,7 +852,7 @@ if __name__=="__main__":
                 print("step {} total_reward {:+0.2f}".format(steps, total_reward))
             steps += 1
             env.render()
-            time.sleep(0.01)
+            clock.tick(60)
             if done or restart:
                 break
     env.close()

@@ -166,10 +166,7 @@ class Car:
             forw = w.GetWorldVector( (0,1) )
             side = w.GetWorldVector( (1,0) )
             v = w.linearVelocity
-
             vf = forw[0]*v[0] + forw[1]*v[1]  # forward speed
-            self.speed = vf
-
             vs = side[0]*v[0] + side[1]*v[1]  # side speed
 
             # WHEEL_MOMENT_OF_INERTIA*np.square(w.omega)/2 = E -- energy
@@ -840,6 +837,10 @@ if __name__=="__main__":
     env.render()
     env.viewer.window.on_key_press = key_press
     env.viewer.window.on_key_release = key_release
+
+
+    from pygame.time import Clock
+    clock = Clock()
     while True:
         env.reset()
         total_reward = 0.0
@@ -853,7 +854,6 @@ if __name__=="__main__":
                 print("step {} total_reward {:+0.2f}".format(steps, total_reward))
             steps += 1
             env.render()
-            time.sleep(0.01)
+            clock.tick(60)
             if done or restart:
                 break
-    env.close()
