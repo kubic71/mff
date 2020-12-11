@@ -41,7 +41,7 @@ parser.add_argument("--gamma", default=0.99, type=float)
 parser.add_argument("--train_freq", default=256, type=int)
 parser.add_argument("--gradient_steps", default=64, type=int)
 parser.add_argument("--no-render", default=False, action="store_true")
-parser.add_argument("--net_arch", default=[400, 300], type=List[int])
+parser.add_argument("--net_arch", default=[400, 300], type=int, nargs="+")
 
 # !! TODO change to True
 parser.add_argument("--hardcore", default=True, action="store_true")
@@ -60,11 +60,18 @@ def lr_schedule(t):
     # exponential lr schedule
     decay_factor = 10
     c = args.timesteps / np.math.log(decay_factor, 2)
-    return args.learning_rate * 0.5**((1-t) * args.timesteps / c)
+    lr = args.learning_rate * 0.5**((1-t) * args.timesteps / c)
+
+
+    # linear warmup for 2% of the training
+    if (1-t) < 0.02:
+        lr = (1-t)/0.02 * lr
+
+    return lr
 
 
 def get_exp_name():
-    return f"{getEnvName()}-lr={args.learning_rate},fs={args.frame_skip},tau={args.tau},gamma={args.gamma},n={args.timesteps},tau={args.tau},train_freq={args.train_freq},grad_steps={args.gradient_steps},bs={args.batch_size},buf_size={args.buffer_size}"
+    return f"{getEnvName()}-lr={args.learning_rate},fs={args.frame_skip},tau={args.tau},gamma={args.gamma},n={args.timesteps},tau={args.tau},train_freq={args.train_freq},grad_steps={args.gradient_steps},bs={args.batch_size},buf_size={args.buffer_size},net_arch={','.join(list(map(str, args.net_arch)))}"
 
 
 class SaveBestModelCallback(BaseCallback):
@@ -102,7 +109,8 @@ def main(env, args):
         while True:
             state, done = env.reset(start_evaluation=True), False
             while not done:
-                action, _states = model.predict(state, deterministic=True)
+                # action, _states = model.predict(state, deterministic=True)
+                action, _states = model.predict(state)
 
                 ## TODO delete before submitting
                 if not args.no_render:
