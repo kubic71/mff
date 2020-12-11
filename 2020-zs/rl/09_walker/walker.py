@@ -31,24 +31,25 @@ parser.add_argument("--threads",
                     type=int,
                     help="Maximum number of threads to use.")
 
-parser.add_argument("--timesteps", default=500000, type=int)
-parser.add_argument("--frame_skip", default=1, type=int)
-parser.add_argument("--learning_rate", default=0.002, type=float)
-parser.add_argument("--buffer_size", default=300000, type=int)
+parser.add_argument("--timesteps", default=1000000, type=int)
+parser.add_argument("--frame_skip", default=4, type=int)
+parser.add_argument("--learning_rate", default=0.0014, type=float)
+parser.add_argument("--buffer_size", default=600000, type=int)
 parser.add_argument("--batch_size", default=256, type=int)
-parser.add_argument("--tau", default=0.01, type=float)
+parser.add_argument("--tau", default=0.015, type=float)
 parser.add_argument("--gamma", default=0.99, type=float)
-parser.add_argument("--train_freq", default=64, type=int)
+parser.add_argument("--train_freq", default=256, type=int)
 parser.add_argument("--gradient_steps", default=64, type=int)
 parser.add_argument("--no-render", default=False, action="store_true")
 parser.add_argument("--net_arch", default=[400, 300], type=List[int])
 
-parser.add_argument("--hardcore", default=False, action="store_true")
+# !! TODO change to True
+parser.add_argument("--hardcore", default=True, action="store_true")
 
 parser.add_argument("--load_from", default=None, type=str)
 
 parser.add_argument("--tensorboard_log_dir",
-                    default="/tmp/stable-baselines",
+                    default="/tmp/stable-baselines2",
                     type=str)
 parser.add_argument("--log_interval", default=10, type=int)
 
@@ -63,14 +64,11 @@ def lr_schedule(t):
 
 
 def get_exp_name():
-    return f"{getEnvName()}-lr={args.learning_rate},fs={args.frame_skip},tau={args.tau},gamma={args.gamma},n={args.timesteps}"
-
-
-# For these and any other arguments you add, ReCodEx will keep your default value.
+    return f"{getEnvName()}-lr={args.learning_rate},fs={args.frame_skip},tau={args.tau},gamma={args.gamma},n={args.timesteps},tau={args.tau},train_freq={args.train_freq},grad_steps={args.gradient_steps},bs={args.batch_size},buf_size={args.buffer_size}"
 
 
 class SaveBestModelCallback(BaseCallback):
-    def __init__(self, save_path="best_model.zip", verbose=1):
+    def __init__(self, save_path="best/best_model.zip", verbose=1):
         super(SaveBestModelCallback, self).__init__(verbose)
         self.save_path = save_path
 
@@ -121,7 +119,8 @@ def main(env, args):
                     env,
                     learning_rate=lr_schedule,
                     buffer_size=args.buffer_size,
-                    learning_starts=10000,
+                    # learning_starts=10000,
+                    learning_starts=5000,
                     batch_size=args.batch_size,
                     tau=args.tau,
                     gamma=args.gamma,
@@ -130,19 +129,19 @@ def main(env, args):
                     ent_coef="auto",
                     use_sde=False,
                     policy_kwargs=dict(log_std_init=-3,
-                                       net_arch=args.net_arch),
+                                       net_arch=args.net_arch, use_expln=True),
                     tensorboard_log=tensorboard_log_dir,
                     seed=args.seed)
 
         model.verbose = 2
 
         callbacks = [
-            CheckpointCallback(10000,
+            CheckpointCallback(20000,
                                "checkpoints",
                                name_prefix=get_exp_name()),
             EvalCallback(gym.make(getEnvName()),
-                         callback_on_new_best=SaveBestModelCallback(save_path=get_exp_name() + "_best_model.zip"),
-                         eval_freq=10000,
+                         callback_on_new_best=SaveBestModelCallback(save_path="best/" + get_exp_name() + "_best_model.zip"),
+                         eval_freq=20000,
                          n_eval_episodes=5,
                          deterministic=True)
             # EpisodeCallback(env)
@@ -153,6 +152,15 @@ def main(env, args):
                     log_interval=args.log_interval,
                     callback=callbacks)
 
+
+        # Final evaluation
+        env = wrappers.EvaluationWrapper(gym.make(getEnvName()), evaluate_for=200, seed=args.seed)
+
+        while True:
+            state, done = env.reset(start_evaluation=True), False
+            while not done:
+                action, _states = model.predict(state, deterministic=True)
+                state, reward, done, _ = env.step(action)
 
 
 if __name__ == "__main__":

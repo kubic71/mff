@@ -75,10 +75,11 @@ class EvaluationWrapper(gym.Wrapper):
                 print("Episode {}, mean {}-episode return {:.2f} +-{:.2f}".format(
                     self.episode, self._evaluate_for, np.mean(self._episode_returns[-self._evaluate_for:]),
                     np.std(self._episode_returns[-self._evaluate_for:])), file=sys.stderr)
+
             if self._evaluating_from is not None and self.episode >= self._evaluating_from + self._evaluate_for:
                 print("The mean {}-episode return after evaluation {:.2f} +-{:.2f}".format(
                     self._evaluate_for, np.mean(self._episode_returns[-self._evaluate_for:]),
-                    np.std(self._episode_returns[-self._evaluate_for:]), file=sys.stderr))
+                    np.std(self._episode_returns[-self._evaluate_for:]), file=sys.stdout)) # print the last line to stdout for optuna to pick up
                 self.close()
                 sys.exit(0)
 
