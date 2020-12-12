@@ -20,20 +20,14 @@ parser.add_argument("--recodex", default=True, action="store_true", help="Runnin
 parser.add_argument("--render_each", default=0, type=int, help="Render some episodes.")
 parser.add_argument("--seed", default=88, type=int, help="Random seed.")
 parser.add_argument("--threads", default=1, type=int, help="Maximum number of threads to use.")
+parser.add_argument("--frame_skip", default=2, type=int)
 # For these and any other arguments you add, ReCodEx will keep your default value.
 
 def main(env, args):
     # Fix random seeds and number of threads
     np.random.seed(args.seed)
-    tf.random.set_seed(args.seed)
-    tf.config.threading.set_inter_op_parallelism_threads(args.threads)
-    tf.config.threading.set_intra_op_parallelism_threads(args.threads)
 
     if args.recodex:
-        # TODO: Perform evaluation of a trained model.
-
-
-        
 
         agent = TD3('Bipedalhardcore', env, batch_size=100, seed=args.seed)
         agent.load_weight()
@@ -41,7 +35,7 @@ def main(env, args):
             state, done = env.reset(start_evaluation=True), False
             while not done:
                 # TODO: Choose an action
-                env.render()
+                # env.render()
                 action = agent.policy(state)
 
                 state, reward, done, _ = env.step(action)
@@ -52,21 +46,20 @@ def main(env, args):
         pass
 
 
-#if __name__ == "__main__":
-#    args = parser.parse_args([] if "__file__" not in globals() else None)
 
-    # Create the environment
-#    env = wrappers.EvaluationWrapper(gym.make("BipedalWalkerHardcore-v3"), args.seed)
-
-#    main(env, args)
 
 max_steps = 3000
 falling_down = 0
 
 #def train():
 if __name__ == '__main__':
-    frame_skip = 3
-    env = wrappers.FrameSkipWrapper(wrappers.EvaluationWrapper(gym.make("BipedalWalkerHardcore-v3"), 1),  frame_skip)
+    args = parser.parse_args([] if "__file__" not in globals() else None)
+
+    if args.recodex:
+        env = wrappers.EvaluationWrapper(gym.make("BipedalWalkerHardcore-v3"), 100)
+        main(env, args)
+
+    env = wrappers.FrameSkipWrapper(wrappers.EvaluationWrapper(gym.make("BipedalWalkerHardcore-v3"), 1),  args.frame_skip)
     agent = TD3('Bipedalhardcore', env, batch_size=100, seed=1)
     agent.load_weight()
     total_episodes = 100000
