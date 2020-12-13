@@ -44,9 +44,9 @@ parser.add_argument("--no-render", default=False, action="store_true")
 parser.add_argument("--net_arch", default=[400, 300], type=int, nargs="+")
 
 # !! TODO change to True
-parser.add_argument("--hardcore", default=True, action="store_true")
+parser.add_argument("--hardcore", default=False, action="store_true")
 
-parser.add_argument("--load_from", default=None, type=str)
+parser.add_argument("--load_from", nargs="+", default=None, type=str)
 
 parser.add_argument("--tensorboard_log_dir",
                     default="/tmp/stable-baselines2",
@@ -63,9 +63,9 @@ def lr_schedule(t):
     lr = args.learning_rate * 0.5**((1-t) * args.timesteps / c)
 
 
-    # linear warmup for 2% of the training
-    if (1-t) < 0.02:
-        lr = (1-t)/0.02 * lr
+    # linear warmup for 0.5% of the training
+    # if (1-t) < 0.005:
+        # lr = (1-t)/0.005 * lr
 
     return lr
 
@@ -104,19 +104,28 @@ def main(env, args):
     np.random.seed(args.seed)
 
     if args.recodex:
-        model = SAC.load(args.load_from)
+        models = []
+        for path in args.load_from:
+            models.append(SAC.load(path))
 
         while True:
             state, done = env.reset(start_evaluation=True), False
+            ret = 0
             while not done:
+                action = np.sum(np.array(list(map(lambda m: m.predict(state, deterministic=True)[0], models))), axis=0) / len(models)**0.5
+                # print(action)
+
                 # action, _states = model.predict(state, deterministic=True)
-                action, _states = model.predict(state)
+                # action, _states = model.predict(state)
 
                 ## TODO delete before submitting
                 if not args.no_render:
                     env.render()
 
                 state, reward, done, _ = env.step(action)
+                ret += reward
+
+            # print("Episode return:", ret)
 
     else:
 
@@ -169,6 +178,8 @@ def main(env, args):
             while not done:
                 action, _states = model.predict(state, deterministic=True)
                 state, reward, done, _ = env.step(action)
+
+        model.save(get_exp_name())
 
 
 if __name__ == "__main__":
