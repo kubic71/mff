@@ -32,6 +32,7 @@ parser.add_argument("--threads",
                     help="Maximum number of threads to use.")
 
 parser.add_argument("--timesteps", default=1000000, type=int)
+parser.add_argument("--lr_decay", default=10, type=float)
 parser.add_argument("--frame_skip", default=4, type=int)
 parser.add_argument("--learning_rate", default=0.0014, type=float)
 parser.add_argument("--buffer_size", default=600000, type=int)
@@ -60,8 +61,7 @@ def getEnvName():
 
 def lr_schedule(t):
     # exponential lr schedule
-    decay_factor = 10
-    c = args.timesteps / np.math.log(decay_factor, 2)
+    c = args.timesteps / np.math.log(args.lr_decay, 2)
     lr = args.learning_rate * 0.5**((1-t) * args.timesteps / c)
 
 
