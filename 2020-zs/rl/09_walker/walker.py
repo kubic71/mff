@@ -40,6 +40,7 @@ parser.add_argument("--tau", default=0.015, type=float)
 parser.add_argument("--gamma", default=0.99, type=float)
 parser.add_argument("--train_freq", default=256, type=int)
 parser.add_argument("--gradient_steps", default=64, type=int)
+parser.add_argument("--learning_starts", default=10000, type=int)
 parser.add_argument("--no-render", default=False, action="store_true")
 parser.add_argument("--net_arch", default=[400, 300], type=int, nargs="+")
 
@@ -71,7 +72,7 @@ def lr_schedule(t):
 
 
 def get_exp_name():
-    return f"{getEnvName()}-lr={args.learning_rate},fs={args.frame_skip},tau={args.tau},gamma={args.gamma},n={args.timesteps},tau={args.tau},train_freq={args.train_freq},grad_steps={args.gradient_steps},bs={args.batch_size},buf_size={args.buffer_size},net_arch={','.join(list(map(str, args.net_arch)))}"
+    return f"{getEnvName()}-lr={args.learning_rate},learn_start={args.learning_starts},fs={args.frame_skip},tau={args.tau},gamma={args.gamma},n={args.timesteps},tau={args.tau},train_freq={args.train_freq},grad_steps={args.gradient_steps},bs={args.batch_size},buf_size={args.buffer_size},net_arch={','.join(list(map(str, args.net_arch)))}"
 
 
 class SaveBestModelCallback(BaseCallback):
@@ -136,8 +137,7 @@ def main(env, args):
                     env,
                     learning_rate=lr_schedule,
                     buffer_size=args.buffer_size,
-                    # learning_starts=10000,
-                    learning_starts=5000,
+                    learning_starts=args.learning_starts,
                     batch_size=args.batch_size,
                     tau=args.tau,
                     gamma=args.gamma,
