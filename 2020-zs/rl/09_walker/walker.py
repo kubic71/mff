@@ -41,6 +41,7 @@ parser.add_argument("--gamma", default=0.99, type=float)
 parser.add_argument("--train_freq", default=256, type=int)
 parser.add_argument("--gradient_steps", default=64, type=int)
 parser.add_argument("--learning_starts", default=10000, type=int)
+parser.add_argument("--warmup", default=0.01, type=float)
 parser.add_argument("--no-render", default=False, action="store_true")
 parser.add_argument("--net_arch", default=[400, 300], type=int, nargs="+")
 
@@ -65,8 +66,8 @@ def lr_schedule(t):
 
 
     # linear warmup for 0.5% of the training
-    # if (1-t) < 0.005:
-        # lr = (1-t)/0.005 * lr
+    if (1-t) < args.warmup:
+        lr = (1-t)/args.warmup * lr
 
     return lr
 
