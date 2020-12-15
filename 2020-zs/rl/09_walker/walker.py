@@ -46,6 +46,7 @@ parser.add_argument("--warmup", default=0.01, type=float)
 parser.add_argument("--no-render", default=False, action="store_true")
 parser.add_argument("--net_arch", default=[400, 300], type=int, nargs="+")
 parser.add_argument("--reward_shaping", default=False, action="store_true")
+parser.add_argument("--ent_coef", default="auto", type=str)
 
 # !! TODO change to True
 parser.add_argument("--hardcore", default=False, action="store_true")
@@ -88,7 +89,7 @@ class RewardWrapper(gym.RewardWrapper):
 
 
 def get_exp_name():
-    return f"{getEnvName()}-lr={args.learning_rate},learn_start={args.learning_starts},fs={args.frame_skip},tau={args.tau},gamma={args.gamma},n={args.timesteps},tau={args.tau},train_freq={args.train_freq},grad_steps={args.gradient_steps},bs={args.batch_size},buf_size={args.buffer_size},net_arch={','.join(list(map(str, args.net_arch)))}"
+    return f"{getEnvName()}-lr={args.learning_rate},learn_start={args.learning_starts},fs={args.frame_skip},tau={args.tau},gamma={args.gamma},n={args.timesteps},tau={args.tau},train_freq={args.train_freq},grad_steps={args.gradient_steps},bs={args.batch_size},buf_size={args.buffer_size},net_arch={','.join(list(map(str, args.net_arch)))},ent_coef={args.ent_coef}"
 
 
 class SaveBestModelCallback(BaseCallback):
@@ -102,14 +103,15 @@ class SaveBestModelCallback(BaseCallback):
 
 
 class EpisodeCallback(BaseCallback):
-    def __init__(self, env):
+    def __init__(self, env, model):
         verbose = 1
         self.env = env
+        self.model = model
         super(EpisodeCallback, self).__init__(verbose)
 
     def _on_step(self):
-        if self.n_calls % 100 == 0:
-            print(self.n_calls / 100)
+        if self.n_calls % 5000 == 0:
+            model.save("last")
 
         if self.n_calls > 50000:
             self.env._max_episode_steps = 800
@@ -163,7 +165,7 @@ def main(env, args):
                     gamma=args.gamma,
                     train_freq=args.train_freq,
                     gradient_steps=args.gradient_steps,
-                    ent_coef="auto",
+                    ent_coef="auto" if args.ent_coef == "auto" else float(args.ent_coef),
                     use_sde=False,
                     policy_kwargs=dict(log_std_init=-3,
                                        net_arch=args.net_arch, use_expln=True),
@@ -180,8 +182,8 @@ def main(env, args):
                          callback_on_new_best=SaveBestModelCallback(save_path="best/" + get_exp_name() + "_best_model.zip"),
                          eval_freq=20000,
                          n_eval_episodes=5,
-                         deterministic=True)
-            # EpisodeCallback(env)
+                         deterministic=True),
+            EpisodeCallback(env, model)
         ]
 
         print(args.log_interval)
