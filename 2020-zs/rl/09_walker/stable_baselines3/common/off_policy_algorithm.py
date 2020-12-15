@@ -441,9 +441,10 @@ class OffPolicyAlgorithm(BaseAlgorithm):
 
                     if reward_ < -90:
                         fell = True
-                        reward_ = -30
+                        # reward_ = -30
                     else:
-                        reward_ = 2 * reward_
+                        pass
+                        # reward_ = 2 * reward_
 
                     episode_buffer.append((self._last_original_obs, new_obs_, buffer_action, reward_, done))
                     # 
