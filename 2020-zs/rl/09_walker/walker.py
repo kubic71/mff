@@ -84,7 +84,7 @@ class RewardWrapper(gym.RewardWrapper):
             reward = -20
         else:
             reward = 2.5 * reward
-        return rew
+        return reward
 
 
 def get_exp_name():
