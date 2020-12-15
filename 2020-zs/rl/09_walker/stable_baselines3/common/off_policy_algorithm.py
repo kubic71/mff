@@ -457,11 +457,12 @@ class OffPolicyAlgorithm(BaseAlgorithm):
                 if 0 < n_steps <= total_steps:
                     break
 
-            if reward_ == -100:
+            if reward_ < -90:
+                print("fell")
                 fell = True
-                reward = -5
+                reward = -30
             else:
-                reward = 5 * reward
+                reward = 2 * reward
 
             episode_buffer.append((self._last_original_obs, new_obs_, buffer_action, reward_, done))
 

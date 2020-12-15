@@ -39,7 +39,8 @@ parser.add_argument("--buffer_size", default=600000, type=int)
 parser.add_argument("--batch_size", default=256, type=int)
 parser.add_argument("--tau", default=0.015, type=float)
 parser.add_argument("--gamma", default=0.99, type=float)
-parser.add_argument("--train_freq", default=256, type=int)
+parser.add_argument("--train_freq", default=-1, type=int)
+parser.add_argument("--train_episodes", default=None, type=int)
 parser.add_argument("--gradient_steps", default=64, type=int)
 parser.add_argument("--learning_starts", default=10000, type=int)
 parser.add_argument("--warmup", default=0.01, type=float)
@@ -160,6 +161,7 @@ def main(env, args):
                     learning_rate=lr_schedule,
                     buffer_size=args.buffer_size,
                     learning_starts=args.learning_starts,
+                    n_episodes_rollout=args.train_episodes,
                     batch_size=args.batch_size,
                     tau=args.tau,
                     gamma=args.gamma,
