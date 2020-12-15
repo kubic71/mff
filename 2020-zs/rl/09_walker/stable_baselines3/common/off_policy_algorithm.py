@@ -441,10 +441,10 @@ class OffPolicyAlgorithm(BaseAlgorithm):
 
                     if reward_ < -90:
                         fell = True
-                        # reward_ = -30
+                        reward_ = -30
                     else:
                         pass
-                        # reward_ = 2 * reward_
+                        reward_ = 2 * reward_
 
                     episode_buffer.append((self._last_original_obs, new_obs_, buffer_action, reward_, done))
                     # 
@@ -471,7 +471,7 @@ class OffPolicyAlgorithm(BaseAlgorithm):
                 ###### BipedalWalkerHardcore ######
                 # train only on "hard" episodes, but with decreased fall reward
 
-                if episode_reward[0] < 250 or fell or np.random.random() < 0.1:   # is bad episode or we're lucky
+                if episode_reward[0] < 295 or fell or np.random.random() < 0.1:   # is bad episode or we're lucky
                     for old_state, new_state, act, rew, d in episode_buffer:
                         replay_buffer.add(old_state, new_state, act, rew, d)
 
