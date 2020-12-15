@@ -45,6 +45,7 @@ parser.add_argument("--learning_starts", default=10000, type=int)
 parser.add_argument("--warmup", default=0.01, type=float)
 parser.add_argument("--no-render", default=False, action="store_true")
 parser.add_argument("--net_arch", default=[400, 300], type=int, nargs="+")
+parser.add_argument("--reward_shaping", default=False, action="store_true")
 
 # !! TODO change to True
 parser.add_argument("--hardcore", default=False, action="store_true")
@@ -70,6 +71,20 @@ def lr_schedule(t):
         lr = (1-t)/args.warmup * lr
 
     return lr
+
+
+
+
+class RewardWrapper(gym.RewardWrapper):
+    def __init__(self, env):
+        super().__init__(env)
+
+    def reward(self, reward):
+        if reward == -100:
+            reward = -20
+        else:
+            reward = 2.5 * reward
+        return rew
 
 
 def get_exp_name():
@@ -133,6 +148,10 @@ def main(env, args):
 
         tensorboard_log_dir = None if args.tensorboard_log_dir is None else os.path.join(
             args.tensorboard_log_dir, get_exp_name())
+
+
+        if args.reward_shaping:
+            env = RewardWrapper(env)
 
         model = SAC("MlpPolicy",
                     env,
