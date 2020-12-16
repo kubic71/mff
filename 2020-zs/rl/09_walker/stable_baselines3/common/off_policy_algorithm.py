@@ -19,6 +19,7 @@ from stable_baselines3.common.type_aliases import GymEnv, MaybeCallback, Rollout
 from stable_baselines3.common.utils import safe_mean
 from stable_baselines3.common.vec_env import VecEnv
 
+from collections import deque
 
 class OffPolicyAlgorithm(BaseAlgorithm):
     """
@@ -102,7 +103,7 @@ class OffPolicyAlgorithm(BaseAlgorithm):
         sde_support: bool = True,
         remove_time_limit_termination: bool = False,
         supported_action_spaces: Optional[Tuple[gym.spaces.Space, ...]] = None,
-        rew_skip_thres=295
+        rew_skip_thres=0.3
     ):
 
         super(OffPolicyAlgorithm, self).__init__(
@@ -124,7 +125,9 @@ class OffPolicyAlgorithm(BaseAlgorithm):
         )
 
 
+        self.reward_hist = deque(maxlen=100)
         self.rew_skip_thres = rew_skip_thres
+
         self.buffer_size = buffer_size
         self.batch_size = batch_size
         self.learning_starts = learning_starts
@@ -443,12 +446,13 @@ class OffPolicyAlgorithm(BaseAlgorithm):
                         # Avoid changing the original ones
                         self._last_original_obs, new_obs_, reward_ = self._last_obs, new_obs, reward
 
+                    # decrease the fall penalty for training-stability reasons
                     if reward_ < -90:
                         fell = True
-                        reward_ = -30
+                        reward_ = -5
                     else:
                         pass
-                        reward_ = 2 * reward_
+                        reward_ = 5 * reward_
 
                     episode_buffer.append((self._last_original_obs, new_obs_, buffer_action, reward_, done))
                     # 
@@ -472,10 +476,12 @@ class OffPolicyAlgorithm(BaseAlgorithm):
 
             if done:
                 print(f"fell:{fell}, episode_reward:{episode_reward}")
+                self.reward_hist.append(episode_reward[0])
                 ###### BipedalWalkerHardcore ######
                 # train only on "hard" episodes, but with decreased fall reward
+                cutoff = np.percentile(np.array(self.reward_hist), self.rew_skip_thres * 100)
 
-                if episode_reward[0] < self.rew_skip_thres or fell or np.random.random() < 0.1:   # is bad episode or we're lucky
+                if episode_reward[0] < cutoff or fell or np.random.random() < 0.1:   # is bad episode or we're lucky
                     for old_state, new_state, act, rew, d in episode_buffer:
                         replay_buffer.add(old_state, new_state, act, rew, d)
 
@@ -492,7 +498,7 @@ class OffPolicyAlgorithm(BaseAlgorithm):
                         self._dump_logs()
 
                 else:
-                    print("Skipping episode, rew=", episode_reward, ", fell=", fell)
+                    print("Skipping episode, cutoff=", cutoff, ", rew=", episode_reward, ", fell=", fell)
 
         mean_reward = np.mean(episode_rewards) if total_episodes > 0 else 0.0
 

@@ -48,7 +48,7 @@ parser.add_argument("--no-render", default=False, action="store_true")
 parser.add_argument("--net_arch", default=[400, 300], type=int, nargs="+")
 parser.add_argument("--reward_shaping", default=False, action="store_true")
 parser.add_argument("--ent_coef", default="auto", type=str)
-parser.add_argument("--rew_skip_thres", default=295, type=float)
+parser.add_argument("--rew_skip_thres", default=0.3, type=float)
 
 # !! TODO change to True
 parser.add_argument("--hardcore", default=False, action="store_true")
