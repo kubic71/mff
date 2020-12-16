@@ -102,6 +102,7 @@ class OffPolicyAlgorithm(BaseAlgorithm):
         sde_support: bool = True,
         remove_time_limit_termination: bool = False,
         supported_action_spaces: Optional[Tuple[gym.spaces.Space, ...]] = None,
+        rew_skip_thres=295
     ):
 
         super(OffPolicyAlgorithm, self).__init__(
@@ -121,6 +122,9 @@ class OffPolicyAlgorithm(BaseAlgorithm):
             sde_sample_freq=sde_sample_freq,
             supported_action_spaces=supported_action_spaces,
         )
+
+
+        self.rew_skip_thres = rew_skip_thres
         self.buffer_size = buffer_size
         self.batch_size = batch_size
         self.learning_starts = learning_starts
@@ -471,7 +475,7 @@ class OffPolicyAlgorithm(BaseAlgorithm):
                 ###### BipedalWalkerHardcore ######
                 # train only on "hard" episodes, but with decreased fall reward
 
-                if episode_reward[0] < 295 or fell or np.random.random() < 0.1:   # is bad episode or we're lucky
+                if episode_reward[0] < self.rew_skip_thres or fell or np.random.random() < 0.1:   # is bad episode or we're lucky
                     for old_state, new_state, act, rew, d in episode_buffer:
                         replay_buffer.add(old_state, new_state, act, rew, d)
 

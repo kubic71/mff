@@ -48,6 +48,7 @@ parser.add_argument("--no-render", default=False, action="store_true")
 parser.add_argument("--net_arch", default=[400, 300], type=int, nargs="+")
 parser.add_argument("--reward_shaping", default=False, action="store_true")
 parser.add_argument("--ent_coef", default="auto", type=str)
+parser.add_argument("--rew_skip_thres", default=295, type=float)
 
 # !! TODO change to True
 parser.add_argument("--hardcore", default=False, action="store_true")
@@ -90,7 +91,7 @@ class RewardWrapper(gym.RewardWrapper):
 
 
 def get_exp_name():
-    return f"{getEnvName()}-lr={args.learning_rate},learn_start={args.learning_starts},fs={args.frame_skip},tau={args.tau},gamma={args.gamma},n={args.timesteps},tau={args.tau},train_freq={args.train_freq},grad_steps={args.gradient_steps},bs={args.batch_size},buf_size={args.buffer_size},net_arch={','.join(list(map(str, args.net_arch)))},ent_coef={args.ent_coef}"
+    return f"{getEnvName()}-lr={args.learning_rate},learn_start={args.learning_starts},fs={args.frame_skip},tau={args.tau},gamma={args.gamma},n={args.timesteps},tau={args.tau},train_freq={args.train_freq},grad_steps={args.gradient_steps},bs={args.batch_size},buf_size={args.buffer_size},net_arch={','.join(list(map(str, args.net_arch)))},ent_coef={args.ent_coef},rew_skip={args.rew_skip_thres}"
 
 
 class SaveBestModelCallback(BaseCallback):
@@ -145,7 +146,7 @@ def main(env, args):
                 state, reward, done, _ = env.step(action)
                 ret += reward
 
-            # print("Episode return:", ret)
+            print("Episode return:", ret)
 
     else:
 
@@ -172,6 +173,7 @@ def main(env, args):
                     policy_kwargs=dict(log_std_init=-3,
                                        net_arch=args.net_arch, use_expln=True),
                     tensorboard_log=tensorboard_log_dir,
+                    rew_skip_thres=args.rew_skip_thres,
                     seed=args.seed)
 
         model.verbose = 2

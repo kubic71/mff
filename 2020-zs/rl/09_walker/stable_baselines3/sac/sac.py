@@ -98,6 +98,7 @@ class SAC(OffPolicyAlgorithm):
         verbose: int = 0,
         seed: Optional[int] = None,
         device: Union[th.device, str] = "auto",
+        rew_skip_thres = 295,
         _init_setup_model: bool = True,
     ):
 
@@ -115,6 +116,7 @@ class SAC(OffPolicyAlgorithm):
             gradient_steps,
             n_episodes_rollout,
             action_noise,
+            rew_skip_thres=rew_skip_thres,
             policy_kwargs=policy_kwargs,
             tensorboard_log=tensorboard_log,
             verbose=verbose,
