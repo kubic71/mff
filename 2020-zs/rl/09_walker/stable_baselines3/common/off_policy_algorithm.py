@@ -481,7 +481,8 @@ class OffPolicyAlgorithm(BaseAlgorithm):
                 # train only on "hard" episodes, but with decreased fall reward
                 cutoff = np.percentile(np.array(self.reward_hist), self.rew_skip_thres * 100)
 
-                if episode_reward[0] < cutoff or fell or np.random.random() < 0.1:   # is bad episode or we're lucky
+                # if episode_reward[0] < cutoff or fell or np.random.random() < 0.1:   # is bad episode or we're lucky
+                if episode_reward[0] < cutoff or fell:
                     for old_state, new_state, act, rew, d in episode_buffer:
                         replay_buffer.add(old_state, new_state, act, rew, d)
 
