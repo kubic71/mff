@@ -8,6 +8,7 @@ import numpy as np
 import tensorflow as tf
 
 import wrappers
+from RAdam import RAdamOptimizer
 import cart_pole_pixels_environment
 
 parser = argparse.ArgumentParser()
@@ -79,12 +80,12 @@ class Network:
             decay_rate=0.9)
 
         self._model = tf.keras.Model(inputs, out)
-        self._model.compile(loss=tf.keras.losses.SparseCategoricalCrossentropy(), optimizer=tf.keras.optimizers.Adam(self.lr_schedule))
+        self._model.compile(loss=tf.keras.losses.SparseCategoricalCrossentropy(), optimizer=RAdamOptimizer(args.learning_rate))
 
         self._baseline_model = tf.keras.Model(baseline_inputs, out_b)
 
         loss = tf.keras.losses.Huber()
-        self._baseline_model.compile(loss=loss, optimizer=tf.keras.optimizers.Adam(self.lr_schedule))
+        self._baseline_model.compile(loss=loss, optimizer=RAdamOptimizer(args.learning_rate))
 
 
 
@@ -204,7 +205,7 @@ def main(env, args):
         except KeyboardInterrupt:
             pass
     
-    network._model = tf.keras.models.load_model("checkpoint3")
+    network._model = tf.keras.models.load_model("checkpoint")
 
     print("Evaluation!")
 
@@ -212,6 +213,7 @@ def main(env, args):
     while True:
         state, done = env.reset(True), False
         while not done:
+            # env.render()
             pred= network.predict([state])[0]
             # action = np.random.choice([0, 1], p=pred)
             action = np.argmax(pred)

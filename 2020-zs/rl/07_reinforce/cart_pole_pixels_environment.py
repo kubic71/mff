@@ -25,17 +25,17 @@ class CartPolePixels(gym.envs.classic_control.CartPoleEnv):
 
         # reward shaping
 
-        if not done:
-            reward += 1
+        # if not done:
+            # reward += 1
 
         reward -= 60 * observation[2]**4
 
         # penalize large velocity 
-        velocity = observation[3]
+        # velocity = observation[3]
         # v_pen = math.tanh(velocity)**2
-        v_pen = (velocity*0.5)**2
+        # v_pen = (velocity*0.5)**2
         # v_pen = 0
-        reward -= v_pen
+        # reward -= v_pen
         # print("vel:", velocity, "v_pen:", v_pen, "reward:", reward)
 
 

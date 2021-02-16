@@ -120,7 +120,7 @@ def evaluate(model, args, evaluate_for=15):
     while True:
         state, done = env.reset(start_evaluation=True), False
         while not done:
-            env.render()
+            # env.render()
             clock.tick(60)
 
             # print(state)

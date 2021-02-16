@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 import argparse
 
-from stable_baselines3 import DQN
+# from baselines import DQN
 from PIL import Image
 
 from torch import nn
 import torch as th
 from stable_baselines3.common.torch_layers import BaseFeaturesExtractor
 
-from stable_baselines3 import PPO, HER
-
+from stable_baselines333 import PPO, HER, A2C
 import os
 
 os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "3") # Report only TF errors by default
@@ -52,6 +51,7 @@ parser.add_argument("--dropout_rate", default=0, type=float)
 
 parser.add_argument("--ppo", default=False, action="store_true")
 parser.add_argument("--her", default=False, action="store_true")
+parser.add_argument("--a2c", default=False, action="store_true")
 
 parser.add_argument("--total_timesteps", default=50000, type=int)
 
@@ -78,12 +78,11 @@ class ImageSpaceConverterWrapper(gym.ObservationWrapper):
         return np.array(obs)
 
 
-
 class CustomCNN(BaseFeaturesExtractor):
     """
-    :param observation_space: (gym.Space)
-    :param features_dim: (int) Number of features extracted.
-        This corresponds to the number of unit for the last layer.
+    # :param observation_space: (gym.Space)
+    # :param features_dim: (int) Number of features extracted.
+        # This corresponds to the number of unit for the last layer.
     """
 
     def __init__(self, observation_space: gym.spaces.Box, features_dim: int = 256, n_hidden = 1, dropout_rate=0):
@@ -129,10 +128,10 @@ def main(env, args):
     tf.config.threading.set_inter_op_parallelism_threads(args.threads)
     tf.config.threading.set_intra_op_parallelism_threads(args.threads)
 
-    policy_kwargs = dict(
-        features_extractor_class=CustomCNN,
-        features_extractor_kwargs=dict(features_dim=args.cnn_features_dim, n_hidden = args.n_hidden, dropout_rate=args.dropout_rate),
-    )
+    # policy_kwargs = dict(
+        # features_extractor_class=CustomCNN,
+        # features_extractor_kwargs=dict(features_dim=args.cnn_features_dim, n_hidden = args.n_hidden, dropout_rate=args.dropout_rate),
+    # )
     if not args.recodex:
 
         env = ImageSpaceConverterWrapper(env, args.downsample)
@@ -144,6 +143,9 @@ def main(env, args):
             goal_selection_strategy = 'future'
             model = HER('CnnPolicy', env, DQN, policy_kwargs = policy_kwargs, n_sampled_goal=4, goal_selection_strategy=goal_selection_strategy,
                                                 verbose=1)
+
+        elif args.a2c:
+            model = ACER("CnnPolicy",  env, max_grad_norm=args.max_grad_norm )
         else:
             model = DQN("CnnPolicy", env, policy_kwargs = policy_kwargs, learning_rate=args.lr, exploration_initial_eps=args.epsilon, exploration_final_eps=args.epsilon_final, exploration_fraction=args.epsilon_final_at, train_freq=args.train_freq,
 
