@@ -31,22 +31,22 @@ parser.add_argument("--threads",
                     type=int,
                     help="Maximum number of threads to use.")
 
-parser.add_argument("--timesteps", default=1000000, type=int)
-parser.add_argument("--lr_decay", default=10, type=float)
+
+parser.add_argument("--timesteps", default=4000000, type=int)
+parser.add_argument("--lr_decay", default=5, type=float)
 parser.add_argument("--frame_skip", default=4, type=int)
-parser.add_argument("--learning_rate", default=0.0014, type=float)
-parser.add_argument("--buffer_size", default=600000, type=int)
-parser.add_argument("--batch_size", default=256, type=int)
-parser.add_argument("--tau", default=0.015, type=float)
+parser.add_argument("--learning_rate", default=0.002, type=float)
+parser.add_argument("--buffer_size", default=1000000, type=int)
+parser.add_argument("--batch_size", default=1024, type=int)
+parser.add_argument("--tau", default=0.01, type=float)
 parser.add_argument("--gamma", default=0.99, type=float)
 parser.add_argument("--train_freq", default=-1, type=int)
-parser.add_argument("--train_episodes", default=None, type=int)
-parser.add_argument("--gradient_steps", default=64, type=int)
+parser.add_argument("--train_episodes", default=1, type=int)
+parser.add_argument("--gradient_steps", default=128, type=int)
 parser.add_argument("--learning_starts", default=10000, type=int)
-parser.add_argument("--warmup", default=0.01, type=float)
+parser.add_argument("--warmup", default=0.0, type=float)
 parser.add_argument("--no-render", default=False, action="store_true")
 parser.add_argument("--net_arch", default=[400, 300], type=int, nargs="+")
-parser.add_argument("--reward_shaping", default=False, action="store_true")
 parser.add_argument("--ent_coef", default="auto", type=str)
 parser.add_argument("--rew_skip_thres", default=0.3, type=float)
 
@@ -74,21 +74,6 @@ def lr_schedule(t):
         lr = (1-t)/args.warmup * lr
 
     return lr
-
-
-
-
-class RewardWrapper(gym.RewardWrapper):
-    def __init__(self, env):
-        super().__init__(env)
-
-    def reward(self, reward):
-        if reward == -100:
-            reward = -20
-        else:
-            reward = 2.5 * reward
-        return reward
-
 
 def get_exp_name():
     return f"{getEnvName()}-lr={args.learning_rate},learn_start={args.learning_starts},fs={args.frame_skip},tau={args.tau},gamma={args.gamma},n={args.timesteps},tau={args.tau},train_freq={args.train_freq},grad_steps={args.gradient_steps},bs={args.batch_size},buf_size={args.buffer_size},net_arch={','.join(list(map(str, args.net_arch)))},ent_coef={args.ent_coef},rew_skip={args.rew_skip_thres}"
@@ -154,8 +139,6 @@ def main(env, args):
             args.tensorboard_log_dir, get_exp_name())
 
 
-        if args.reward_shaping:
-            env = RewardWrapper(env)
 
         model = SAC("MlpPolicy",
                     env,
