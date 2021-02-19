@@ -1,0 +1,16 @@
+There are many possibilities for the improvement of the algorithm, try some of them (or any other that you can think of).
+
+Add more types of conditions
+Add new genetic operators
+Add weights/priorities to the rules.
+Change the parameters of the algorithm (maximum number of rules per individual, settings of the genetic operators, etc.).
+Let me know, what you tried and what was the results. Compare you results to the implementation in the source codes on both the datasets. Do not forget to attach the graphs.
+
+[CZ]
+Je mnoho možností, jak implementovaný algoritmus vylepšit, vyzkoušejte několik z nich (nebo si vymyslete i vlastní):
+
+Přidat další typy podmínek.
+Přidat další genetické operátory.
+Přidat váhy/priority k jednotlivým pravidlům.
+Změnit parametry algoritmu (počet pravidel v jedinci, nastavení operátorů apod.)
+Napište mi, co jste zkusili a jak to dopadlo. Porovnejte vaše výsledky s implementací ve zdrojových kódech na obou datasetech. Nezapomeňte připojit grafy s průběhem.
