@@ -17,13 +17,14 @@ import utils
 OUT_DIR = 'rules' # output directory for logs
 
 # a rule is a list of conditions (one for each attribute) and the predicted class
-Rule = namedtuple('Rule', ['conditions', 'cls'])
+Rule = namedtuple('Rule', ['conditions', 'cls', 'priority'])
+
 
 # the following 3 classes implement simple conditions, the call method is used 
 # to match the condition against a value
 class LessThen:
-
-    def __init__(self, threshold, lb, ub):
+    def __init__(self, lb, ub):
+        threshold = random.random()
         self.params = np.array([threshold])
         self.lb = lb
         self.ub = ub
@@ -39,7 +40,8 @@ class LessThen:
 
 class GreaterThen:
 
-    def __init__(self, threshold, lb, ub):
+    def __init__(self, lb, ub):
+        threshold = random.random()
         self.params = np.array([threshold])
         self.lb = lb
         self.ub = ub
@@ -55,7 +57,7 @@ class GreaterThen:
 
 class Any:
 
-    def __init__(self):
+    def __init__(self, lb, ub):
         self.params = np.array([])
     
     def __call__(self, value):
@@ -64,25 +66,35 @@ class Any:
     def __str__(self):
         return " * "
 
-# generate a single random rule - defines the probabilities of different 
-# conditions in the initial population
-def create_rule(num_attrs, num_classes, lb, ub):
-    conditions = []
-    for i in range(num_attrs):
-        r = random.random()
-        if r < 0.25:
-            conditions.append(LessThen(random.random(), lb[i], ub[i]))
-        elif r < 0.5:
-            conditions.append(GreaterThen(random.random(), lb[i], ub[i]))
-        else:
-            conditions.append(Any())
-    
-    return Rule(conditions=conditions, cls=random.randrange(0, num_classes))
 
 # creates the individual - list of rules
-def create_ind(max_rules, num_attrs, num_classes, lb, ub):
+def create_ind(max_rules, num_attrs, num_classes, lb, ub, cond_dist, priority, most_frequent_cls):
+    rules = []
     ind_len = random.randrange(1, max_rules)
-    return [create_rule(num_attrs, num_classes, lb, ub) for i in range(ind_len)]
+    for j in range(ind_len):
+        conditions = []
+        conds = list(map(lambda x: x[0], cond_dist))
+        weights = list(map(lambda x: x[1], cond_dist))
+
+        for i in range(num_attrs):
+            cond = np.random.choice(conds, p=weights)
+            conditions.append(cond(lb[i], ub[i]))
+    
+        p = 1
+        cls = most_frequent_cls
+        if priority:
+            p = random.random()*2 - 1
+
+            if p < 0:
+                cls = random.randrange(0, num_classes)
+        
+        if cls == -1:
+            most_frequent_cls = random.randrange(0, num_classes)
+
+        rules.append(Rule(conditions=conditions, cls=cls, priority=p))
+
+    return rules
+
 
 # creates the population using the create individual function
 def create_pop(pop_size, create_individual):
@@ -94,11 +106,10 @@ def classify_instance(ind, attrs):
     votes = defaultdict(int)
     for rule in ind:
         if all([cond(a) for cond, a in zip(rule.conditions, attrs)]):
-            votes[rule.cls] += 1
-    
+            votes[rule.cls] += rule.priority
     
     best_class = None
-    best_votes = -1
+    best_votes = -10000
     for k, v in votes.items():
         if v > best_votes:
             best_votes = v
@@ -176,7 +187,7 @@ def cls_mutate(p, num_classes, mut_cls_prob_change):
         o_cls = r.cls
         if random.random() < mut_cls_prob_change:
             o_cls = random.randrange(0, num_classes)   
-        o.append(Rule(conditions=r.conditions, cls=o_cls))
+        o.append(Rule(conditions=r.conditions, cls=o_cls, priority=r.priority))
     return o
 
 # mutation changing the threshold in conditions in an individual
@@ -185,6 +196,14 @@ def cond_mutate(p, mut_cond_sigma):
     for r in o:
         for c in r.conditions:
             c.params += mut_cond_sigma*np.random.randn(*c.params.shape)
+    return o
+
+def priority_mutate(p, mut_prio_sigma):
+    o = []
+    p = copy.deepcopy(p)
+    for r in p:
+        o_priority = r.priority + mut_prio_sigma*np.random.randn()
+        o.append(Rule(conditions=r.conditions, cls=r.cls, priority=o_priority))
 
     return o
 
@@ -213,9 +232,6 @@ def crossover(pop, cross, cx_prob):
 def mutation(pop, mutate, mut_prob):
     return [mutate(p) if random.random() < mut_prob else p[:] for p in pop]
 
-
-def test():
-    print("B")
 
 # reads data in a csv file
 def read_data(filename):
@@ -348,17 +364,18 @@ def train_test_split(input_fn, seed=42):
 
 
 def run_experiment(exp_id="default", input_file="iris.csv", repeats=10, pop_size=100, max_gen=50, cx_prob=0.8, max_rules=10, mut_cls_prob=0.2, mut_cls_prob_change=0.1, mut_cond_prob=0.2, mut_cond_sigma=0.3, 
-        elitism=1, batch_size=10000, print_frequency=1, map_fn=None):
+        mut_prio_sigma=0.3, elitism=1, batch_size=10000, cond_dist=[(LessThen, 0.25), (GreaterThen, 0.25), (Any, 0.5)], priority=False, most_frequent_init=False, print_frequency=1, map_fn=None):
 
     train_data, test_data, num_attrs, num_classes, lb, ub = train_test_split(input_file)
 
     cr_ind = functools.partial(create_ind, max_rules=max_rules, 
                                num_attrs=num_attrs, num_classes=num_classes,
-                               lb=lb, ub=ub)
+                               lb=lb, ub=ub, cond_dist=cond_dist, priority=priority, most_frequent_cls=(-1 if most_frequent_init == False else np.argmax(np.bincount(train_data[1]))))
     xover = functools.partial(crossover, cross=cross, cx_prob=cx_prob)
     cls_mut_ind = functools.partial(cls_mutate, num_classes=num_classes, mut_cls_prob_change=mut_cls_prob_change)
     mut_cls = functools.partial(mutation, mutate=cls_mut_ind, mut_prob=mut_cls_prob)
     mut_cond = functools.partial(mutation, mutate=functools.partial(cond_mutate, mut_cond_sigma=mut_cond_sigma), mut_prob=mut_cond_prob)
+    mut_priority = functools.partial(mutation, mutate=functools.partial(priority_mutate, mut_prio_sigma=mut_prio_sigma), mut_prob=mut_cond_prob if priority else 0)
 
     # run the algorithm `REPEATS` times and remember the best solutions from 
     # last generations
@@ -379,7 +396,7 @@ def run_experiment(exp_id="default", input_file="iris.csv", repeats=10, pop_size
         # create population
         pop = create_pop(pop_size, cr_ind)
         # run evolution - notice we use the pool.map as the map_fn
-        pop = evolutionary_algorithm(pop, max_gen, fitness, train_data, test_data, [xover, mut_cls, mut_cond], 
+        pop = evolutionary_algorithm(pop, max_gen, fitness, train_data, test_data, [xover, mut_cls, mut_cond, mut_priority], 
                                      tournament_selection, map_fn=map_fn, log=log, elitism=elitism, batch_size=batch_size)
         # remember the best individual from last generation, save it to file
         bi = max(pop, key=full_fitness)
@@ -417,6 +434,11 @@ def hue(name, base_color = (255, 200, 150), low=0, high=100, log=True):
         
 
     return tuple(map(lambda x: int(np.clip( intensity * x, 0, 255)), base_color))
+
+def hues(name, low, high, colors_map, log=True):
+    for n, color in colors_map:
+        if n in name:
+            return hue(name, base_color=color, low=low, high=high, log=log)
 
 
 # separates visually train and test accuracy

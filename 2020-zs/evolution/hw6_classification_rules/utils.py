@@ -27,6 +27,13 @@ def plot_experiment(evals, lower, mean, upper, legend_name='', color=None, fill=
         if fill:
             plt.fill_between(evals, lower, upper, alpha=0.25, color=c)
 
+    else:
+        plt.plot(evals, mean, label=legend_name)
+        if fill:
+            plt.fill_between(evals, lower, upper, alpha=0.25)
+
+
+
 # reads the run logs and computes experiment statisticts (those used for plots)
 # Arguments:
 #   prefix - directory with experiments
@@ -47,9 +54,6 @@ def get_experiment_stats(prefix, exp_id, stat_type='objective'):
         if not fn.endswith(stat_type):
             continue
         
-
-
-
 
         evals, stats = read_run_file(f'{prefix}/{fn}')
 
