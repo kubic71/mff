@@ -1,0 +1,109 @@
+{
+  "main": {
+    "id": "2ea0d268fb1907de",
+    "type": "split",
+    "children": [
+      {
+        "id": "9d0c9092a1caa2fe",
+        "type": "leaf",
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      },
+      {
+        "id": "dcc4cc8d05b55a2c",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "ai_1/lectures/lecture4.md",
+            "mode": "preview"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9bdfcba8861a3700",
+    "type": "split",
+    "children": [
+      {
+        "id": "6e0f759470d2e580",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0f71ee77b6b971bd",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "b727c3135a49facc",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "e245b6b7d94100d0",
+    "type": "split",
+    "children": [
+      {
+        "id": "54e222e0258cbc21",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cbb3b4629b5a7613",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "9d0c9092a1caa2fe",
+  "lastOpenFiles": [
+    "$r_i$.md",
+    "ai_1/lectures/lecture4.md",
+    "Untitled.md",
+    "virt_cloud/lec4.md",
+    "virt_cloud/lec3.md",
+    "virt_cloud/imgs/Pasted image 20211020161910.png",
+    "virt_cloud/imgs/Pasted image 20211020161905.png",
+    "virt_cloud/imgs/Pasted image 20211020161622.png",
+    "virt_cloud/imgs/Pasted image 20211020161943.png",
+    "Pasted image 20211020161622.png"
+  ]
+}
