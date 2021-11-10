@@ -1,6 +1,6 @@
 # Will AI be ever be able to understand the world by itself?
 
-## What the question even means?
+## What does the question even mean?
 
 ### Understand
 - compress
@@ -82,4 +82,31 @@ Current silicon computers have almost zero $\Phi$. Futhermore, the $\Phi$ doesn'
 
 So uploading human brains to the cloud maybe isn't going to happen.
 
+## [Why general artificial intelligence will not be realized](nature.com/articles/s41599-020-0494-4)
+
+
+
+### Definitions
+- **strong AI** - AI in principle identical to human intelligence
+- **ANI** - artificial narrow intelligence
+- **AGI** - artificial general intelligence
+    - its distinguishing feature is generality (like human intelligence), but doesn't have to necessarily be a clone of human intelligence
+    - human-like, not identical to human intelligence
+
+The article refers to the distinction of ANI an AGI.
+
+
+### Hubert Dreyfus argument
+    - human knowledge is partly tacit, and therefore cannot be articulated and incorporated in a computer program
+
+### Main thesis
+AGI cannot in principle be realized, because understanding means understanding causal relationships, not merely computing corellations. 
+Causal knowledge is an important part of humanlike intelligence, and that computers cannot handle causality because they cannot interact and intervene in the world.
+
+### Anti-thesis
+We can make AI agents interact through some interface.
+AI agents can learn from the Internet and talking to people online, taking part in online discussions etc.
+How limiting would be only linguistic interaction? What other interface sensors and actuators would be useful?
+Is digital interface enough in principle, or do we need to add more interfacing capabilities?
+Can we make an AI, that would come up with new interface requests on its own?
 
