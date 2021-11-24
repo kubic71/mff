@@ -4,3 +4,7 @@
 # Website
 - [Petr Kucera](http://ktiml.mff.cuni.cz/~kucerap/NTIN090/index.php)
 
+
+# Course material
+- moodle
+- contains czech lectures from last year
