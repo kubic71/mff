@@ -29,8 +29,31 @@ And because $\#\text{all uni-grams} = \#\text{all bi-grams}+1$, the difference i
 
 $$P(j | i) = \frac{\#\text{bi-grams}(i, j)}{\#\text{uni-grams}(i)}$$
 
+sidenote: The problems basically stems from the fact, that the language data are essentially infinite, but we are always working with some finite training set. In the extreme case, we can imagine a training comprising of only two words: $w_1, w_2, w_1$
 
-$$1 = \sum_{j \in J}{P(j | i)}  = \sum_{j \in J}\frac{P(i, j)}{P(i)} = \frac{1}{P(i)}\sum_{j \in J}{\frac{\#\text{bi-grams}(i, j)}{\#\text{all bi-grams}}} = \frac{\#\text{all uni-grams}}{\#\text{uni-grams}(i) \cdot \#\text{all bi-grams}}\sum_{j \in J}{\#\text{bi-grams}(i, j)}$$
+The true $P(w_2 | w_1)=\frac{1}{2}$, because from two occurences of word $w_1$, the word $w_2$ follows only in one case. But according to our formula it would be $P(w_2 | w_1) = \frac{\#\text{bi-grams}(w_1, w_2)}{\#\text{uni-grams}(w_1)} =\frac{1}{2}$
+
+
+If we would really want to nitpick, and we would want:
+
+$$c_2(x, y) = \sum_{z}{c_3(x, y, z)}$$
+
+Because then (in the case of trigram model):
+
+$$1 = \sum_{z \in J}{P(z | x, y)}= \sum_{z \in J}{\frac{c_3(x, y, z)}{c_2(x, y)}} = \frac{1}{c_2(x, y)} \sum_{z \in J}{c_3(x, y, z)} = \frac{\sum_{z \in J}{c_3(x, y, z)}}{\sum_{z \in J}c_3(x, y, z)} = 1$$
+
+If we didn't pad our training data $w_2, w_1, w_2, w_1$, then: 
+$$c_1(w_1) = 2 \neq \sum_{y \in {w_1, w_2}} {c_2(w_1, y)} = 1$$
+
+and:
+
+$$c_1(w_2) = 2 \neq \sum_{y \in {w_1, w_2}} {c_2(w_2, y)} = c_2(w_2, w_2) + c(w_2, w_1) = 0 + $$
+
+
+Therefore, we have to pad the training data with sufficient number of special symbols $\#$, resulting (for bigram model) in the following trainset $\#,w_2, w_1, w_2, w_1,\#$
+
+Then:
+
 
 
 ## Language statistics
