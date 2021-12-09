@@ -17,50 +17,9 @@ Compute this conditional entropy and perplexity fo the file **TEXTEN1.txt**
 
 
 
-# Solution
-We can compute $P(i, j)$  simply as $\frac{\#\text{bi-grams}(i, j)}{\#\text{all bi-grams}}$, and similarly $P(i)$ as $\frac{\#\text{uni-grams}(i)}{\#\text{all uni-grams}}$
+# Results
 
-
-$P(j | i)$ can therefore be computed as:
-
-$$P(j | i) = \frac{P(i, j)}{P(i)} = \frac{\#\text{bi-grams(i, j)}}{\#\text{all bi-grams}}\cdot \frac{\#\text{all uni-grams}}{\#\text{uni-grams(i)}}$$ 
-
-And because $\#\text{all uni-grams} = \#\text{all bi-grams}+1$, the difference is negligible, so we can compute $P(j|i)$ as follows:
-
-$$P(j | i) = \frac{\#\text{bi-grams}(i, j)}{\#\text{uni-grams}(i)}$$
-
-sidenote: The problems basically stems from the fact, that the language data are essentially infinite, but we are always working with some finite training set. In the extreme case, we can imagine a training comprising of only two words: $w_1, w_2, w_1$
-
-The true $P(w_2 | w_1)=\frac{1}{2}$, because from two occurences of word $w_1$, the word $w_2$ follows only in one case. But according to our formula it would be $P(w_2 | w_1) = \frac{\#\text{bi-grams}(w_1, w_2)}{\#\text{uni-grams}(w_1)} =\frac{1}{2}$
-
-
-If we would really want to nitpick, and we would want:
-
-$$c_2(x, y) = \sum_{z}{c_3(x, y, z)}$$
-
-Because then (in the case of trigram model):
-
-$$1 = \sum_{z \in J}{P(z | x, y)}= \sum_{z \in J}{\frac{c_3(x, y, z)}{c_2(x, y)}} = \frac{1}{c_2(x, y)} \sum_{z \in J}{c_3(x, y, z)} = \frac{\sum_{z \in J}{c_3(x, y, z)}}{\sum_{z \in J}c_3(x, y, z)} = 1$$
-
-If we didn't pad our training data $w_2, w_1, w_2, w_1$, then: 
-$$c_1(w_1) = 2 \neq \sum_{y \in {w_1, w_2}} {c_2(w_1, y)} = 1$$
-
-and:
-
-$$c_1(w_2) = 2 \neq \sum_{y \in {w_1, w_2}} {c_2(w_2, y)} = c_2(w_2, w_2) + c(w_2, w_1) = 0 + $$
-
-
-Therefore, we have to pad the training data with sufficient number of special symbols $\#$, resulting (for bigram model) in the following trainset $\#,w_2, w_1, w_2, w_1,\#$
-
-Then:
-
-
-
-## Language statistics
-
-
-
-## Results
+## Entropy (, perplexity)
 
 ### Czech
 
@@ -104,3 +63,5 @@ word|0.1|5.457836045908288|5.453280339469338|5.460902566780672|43.95143229453386
 
 ![](results/TEXTEN1_entropy.png)
 
+## Language statistics
+**TODO**
