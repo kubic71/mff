@@ -34,13 +34,6 @@ def boost_lambdas_experiment(model, test_data, dataset_name):
     print("----------------------------------------\n\n")
     
 
-    # plot the results
-    sns.set(style="whitegrid")
-    plt.figure(figsize=(10,5))
-    plt.plot(results["boost_percents"], results["cross_entropies"])
-    plt.xlabel("Boost percentage")
-    plt.ylabel("Test cross-entropy")
-    plt.savefig(f"results/{dataset_name}_boost_experiment.png")
 
     # restore the original lambdas for the next experiment
     model.lambdas = list(original_lambdas)
@@ -75,54 +68,81 @@ def decrease_lambdas_experiment(model, test_data, dataset_name):
         print(f"Discount: {discount}\tcross-entropy: {ce:.9f}\tlambdas: {model.lambdas}\t")
 
 
-    # plot the results
-    sns.set(style="whitegrid")
-    plt.figure(figsize=(10,5))
-    plt.plot(results["discount_percents"], results["cross_entropies"])
-    plt.xlabel("Discount percentage")
-    plt.ylabel("Test cross-entropy")
-    plt.savefig(f"results/{dataset_name}_discount_experiment.png")
-
     # restore the original lambdas for the next experiment
     model.lambdas = list(original_lambdas)
 
     return results
 
 
-def language_smoothing_experiment(dataset_name):
-    print(f"---Language smoothing experiment on {dataset_name} dataset---")
+def language_smoothing_experiment():
+    import pandas as pd
 
-    train_data = DataLoader(f"datasets/{dataset_name}_train.txt")
-    heldout_data = DataLoader(f"datasets/{dataset_name}_heldout.txt")
-    test_data = DataLoader(f"datasets/{dataset_name}_test.txt")
-
-    print("Fitting the training data...")
-    model = LinearInterpolationModel(train_data.get_clean_data(), 3)
+    # create boost_results pandas dataframe with colums: boost_percent, cross_entropy, dataset_name
+    boost_results_df = pd.DataFrame(columns=["boost_percents", "cross_entropies", "dataset_name"])
 
 
-    print("Fitting the lambdas on the TRAINING data...")
-    model.fit_lambdas(train_data.get_clean_data())
+    # create boost_results pandas dataframe with colums: discount_percent, cross_entropy, dataset_name
+    discount_results_df = pd.DataFrame(columns=["discount_percents", "cross_entropies", "dataset_name"])
 
-    print(f"Test cross-entropy: {model.cross_entropy(test_data.get_clean_data())}\n\n")
+    for dataset_name in ["TEXTCZ1", "TEXTEN1"]:
+        print(f"---Language smoothing experiment on {dataset_name} dataset---")
+
+        train_data = DataLoader(f"datasets/{dataset_name}_train.txt")
+        heldout_data = DataLoader(f"datasets/{dataset_name}_heldout.txt")
+        test_data = DataLoader(f"datasets/{dataset_name}_test.txt")
+
+        print("Fitting the training data...")
+        model = LinearInterpolationModel(train_data.get_clean_data(), 3)
 
 
-    print("Now fitting the lambdas (correctly) on the HELDOUT data...")
-    model.fit_lambdas(heldout_data.get_clean_data())
+        print("Fitting the lambdas on the TRAINING data...")
+        # model.fit_lambdas(train_data.get_clean_data())
 
-    print(f"Test cross-entropy: {model.cross_entropy(test_data.get_clean_data())}\n\n")
+        print(f"Test cross-entropy: {model.cross_entropy(test_data.get_clean_data())}\n\n")
 
-    boost_lambdas_experiment(model, test_data, dataset_name)
-    decrease_lambdas_experiment(model, test_data, dataset_name)
+
+        print("Now fitting the lambdas (correctly) on the HELDOUT data...")
+        model.fit_lambdas(heldout_data.get_clean_data())
+
+        print(f"Test cross-entropy: {model.cross_entropy(test_data.get_clean_data())}\n\n")
+
+
+        boost_results = boost_lambdas_experiment(model, test_data, dataset_name)
+        boost_results["dataset_name"] = "Czech" if dataset_name=="TEXTCZ1" else "English"
+        boost_results_df = boost_results_df.append(pd.DataFrame(boost_results),  ignore_index=True)
+
+        discount_results = decrease_lambdas_experiment(model, test_data, dataset_name)
+        discount_results["dataset_name"] = "Czech" if dataset_name=="TEXTCZ1" else "English"
+        discount_results_df = discount_results_df.append(pd.DataFrame(discount_results), ignore_index=True)
+
+
+    # plot with seaborn
+    import seaborn as sns
+
+    sns.set(style="darkgrid")
+
+    # plot boost_results
+    plt.figure(figsize=(9, 6))
+    sns.lineplot(x="boost_percents", y="cross_entropies", data=boost_results_df, hue="dataset_name", marker="o", legend="brief")
+    plt.title("Boosting trigram-lambda experiment")
+    plt.xlabel("Boost percentage")
+    plt.ylabel("Cross-entropy")
+    plt.savefig("results/boost_experiment.png")
+
+    # plot discount_results
+    plt.figure(figsize=(9, 6))
+    sns.lineplot(x="discount_percents", y="cross_entropies", data=discount_results_df, hue="dataset_name", marker="o", legend="brief")
+    plt.title("Discounting trigram-lambda experiment")
+    plt.xlabel("Discount percentage")
+    plt.ylabel("Cross-entropy")
+    plt.savefig("results/discount_experiment.png")
+
+
+
+
+
 
 
 
 if __name__ == '__main__':
-    import argparse
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', choices=['CZ', 'EN'], default='CZ')
-    args = parser.parse_args()
-
-    dataset_name = "TEXTCZ1" if args.dataset == 'CZ' else "TEXTEN1"
-
-    res = language_smoothing_experiment(dataset_name)
+    res = language_smoothing_experiment()
