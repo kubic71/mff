@@ -9,11 +9,66 @@ $$PX(P(J|I)) = 2^{H(J|I)}$$
 
 Compute this conditional entropy and perplexity fo the file **TEXTEN1.txt**
 
-## What to discuss
-- how many words are there?
-- number of unique tokens (EN vs. CZ)
-- frequency of the most frequency word, number of words occuring only once
-    - maybe plot hist
+This file has every word on a separate line. (Punctuation is considered a word, as in many other cases.) The i,j above will also span sentence boundaries, where i is the last word of one sentence and j is the first word of the following sentence (but obviously, there will be a fullstop at the end of most sentences).
+
+Next, you will mess up the text and measure how this alters the conditional entropy. For every character in the text, mess it up with a likelihood of 10%. If a character is chosen to be messed up, map it into a randomly chosen character from the set of characters that appear in the text. Since there is some randomness to the outcome of the experiment, run the experiment 10 times, each time measuring the conditional entropy of the resulting text, and give the min, max, and average entropy from these experiments. Be sure to use srand to reset the random number generator seed each time you run it. Also, be sure each time you are messing up the original text, and not a previously messed up text. Do the same experiment for mess up likelihoods of 5%, 1%, .1%, .01%, and .001%.
+
+Next, for every word in the text, mess it up with a likelihood of 10%. If a word is chosen to be messed up, map it into a randomly chosen word from the set of words that appear in the text. Again run the experiment 10 times, each time measuring the conditional entropy of the resulting text, and give the min, max, and average entropy from these experiments. Do the same experiment for mess up likelihoods of 5%, 1%, .1%, .01%, and .001%.
+
+Now do exactly the same for the file **TEXTCZ1.txt** which contains a similar amount of text in an unknown language (just FYI, that's Czech [*])
+
+Tabulate, graph and explain your results. Also try to explain the differences between the two languages. To substantiate your explanations, you might want to tabulate also the basic characteristics of the two texts, such as the word count, number of characters (total, per word), the frequency of the most frequent words, the number of words with frequency 1, etc.
+
+Attach your source code commented in such a way that it is sufficient to read the comments to understand what you have done and how you have done it.
+
+Now assume two languages, $L_1$ and $L_2$ do not share any vocabulary items, and that the conditional entropy as described above of a text $T_1$ in language $L_1$ is $E$ and that the conditional entropy of a text $T_2$ in language $L_2$ is also $E$. Now make a new text by appending $T_2$ to the end of $T_1$. Will the conditional entropy of this new text be greater than, equal to, or less than $E$? Explain (This is a paper-and-pencil exercise of course!)
+
+
+## Paper-pencil solution
+
+---
+**We are given**:
+- Languages $L_1$, $L_2$
+- Language bigram distributions
+    $$P_1(w_i, w_{i+1}), P_2(w_i, w_{i+1})$$
+
+- and conditional word distributions given the previous word
+    $$P_1(w_{i+1} | w_i), P_2(w_{i+1} | w_i)$$
+
+- Vocabularies $V_1$, $V_2$, for which $V_1 \cap V_2 = \empty$
+- Conditional entropies: 
+
+    $$ H_1(J | I) = -\frac{1}{|T_1|}\sum_{(w_i, w_{i+1}) \in T_1}\log_{2}\frac{c_{2, T_1}(w_i, w_{i+1})}{c_{1, T_1}(w_i)} = H_2(J | I) = -\frac{1}{|T_2|}\sum_{(w_i, w_{i+1}) \in T_2}\log_{2}\frac{c_{2, T_2}(w_i, w_{i+1})}{c_{1, T_2}(w_i)} = E$$
+
+
+    $$ H_1(J | I) = -\frac{1}{|T_1|}\sum_{(w_i, w_{i+1}) \in T_1}\log_{2} P_1(w_{i+1} | w_i)= H_2(J | I) = -\frac{1}{|T_2|}\sum_{(w_i, w_{i+1}) \in T_2}\log_{2} P_2(w_{i+1} | w_i) = E$$
+
+**Question**: What is the conditional entropy of $T_3 = T_1 . T_2$?
+
+To be able to compute conditional entropy, we first need to have a probability distribution $P(i)$ and $P(i, j)$. 
+The task is to compute conditional entropy as described above, that is the entropy of a bigram language model, where the conditioning history is only one word.
+
+So the $P_{3}(w_{i+1} | w_i)$ will be defined as:
+
+$$P_{3}(w_{i+1} | w_i) = \frac{c_{2, T_3}(w_i, w_{i+1})}{c_{1, T_3}(w_{i+1})}$$
+
+
+$$H_3(J | I) = -\frac{1}{|T_3|} \sum_{(w_i, w_{i + 1}) \in T_3} \log_2 P_3(w_{i+1} | w_i) = - \frac{1}{|T_1| + |T_2| + 1} (\sum_{(w_{i}, w_{i + 1}) \in T_1}{\log_2 \frac{c_{2, T_3}(w_i, w_{i+1})}{c_{1, T_3}(w_i)}} + \sum_{(w_{i}, w_{i + 1}) \in T_2}{\log_2 \frac{c_{2, T_3}(w_i, w_{i+1})}{c_{1, T_3}(w_i)}} + \log_2 \frac{c_{2, T_3}(w_{T_1, last}, w_{T_2, first})}{c_{1, T_3}(w_{T_1, last})}) = $$
+
+$$=   \frac{(|T_1| + |T_2|)\cdot E }{|T_1| + |T_2| + 1} - \frac{1}{|T_1| + |T_2| + 1} \log_2 \frac{c_{2, T_3}(w_{T_1, last}, w_{T_2, first})}{c_{1, T_3}(w_{T_1, last})} =  \frac{(|T_1| + |T_2|)\cdot E }{|T_1| + |T_2| + 1} + \frac{\log_2 c_{1, T_1}(w_{T1, last})}{|T_1| + |T_2| + 1} $$
+
+
+So the inequeality between $H_3(J | I)$ and $E$ exactly mirrors that of $log_2 c_{1, T_1}(w_{T_1, last})$ and $E$.
+
+If the last word of $T_1$ is frequent in $T_1$, so much so, that $log_2 c_{1, T_1}(w_{T_1, last}) > E$ (or equivalently $c_{1, T_1}(w_{T_1, last}) > 2^E = \text{Perplexity}$), then $H_3(J | I) > E$.
+
+Similarly, if the count of the last word in $T_1$ so small, that $log_2 c_{1, T_1}(w_{T_1, last}) < E$, then $H_3(J|I) < E$ 
+
+Analogically with equality.
+
+---
+
+
 
 
 
@@ -65,3 +120,9 @@ word|0.1|5.457836045908288|5.453280339469338|5.460902566780672|43.95143229453386
 
 ## Language statistics
 **TODO**
+
+### What to discuss
+- how many words are there?
+- number of unique tokens (EN vs. CZ)
+- frequency of the most frequency word, number of words occuring only once
+    - maybe plot hist
