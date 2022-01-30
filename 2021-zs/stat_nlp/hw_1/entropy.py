@@ -104,16 +104,4 @@ if __name__ == "__main__":
                         default="datasets/TEXTEN1_short.txt")
 
     args = parser.parse_args()
-
     res = entropy_experiment(args.input)
-
-
-    # print(f"Loading {args.input}")
-    # data = DataLoader(args.input)
-    # print(f"loaded {len(data)} words")
-
-    # model = NGramLanguageModel(data, 2)
-
-    # print("Bigram language model:")
-    # print(f"conditional entropy: {model.get_model_conditional_entropy()}")
-    # print(f"perplexity: {model.get_model_perplexity()}")
