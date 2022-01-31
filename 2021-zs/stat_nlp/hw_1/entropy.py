@@ -101,7 +101,7 @@ if __name__ == "__main__":
     parser.add_argument("-i",
                         "--input",
                         help="input file",
-                        default="datasets/TEXTEN1_short.txt")
+                        default="datasets/TEXTEN1.txt")
 
     args = parser.parse_args()
     res = entropy_experiment(args.input)
