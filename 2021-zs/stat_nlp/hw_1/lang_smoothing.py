@@ -49,7 +49,7 @@ def decrease_lambdas_experiment(model, test_data, dataset_name):
 
     for discount in [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]:
         # add boost-percents of the difference between the trigram lambda and 1.0 to it
-        model.lambdas[3] = original_lambdas[3]*discount 
+        model.lambdas[3] = original_lambdas[3]*(1-discount)
 
         # scale remaining lambdas, such that the sum of all lambdas is 1.0
         remaining_budget = 1.0 - model.lambdas[3]

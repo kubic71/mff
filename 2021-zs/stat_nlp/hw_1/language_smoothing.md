@@ -40,7 +40,7 @@ Attach your source code commented in such a way that it is sufficient to read th
 ### Fitting the wrong dataset
 If we (by mistake) were to optimize the lambda parameters for the training dataset (the one, which we used to learn the $p_i(w | h)$), then it is optimal for the highest-order ngram term to be `1.0` and for the remaining parameters to be `0`. That is what we actually observe in practice.
 
-We used the **TEXTCZ1** trainset to estimate the $p_i(w | h)$ and ran the EM algorithm on it again.
+We demonstrate this by using the **TEXTCZ1** train set (instead of the held-out set) to estimate the $p_i(w | h)$ in the EM algorithm.
 Just after 10 iterations of the EM algorithm the $l_3$ was 0.99998.
 This is obviously undesirable behavior, as we aren't using the information from the lower-order ngram models.
 
@@ -60,11 +60,13 @@ Initial lambdas: 0.25, 0.25, 0.25, 0.25
 Test cross-entropy: 33.82484666483367
 ```
 
-We see that the testset cross-entropy is ridiculously high (33.8) as a result, because the testset contains trigrams (bigrams, unigrams) unseen in the trainset and the lower-order lambdas are almost zero.
+When we evaluate the model on the test set, we get a ridiculously high cross-entropy (33.8) as a result, because the test set contains trigrams (bigrams, unigrams) unseen in the train set and the lower-order lambdas are almost zero.
+
+The unsmoothed model, that uses only $l_3$, basicallly overfits the training set, and introducing the smoothing lower-order terms adjusted according to the heldout dataset is a form of regularization.
 
 
 ### Fitting the heldout dataset
-Now we use the heldout dataset to learn the lambda parameters.
+Now we (correctly) use the heldout dataset to learn the lambda parameters.
 
 The stopping criteria parameter epsilon was set to `0.0001`.
 
@@ -108,11 +110,15 @@ Initial lambdas: 0.25, 0.25, 0.25, 0.25
 Test cross-entropy: 5.240459086269674
 ```
 
+We can see, that the test cross-entropy is now much lower and much closer to the entropy we got in the part 1 of this assignment.
+
 
 ## Boosting/Discounting $l_3$
 
 
 ### Boosting $l_3$
+
+In this experiment, we gradually increase the proportion of the trigram lambda $l_3$
 
 |$l_3$ boost factor| cross entropy (English) | cross entropy (Czech)|
 |-|-|-|
@@ -132,25 +138,31 @@ Test cross-entropy: 5.240459086269674
 ![](results/boost_experiment.png)
 
 
+We see, that by artificially boosting the role of $l_3$ in the model, the test set entropy goes sharply up. We are in a sense over-fitting the train set more and more, at the cost of increasing test set entropy loss. The test set is poorly covered by the train set trigrams - around 35% for English and less than 20% for Czech, so boosting the $l_3$ term worsens the test entropy, especially for higher boost percentage values.
+
 
 ### Discounting $l_3$
+
+Here we do the opposite - we gradually decrease the role of the trigrams in the final smoothed model.
+
 |$l_3$ discount factor|cross entropy (English)| cross entropy (Czech)|
 |-|-|-|
-0.00|5.353379|7.313069
-0.10|5.308765|7.264454
-0.20|5.288799|7.247634
-0.30|5.275226|7.236428
-0.40|5.265216|7.228127
-0.50|5.257608|7.221690
-0.60|5.251785|7.216586
-0.70|5.247372|7.212497
-0.80|5.244122|7.209220
-0.90|5.241860|7.206610
-1.00|5.240459|7.204565
+0.00| 5.240459	| 7.204565
+0.10| 5.241860	| 7.206610
+0.20| 5.244122	| 7.209220
+0.30| 5.247372	| 7.212497
+0.40| 5.251785	| 7.216586
+0.50| 5.257608	| 7.221690
+0.60| 5.265216	| 7.228127
+0.70| 5.275226	| 7.236428
+0.80| 5.288799	| 7.247634
+0.90| 5.308765	| 7.264454
+1.00| 5.353379	| 7.313069
 
 ![](results/discount_experiment.png)
 
+As the trigram train-test coverage is low for both languages, the test entropy gets only slightly worse by discarding the trigram information.
 
 ## Coverage graph
-Percentage of the test n
+
 ![](results/coverage.png)

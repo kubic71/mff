@@ -108,7 +108,7 @@ When we introduce character-level noise, we will in many instances create new, g
 In the case of word-level noise the situation is not that clear. We have two effect going aginst each other. Introducing random words has equalizing effect on the distribution, which should increase entropy. But it may also happen, that we lose many of the words occuring only once in the process, decreasing the vocabulary size and lowering the entropy.
 
 For English, the equalizing effect dominates, because it doesn't have that many words occuring only once, so the overall entropy increases. 
-On the other hand, Czech has many words occuring only once in the original dataset, so it looses much more unique words by the random word swap, which ultimately results in the overall increase of entropy.
+On the other hand, Czech has many words occuring only once in the original dataset, so it looses much more unique words by the random word swap, which probably ultimately results in the overall increase of entropy.
 
 
 # Theoretical paper-and-pencil excercise (part 2)
