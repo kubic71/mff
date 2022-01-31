@@ -1,5 +1,5 @@
-# Problem statement - Cross-entropy and Language Modeling
-This task will show you the importance of smoothing for language modeling, and in certain detail it lets you feel its effects.
+# Cross-entropy and Language Modeling
+**Problem statement:** This task will show you the importance of smoothing for language modeling, and in certain detail it lets you feel its effects.
 
 First, you will have to prepare data: take the same texts as in the previous task, i.e.
 
@@ -164,5 +164,7 @@ Here we do the opposite - we gradually decrease the role of the trigrams in the 
 As the trigram train-test coverage is low for both languages, the test entropy gets only slightly worse by discarding the trigram information.
 
 ## Coverage graph
+
+As we mentioned in the previous **Boosting/Discounting** experiment, the train-test coverage of the higher-order n-grams is poor. It is a bit better for English, because of its simpler morphology, but still, the size of the dataset with which we work is too small to build higher-order n-gram models.
 
 ![](results/coverage.png)

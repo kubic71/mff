@@ -1,5 +1,5 @@
 # Entropy of a Text (coding part 1)
-In this experiment, you will determine the conditional entropy of the word distribution in a text given the previous word. To do this, you will first have to compute $P(i,j)$, which is the probability that at any position in the text you will find the word $i$ followed immediately by the word $j$, and $P(j|i)$, which is the probability that if word $i$ occurs in the text then word $j$ will follow. Given these probabilities, the conditional entropy of the word distribution in a text given the previous word can then be computed as:
+**Problem statement:** this experiment, you will determine the conditional entropy of the word distribution in a text given the previous word. To do this, you will first have to compute $P(i,j)$, which is the probability that at any position in the text you will find the word $i$ followed immediately by the word $j$, and $P(j|i)$, which is the probability that if word $i$ occurs in the text then word $j$ will follow. Given these probabilities, the conditional entropy of the word distribution in a text given the previous word can then be computed as:
 
 $$H(J|I) = -\sum_{i \in I,j \in J}P(i,j)\log_{2}P(j|i)$$
 
@@ -50,10 +50,10 @@ Similarly, the rich morphology is also reflected in the _Number of words occurin
 #### Few observations
 1. Punctuations (`.`) are more common in Czech language, suggesting that the average Czech sentence is shorter than the English one.
 2. The use of special symbols like `(, ), -, -, :` is more common for the Czech dataset
-3. Whereas Czech has digits `0, 1, 2, 3, 4, 6` in its top 50 words, the English doesn't have any digit characters in its top-50 list (there is a word `one` in the list thought)
+3. Whereas Czech has digits `0, 1, 2, 3, 4, 6` in its **top 50 words**, the English doesn't have any digit characters in its **top-50 list** (there is a word `one` in the list thought)
 
 
-## Entropy, perplexity)
+## Entropy, perplexity
 
 ### Czech
 
@@ -100,12 +100,12 @@ word|0.1|5.457836045908288|5.453280339469338|5.460902566780672|43.95143229453386
 ![](results/TEXTEN1_entropy.png)
 
 
-We can see that English has generally higher entropy than Czech. That is probably because Czech has much more words with frequency=1. When we take a look back a the top-50 words distribution, English histogram is closer to a uniform distribution (even though still far off), or said differently, Czech word frequency distribution is more extreme, dropping off faster in the frequencies.
+We can see that English has generally higher entropy than Czech. That is probably because Czech has much more words with `frequency=1`. When we take a look back a the top-50 words distribution, English histogram is closer to a uniform distribution (even though still far off) than Czech histogram. Or said differently, Czech word frequency distribution is more extreme, dropping off faster in the frequencies.
 
 
 When we introduce character-level noise, we will in many instances create new, grammatically incorrect word forms, which results in more words occuring only once. This is probably the reason behind the entropy decreasing with the increasing messup probability.
 
-In the case of word-level noise the situation is not that clear. We have two effect going aginst each other. Introducing random words has equalizing effect on the distribution, which should increase entropy. But it may also happen, that we lose many of the words occuring only once in the process, decreasing the vocabulary size and lowering the entropy.
+In the case of word-level noise the situation is not that clear. We have two effects going aginst each other. Introducing random words has equalizing effect on the distribution, which should increase entropy. But it may also happen, that we lose many of the words occuring only once in the process, decreasing the vocabulary size and lowering the entropy.
 
 For English, the equalizing effect dominates, because it doesn't have that many words occuring only once, so the overall entropy increases. 
 On the other hand, Czech has many words occuring only once in the original dataset, so it looses much more unique words by the random word swap, which probably ultimately results in the overall increase of entropy.

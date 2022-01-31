@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>entropy</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/opt/pandoc-markdown/pandoc-github-style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="entropy-of-a-text-coding-part-1">Entropy of a Text (coding part 1)</h1>
+<p><strong>Problem statement:</strong> this experiment, you will determine the conditional entropy of the word distribution in a text given the previous word. To do this, you will first have to compute <span class="math inline">P(i,j)</span>, which is the probability that at any position in the text you will find the word <span class="math inline">i</span> followed immediately by the word <span class="math inline">j</span>, and <span class="math inline">P(j|i)</span>, which is the probability that if word <span class="math inline">i</span> occurs in the text then word <span class="math inline">j</span> will follow. Given these probabilities, the conditional entropy of the word distribution in a text given the previous word can then be computed as:</p>
+<p><span class="math display">H(J|I) = -\sum_{i \in I,j \in J}P(i,j)\log_{2}P(j|i)</span></p>
+<p>Perplexity is then computed simply as:</p>
+<p><span class="math display">PX(P(J|I)) = 2^{H(J|I)}</span></p>
+<p>Compute this conditional entropy and perplexity fo the file <strong>TEXTEN1.txt</strong></p>
+<p>This file has every word on a separate line. (Punctuation is considered a word, as in many other cases.) The i,j above will also span sentence boundaries, where i is the last word of one sentence and j is the first word of the following sentence (but obviously, there will be a fullstop at the end of most sentences).</p>
+<p>Next, you will mess up the text and measure how this alters the conditional entropy. For every character in the text, mess it up with a likelihood of 10%. If a character is chosen to be messed up, map it into a randomly chosen character from the set of characters that appear in the text. Since there is some randomness to the outcome of the experiment, run the experiment 10 times, each time measuring the conditional entropy of the resulting text, and give the min, max, and average entropy from these experiments. Be sure to use srand to reset the random number generator seed each time you run it. Also, be sure each time you are messing up the original text, and not a previously messed up text. Do the same experiment for mess up likelihoods of 5%, 1%, .1%, .01%, and .001%.</p>
+<p>Next, for every word in the text, mess it up with a likelihood of 10%. If a word is chosen to be messed up, map it into a randomly chosen word from the set of words that appear in the text. Again run the experiment 10 times, each time measuring the conditional entropy of the resulting text, and give the min, max, and average entropy from these experiments. Do the same experiment for mess up likelihoods of 5%, 1%, .1%, .01%, and .001%.</p>
+<p>Now do exactly the same for the file <strong>TEXTCZ1.txt</strong> which contains a similar amount of text in an unknown language (just FYI, that’s Czech [*])</p>
+<p>Tabulate, graph and explain your results. Also try to explain the differences between the two languages. To substantiate your explanations, you might want to tabulate also the basic characteristics of the two texts, such as the word count, number of characters (total, per word), the frequency of the most frequent words, the number of words with frequency 1, etc.</p>
+<p>Attach your source code commented in such a way that it is sufficient to read the comments to understand what you have done and how you have done it.</p>
+<hr />
+<h1 id="results">Results</h1>
+<h2 id="basic-language-statistics">Basic language statistics</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Language</th>
+<th>Dataset size</th>
+<th>Number of unique words</th>
+<th>Number of words occurring only once</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Czech</td>
+<td>222413</td>
+<td>42827</td>
+<td>26316</td>
+</tr>
+<tr class="even">
+<td>English</td>
+<td>221099</td>
+<td>9608</td>
+<td>3812</td>
+</tr>
+</tbody>
+</table>
+<p>Czech language has much richer morphology compared to English. In Czech language, one word can usually take on a large number grammatically correct forms, making the set of all possible valid word forms much larger than that of English.</p>
+<p>This is apparent in the <em>Number of unique words</em> statistic, which is more than 4 times larger for Czech than it is for English.</p>
+<p>Similarly, the rich morphology is also reflected in the <em>Number of words occuring only once</em> statistic - where there is 7x difference between those two languages.</p>
+<h3 id="bar-plot-of-top-50-most-common-words">Bar plot of Top-50 most common words</h3>
+<p><img src="results/most_common_words_TEXTCZ1.png" /></p>
+<p><img src="results/most_common_words_TEXTEN1.png" /></p>
+<h4 id="few-observations">Few observations</h4>
+<ol type="1">
+<li>Punctuations (<code>.</code>) are more common in Czech language, suggesting that the average Czech sentence is shorter than the English one.</li>
+<li>The use of special symbols like <code>(, ), -, -, :</code> is more common for the Czech dataset</li>
+<li>Whereas Czech has digits <code>0, 1, 2, 3, 4, 6</code> in its <strong>top 50 words</strong>, the English doesn’t have any digit characters in its <strong>top-50 list</strong> (there is a word <code>one</code> in the list thought)</li>
+</ol>
+<h2 id="entropy-perplexity">Entropy, perplexity</h2>
+<h3 id="czech">Czech</h3>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Messup type</th>
+<th>Messup prob</th>
+<th>Entropy mean</th>
+<th>Entropy min</th>
+<th>Entropy max</th>
+<th>Perplexity mean</th>
+<th>Perplexity min</th>
+<th>Perplexity max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>character</td>
+<td>0.0</td>
+<td>4.747830945558377</td>
+<td>4.747830945558377</td>
+<td>4.747830945558377</td>
+<td>26.868259177620114</td>
+<td>26.868259177620114</td>
+<td>26.868259177620114</td>
+</tr>
+<tr class="even">
+<td>character</td>
+<td>1e-05</td>
+<td>4.74771182112168</td>
+<td>4.747587951770265</td>
+<td>4.747796199591923</td>
+<td>26.86604076505493</td>
+<td>26.86373412547998</td>
+<td>26.867612088412976</td>
+</tr>
+<tr class="odd">
+<td>character</td>
+<td>0.0001</td>
+<td>4.746895248999014</td>
+<td>4.7466662435906875</td>
+<td>4.747200646064727</td>
+<td>26.85083892365767</td>
+<td>26.84657691971887</td>
+<td>26.85652325919384</td>
+</tr>
+<tr class="even">
+<td>character</td>
+<td>0.001</td>
+<td>4.7382511991094685</td>
+<td>4.736907205758305</td>
+<td>4.739110579233642</td>
+<td>26.69044268462023</td>
+<td>26.665587441564174</td>
+<td>26.70634389793559</td>
+</tr>
+<tr class="odd">
+<td>character</td>
+<td>0.01</td>
+<td>4.6581428396786455</td>
+<td>4.655832200022488</td>
+<td>4.660712595310665</td>
+<td>25.24881474638167</td>
+<td>25.20839219291679</td>
+<td>25.293812354173056</td>
+</tr>
+<tr class="even">
+<td>character</td>
+<td>0.05</td>
+<td>4.336964415307164</td>
+<td>4.334520375552728</td>
+<td>4.339747306481703</td>
+<td>20.209556754136145</td>
+<td>20.17533013102757</td>
+<td>20.248558580930087</td>
+</tr>
+<tr class="odd">
+<td>character</td>
+<td>0.1</td>
+<td>4.009074595548222</td>
+<td>4.003593999186806</td>
+<td>4.013968437147944</td>
+<td>16.100992965486082</td>
+<td>16.039908415144563</td>
+<td>16.15566730880703</td>
+</tr>
+<tr class="even">
+<td>word</td>
+<td>0.0</td>
+<td>4.747830945558377</td>
+<td>4.747830945558377</td>
+<td>4.747830945558377</td>
+<td>26.868259177620114</td>
+<td>26.868259177620114</td>
+<td>26.868259177620114</td>
+</tr>
+<tr class="odd">
+<td>word</td>
+<td>1e-05</td>
+<td>4.747817580507374</td>
+<td>4.747761585746187</td>
+<td>4.747872015884386</td>
+<td>26.868010278767873</td>
+<td>26.866967475242877</td>
+<td>26.869024068216905</td>
+</tr>
+<tr class="even">
+<td>word</td>
+<td>0.0001</td>
+<td>4.747757785717636</td>
+<td>4.7476087882908695</td>
+<td>4.747864509674422</td>
+<td>26.866896750320524</td>
+<td>26.86412211516313</td>
+<td>26.868884271512947</td>
+</tr>
+<tr class="odd">
+<td>word</td>
+<td>0.001</td>
+<td>4.7470695033988735</td>
+<td>4.746727647892731</td>
+<td>4.747481056852172</td>
+<td>26.85408238357443</td>
+<td>26.847719593917926</td>
+<td>26.86174376008998</td>
+</tr>
+<tr class="even">
+<td>word</td>
+<td>0.01</td>
+<td>4.739222303586763</td>
+<td>4.737809577135863</td>
+<td>4.740582010083204</td>
+<td>26.708417598550255</td>
+<td>26.68227134838171</td>
+<td>26.733596077791358</td>
+</tr>
+<tr class="odd">
+<td>word</td>
+<td>0.05</td>
+<td>4.698993892777226</td>
+<td>4.69691122479825</td>
+<td>4.701762279097213</td>
+<td>25.973970077400036</td>
+<td>25.936487804101635</td>
+<td>26.02384589278968</td>
+</tr>
+<tr class="even">
+<td>word</td>
+<td>0.1</td>
+<td>4.638169173409364</td>
+<td>4.633841550413742</td>
+<td>4.642131299518176</td>
+<td>24.90168074401169</td>
+<td>24.827060458710562</td>
+<td>24.970127790754663</td>
+</tr>
+</tbody>
+</table>
+<p><img src="results/TEXTCZ1_entropy.png" /></p>
+<h3 id="english">English</h3>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Messup type</th>
+<th>Messup prob</th>
+<th>Entropy mean</th>
+<th>Entropy min</th>
+<th>Entropy max</th>
+<th>Perplexity mean</th>
+<th>Perplexity min</th>
+<th>Perplexity max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>character</td>
+<td>0.0</td>
+<td>5.2874846405274205</td>
+<td>5.2874846405274205</td>
+<td>5.2874846405274205</td>
+<td>39.05633421084705</td>
+<td>39.05633421084705</td>
+<td>39.05633421084705</td>
+</tr>
+<tr class="even">
+<td>character</td>
+<td>1e-05</td>
+<td>5.287458284521222</td>
+<td>5.287365141815407</td>
+<td>5.287518542286584</td>
+<td>39.05562072789242</td>
+<td>39.05309930103211</td>
+<td>39.05725200286547</td>
+</tr>
+<tr class="odd">
+<td>character</td>
+<td>0.0001</td>
+<td>5.287033508626451</td>
+<td>5.286644105210353</td>
+<td>5.2872426345037935</td>
+<td>39.04412342164779</td>
+<td>39.03358604433767</td>
+<td>39.049783224560464</td>
+</tr>
+<tr class="even">
+<td>character</td>
+<td>0.001</td>
+<td>5.283812864627775</td>
+<td>5.2824584382303845</td>
+<td>5.284926841368938</td>
+<td>38.95706258878103</td>
+<td>38.92050267710131</td>
+<td>38.98715136077336</td>
+</tr>
+<tr class="odd">
+<td>character</td>
+<td>0.01</td>
+<td>5.250066457057137</td>
+<td>5.247225744592146</td>
+<td>5.252239212048611</td>
+<td>38.05641213886297</td>
+<td>37.98152018909365</td>
+<td>38.113738262596975</td>
+</tr>
+<tr class="even">
+<td>character</td>
+<td>0.05</td>
+<td>5.058783843507143</td>
+<td>5.05389154096547</td>
+<td>5.064145702475497</td>
+<td>33.330877446249396</td>
+<td>33.217959301303615</td>
+<td>33.454901755551404</td>
+</tr>
+<tr class="odd">
+<td>character</td>
+<td>0.1</td>
+<td>4.732797542581993</td>
+<td>4.725116864500953</td>
+<td>4.740007446063153</td>
+<td>26.589878947648835</td>
+<td>26.44855254063063</td>
+<td>26.722951344320855</td>
+</tr>
+<tr class="even">
+<td>word</td>
+<td>0.0</td>
+<td>5.2874846405274205</td>
+<td>5.2874846405274205</td>
+<td>5.2874846405274205</td>
+<td>39.05633421084705</td>
+<td>39.05633421084705</td>
+<td>39.05633421084705</td>
+</tr>
+<tr class="odd">
+<td>word</td>
+<td>1e-05</td>
+<td>5.2874932946907</td>
+<td>5.287448294002151</td>
+<td>5.2875276108201446</td>
+<td>39.05656849998282</td>
+<td>39.0553502578172</td>
+<td>39.05749751082365</td>
+</tr>
+<tr class="even">
+<td>word</td>
+<td>0.0001</td>
+<td>5.2876990908301975</td>
+<td>5.287605017305358</td>
+<td>5.287836680943516</td>
+<td>39.062140238683284</td>
+<td>39.05959316141203</td>
+<td>39.06586573721266</td>
+</tr>
+<tr class="odd">
+<td>word</td>
+<td>0.001</td>
+<td>5.289390107808867</td>
+<td>5.288790317599533</td>
+<td>5.289901934317892</td>
+<td>39.107953949912584</td>
+<td>39.09169722347897</td>
+<td>39.121829530437765</td>
+</tr>
+<tr class="even">
+<td>word</td>
+<td>0.01</td>
+<td>5.307607790228046</td>
+<td>5.305000483980068</td>
+<td>5.309055604832067</td>
+<td>39.60493660345087</td>
+<td>39.5334096503095</td>
+<td>39.644686298323194</td>
+</tr>
+<tr class="odd">
+<td>word</td>
+<td>0.05</td>
+<td>5.379988385368776</td>
+<td>5.378007951926059</td>
+<td>5.382309861261614</td>
+<td>41.642625338238545</td>
+<td>41.58547921107922</td>
+<td>41.70966619723279</td>
+</tr>
+<tr class="even">
+<td>word</td>
+<td>0.1</td>
+<td>5.457836045908288</td>
+<td>5.453280339469338</td>
+<td>5.460902566780672</td>
+<td>43.95143229453386</td>
+<td>43.812794741319685</td>
+<td>44.04488455445509</td>
+</tr>
+</tbody>
+</table>
+<p><img src="results/TEXTEN1_entropy.png" /></p>
+<p>We can see that English has generally higher entropy than Czech. That is probably because Czech has much more words with <code>frequency=1</code>. When we take a look back a the top-50 words distribution, English histogram is closer to a uniform distribution (even though still far off) than Czech histogram. Or said differently, Czech word frequency distribution is more extreme, dropping off faster in the frequencies.</p>
+<p>When we introduce character-level noise, we will in many instances create new, grammatically incorrect word forms, which results in more words occuring only once. This is probably the reason behind the entropy decreasing with the increasing messup probability.</p>
+<p>In the case of word-level noise the situation is not that clear. We have two effects going aginst each other. Introducing random words has equalizing effect on the distribution, which should increase entropy. But it may also happen, that we lose many of the words occuring only once in the process, decreasing the vocabulary size and lowering the entropy.</p>
+<p>For English, the equalizing effect dominates, because it doesn’t have that many words occuring only once, so the overall entropy increases. On the other hand, Czech has many words occuring only once in the original dataset, so it looses much more unique words by the random word swap, which probably ultimately results in the overall increase of entropy.</p>
+<h1 id="theoretical-paper-and-pencil-excercise-part-2">Theoretical paper-and-pencil excercise (part 2)</h1>
+<p>Now assume two languages, <span class="math inline">L_1</span> and <span class="math inline">L_2</span> do not share any vocabulary items, and that the conditional entropy as described above of a text <span class="math inline">T_1</span> in language <span class="math inline">L_1</span> is <span class="math inline">E</span> and that the conditional entropy of a text <span class="math inline">T_2</span> in language <span class="math inline">L_2</span> is also <span class="math inline">E</span>. Now make a new text by appending <span class="math inline">T_2</span> to the end of <span class="math inline">T_1</span>. Will the conditional entropy of this new text be greater than, equal to, or less than <span class="math inline">E</span>? Explain (This is a paper-and-pencil exercise of course!)</p>
+<hr />
+<p><strong>We are given</strong>: - Languages <span class="math inline">L_1</span>, <span class="math inline">L_2</span> - Language bigram distributions <span class="math display">P_1(w_i, w_{i+1}), P_2(w_i, w_{i+1})</span></p>
+<ul>
+<li><p>and conditional word distributions given the previous word <span class="math display">P_1(w_{i+1} | w_i), P_2(w_{i+1} | w_i)</span></p></li>
+<li><p>Vocabularies <span class="math inline">V_1</span>, <span class="math inline">V_2</span>, for which <span class="math inline">V_1 \cap V_2 = \empty</span></p></li>
+<li><p>Conditional entropies:</p>
+<p><span class="math display"> H_1(J | I) = -\frac{1}{|T_1|}\sum_{(w_i, w_{i+1}) \in T_1}\log_{2}\frac{c_{2, T_1}(w_i, w_{i+1})}{c_{1, T_1}(w_i)} = H_2(J | I) = -\frac{1}{|T_2|}\sum_{(w_i, w_{i+1}) \in T_2}\log_{2}\frac{c_{2, T_2}(w_i, w_{i+1})}{c_{1, T_2}(w_i)} = E</span></p>
+<p><span class="math display"> H_1(J | I) = -\frac{1}{|T_1|}\sum_{(w_i, w_{i+1}) \in T_1}\log_{2} P_1(w_{i+1} | w_i)= H_2(J | I) = -\frac{1}{|T_2|}\sum_{(w_i, w_{i+1}) \in T_2}\log_{2} P_2(w_{i+1} | w_i) = E</span></p></li>
+</ul>
+<p><strong>Question</strong>: What is the conditional entropy of <span class="math inline">T_3 = T_1 . T_2</span>?</p>
+<p>To be able to compute conditional entropy, we first need to have a probability distribution <span class="math inline">P(i)</span> and <span class="math inline">P(i, j)</span>. The task is to compute conditional entropy as described above, that is the entropy of a bigram language model, where the conditioning history is only one word.</p>
+<p>So the <span class="math inline">P_{3}(w_{i+1} | w_i)</span> will be defined as:</p>
+<p><span class="math display">P_{3}(w_{i+1} | w_i) = \frac{c_{2, T_3}(w_i, w_{i+1})}{c_{1, T_3}(w_{i+1})}</span></p>
+<p><span class="math display">H_3(J | I) = -\frac{1}{|T_3|} \sum_{(w_i, w_{i + 1}) \in T_3} \log_2 P_3(w_{i+1} | w_i) = - \frac{1}{|T_1| + |T_2| + 1} (\sum_{(w_{i}, w_{i + 1}) \in T_1}{\log_2 \frac{c_{2, T_3}(w_i, w_{i+1})}{c_{1, T_3}(w_i)}} + \sum_{(w_{i}, w_{i + 1}) \in T_2}{\log_2 \frac{c_{2, T_3}(w_i, w_{i+1})}{c_{1, T_3}(w_i)}} + \log_2 \frac{c_{2, T_3}(w_{T_1, last}, w_{T_2, first})}{c_{1, T_3}(w_{T_1, last})}) = </span></p>
+<p><span class="math display">=   \frac{(|T_1| + |T_2|)\cdot E }{|T_1| + |T_2| + 1} - \frac{1}{|T_1| + |T_2| + 1} \log_2 \frac{c_{2, T_3}(w_{T_1, last}, w_{T_2, first})}{c_{1, T_3}(w_{T_1, last})} =  \frac{(|T_1| + |T_2|)\cdot E }{|T_1| + |T_2| + 1} + \frac{\log_2 c_{1, T_1}(w_{T1, last})}{|T_1| + |T_2| + 1} </span></p>
+<p>So the inequeality between <span class="math inline">H_3(J | I)</span> and <span class="math inline">E</span> exactly mirrors that of <span class="math inline">log_2 c_{1, T_1}(w_{T_1, last})</span> and <span class="math inline">E</span>.</p>
+<p>If the last word of <span class="math inline">T_1</span> is frequent in <span class="math inline">T_1</span>, so much so, that <span class="math inline">log_2 c_{1, T_1}(w_{T_1, last}) &gt; E</span> (or equivalently <span class="math inline">c_{1, T_1}(w_{T_1, last}) &gt; 2^E = \text{Perplexity}</span>), then <span class="math inline">H_3(J | I) &gt; E</span>.</p>
+<p>Similarly, if the count of the last word in <span class="math inline">T_1</span> so small, that <span class="math inline">log_2 c_{1, T_1}(w_{T_1, last}) &lt; E</span>, then <span class="math inline">H_3(J|I) &lt; E</span></p>
+<p>Analogically with equality.</p>
+</body>
+</html>
