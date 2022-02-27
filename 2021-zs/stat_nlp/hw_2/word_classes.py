@@ -155,6 +155,14 @@ def update_q(q, a, b, classes):
     raise NotImplementedError
 
 
+def all_bigram_classes(bigrams):
+    all_words = set()
+    for l, r in bigrams.keys():
+        all_words.add(l)
+        all_words.add(r)
+    return all_words
+
+
 def compute_word_classes(data, target_num_classes, min_word_count=10, dataset_cutoff=None):
 
     # Words, that appear in the data at least min_word_count times
@@ -180,11 +188,7 @@ def compute_word_classes(data, target_num_classes, min_word_count=10, dataset_cu
     p_l = init_unigram_probs(bigrams, left=True)
     p_r = init_unigram_probs(bigrams, left=False)
 
-    big_words = set()
-    for l, r in bigrams.keys():
-        big_words.add(l)
-        big_words.add(r)
-    print("Number of unique words in bigrams:", len(big_words))
+    print("Number of unique words in bigrams:", len(all_bigram_classes(bigrams)))
 
     while len(classes) > target_num_classes:
 
@@ -202,9 +206,11 @@ def compute_word_classes(data, target_num_classes, min_word_count=10, dataset_cu
         # pre-compute the sub values
         # s[k] ... sum of row q(*, k) and column q(k, *)
         s = {}
-        for k in classes:
-            s[k] = cartesian_sum(q, rows=(k, ), cols=classes)
-            s[k] += cartesian_sum(q, rows=classes, cols=(k, ))
+
+        all_classes = all_bigram_classes(bigrams)
+        for k in all_classes:
+            s[k] = cartesian_sum(q, rows=(k, ), cols=all_classes)
+            s[k] += cartesian_sum(q, rows=all_classes, cols=(k, ))
             s[k] -= q[k, k]
         
 
@@ -213,7 +219,7 @@ def compute_word_classes(data, target_num_classes, min_word_count=10, dataset_cu
         max_I = float("-inf")
         best_pair = None
         for a, b in itertools.combinations(classes, 2):
-            new_I = I - sub(s, q, a, b) + add(bigrams, p_l, p_r, classes, a, b)
+            new_I = I - sub(s, q, a, b) + add(bigrams, p_l, p_r, all_classes, a, b)
             if new_I > max_I:
                 max_I = new_I
                 best_pair = (a, b)
@@ -233,13 +239,17 @@ def compute_word_classes(data, target_num_classes, min_word_count=10, dataset_cu
         for bigram, prob in bigrams.items():
             # throw away bigrams containing a or b
             l, r = bigram
+
             if l == a or l == b or r == a or r == b:
                 continue
 
             new_bigrams[l, r] = prob
 
         # add the new class to the bigrams
-        for c in classes:
+        for c in all_bigram_classes(bigrams):
+            if c == a or c == b:
+                print("continuing")
+                continue
             new_bigrams[new_class, c] = cartesian_sum(bigrams, rows=(a, b), cols=(c, ))
             new_bigrams[c, new_class] = cartesian_sum(bigrams, rows=(c, ), cols=(a, b))
         
@@ -264,6 +274,7 @@ def compute_word_classes(data, target_num_classes, min_word_count=10, dataset_cu
         classes.add(new_class)
 
 
+
     return classes
 
 
@@ -275,7 +286,7 @@ def print_classes(classes):
 if __name__ == '__main__':
     print("started")
 
-    path = "datasets/TEXTEN1.ptg"
+    path = "datasets/TEXTCZ1.ptg"
     print("loading data")
     words, tags = load_data(path)
 
