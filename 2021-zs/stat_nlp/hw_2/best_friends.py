@@ -43,14 +43,14 @@ def best_distanced_friends(data, dataset_name, max_distance=50):
     
     best_friends = []
 
-    for i in range(1, max_distance + 1):
+    for i in range(2, max_distance + 2):
         pair_counts = get_pair_counts_with_distance(data, distance=i)
         word_counts = get_word_counts(data)
 
         mut_information = get_pmi(pair_counts, word_counts)
 
         # Filter out pairs, in which one of the words appears less than 10 times
-        filtered_mut_information = {k: v for k, v in mut_information.items() if word_counts[k[0]] > 10 and word_counts[k[1]] > 10}
+        filtered_mut_information = {k: v for k, v in mut_information.items() if word_counts[k[0]] >= 10 and word_counts[k[1]] >= 10}
 
         # Get top 20 pairs
         top_pairs = sorted(filtered_mut_information.items(), key=lambda x: x[1], reverse=True)[:20]
@@ -62,8 +62,10 @@ def best_distanced_friends(data, dataset_name, max_distance=50):
 
     top_pairs = sorted(best_friends, key=lambda x: x[2], reverse=True)[:20]
     # Show the best 20 pairs
+    print("|Distance|word 1|word 2| PMI|")
+    print("|-|-|-|-|")
     for distance, pair, pmi in top_pairs:
-        print(f"{distance} {pair[0]} {pair[1]} {pmi}")
+        print(f"|{distance}|{pair[0]}|{pair[1]}|{pmi}|")
 
     plt.figure(figsize=(12, 8))
     sns.barplot(y=[f"({str(distance)}) {' '.join(pair)}" for distance, pair, pmi in top_pairs], x=[pmi for distance, pair, pmi in top_pairs])
@@ -83,15 +85,34 @@ def best_bigram_friends(data, dataset_name):
     mut_information = get_pmi(pair_counts, word_counts)
 
     # Filter out pairs, in which one of the words appears less than 10 times
-    filtered_mut_information = {k: v for k, v in mut_information.items() if word_counts[k[0]] > 10 and word_counts[k[1]] > 10}
+    filtered_mut_information = {k: v for k, v in mut_information.items() if word_counts[k[0]] >= 10 and word_counts[k[1]] >= 10}
 
     # Get top 20 pairs
-    top_pairs = sorted(filtered_mut_information.items(), key=lambda x: x[1], reverse=True)[:20]
+    sorted_pairs = sorted(filtered_mut_information.items(), key=lambda x: x[1], reverse=True)
+
+    top_pairs = sorted_pairs[:20]
+
+    # pairs with the lowest pmi
+    bottom_pairs = sorted_pairs[-5:]
+
+    def show_pairs(pairs):
+        # Show the best 20 pairs 
+        print("||||")
+        print("|-|-|-|")
+        for pair, pmi in pairs:
+            print("|{}|{}|{}|".format(pair[0], pair[1], pmi))
+
+    print("Top 20 pairs:")
+    show_pairs(top_pairs)
+
+    print("\nBottom 5 pairs:")
+    show_pairs(bottom_pairs)
 
 
-    # Show the best 20 pairs 
-    for pair, pmi in top_pairs:
-        print("{} {} {}".format(pair[0], pair[1], pmi))
+
+
+
+
 
 
     # plot barplot of the top pairs, with PMI as bar height and the pair as caption
