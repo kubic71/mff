@@ -1,0 +1,408 @@
+112 considered classes: ( ) , . : ; I In It The a all an and animals any are as at be been believe between breeds but by can cannot case cases certain conditions could differ different distinct do domestic domesticated each even facts for from great has have how if in individuals is it its less long manner many may me more most much must my nature nearly not of often on one only or other our plants races same see several shall short slight so some species state structure subject such than that the their there these they this to under variation varieties very we what when which wild will with would
+
+|112. I(D, E): 4.997263261625137, loss: 0.0021965665335761386, merging:
+subject
+case
+
+|111. I(D, E): 4.995066695091561, loss: 0.002669139511099594, merging:
+cannot
+may
+
+|110. I(D, E): 4.992397555580461, loss: 0.0026748091526132, merging:
+individuals
+structure
+
+|109. I(D, E): 4.989722746427848, loss: 0.003479400370452801, merging:
+there
+It
+
+|108. I(D, E): 4.986243346057395, loss: 0.0036556390622299872, merging:
+even
+less
+
+|107. I(D, E): 4.982587706995165, loss: 0.003690950620215183, merging:
+nature
+variation
+
+|106. I(D, E): 4.97889675637495, loss: 0.0038977958561412507, merging:
+see
+shall
+
+|105. I(D, E): 4.974998960518809, loss: 0.0039056390622294046, merging:
+slight
+short
+
+|104. I(D, E): 4.971093321456579, loss: 0.004241409281117825, merging:
+such
+manner
+
+|103. I(D, E): 4.9668519121754615, loss: 0.004290204221812921, merging:
+certain
+what
+
+|102. I(D, E): 4.962561707953649, loss: 0.004456435556800642, merging:
+)
+cases
+
+|101. I(D, E): 4.958105272396848, loss: 0.004478026866846285, merging:
+only
+me
+
+|100. I(D, E): 4.953627245530002, loss: 0.004622805225352522, merging:
+than
+differ
+
+|99. I(D, E): 4.949004440304649, loss: 0.004682971079863485, merging:
+varieties
+races
+
+|98. I(D, E): 4.944321469224786, loss: 0.004991409281117853, merging:
+great
+(
+
+|97. I(D, E): 4.939330059943668, loss: 0.005127549413879606, merging:
+state
+subject case
+
+|96. I(D, E): 4.934202510529788, loss: 0.005274015447938929, merging:
+domesticated
+domestic
+
+|95. I(D, E): 4.928928495081849, loss: 0.005719819758948752, merging:
+distinct
+certain what
+
+|94. I(D, E): 4.9232086753229005, loss: 0.0057690294477605875, merging:
+if
+even less
+
+|93. I(D, E): 4.91743964587514, loss: 0.0058112781244590295, merging:
+my
+different
+
+|92. I(D, E): 4.911628367750681, loss: 0.005869671824060951, merging:
+between
+nearly
+
+|91. I(D, E): 4.90575869592662, loss: 0.005975681770144625, merging:
+In
+The
+
+|90. I(D, E): 4.899783014156475, loss: 0.006340717981448307, merging:
+these
+each
+
+|89. I(D, E): 4.893442296175027, loss: 0.00634157027292126, merging:
+see shall
+believe
+
+|88. I(D, E): 4.887100725902106, loss: 0.006812503871583608, merging:
+long
+slight short
+
+|87. I(D, E): 4.880288222030522, loss: 0.006827542130200648, merging:
+any
+very
+
+|86. I(D, E): 4.8734606799003215, loss: 0.006885472023399508, merging:
+there It
+must
+
+|85. I(D, E): 4.866575207876922, loss: 0.007052431884885024, merging:
+most
+nature variation
+
+|84. I(D, E): 4.859522775992037, loss: 0.0070532470284181414, merging:
+its
+an
+
+|83. I(D, E): 4.852469528963619, loss: 0.007186471177996978, merging:
+do
+see shall believe
+
+|82. I(D, E): 4.845283057785622, loss: 0.007678418014504196, merging:
+:
+between nearly
+
+|81. I(D, E): 4.837604639771118, loss: 0.0075825088874390545, merging:
+: between nearly
+how
+
+|80. I(D, E): 4.830022130883679, loss: 0.007996829884023171, merging:
+individuals structure
+most nature variation
+
+|79. I(D, E): 4.822025300999655, loss: 0.00823745154940081, merging:
+state subject case
+conditions
+
+|78. I(D, E): 4.813787849450255, loss: 0.00831313314699944, merging:
+can
+there It must
+
+|77. I(D, E): 4.805474716303255, loss: 0.008425371759430256, merging:
+when
+if even less
+
+|76. I(D, E): 4.797049344543825, loss: 0.008815574959274208, merging:
+cannot may
+could
+
+|75. I(D, E): 4.788233769584551, loss: 0.008024036202829876, merging:
+cannot may could
+would
+
+|74. I(D, E): 4.780209733381721, loss: 0.00882097204612542, merging:
+breeds
+state subject case conditions
+
+|73. I(D, E): 4.771388761335595, loss: 0.009184719822928678, merging:
+than differ
+much
+
+|72. I(D, E): 4.762204041512667, loss: 0.009191382146760851, merging:
+facts
+only me
+
+|71. I(D, E): 4.753012659365906, loss: 0.009396605227008692, merging:
+than differ much
+often
+
+|70. I(D, E): 4.743616054138897, loss: 0.009826494361410809, merging:
+wild
+same
+
+|69. I(D, E): 4.733789559777486, loss: 0.009847397295446925, merging:
+they
+will
+
+|68. I(D, E): 4.7239421624820395, loss: 0.009995943375162852, merging:
+facts only me
+plants
+
+|67. I(D, E): 4.713946219106877, loss: 0.01044232444429749, merging:
+so
+but
+
+|66. I(D, E): 4.703503894662579, loss: 0.011193097646387429, merging:
+they will
+we
+
+|65. I(D, E): 4.692310797016192, loss: 0.011752651560388294, merging:
+so but
+) cases
+
+|64. I(D, E): 4.680558145455803, loss: 0.012026273344813987, merging:
+some
+these each
+
+|63. I(D, E): 4.668531872110989, loss: 0.012458052987831536, merging:
+with
+at
+
+|62. I(D, E): 4.656073819123158, loss: 0.012675241867786013, merging:
+facts only me plants
+animals
+
+|61. I(D, E): 4.643398577255372, loss: 0.012871684038097797, merging:
+great (
+any very
+
+|60. I(D, E): 4.630526893217274, loss: 0.012877880396856334, merging:
+our
+several
+
+|59. I(D, E): 4.617649012820418, loss: 0.012049713388713634, merging:
+our several
+many
+
+|58. I(D, E): 4.605599299431704, loss: 0.01289458977797775, merging:
+great ( any very
+such manner
+
+|57. I(D, E): 4.592704709653726, loss: 0.01452583406461816, merging:
+all
+some these each
+
+|56. I(D, E): 4.578178875589108, loss: 0.014964456464575449, merging:
+under
+for
+
+|55. I(D, E): 4.563214419124533, loss: 0.015546162423520471, merging:
+all some these each
+one
+
+|54. I(D, E): 4.547668256701012, loss: 0.016602027552654164, merging:
+more
+under for
+
+|53. I(D, E): 4.531066229148358, loss: 0.01660293380675615, merging:
+their
+great ( any very such manner
+
+|52. I(D, E): 4.514463295341602, loss: 0.017547845559357178, merging:
+varieties races
+facts only me plants animals
+
+|51. I(D, E): 4.496915449782245, loss: 0.01768068767763875, merging:
+all some these each one
+distinct certain what
+
+|50. I(D, E): 4.479234762104606, loss: 0.017803354274883887, merging:
+my different
+their great ( any very such manner
+
+|49. I(D, E): 4.461431407829722, loss: 0.01840690207666551, merging:
+with at
+on
+
+|48. I(D, E): 4.443024505753057, loss: 0.01868137884812171, merging:
+it
+they will we
+
+|47. I(D, E): 4.424343126904935, loss: 0.020199035434173673, merging:
+: between nearly how
+In The
+
+|46. I(D, E): 4.404144091470761, loss: 0.020792587034123677, merging:
+it they will we
+can there It must
+
+|45. I(D, E): 4.383351504436638, loss: 0.020799424748409123, merging:
+not
+so but ) cases
+
+|44. I(D, E): 4.3625520796882284, loss: 0.020371761241977815, merging:
+other
+not so but ) cases
+
+|43. I(D, E): 4.342180318446251, loss: 0.02275317493078166, merging:
+when if even less
+other not so but ) cases
+
+|42. I(D, E): 4.319427143515469, loss: 0.022844804095748295, merging:
+more under for
+domesticated domestic
+
+|41. I(D, E): 4.296582339419721, loss: 0.02340611980001217, merging:
+by
+with at on
+
+|40. I(D, E): 4.2731762196197085, loss: 0.02461915553851135, merging:
+more under for domesticated domestic
+long slight short
+
+|39. I(D, E): 4.248557064081197, loss: 0.024855060542184226, merging:
+wild same
+been
+
+|38. I(D, E): 4.223702003539013, loss: 0.023583896854640685, merging:
+its an
+wild same been
+
+|37. I(D, E): 4.200118106684372, loss: 0.02623082346335881, merging:
+from
+: between nearly how In The
+
+|36. I(D, E): 4.173887283221013, loss: 0.02657116542952842, merging:
+when if even less other not so but ) cases
+than differ much often
+
+|35. I(D, E): 4.147316117791485, loss: 0.0270010343935283, merging:
+by with at on
+has
+
+|34. I(D, E): 4.120315083397957, loss: 0.028668216815771252, merging:
+do see shall believe
+when if even less other not so but ) cases than differ much often
+
+|33. I(D, E): 4.0916468665821855, loss: 0.029676251144556964, merging:
+do see shall believe when if even less other not so but ) cases than differ much often
+species
+
+|32. I(D, E): 4.0619706154376285, loss: 0.031267022160260005, merging:
+by with at on has
+or
+
+|31. I(D, E): 4.0307035932773685, loss: 0.0345250879841803, merging:
+more under for domesticated domestic long slight short
+as
+
+|30. I(D, E): 3.996178505293188, loss: 0.0320213570036989, merging:
+more under for domesticated domestic long slight short as
+which
+
+|29. I(D, E): 3.9641571482894893, loss: 0.032658709543555986, merging:
+more under for domesticated domestic long slight short as which
+this
+
+|28. I(D, E): 3.9314984387459333, loss: 0.03348532188298936, merging:
+are
+do see shall believe when if even less other not so but ) cases than differ much often species
+
+|27. I(D, E): 3.898013116862944, loss: 0.034767595446072885, merging:
+;
+individuals structure most nature variation
+
+|26. I(D, E): 3.863245521416871, loss: 0.03055402292559517, merging:
+; individuals structure most nature variation
+breeds state subject case conditions
+
+|25. I(D, E): 3.832691498491276, loss: 0.03532323781351776, merging:
+varieties races facts only me plants animals
+; individuals structure most nature variation breeds state subject case conditions
+
+|24. I(D, E): 3.797368260677758, loss: 0.035284508723154584, merging:
+by with at on has or
+is
+
+|23. I(D, E): 3.7620837519546035, loss: 0.039234414286321684, merging:
+varieties races facts only me plants animals ; individuals structure most nature variation breeds state subject case conditions
+our several many
+
+|22. I(D, E): 3.722849337668282, loss: 0.038865417505880906, merging:
+have
+from : between nearly how In The
+
+|21. I(D, E): 3.683983920162401, loss: 0.0408323342847261, merging:
+have from : between nearly how In The
+cannot may could would
+
+|20. I(D, E): 3.643151585877675, loss: 0.04210479683955981, merging:
+by with at on has or is
+that
+
+|19. I(D, E): 3.601046789038115, loss: 0.03871309989880167, merging:
+I
+have from : between nearly how In The cannot may could would
+
+|18. I(D, E): 3.5623336891393134, loss: 0.04548039147249261, merging:
+to
+my different their great ( any very such manner
+
+|17. I(D, E): 3.5168532976668208, loss: 0.04416361565966875, merging:
+be
+I have from : between nearly how In The cannot may could would
+
+|16. I(D, E): 3.472689682007152, loss: 0.04935445353264001, merging:
+to my different their great ( any very such manner
+a
+
+
+
+Final 15 classes:
+.
+its an wild same been
+all some these each one distinct certain what
+it they will we can there It must
+of
+in
+the
+by with at on has or is that
+more under for domesticated domestic long slight short as which this
+varieties races facts only me plants animals ; individuals structure most nature variation breeds state subject case conditions our several many
+,
+and
+to my different their great ( any very such manner a
+be I have from : between nearly how In The cannot may could would
+are do see shall believe when if even less other not so but ) cases than differ much often species

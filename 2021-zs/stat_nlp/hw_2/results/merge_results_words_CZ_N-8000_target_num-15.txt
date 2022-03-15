@@ -1,0 +1,204 @@
+61 considered classes: " &slash; ( ) , - . : ? J NATO Na OKD V a aby ale bude budou by byl bylo být do i jako je jeho jsou k které který listopadu mezi musí na nás o od po pouze pro před při s se si státu to u už v ve včera však z za ze zákona ČSFR že
+
+|61. I(D, E): 7.558001627774062, loss: 0.003082884270599884, merging:
+OKD
+listopadu
+
+|60. I(D, E): 7.554918743503462, loss: 0.0033734316421671906, merging:
+který
+které
+
+|59. I(D, E): 7.551545311861295, loss: 0.004024966367527583, merging:
+státu
+J
+
+|58. I(D, E): 7.547520345493767, loss: 0.004421600166048201, merging:
+musí
+bude
+
+|57. I(D, E): 7.543098745327719, loss: 0.00460378267932704, merging:
+ale
+aby
+
+|56. I(D, E): 7.538494962648392, loss: 0.004999999999999893, merging:
+už
+mezi
+
+|55. I(D, E): 7.533494962648392, loss: 0.0054699089691157, merging:
+budou
+pouze
+
+|54. I(D, E): 7.5280250536792765, loss: 0.005561278124458724, merging:
+NATO
+&slash;
+
+|53. I(D, E): 7.522463775554818, loss: 0.0055780778861036495, merging:
+jeho
+zákona
+
+|52. I(D, E): 7.516885697668714, loss: 0.005905639062229184, merging:
+jako
+však
+
+|51. I(D, E): 7.510980058606485, loss: 0.006000000000000227, merging:
+byl
+?
+
+|50. I(D, E): 7.504980058606485, loss: 0.006391442323724128, merging:
+Na
+OKD listopadu
+
+|49. I(D, E): 7.498588616282761, loss: 0.0066279716526409516, merging:
+nás
+státu J
+
+|48. I(D, E): 7.49196064463012, loss: 0.0068989232390634925, merging:
+si
+při
+
+|47. I(D, E): 7.485061721391056, loss: 0.007266007545616127, merging:
+bylo
+jako však
+
+|46. I(D, E): 7.47779571384544, loss: 0.0075486376159776825, merging:
+ČSFR
+jsou
+
+|45. I(D, E): 7.470247076229462, loss: 0.007555812533852624, merging:
+u
+za
+
+|44. I(D, E): 7.46269126369561, loss: 0.007711672745958964, merging:
+musí bude
+být
+
+|43. I(D, E): 7.454979590949651, loss: 0.008264662506490161, merging:
+před
+byl ?
+
+|42. I(D, E): 7.446714928443161, loss: 0.008313982008401055, merging:
+ale aby
+který které
+
+|41. I(D, E): 7.43840094643476, loss: 0.009417333984406362, merging:
+už mezi
+od
+
+|40. I(D, E): 7.428983612450353, loss: 0.010046615617969046, merging:
+už mezi od
+ze
+
+|39. I(D, E): 7.418936996832384, loss: 0.011060734598236088, merging:
+Na OKD listopadu
+V
+
+|38. I(D, E): 7.407876262234148, loss: 0.011542158467869434, merging:
+po
+si při
+
+|37. I(D, E): 7.396334103766279, loss: 0.011707802191882166, merging:
+po si při
+včera
+
+|36. I(D, E): 7.3846263015743965, loss: 0.01224199918599922, merging:
+NATO &slash;
+ČSFR jsou
+
+|35. I(D, E): 7.372384302388397, loss: 0.012811758781420046, merging:
+pro
+u za
+
+|34. I(D, E): 7.359572543606977, loss: 0.012831790043001057, merging:
+ale aby který které
+že
+
+|33. I(D, E): 7.346740753563976, loss: 0.013384476532673162, merging:
+musí bude být
+budou pouze
+
+|32. I(D, E): 7.333356277031303, loss: 0.015123566531540789, merging:
+to
+jeho zákona
+
+|31. I(D, E): 7.318232710499762, loss: 0.016320804771689623, merging:
+nás státu J
+to jeho zákona
+
+|30. I(D, E): 7.301911905728073, loss: 0.017034347127751204, merging:
+ve
+pro u za
+
+|29. I(D, E): 7.284877558600321, loss: 0.018393452280020206, merging:
+před byl ?
+k
+
+|28. I(D, E): 7.266484106320301, loss: 0.019459248120158534, merging:
+bylo jako však
+musí bude být budou pouze
+
+|27. I(D, E): 7.247024858200143, loss: 0.02048222243348441, merging:
+NATO &slash; ČSFR jsou
+)
+
+|26. I(D, E): 7.226542635766658, loss: 0.021558394465715836, merging:
+z
+do
+
+|25. I(D, E): 7.204984241300942, loss: 0.02208937145423473, merging:
+bylo jako však musí bude být budou pouze
+by
+
+|24. I(D, E): 7.182894869846708, loss: 0.022823403413313237, merging:
+:
+(
+
+|23. I(D, E): 7.160071466433394, loss: 0.024389999562785647, merging:
+je
+z do
+
+|22. I(D, E): 7.135681466870609, loss: 0.02522278590833782, merging:
+i
+bylo jako však musí bude být budou pouze by
+
+|21. I(D, E): 7.110458680962271, loss: 0.02797335844031945, merging:
+s
+Na OKD listopadu V
+
+|20. I(D, E): 7.0824853225219515, loss: 0.030155636036872657, merging:
+před byl ? k
+po si při včera
+
+|19. I(D, E): 7.052329686485079, loss: 0.03118867578211848, merging:
+už mezi od ze
+: (
+
+|18. I(D, E): 7.02114101070296, loss: 0.03591718228823737, merging:
+nás státu J to jeho zákona
+NATO &slash; ČSFR jsou )
+
+|17. I(D, E): 6.985223828414723, loss: 0.03844491393770788, merging:
+s Na OKD listopadu V
+"
+
+|16. I(D, E): 6.946778914477015, loss: 0.04041302430519611, merging:
+ve pro u za
+ale aby který které že
+
+
+
+Final 15 classes:
+,
+a
+o
+před byl ? k po si při včera
+nás státu J to jeho zákona NATO &slash; ČSFR jsou )
+ve pro u za ale aby který které že
+v
+na
+s Na OKD listopadu V "
+i bylo jako však musí bude být budou pouze by
+už mezi od ze : (
+-
+se
+je z do
+.
