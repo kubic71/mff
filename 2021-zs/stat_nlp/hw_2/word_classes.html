@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>word_classes</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/opt/pandoc-markdown/pandoc-github-style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="word-classes">Word Classes</h1>
+<h2 id="the-data">The data</h2>
+<p>Get <strong>TEXTEN1.ptg</strong> and <strong>TEXTCZ1.ptg</strong></p>
+<p>These are your data. They are almost the same as the .txt data you have used so far, except they now contain the part of speech tags in the following form:</p>
+<pre><code>rady/NNFS2-----A----
+,/Z:-------------</code></pre>
+<p>where the tag is separated from the word by a slash (<code>'/'</code>). Be careful: the tags might contain everything (including slashes, dollar signs and other weird characters). It is guaranteed however that there is no slash-word.</p>
+<p>Similarly for the English texts (except the tags are shorter of course).</p>
+<h2 id="the-task">The Task</h2>
+<p>Compute a full class hierarchy of words using the first 8,000 words of those data, and only for words occurring 10 times or more (use the same setting for both languages). Ignore the other words for building the classes, but keep them in the data for the bigram counts and all the formulas that use them (including the Mutual Information, the interim sums in the “Tricks”, etc.). For details on the algorithm, use the Brown et al. paper available form SIS; some formulas are wrong in the paper, however, so please see the corrections in the slides (formulas for Trick #4). Note the history of the merges, and attach it to your homework. Now run the same algorithm again, but stop when reaching 15 classes. Print out all the members of your 15 classes and attach them too.</p>
+<h2 id="hints">Hints</h2>
+<p>The initial mutual information is (English, words, limit 8000):</p>
+<p><code>4.99726326162518</code> (if you add one extra word at the beginning of the data) <code>4.99633675507535</code> (if you use the data as they are and are carefull at the beginning and end).</p>
+<p>NB: the above numbers are finally confirmed from an independent source :-).</p>
+<p>The first 5 merges you get on the English data should be:</p>
+<pre><code>case subject
+cannot may
+individuals structure
+It there
+even less</code></pre>
+<p>The loss of Mutual Information when merging the words <code>case</code> and <code>subject</code>:</p>
+<p><code>Minimal loss: 0.00219656653357569 for case+subject</code></p>
+<h2 id="solution">Solution</h2>
+<h3 id="algorithm">Algorithm</h3>
+<p>I implented the <span class="math inline">O(V^3)</span> version of the algorithm, incorporating most of the tricks, except the <strong>skip-zero-bigrams</strong> one. It runs reasonably fast and it was enough for this assignment.</p>
+<h3 id="full-history-of-word-class-merges">Full history of word class merges</h3>
+<p>The full history for both datasets is computed by running the following commands:</p>
+<pre class="shell"><code>$ python word_classes.py --dataset_path datasets/TEXTEN1.ptg --target_num_classes 1 --N 8000
+$ python word_classes.py --dataset_path datasets/TEXTCZ1.ptg --target_num_classes 1 --N 8000 </code></pre>
+<p>The merge histories are exported to the <code>results</code> folder:</p>
+<ul>
+<li><a href="results/merge_results_words_CZ_N-8000_target_num-1.txt">merge_results_words_CZ_N-8000_target_num-1.txt</a> for Czech</li>
+<li><a href="results/merge_results_words_EN_N-8000_target_num-1.txt">merge_results_words_EN_N-8000_target_num-1.txt</a> for English</li>
+</ul>
+<h4 id="correctness">Correctness</h4>
+<p>The first five merges for English with 8000 word limit are:</p>
+<pre><code>|112. I(D, E): 4.997263261625193, loss: 0.0021965665335752504, merging:
+subject
+case
+
+|111. I(D, E): 4.995066695091618, loss: 0.002669139511099594, merging:
+may
+cannot
+
+|110. I(D, E): 4.992397555580518, loss: 0.0026748091526132, merging:
+individuals
+structure
+
+|109. I(D, E): 4.989722746427905, loss: 0.003479400370452801, merging:
+It
+there
+
+|108. I(D, E): 4.986243346057452, loss: 0.0036556390622299872, merging:
+less
+even</code></pre>
+<p>The computed initial mutual information <code>I(D,E) = 4.997263261625193</code> is the same as the one in the <strong>Hint</strong> (<code>4.99726326162518</code>) up to 14 decimal places.</p>
+<p>The computed loss of the first merge (<code>case</code> and <code>subject</code>) is <code>0.0021965665335752504</code>, which equals the <strong>Hint</strong> (<code>0.00219656653357569</code>) up to 15 decimal places.</p>
+<p>The first 5 merges also agree with the hint. So I believe my implementation is correct.</p>
+<h3 id="stopping-at-15-classes">Stopping at 15 classes</h3>
+<p>We run the <code>word_classes.py</code> again, but this time with <code>--target_num_classes 15</code> parameter.</p>
+<pre class="shell"><code>$ python word_classes.py --dataset_path datasets/TEXTEN1.ptg --target_num_classes 15 --N 8000
+$ python word_classes.py --dataset_path datasets/TEXTCZ1.ptg --target_num_classes 15 --N 8000 </code></pre>
+<p>The merge histories with the final 15 classes are again in the <code>results</code>:</p>
+<ul>
+<li><a href="results/merge_results_words_CZ_N-8000_target_num-15.txt">merge_results_words_CZ_N-8000_target_num-15.txt</a> for Czech</li>
+<li><a href="results/merge_results_words_EN_N-8000_target_num-15.txt">merge_results_words_EN_N-8000_target_num-15.txt</a> for English.</li>
+</ul>
+<h4 id="final-15-czech-classes">Final 15 Czech classes</h4>
+<p>Each class is on seperate line with the words separated by spaces.</p>
+<pre><code>,
+a
+o
+před byl ? k po si při včera
+nás státu J to jeho zákona NATO &amp;slash; ČSFR jsou )
+ve pro u za ale aby který které že
+v
+na
+s Na OKD listopadu V &quot;
+i bylo jako však musí bude být budou pouze by
+už mezi od ze : (
+-
+se
+je z do
+.</code></pre>
+<h4 id="final-15-english-classes">Final 15 English classes</h4>
+<pre><code>.
+its an wild same been
+all some these each one distinct certain what
+it they will we can there It must
+of
+in
+the
+by with at on has or is that
+more under for domesticated domestic long slight short as which this
+varieties races facts only me plants animals ; individuals structure most nature variation breeds state subject case conditions our several many
+,
+and
+to my different their great ( any very such manner a
+be I have from : between nearly how In The cannot may could would
+are do see shall believe when if even less other not so but ) cases than differ much often species</code></pre>
+<h1 id="tag-classes">Tag classes</h1>
+<p>Use the same original data as above, but this time, you will compute the classes for tags (the strings after slashes). Compute tag classes for all tags appearing 5 times or more in the data. Use as much data as time allows. You will be graded relative to the other student’s results. Again, note the full history of merges, and attach it to your homework. Pick three interesting classes as the algorithm goes (English data only; Czech optional), and comment on them (why you think you see those tags there together (or not), etc.).</p>
+<h2 id="solution-1">Solution</h2>
+<p>The classes for tags were computed on <strong>all</strong> given data, without any limit.</p>
+<pre class="shell"><code>$ python word_classes.py --dataset_path datasets/TEXTCZ1.ptg --target_num_classes 1 --mode tags
+$ python word_classes.py --dataset_path datasets/TEXTEN1.ptg --target_num_classes 1 --mode tags</code></pre>
+<p>Tag merge histories are again in the <code>results</code> directory:</p>
+<ul>
+<li><a href="results/merge_results_tags_CZ_N-224538_target_num-1.txt">merge_results_tags_CZ_N-224538_target_num-1.txt</a> for Czech</li>
+<li><a href="results/merge_results_tags_EN_N-221098_target_num-1.txt">merge_results_tags_EN_N-221098_target_num-1.txt</a> for English</li>
+</ul>
+<h3 id="three-interesting-merges">Three interesting merges</h3>
+<ol type="1">
+<li>VBD (Verb, past tense) + VBN (Verb, past participle)
+<ul>
+<li>It makes sense to merge verbs that talk about the past, either in ordinary past tense or in past participle, into one general <em>Verb, past</em> class</li>
+</ul></li>
+<li>NN (Noun, singular or mass) + NNPS (Proper noun, plural)
+<ul>
+<li>Merging together different types of nouns</li>
+</ul></li>
+<li>PRP$ (Possesive pronoun) + DT (Determiner)
+<ul>
+<li>The possesive pronoun can be often exchanged with determiner, while keeping the sentence grammatically correct
+<ul>
+<li><code>My house</code> vs. <code>The house</code></li>
+</ul></li>
+</ul></li>
+</ol>
+</body>
+</html>

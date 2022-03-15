@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>best_friends</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/opt/pandoc-markdown/pandoc-github-style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="best-friends">Best Friends</h1>
+<p>In this task you will do a simple exercise to find out the best word association pairs using the pointwise mutual information method.</p>
+<p>First, you will have to prepare the data: take the same texts as in the previous assignment, i.e.</p>
+<p><strong>TEXTEN1.txt</strong> and <strong>TEXTCZ1.txt</strong></p>
+<p>(For this part of Assignment 2, there is no need to split the data in any way.)</p>
+<p>Compute the pointwise mutual information for all the possible word pairs appearing consecutively in the data, disregarding pairs in which one or both words appear less than 10 times in the corpus, and sort the results from the best to the worst (did you get any negative values? Why?) Tabulate the results, and show the best 20 pairs for both data sets.</p>
+<p>Do the same now but for distant words, i.e. words which are at least 1 word apart, but not farther than 50 words (both directions). Again, tabulate the results, and show the best 20 pairs for both data sets.</p>
+<h2 id="best-bigram-friends">Best bigram friends</h2>
+<h3 id="czech">Czech</h3>
+<h4 id="top-20-pairs">Top 20 pairs</h4>
+<table>
+<tbody>
+<tr class="odd">
+<td>Hamburger</td>
+<td>SV</td>
+<td>14.28894391532341</td>
+</tr>
+<tr class="even">
+<td>Los</td>
+<td>Angeles</td>
+<td>14.06243538551473</td>
+</tr>
+<tr class="odd">
+<td>Johna</td>
+<td>Newcomba</td>
+<td>13.762875103655821</td>
+</tr>
+<tr class="even">
+<td>Č.</td>
+<td>Budějovice</td>
+<td>13.633592086710856</td>
+</tr>
+<tr class="odd">
+<td>série</td>
+<td>ATP</td>
+<td>13.468961384938057</td>
+</tr>
+<tr class="even">
+<td>turnajové</td>
+<td>série</td>
+<td>13.434404162901687</td>
+</tr>
+<tr class="odd">
+<td>Tomáš</td>
+<td>Ježek</td>
+<td>13.428974367102384</td>
+</tr>
+<tr class="even">
+<td>Lidové</td>
+<td>noviny</td>
+<td>13.329915696379716</td>
+</tr>
+<tr class="odd">
+<td>Lidových</td>
+<td>novin</td>
+<td>13.271022007326147</td>
+</tr>
+<tr class="even">
+<td>veřejného</td>
+<td>mínění</td>
+<td>13.06243538551473</td>
+</tr>
+<tr class="odd">
+<td>teplota</td>
+<td>minus</td>
+<td>12.981515390131163</td>
+</tr>
+<tr class="even">
+<td>Ján</td>
+<td>Čarnogurský</td>
+<td>12.955520181598217</td>
+</tr>
+<tr class="odd">
+<td>jaderné</td>
+<td>zbraně</td>
+<td>12.955520181598217</td>
+</tr>
+<tr class="even">
+<td>Milan</td>
+<td>Máčala</td>
+<td>12.89780468374193</td>
+</tr>
+<tr class="odd">
+<td>lidských</td>
+<td>práv</td>
+<td>12.862870893632543</td>
+</tr>
+<tr class="even">
+<td>společném</td>
+<td>státě</td>
+<td>12.708427319633445</td>
+</tr>
+<tr class="odd">
+<td>akciových</td>
+<td>společností</td>
+<td>12.692485775764423</td>
+</tr>
+<tr class="even">
+<td>Pohár</td>
+<td>UEFA</td>
+<td>12.625371579905886</td>
+</tr>
+<tr class="odd">
+<td>privatizačních</td>
+<td>projektů</td>
+<td>12.615670178713593</td>
+</tr>
+<tr class="even">
+<td>George</td>
+<td>Bushe</td>
+<td>12.603003766877432</td>
+</tr>
+</tbody>
+</table>
+<p><img src="results/best_bigram_friends_czech.png" /></p>
+<h4 id="bottom-5-pairs">Bottom 5 pairs</h4>
+<table>
+<tbody>
+<tr class="odd">
+<td>.</td>
+<td>že</td>
+<td>-6.6235915786332304</td>
+</tr>
+<tr class="even">
+<td>(</td>
+<td>.</td>
+<td>-6.66716059357063</td>
+</tr>
+<tr class="odd">
+<td>na</td>
+<td>.</td>
+<td>-7.265268470348708</td>
+</tr>
+<tr class="even">
+<td>.</td>
+<td>se</td>
+<td>-7.617624736871417</td>
+</tr>
+<tr class="odd">
+<td>,</td>
+<td>.</td>
+<td>-8.061834206716144</td>
+</tr>
+</tbody>
+</table>
+<h3 id="english">English</h3>
+<h4 id="top-20-pairs-1">Top 20 pairs</h4>
+<table>
+<tbody>
+<tr class="odd">
+<td>La</td>
+<td>Plata</td>
+<td>14.169363948652101</td>
+</tr>
+<tr class="even">
+<td>Asa</td>
+<td>Gray</td>
+<td>14.031860424902167</td>
+</tr>
+<tr class="odd">
+<td>Fritz</td>
+<td>Muller</td>
+<td>13.362009026594498</td>
+</tr>
+<tr class="even">
+<td>worth</td>
+<td>while</td>
+<td>13.33286268093498</td>
+</tr>
+<tr class="odd">
+<td>faced</td>
+<td>tumbler</td>
+<td>13.262473353043582</td>
+</tr>
+<tr class="even">
+<td>lowly</td>
+<td>organised</td>
+<td>13.216892318734686</td>
+</tr>
+<tr class="odd">
+<td>Malay</td>
+<td>Archipelago</td>
+<td>13.110470259598532</td>
+</tr>
+<tr class="even">
+<td>shoulder</td>
+<td>stripe</td>
+<td>13.053886731232165</td>
+</tr>
+<tr class="odd">
+<td>Great</td>
+<td>Britain</td>
+<td>12.914550049623276</td>
+</tr>
+<tr class="even">
+<td>United</td>
+<td>States</td>
+<td>12.847435853764738</td>
+</tr>
+<tr class="odd">
+<td>English</td>
+<td>carrier</td>
+<td>12.525507758877376</td>
+</tr>
+<tr class="even">
+<td>specially</td>
+<td>endowed</td>
+<td>12.401810034652472</td>
+</tr>
+<tr class="odd">
+<td>Sir</td>
+<td>J</td>
+<td>12.377356990927932</td>
+</tr>
+<tr class="even">
+<td>branched</td>
+<td>off</td>
+<td>12.377356990927932</td>
+</tr>
+<tr class="odd">
+<td>de</td>
+<td>Candolle</td>
+<td>12.362009026594498</td>
+</tr>
+<tr class="even">
+<td>mental</td>
+<td>qualities</td>
+<td>12.362009026594498</td>
+</tr>
+<tr class="odd">
+<td>Galapagos</td>
+<td>Archipelago</td>
+<td>12.344935513235555</td>
+</tr>
+<tr class="even">
+<td>red</td>
+<td>clover</td>
+<td>12.323873897707726</td>
+</tr>
+<tr class="odd">
+<td>self</td>
+<td>fertilisation</td>
+<td>12.31692113706596</td>
+</tr>
+<tr class="even">
+<td>systematic</td>
+<td>affinity</td>
+<td>12.251826108844075</td>
+</tr>
+</tbody>
+</table>
+<p><img src="results/best_bigram_friends_english.png" /></p>
+<h4 id="bottom-5-pairs-1">Bottom 5 pairs</h4>
+<table>
+<tbody>
+<tr class="odd">
+<td>a</td>
+<td>,</td>
+<td>-7.704130104707167</td>
+</tr>
+<tr class="even">
+<td>of</td>
+<td>.</td>
+<td>-7.901956776788321</td>
+</tr>
+<tr class="odd">
+<td>.</td>
+<td>of</td>
+<td>-7.901956776788321</td>
+</tr>
+<tr class="even">
+<td>.</td>
+<td>the</td>
+<td>-8.407461564173527</td>
+</tr>
+<tr class="odd">
+<td>the</td>
+<td>,</td>
+<td>-8.790291755302547</td>
+</tr>
+</tbody>
+</table>
+<h2 id="best-word-pairs-with-distance-greater-or-equal-to-2-and-less-than-50">Best word pairs with distance greater or equal to 2 and less than 50</h2>
+<h3 id="czech-1">Czech</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Distance</th>
+<th>word 1</th>
+<th>word 2</th>
+<th>PMI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>ODÚ</td>
+<td>VPN</td>
+<td>14.119018913881098</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>turnajové</td>
+<td>ATP</td>
+<td>13.614976408543509</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Mistrovství</td>
+<td>turnajové</td>
+<td>13.410358688935036</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>výher</td>
+<td>výher</td>
+<td>13.318090260982926</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Čechy</td>
+<td>Slováky</td>
+<td>13.303443485018525</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Mistrovství</td>
+<td>ATP</td>
+<td>13.20390781146761</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>prohraná</td>
+<td>dvojchyby</td>
+<td>13.172198951740272</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>soužití</td>
+<td>Slováků</td>
+<td>13.06243538551473</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>prohraná</td>
+<td>esa</td>
+<td>13.051904718022561</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>III</td>
+<td>IV</td>
+<td>13.025909509489615</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mistrovství</td>
+<td>série</td>
+<td>13.02333556582579</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>esa</td>
+<td>dvojchyby</td>
+<td>12.987774380602845</td>
+</tr>
+<tr class="odd">
+<td>26</td>
+<td>Nastaseho</td>
+<td>Newcomba</td>
+<td>12.981515390131163</td>
+</tr>
+<tr class="even">
+<td>40</td>
+<td>Bělehrad</td>
+<td>Benfica</td>
+<td>12.981515390131163</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>uchazečů</td>
+<td>zaměstnání</td>
+<td>12.955520181598217</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>prohraná</td>
+<td>čisté</td>
+<td>12.955520181598217</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Sdružení</td>
+<td>podnikatelů</td>
+<td>12.855984508047303</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>čisté</td>
+<td>dvojchyby</td>
+<td>12.824275648319965</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>pražském</td>
+<td>teplota</td>
+<td>12.740507290627367</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>čisté</td>
+<td>esa</td>
+<td>12.703981414602254</td>
+</tr>
+</tbody>
+</table>
+<p><img src="results/best_distanced_friends_czech.png" /></p>
+<h3 id="english-1">English</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Distance</th>
+<th>word 1</th>
+<th>word 2</th>
+<th>PMI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3</td>
+<td>survival</td>
+<td>fittest</td>
+<td>13.754326449373258</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>dimorphic</td>
+<td>trimorphic</td>
+<td>13.353447013091072</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Alph</td>
+<td>Candolle</td>
+<td>13.236478144510638</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>H</td>
+<td>Watson</td>
+<td>13.169363948652101</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Alph</td>
+<td>de</td>
+<td>13.053886731232165</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Old</td>
+<td>Worlds</td>
+<td>13.053886731232165</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>E</td>
+<td>Forbes</td>
+<td>12.946971527315654</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>unimportant</td>
+<td>welfare</td>
+<td>12.879857331457115</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>carrier</td>
+<td>faced</td>
+<td>12.695432760319688</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>rarer</td>
+<td>rarer</td>
+<td>12.525507758877376</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>plates</td>
+<td>baleen</td>
+<td>12.468924230511009</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>eastern</td>
+<td>western</td>
+<td>12.468924230511009</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>plains</td>
+<td>La</td>
+<td>12.432398354485894</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>supplant</td>
+<td>exterminate</td>
+<td>12.368895412179736</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>oscillations</td>
+<td>level</td>
+<td>12.362009026594498</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>F</td>
+<td>sanguinea</td>
+<td>12.303864984240512</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>analogical</td>
+<td>adaptive</td>
+<td>12.246531809174561</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>incidental</td>
+<td>systems</td>
+<td>12.205889824677215</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>beasts</td>
+<td>prey</td>
+<td>12.179417613316025</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>C</td>
+<td>Watson</td>
+<td>12.169363948652101</td>
+</tr>
+</tbody>
+</table>
+<p><img src="results/best_distanced_friends_english.png" /></p>
+<h2 id="conclusion">Conclusion</h2>
+<h3 id="pmi-and-its-meaning">PMI and it’s meaning</h3>
+<p>Pointwise mutual information of words <span class="math inline">x</span> and <span class="math inline">y</span> is defined as follows:</p>
+<p><span class="math display">pmi(x, y) = \log_2 (\frac{p(x, y)}{p(x)p(y)})</span></p>
+<h4 id="zero-pmi">Zero PMI</h4>
+<p>Independence is probabilisticaly defined as <span class="math inline">p(x,y) = p(x)p(y)</span>. In our context, the probabilistic independence of two words gives <span class="math inline">pmi(x,y) = \log_2 1 = 0</span>, which means that the occurence of the pair in the text isn’t surprising and the word pair isn’t special.</p>
+<h4 id="pmi-0">PMI &gt; 0</h4>
+<p>This is equivalent to <span class="math inline">p(x,y) &gt; p(x)p(y)</span>, or in other words, the pair is more likely than we would expect based only on the individual word probabilities, suggesting a possible named entity or collocation.</p>
+<p>For example:</p>
+<pre><code>Č. Budějovice
+série ATP
+turnajové série
+Tomáš Ježek
+Lidové noviny
+Čechy Slováky
+
+survival fittest
+La Plata    
+Asa Gray    
+Fritz Muller    
+worth while</code></pre>
+<h4 id="pmi-0-1">PMI &lt; 0</h4>
+<p>Negative pairs (in the PMI sense) point to words that don’t like each other and placing them next to each other might be a grammatical mistake.</p>
+<p>We <strong>do</strong> get pairs with negative PMI. For example:</p>
+<p><strong>Czech</strong></p>
+<pre><code>na .
+. se
+, .</code></pre>
+<p>Where <code>, .</code> is obviously a grammatical nonsense.</p>
+<p><strong>English</strong></p>
+<pre><code>a ,
+of .
+the ,</code></pre>
+<p>Similarily to Czech negative pairs, the English ones also correspond to grammatically incorrect phrases, hence the negative PMI.</p>
+</body>
+</html>

@@ -52,6 +52,7 @@ $ python word_classes.py --dataset_path datasets/TEXTCZ1.ptg --target_num_classe
 ```
 
 The merge histories are exported to the `results` folder:
+
 - [merge_results_words_CZ_N-8000_target_num-1.txt](results/merge_results_words_CZ_N-8000_target_num-1.txt) for Czech 
 - [merge_results_words_EN_N-8000_target_num-1.txt](results/merge_results_words_EN_N-8000_target_num-1.txt) for English
 
@@ -97,6 +98,7 @@ $ python word_classes.py --dataset_path datasets/TEXTCZ1.ptg --target_num_classe
 ```
 
 The merge histories with the final 15 classes are again in the `results`:
+
 - [merge_results_words_CZ_N-8000_target_num-15.txt](results/merge_results_words_CZ_N-8000_target_num-15.txt) for Czech
 - [merge_results_words_EN_N-8000_target_num-15.txt](results/merge_results_words_EN_N-8000_target_num-15.txt) for English.
 
@@ -153,6 +155,7 @@ $ python word_classes.py --dataset_path datasets/TEXTEN1.ptg --target_num_classe
 ```
 
 Tag merge histories are again in the `results` directory:
+
 - [merge_results_tags_CZ_N-224538_target_num-1.txt](results/merge_results_tags_CZ_N-224538_target_num-1.txt) for Czech
 - [merge_results_tags_EN_N-221098_target_num-1.txt](results/merge_results_tags_EN_N-221098_target_num-1.txt) for English
 
