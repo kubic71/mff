@@ -1,4 +1,5 @@
 from model import DiacriticModel
+import time
 from matplotlib import pyplot as plt
 import torch
 from tqdm import tqdm
@@ -32,7 +33,7 @@ strip_map = {
 # everything is lowercase, no collision problem
 UNKNOWN_SYMBOL = "U"
 
-def load_sentences(path="data/sentences.txt", max_sentences=1000, min_freq_char=20):
+def load_sentences(path="data/sentences.txt", max_sentences=1000, min_freq_char=100):
     char_freq = defaultdict(lambda: 0)
 
 
@@ -136,6 +137,8 @@ def batches(dataset, batch_size=100):
 
 
 def plot(all_losses, path="diacritizator_losses.png"):
+    # log scale on y axis
+    plt.yscale('log')
     plt.plot(all_losses)
     plt.savefig(path)
     plt.close()
@@ -149,7 +152,12 @@ if __name__ == "__main__":
     parser.add_argument('--max-sentences', type=int, default=2000)
     parser.add_argument('--train-test-split', type=float, default=0.95)
     parser.add_argument('--epochs', type=int, default=10)
-    parser.add_argument('--strip-prob', type=float, default=0.5)
+    parser.add_argument('--strip-prob', type=float, default=0.9)
+    parser.add_argument('--n_conv_filters', type=int, default=128)
+    parser.add_argument('--we_dim', type=int, default=64)
+    parser.add_argument('--char_dim', type=int, default=32)
+    parser.add_argument('--learning-rate', type=float, default=0.001)
+    parser.add_argument('--batch-size', type=int, default=100)
 
 
     args = parser.parse_args()
@@ -174,39 +182,117 @@ if __name__ == "__main__":
     test = stripped[train_n:], sentences[train_n:]
 
 
-    model: torch.nn.Module = DiacriticModel(char_embedding_dim=32, n_conv_filters=64, char_dict=char_dict)
 
-    learning_rate = 0.005
-    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+    model = DiacriticModel(char_embedding_dim=args.char_dim, n_conv_filters=args.n_conv_filters, we_dim=args.we_dim, char_dict=char_dict).cuda()
 
+    warming_up = True
+    lr = args.learning_rate / 100
+    last_plateau = 0
+
+
+    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
     all_losses = []
 
+
     for epoch in range(args.epochs):
+        model.train()
+
+        # update learning rate
+        if warming_up:
+            lr *= 1.1
+
+
+            if epoch > 5:
+                # the loss is not decreasing anymore
+                if all_losses[-1] > all_losses[-2] and all_losses[-2] > all_losses[-3] and all_losses[-3] > all_losses[-4] and all_losses[-4] > all_losses[-5]:
+                    warming_up = False
+                    print("Warming up done")
+                    last_plateau = epoch
+                    lr *= 0.8
+        else:
+            # if plateau, decrease learning rate
+            l1 = sum(all_losses[-5:]) / 5
+            l2 = sum(all_losses[-10:-5]) / 5
+
+            if l1 / l2 > 0.9 and epoch - last_plateau > 10:
+                print("Plateau")
+                last_plateau = epoch
+                lr = lr * 0.3
+
+        print("LEARNING RATE", lr)
+        
+        # update learning rate in the optimizer
+        for param_group in optimizer.param_groups:
+            param_group['lr'] = lr
+
         total_loss = 0
 
-        for x_batch, y_batch in tqdm(batches(train, batch_size=100)):
+        i = 0
+        t = time.time()
+        times = {"rest": [], "forward": [], "backward": [], "update": []}
+        for x_batch, y_batch in tqdm(batches(train, batch_size=args.batch_size), total=sum([len(s) for s in train[0]]) // args.batch_size):
 
             optimizer.zero_grad()
             model.zero_grad()
 
+            # print('the rest: ', time.time() - t)
+            rest_time = time.time() - t
+
+            t = time.time()
             loss = model.loss(x_batch, y_batch)
 
+            f_time = time.time() - t
+
+
+            # print(f"model forward: ", time.time() - t)
+            t= time.time()
+
             loss.backward()
+            # print(f"model backward: ", time.time() - t)
+            b_time = time.time() - t
+            t = time.time()
+
             optimizer.step()
 
-            total_loss += loss.item()
+            # print(f"model step: ", time.time() - t)
+            o_step_time = time.time() - t
+            t = time.time()
+
+            with torch.no_grad():
+                total_loss += loss.item()
+            i += 1
+
+            times["rest"].append(rest_time)
+            times["forward"].append(f_time)
+            times["backward"].append(b_time)
+            times["update"].append(o_step_time)
+
+
+        # print the average times
+        times = {k: sum(v) / len(v) for k, v in times.items()}
+        print(times)
+
+        print(f"Epoch {epoch}: loss = {total_loss / i}")
+        all_losses.append(total_loss / i)
         
-        all_losses.append(total_loss)
-        plot(all_losses)
+        plot(all_losses, path=f"{args.exp_name}_losses.png")
 
         print(f"epoch {epoch} loss = {total_loss}")
 
-    
+        model.eval()
         # evaluate on test set
-        for x_batch, y_batch in tqdm(batches(test, batch_size=100)):
+        i = 0
+        for x_batch, y_batch in tqdm(batches(test, batch_size=args.batch_size)):
             pred = model.diacritize(x_batch)
+
+            # don't flood the terminal with too many eval predictions
+            if i > 20:
+                break
+            i += 1
             
             print("Strip:\t", " ".join(x_batch))
             print("Gold:\t", " ".join(y_batch))
             print("Pred:\t", " ".join(pred))
             print()
+
+        model.save(f"{args.exp_name}_epoch_{epoch}")
