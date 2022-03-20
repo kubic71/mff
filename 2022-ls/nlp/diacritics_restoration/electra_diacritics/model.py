@@ -129,13 +129,13 @@ class DiacriticModel(nn.Module):
         # output dense layer, applied to each character separately (sharing weights)
         # maps the output of the char_cnn back to the characters list (char_dict_size)
         self.dense = nn.Linear(in_features=n_conv_filters, out_features=self.char_dict_size)
-        self.dropout = nn.Dropout(p=0.2)
+        self.dropout = nn.Dropout(p=0.1)
 
         self.tokenizer = Tokenizer()
 
         self.we_dim = we_dim
         self.word_embedding_projection = nn.Linear(in_features=256, out_features=we_dim)
-        self.we_dropout = nn.Dropout(p=0.2)
+        self.we_dropout = nn.Dropout(p=0.1)
 
         self.device = device
 
@@ -154,6 +154,7 @@ class DiacriticModel(nn.Module):
             "char_embedding_dim": self.char_embedding_dim,
             "n_conv_filters": self.n_conv_filters,
             "char_dict": self.char_dict,
+            "we_dim": self.we_dim,
         }
 
         # save using pickle

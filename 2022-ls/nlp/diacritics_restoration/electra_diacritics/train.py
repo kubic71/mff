@@ -1,7 +1,6 @@
 from model import DiacriticModel
 import time
 from matplotlib import pyplot as plt
-import torch
 from tqdm import tqdm
 import random
 from collections import defaultdict
@@ -158,12 +157,14 @@ if __name__ == "__main__":
     parser.add_argument('--char_dim', type=int, default=32)
     parser.add_argument('--learning-rate', type=float, default=0.001)
     parser.add_argument('--batch-size', type=int, default=100)
+    parser.add_argument('--warmup', action='store_true')
 
 
     args = parser.parse_args()
     chars, sentences = load_sentences(max_sentences=args.max_sentences)
 
 
+    import torch
     strip_chars, stripped = strip_diacritics(sentences, prob=args.strip_prob)
 
     # check that all strip chars are in chars
@@ -185,8 +186,14 @@ if __name__ == "__main__":
 
     model = DiacriticModel(char_embedding_dim=args.char_dim, n_conv_filters=args.n_conv_filters, we_dim=args.we_dim, char_dict=char_dict).cuda()
 
-    warming_up = True
-    lr = args.learning_rate / 100
+    if args.warmup:
+        warming_up = True
+        lr = args.learning_rate / 100
+    
+    else:
+        warming_up = False
+        lr = args.learning_rate
+
     last_plateau = 0
 
 
@@ -209,7 +216,7 @@ if __name__ == "__main__":
                     print("Warming up done")
                     last_plateau = epoch
                     lr *= 0.8
-        else:
+        elif epoch > 10:
             # if plateau, decrease learning rate
             l1 = sum(all_losses[-5:]) / 5
             l2 = sum(all_losses[-10:-5]) / 5
