@@ -1,10 +1,12 @@
 from model import DiacriticModel
 from matplotlib import pyplot as plt
+from strip import strip_string
 from train import strip_map, UNKNOWN_SYMBOL
-from typing import Dict, List, Text, Tuple, TextIO
+from typing import Dict, List, Text, Tuple, TextIO, Set
 
 from nltk.tokenize import word_tokenize
-from nltk.tokenize.treebank import TreebankWordDetokenizer
+
+from word_vocab import load_vocab
 
 import torch
 
@@ -23,24 +25,6 @@ def tokenize(sentence: str) -> List[Tuple[int, str]]:
 
     return tokens
 
-#     word = []
-#     
-#     ind = 0
-#     for i, char in enumerate(sentence):
-#         if not char.isalpha():
-#             if len(word) > 0:
-#                 tokens.append((ind, "".join(word)))
-#                 word = []
-#             tokens.append((i, char))
-#             ind = i + 1
-# 
-#         else:
-#             word.append(char)
-#     
-#     if len(word) > 0:
-#         tokens.append((ind, "".join(word)))
-
-    return tokens
 
 
 def token_map(tokens: List[Tuple[int, str]], map_fn):
@@ -133,7 +117,6 @@ def diacritization_merge(orig: List[Tuple[int, str]], stripped: List[Tuple[int, 
             assert len(stripped[current_stripped_index][1]) == len(token)
 
             result.append((ind, merge_token(token, pred[current_stripped_index])))
-            # print(token, pred[current_stripped_index])
             current_stripped_index += 1
 
             # check if we are at the end of the stripped list
@@ -145,10 +128,44 @@ def diacritization_merge(orig: List[Tuple[int, str]], stripped: List[Tuple[int, 
 
     return token_join(result)
 
+def dictionary_autocorrect(tokens: List[str], strip_vocab: Dict[str, Dict[str, int]]):
 
-def diacritize(input: TextIO, output: TextIO, model: DiacriticModel):
+    new_tokens = []
 
-    # file_input = StringIO(sentence)
+    for orig_token in tokens:
+        token = strip_string(orig_token)
+
+        if token in strip_vocab and len(strip_vocab[token]) == 1:
+            k, v = list(strip_vocab[token].keys())[0], list(strip_vocab[token].values())[0]
+            new_tokens.append(k)
+
+        else:
+            new_tokens.append(orig_token)
+        c2 += 1
+    return new_tokens
+
+def dictionary_autocorrect2(pred_tokens: List[str], vocab: Set[str], strip_dict: Dict[str, str]):
+    new_tokens = []
+
+    for token in pred_tokens:
+        stripped_token = strip_string(token)
+
+        if token not in vocab and stripped_token in strip_dict:
+            # take the token with the highest frequency
+            best_guess = sorted(strip_dict[stripped_token].items(), key=lambda x: x[1], reverse=True)[0][0]
+            new_tokens.append(best_guess)
+        
+        else:
+            new_tokens.append(token)
+    
+    return new_tokens
+
+
+
+def diacritize(input: TextIO, output: TextIO, model: DiacriticModel, n_iters: int = 1, use_dict=True):
+    if use_dict:
+        vocab, strip_vocab = load_vocab()
+
     orig, stripped = load_test_data(input, model.char_dict)
     assert len(orig) == len(stripped)
 
@@ -156,33 +173,31 @@ def diacritize(input: TextIO, output: TextIO, model: DiacriticModel):
         stripped_sentence = stripped[i]
         stripped_tokens = [token for _, token in stripped_sentence]
 
-        # print("stripped sentence:", stripped_sentence)
-        # print("stripped_tokens: ", stripped_tokens)
 
         if len(stripped_sentence) == 0:
             pred_sentence = []
         else:
-            pred_sentence = model.diacritize(stripped_tokens)
+            pred_sentence = stripped_tokens
+
+            for _ in range(n_iters):
+                pred_sentence = model.diacritize(pred_sentence)
+
+            if use_dict:
+                print("Autocorrect:")
+                print(" ".join(pred_sentence))
+                pred_sentence = dictionary_autocorrect(pred_sentence, strip_vocab)
+                print(" ".join(pred_sentence))
+
+                pred_sentence = dictionary_autocorrect2(pred_sentence, vocab, strip_vocab)
+            
 
         # detokenize
         pred_merged = diacritization_merge(orig_sentence, stripped_sentence, pred_sentence)
         output.write(pred_merged + "\n")
 
         orig_str = token_join(orig_sentence)
-        # print("input:\t", orig_str)
-        # print("pred:\t", pred_merged)
 
         assert len(orig_str) == len(pred_merged)
-
-        # correct += number_of_correct_chars(orig_str, pred_merged)
-        # total += len(orig_str)
-
-        # correct_words_, total_words_ = number_of_correct_words(orig_str, pred_merged)
-        # correct_words += correct_words_
-        # total_words += total_words_
-
-    # print(f"Accuracy: {correct}/{total} = {correct/total}")
-    # print(f"Word accuracy: {correct_words}/{total_words} = {correct_words/total_words}")
 
 
 def load_model(checkpoint_name: str):
@@ -202,11 +217,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     parser.add_argument("--checkpoint", type=str, default="final-100000k_epoch_65")
+    parser.add_argument("--n-iters", type=int, default=1)
     parser.add_argument("--input", type=str, default=None)
     parser.add_argument("--output", type=str, default=None)
+    parser.add_argument("--use-dict", action="store_true")
 
     args = parser.parse_args()
-    # strip_file(args.test_file, args.test_file + "_stripped.txt")
 
     if args.input is None:
         # default is stdin
@@ -222,4 +238,4 @@ if __name__ == "__main__":
 
     
     model = load_model(args.checkpoint)
-    diacritize(input_stream, output_stream, model)
+    diacritize(input_stream, output_stream, model, args.n_iters, args.use_dict)
