@@ -1,0 +1,315 @@
+Evoluce prirodnim vyberem a penicilin. Dva vyrocni „svatovaclavske“ objevy minulosti poodhaluji svet vedy i nasi budoucnost.
+
+Na podzim 1836 se Charles Darwin vratil z temer petilete cesty kolem sveta. Krome podlomeneho zdravi mel nasbirano vedeckeho materialu hned na nekolik zivotu. A co vic, vnitrne se zmenil. Vyplouval jako biblicky pravoverny kreacionista (koneckoncu vystudoval teologii), vracel se jako embryo evolucionisty. „Kdyz jsem se coby prirodnik plavil na lodi Beagle, byl jsem prekvapen jistymi fakty v zemepisnem rozsireni ustrojencu obyvajicich Jizni Ameriku a v geologickych vztazich nynejsich a davnych obyvatel teto pevniny. Tato fakta se zdala vrhat jakesi svetlo na vznik druhu – ono tajemstvi z nejtajnejsich…“
+Lod Beagle na cestach. Dobova ilustrace.Auto Conrad Martens, volne dilo, CC0 1.0
+
+Tusil, ze za „onim tajemstvim“ se skryva pozvolny vyvoj, ale jak funguje? Vic nez rok se prohrabaval nahromadenymi udaji a usilovne o nich premyslel. Vymyslel hypotezy, vazil je a zase zavrhoval, bloudil ve slepych ulickach, vse darmo. Behem roku 1838 – i v souvislosti s vaznymi plany na manzelstvi – se odpovedi priblizil na dosah. Dosel k presvedceni, ze jednim ze zakladu evoluce jsou pocatecni drobne dedicne odchylky. Kdyz je nejaky druh rozdeleny do dvou populaci treba vodnim tokem, obe se postupne vzdaluji tak dlouho, az z nich vzniknou dva rozdilne druhy. Zbyvalo prijit na to, cim je tento proces pohanen a rizen.
+
+Reseni se dostavilo pocatkem podzimu 1838, nahle, necekane. Darwin zrovna cetl slavnou uvahu Thomase Malthuse, podle niz nicim neomezovana lidska populace poroste rychleji nez zdroje potravy tak dlouho, az jich bude nedostatek. Coz jako prvni odskacou ti nejslabsi.
+
+Ve svych zapiscich ze dne 28. zari 1838 Darwin zminil cetbu Malthuse a dale, aniz by prirodni vyber vyslovene jmenoval, popsal jeho ucinky. „Dalo by se rici, ze existuje sila, ktera se jako tisic klinu snazi vtesnat nejruznejsi adaptovane tvory do mezer v ekonomice prirody, nebo spise tyto mezery vytvari tim, ze vytlacuje tvory slabsi. Puvodni pricinou vsech techto tlaku musi byt snaha vybrat nejvhodnejsi stavbu a prizpusobit ji probihajicim zmenam.“
+
+A mnohem pozdeji ve svem zivotopise – ktery se s kazdodennimi zapisky misty rozchazi – pise: „V rijnu 1838, tedy patnact mesicu pote, co jsem zacal se svym systematickym badanim, jsem si nahodou pro zabavu cetl Malthusuv spis O populaci, a jelikoz dlouhodobe pozorovani zvyklosti zvirat a rostlin mne dukladne pripravilo na ideu neustaleho boje o preziti, okamzite mne napadlo, ze za takovych podminek budou vyhodne odchylky zachovany a nevyhodne zaniknou. Vysledkem bude vznik novych druhu. Konecne jsem tak dospel k teorii, podle ktere jsem mohl stavet.“
+Charles Darwin, fotografie porizena kolem roku 1854. Foto Maull & Fox, volne dilo, CC0 1.0
+
+Proces evoluce je tedy hnan hladem a regulovan prirodnim vyberem.
+
+Jakkoli Darwin uz predtim chapal vyznam druhovych variaci, souvislost mezi prirodnim a umelym vyberem, souboj mezi zivocisnymi druhy o preziti, zjevnou fyziologickou vazbu mezi jednotlivymi druhy i nepredstavitelne dlouhou casovou skalu evolucnich deju, jakkoli vlastne nosil svou ideu evoluce prirodnim vyberem v hlave uz mesice predtim, jeji vznik spojuje ve svych poznamkach prave se dnem 28. zari 1838, kdy zazil onen bajny stav heureka, stav docvaknuti posledniho dilu skladanky. Muzictejsi z historiku to nazyvaji malthusianske prozreni nebo dokonce malthusianske zjeveni.
+Reverend Malthus a jeho -ismus
+
+„Boj o existenci je Malthusova teorie aplikovana v mnohem vetsim meritku na celou zivocisnou a rostlinnou risi,“ napsal Charles Darwin v proslulem spise O vyvoji druhu prirodnim vyberem z roku 1859. (Ano, dvacet let trvalo, nez svoji teorii vypuliroval a odvazil se ji zverejnit.)
+
+Rovnez Darwinuv pritel a vedecky konkurent Alfred Wallace vzpominal: „Mozna tou nejdulezitejsi knihou, kterou jsem precetl (o par let pozdeji nez Darwin, FH), byla Malthusova Populace, kterou jsem velmi obdivoval pro fakta obsazena v knize i pro prislusne logicke zavery. Byla to prvni prace, kterou jsem do te doby precetl, v niz se hovorilo o filosoficke problematice biologie; hlavni zasady jsem si zapamatoval navzdy a o dvacet let pozdeji mi poskytly dlouho hledany klicovy faktor pro teorii evoluce zivych druhu.“ (Wallace a Darwin po dohode zverejnili tuto teorii spolecne, ale vsichni vcetne samotneho Wallace uznali Darwinovu prioritu.)
+
+Thomas Malthus stejne jako Darwin vystudoval v Cambridge teologii (a predtim svoji oblibenou matematiku). Zaroven se zajimal o problemy obyvatelstva v rade evropskych zemi vcetne Ruska. V roce 1797 se – jednatricetilety – stal anglikanskym pastorem, rok nato anonymne vydal spisek Esej o principu populace. Napsal ho velmi vystizne a srozumitelne, vystavel ho na zakladech prisne matematicke logiky (coz bylo v oboru socialnich ved novum). Knizka se stala bestsellerem a do Malthusovy smrti v roce 1834 vysla (uz pod autorovym jmenem) jeste petkrat.
+Titulni strana Eseje o principu populace T.H. Malthuse, vydani z roku 1826. volne dilo, CC0 1.0
+
+Oc v ni slo? Velmi zjednodusene: Clovek nikdy nemuze dosahnout dokonalosti, ponevadz mu to nedovoli hlad. Hlad bude mit proto, ze pocet lidi poroste geometrickou radou (1, 2, 4, 8...), zatimco mnozstvi potravin pouze radou aritmetickou (1, 2, 3...). Existuji dve linie reseni: Te „lidske“ (pohlavni zdrzenlivost, popripade spotrebni skromnost) Malthus moc neveril; soudil, ze lide jako celek jsou od prirody pozivacni a mnozi se nekontrolovatelne. Spis proto spolehal na regulaci takrikajic prirozenou – hladomory, epidemie, valky. Proto take vystupoval proti vsem formam socialnich podpor chudym, obecneji pak proti veskerym regulacnim zasahum statu do ekonomiky. Jeho uceni se zacalo rikat malthusianstvi.
+Thomas Malthus, autor teorie o rustu populace.Foto volne dilo, CC0 1.0
+
+Sam Malthus se presne podle vlastnoustne hlasanych zasad ozenil az ve ctyriceti. Zplodil tri deti, coz se pri tehdejsi umrtnosti asi nejvic blizilo proste reprodukci v jeho vrstve.
+Legrace v misce
+
+Druhy dnesni svatovaclavsky objev je presne dvakrat mladsi nez ten Darwinuv a take mnohem znamejsi, takze jen strucne: Mikrobiolog Alexander Fleming jako pravy Skot oplyval setrnosti a jen velmi nerad veci vyhazoval. Jeho oblibenou vetou pry bylo: „Dejte to nekam bokem. Mohlo by se to hodit.“
+
+Behem prvni poloviny roku 1928 Fleming coby patolog jedne londynske nemocnice studoval bakterie stafylokoku, mikrobu k lidskemu telu bezne neutralnich, avsak schopnych take infekce. Casem se v jeho male laboratori nakupila spousta nadobek s obsahy v ruznem stadiu nechutnosti. Kdyz po navratu z dovolene prece jen musel krapet uklidit pro dalsi praci, narazil 28. zari 1928 na misku s mikroby, kde bujela plisen. Nebylo to nic neobvykleho, plisne se dostanou vsude vzduchem. Kazdy jiny by to vyhodil jako banalitu, jenze Fleming si vsechno, kdyz uz to musel vyhodit, dukladne prohledl. A vsiml si, ze kolem sametovych ostruvku plisne mikroby odumrely. Diky pritomnemu kolegovi se zachoval i Fleminguv bezprostredni komentar: „Tohle je legracni...“
+Profesor Alexander Fleming ve sve londynske laboratori. V roce 1928 zjistil, ze plisen Penicillium notatum zabiji nektere kmeny bakterii.   Foto volne dilo, CC0 1.0
+
+Ze zvedavosti kousek plisne odtrhl a presadil do zivneho roztoku, aby si ji vypestoval vic. Brzy zjistil, ze neznama latka z plisne pusobi i na jine druhy mikrobu nez stafylokoky, a to dokonce i ve velmi zredenem stavu. Kdyz se dalsimi pokusy na ukazalo, ze stava z plisne neni jedovata, odhodlal se ji Fleminguv kolega vypit. Nic se mu nestalo.
+
+V publikaci napresrok v cervnu Fleming podle matecne plisne Penicillium notatum nazval novou ucinnou latku penicilin. V zaverecnem shrnuti pise: „Da se predpokladat, ze muze byt ucinnym antiseptickym prostredkem k pouziti vnejsimu i k injekcni lecbe casti tela infikovanych mikroby, jez jsou citlive na penicilin.“
+
+Zatim ale penicilin neucinkoval. Rusily necistoty, ktere ho zaroven rychle kazily. Tohle Fleming vyresit nedokazal, ukol vycistit penicilin nebyla prace pro bakteriologa. Teprve chemici Ernst Chain a Howard Florey behem druhe svetove valky v Americe dokazali pripravit penicilin dostatecne cisty a ve velkem. Vsichni tri jmenovani dostali v roce 1945 Nobelovu cenu.
+Morfologie objevu
+
+Jako hlavni rozdil mezi pojednavanymi objevy asi vetsinu z nas napadne jejich prospesnost. Zatimco penicilin zachranil miliony zivotu, prirodni evoluce „jen“ odhalila vic o prirode, zivote, cloveku, aniz by vedla k nejakemu primemu konkretnimu uzitku.
+
+Fleminguv pripad je klasickym prikladem, kdy objev nikdo neceka a teprve jim zacne dalsi intenzivni vyzkum. Takovy objev ale nespadne z nebe, potencialni objevitel – receno s Pasteurem – „musi delat veci“, tedy pokusnicit, aktivne hledat, trebas neco jineho. Pro vysledek jiny nez ocekavany se ustalil vyraz serendipita.
+
+Klasickym serendiperem byl Kolumbus – hledal Indii, nasel Ameriku. Fleming zkoumal mikroby, narazil na antibiotikum. Pasteur studoval ucinky mikrobu slepiciho moru na kurata, pricemz nahodou pouzil i starou, oslabenou kulturu – a objevil princip aktivni imunizace. Röntgen chtel dukladneji poznat vlastnosti vybojove trubice a objevil rentgenove zareni. Becquerel patral po dalsich moznych zdrojich rentgenoveho zareni a objevil radioaktivitu. Kammerlingh-Onnes prvni zkapalnil helium a s jeho vyuzitim meril elektricky odpor kovu v blizkosti absolutni nuly. Objevil supravodivost.
+Dobovy plakat na postovni schrance nabizi: Penicilin vyleci kapavku za ctyri dny.   Foto volne dilo, CC0 1.0
+
+Jestlize Fleminguv necekany nalez antibiotickych ucinku plisne proces objevovani penicilinu zahajuje, otevira, Darwinovo malthusianske prozreni naproti tomu objev prirodni evoluce zavrsuje, uzavira. Cesta k takovemu rozhodujicimu, konecnemu objevu byva nezridka trnita, vysledek pracne nahaneny.
+
+Techto pripadu je ve vede mene nez tech flemingovskych, ale najdou se. Podle legend Archimedovi, hledajicimu zpusob mereni cistoty zlata v kralovskem obetnim venci, pomohla k jeho „heureka!“ koupaci vana. Mendelejev se nekolik let usilovne snazil usporadat chemicke prvky do smysluplneho systemu. Velmi se tim trapil. Az jednou slysel ze sousedniho pokoje Schumannuv koncert, uvedomil si funkci oktav v hudbe a – objevil periodicky zakon prvku (tam se vlastnosti zprvu opakuji po osmi prvcich). Kekuleho zase pronasledovala otazka usporadani atomu uhliku v benzenu. Jednoho dne poklimbaval pred krbem, v nemz vselijak tancily plameny, a v duchu uvidel, jak uhliky v benzenu vytvareji kruh.
+Od tuseni k vedeni
+
+Malthus ani Darwin ve sve dobe nemohli vedet to, co my dnes. Oba vsak postihli neco velkeho a hlubokeho. Pritom strategie jejich cest k cili se diametralne lisily. Malthus si polozil dva predpoklady, o nichz predpokladal, ze plati (aritmeticky rust zdroju potravin, geometricky rust poctu hladovych krku) a z nich pak vydedukoval logicky zaver: Bez omezovani populace jednou musi prijit hlad. Naproti tomu Darwin na ceste kolem sveta nasbiral hromadu konkretnich faktu o zviratech a ty pomoci indukce – s podporou Malthusova zaveru coby dulezite cihly do stavby evoluce – uspesne zobecnil do „teorie, na ktere se da stavet“.
+
+Pro lidstvo je malthusianstvi zivotne dulezite, ale pro prirodovedu je jenom jednim stripkem do mozaiky darwinismu.
+
+A kdyz uz jsme u tech teorii, pak i ony mohou stat jak na konci, tak na pocatku procesu poznavani. Necekane objevy svou teorii vzdy predchazeji, pochopitelne. Co Röntgen vedel o elektronovych obalech atomu, ve kterych vznika rentgenove zareni? Co Pasteur vedel o podstate imunity? Co Becquerel o jadernych reakcich?
+
+Cilene dobyvanym objevum naopak teorie alespon castecne predchazi.
+
+Rada chemickych prvku byla predpovedena z mezer v periodicke tabulce. Cerne diry vypocital uz v roce 1916 Schwarzschild, prvni byla objevena az za 56 let. Antihmotu vypocital Dirac v roce 1928, prvni anticastice (pozitron) byla objevena 1932. Pauli predpovedel neutrina roku 1930, objevena byla 1956.
+„Pro lidstvo je malthusianstvi zivotne dulezite, ale pro prirodovedu je jenom jednim stripkem do mozaiky darwinismu.“
+
+ 
+
+Do teto kapitolky spada jeste jeden casty pripad vztahu mezi tusenou existenci neceho a jejim vedeckym dukazem. V nekterych pripadech je totiz prisny pricinny dukaz, jakkoli by byl pro vedu idealni, nedosazitelny. My muzeme pomoci spekter „cist“ v elektronovych obalech atomu a tim kauzalne a kvantitativne vysvetlit rentgenove zareni. Rozhodne ale nedokazeme „cist“ v mozku myslenky a uz vubec ne rozfazovat kroky od vnejsiho popudu k myslence. A tak si pomahame tim, ze sledujeme velky pocet pripadu a vysledek prijmeme za fakt poznany alespon pravdepodobnostne.
+
+Kuprikladu tusime, ze bohatstvi otupuje soucit nebo ze moc korumpuje, ale dokazat to muzeme pouze tak, ze testujeme velky pocet lidi… a potom muzeme rict, ze negativni vztah bohatstvi-soucit plati rekneme u tri ctvrtin lidi. Obrazne receno, my se od prirodo-zpytu ci –zkumu uchylujeme k prirodo-pisu (a v popularizaci vedy – jak prave muzete videt – az k prirodo-pindu). Timto parcialne exaktnim zpusobem se badatelum podarilo potvrdit ci vyvratit ucinky nekterych leku a terapeutickych postupu, ale i rada mouder, rceni, predsudku, sociologickych jevu. Nadhernym prikladem efektu motylich kridel neboli slozite promichane pravdepodobnostni kauzality je predpovidani pocasi z poruznu namerenych hodnot meteorologickych velicin.
+S Darwinem v koncich
+
+Malthusianstvi a darwinismus jsou do sebe pevne zaklesnuty v jakesi podivne smycce. Prvni je jednim z hlavnich dusledku druheho v oblasti lidskeho zivota, druhy by bez ucasti prvniho jako duleziteho clanku pricinneho retezce nefungoval.
+
+Darwinismus v kombinaci s malthusianstvim klade otazky presahujici jednotlive lidske zivoty: Jaci a proc opravdu jsme a kam a proc smerujeme? K zodpovezeni takovych otazek je ale potreba hloubeji zakomponovat jeste jednu vlivnou lidskou risi – kulturu nebo chcete-li civilizaci.
+
+Sam Malthus s ucasti kultury pocital pouze ve svem predpokladu rustu potravin aritmetickou radou (zrejme podle nej melo pribyvat poli, chlevu, pastvin, rybolovu). V polovine 19. stoleti vsak nemecky chemik Liebig vynalezl umela hnojiva, coz produkci zemedelskych plodin znasobilo a zasadilo malthusianstvi prvni ranu – diky vede a technice zacalo potravin pribyvat rychleji nez aritmeticky. Rana druha se zretelneji projevila od 60. let 20. stoleti v podobe tzv. demografickeho paradoxu – cim lip si ziju, tim min mam deti (k cemuz, abychom nezapomneli, podstatne prispel vynalez hormonalni antikoncepce).
+Liebigova chemicka laborator. Odsud vzesla prvni umela hnojiva. Ilustrace pochazi priblizne z roku 1841.  Ilustrace volne dilo, CC0 1.0
+
+Kdesi jsem cetl, ze v ceskych zemich kolem roku 1880 mely rodiny ctyri az pet deti, pred prvni svetovou valkou necele ctyri, v roce 1930 uz jen 2,9. V soucasnosti u nas na jednu zenu pripada asi 1,6 ditete, coz je hluboko pod hranici proste reprodukce. Pocet lidi ve vyspelych zemich tedy neporoste geometricky.
+
+Po tomto zjisteni jako by byl cely Malthus na odpis.
+
+V soucasnosti dalsimu rustu produkce nezavadnych potravin zacina branit stale vetsi vycerpanost a znecisteni prostredi, stagnaci populace zase v rustu spotreby kompenzuji stale vetsi naroky lidi – geneticky ulozeny imperativ „prezit, rozmnozit se, odchovat deti“ transmutoval v bytostnou touhu „mit se co nejlip, maximalne si uzit“ (rozumej protocit co nejvic statku). Zda se, ze v dostatecne mire neplati predpoklad, ze pokud se ma clovek dost dobre, zacne si vedle vlastniho prospechu vic vsimat i druhych, okoli, budoucnosti; soucasti odkazu po prirodnim vyberu totiz je i imperativ „nikdy nemej dost, nevis, kdy se to bude hodit“.
+
+(Ostatne s tim prirodnim vyberem to taky pokulhava: diky vede, technice a humanismu prezivaji stale nezivotaschopnejsi jedinci, malo odolni, leku potrebni, schopni pocit pouze s asistenci mediciny a porodit na operacnim stole cisarskym rezem.)
+Sycek Malthus a kosmicke svetlusky
+
+A tim se dostavame ke stezejnim otazkam tohoto textu: Jaky vlastne je mocensky vztah prirody a kultury? Nakolik je vule podporovana znalostmi a inteligenci schopna blokovat ty negativni z odvekych lidskych pudu, instinktu, emoci – takovych, diky nimz jsme se kdysi za dob ledovych, hladomoru i vselikych pohrom procpali uzkym hrdlem vyvoje, ale ktere dnes pro nas jako celek predstavuji nastroje moralniho hazardu? Do jake miry dokazeme poslouchat svuj rozum? Muze kulturni evoluce preprat to prezile z dedictvi evoluce biologicke? Svedou memy pozmenit geny? Nakolik dokazeme posunout skleneny strop prirozenosti, oddelujici dohlednutelne od dosazitelneho?
+„Smer veletoku pozemske civilizace jako celku, ovlivnovany nikoli jednotlivymi Shakespeary, Einsteiny, Janacky, nybrz davem Smithu, Schmidtu, Smidu, tedy i nadale urcuje biologie, kultura je neco jako vitr nad vodami. “
+
+ 
+
+Exaktne se tohle nikdy nedozvime. Muzeme se jen domyslet z historie, z kazdodenniho zivota a z psychologickych pokusu, pricemz u kazdeho z nas spolupusobi osobni zkusenost a individualni mira sklonu k prijimani sebeklamu, at lichotivych, nebo utesnych. Nicmene vypada to, ze veskera kultura je jen ponekud subtilnejsi a diferencovanejsi projev prirodnich zakonu a ze rozum slouzi hlavne k oduvodnovani nasich vposledku vzdy nejak sobeckych zajmu (vyjimky, budiz jim cest a slava, coby vyvojove maladaptivni zpravidla spatne dopadaji).
+
+Za celou dobu sve existence jsme se hluboko uvnitr moc nezmenili. Mozna v honosnejsich kulisach, mozna s vyspelejsimi nastroji, ale pisnicku hrajeme porad stejnou. A neni vubec zadny objektivni duvod si namlouvat, ze se to v historicky dohledne dobe nejak vyrazneji zlepsi.
+
+Smer veletoku pozemske civilizace jako celku, ovlivnovany nikoli jednotlivymi Shakespeary, Einsteiny, Janacky, nybrz davem Smithu, Schmidtu, Smidu, tedy i nadale urcuje biologie, kultura je neco jako vitr nad vodami. Obcas sice zceri na hladine vlnky, na nichz zijeme sve zivoty, vlnky, ktere lokalne a kratkodobe mohou zamirit i proti proudu. Ne ze by nestaly za usili, v tu chvili treba prospeji jednotlivcum nebo i zastupum, ale konecny smer plynuti neovlivni.
+
+Vsechny kultury, na jejichz vzniku se podilel prirodni vyber, drive ci pozdeji dospeji k nejake obdobe malthusianstvi i jeho spontanniho reseni (nemusi to byt hned valky o tencici se zdroje, staci predcasna umrti z otraveneho prostredi nebo potize s reprodukci). A potom velmi pravdepodobne zkolabuji a zaniknou, rozpusti se v oceanu „nizsich“, divocejsich, odolnejsich forem zivota.
+
+Kopulaci darwinismu a malthusianstvi v me hlave vznikla blazniva predstava: Co asi by spatroval superman schopny libovolne souhlizet vesmir v nekonecnem prostoru i case? Nejspis by pozoroval poruznu se mihotajici svetlusky kosmickych civilizaci tam, kde se pro ne naplnily podminky; registroval by zablesky rozumu tu slabe, jinde a jindy silnejsi, nektere kraticke, jine delsi podle toho, jak se kazda civilizace behem sveho vzestupu vyporadala sama se sebou. Moc, opravdu moc bych si pral videt, kolik by tech svetylek bylo a jak dlouho by zarily.
+
+Evoluce prirodnim vyberem a penicilin. Dva vyrocni „svatovaclavske“ objevy minulosti poodhaluji svet vedy i nasi budoucnost.
+
+Na podzim 1836 se Charles Darwin vratil z temer petilete cesty kolem sveta. Krome podlomeneho zdravi mel nasbirano vedeckeho materialu hned na nekolik zivotu. A co vic, vnitrne se zmenil. Vyplouval jako biblicky pravoverny kreacionista (koneckoncu vystudoval teologii), vracel se jako embryo evolucionisty. „Kdyz jsem se coby prirodnik plavil na lodi Beagle, byl jsem prekvapen jistymi fakty v zemepisnem rozsireni ustrojencu obyvajicich Jizni Ameriku a v geologickych vztazich nynejsich a davnych obyvatel teto pevniny. Tato fakta se zdala vrhat jakesi svetlo na vznik druhu – ono tajemstvi z nejtajnejsich…“
+Lod Beagle na cestach. Dobova ilustrace.Auto Conrad Martens, volne dilo, CC0 1.0
+
+Tusil, ze za „onim tajemstvim“ se skryva pozvolny vyvoj, ale jak funguje? Vic nez rok se prohrabaval nahromadenymi udaji a usilovne o nich premyslel. Vymyslel hypotezy, vazil je a zase zavrhoval, bloudil ve slepych ulickach, vse darmo. Behem roku 1838 – i v souvislosti s vaznymi plany na manzelstvi – se odpovedi priblizil na dosah. Dosel k presvedceni, ze jednim ze zakladu evoluce jsou pocatecni drobne dedicne odchylky. Kdyz je nejaky druh rozdeleny do dvou populaci treba vodnim tokem, obe se postupne vzdaluji tak dlouho, az z nich vzniknou dva rozdilne druhy. Zbyvalo prijit na to, cim je tento proces pohanen a rizen.
+
+Reseni se dostavilo pocatkem podzimu 1838, nahle, necekane. Darwin zrovna cetl slavnou uvahu Thomase Malthuse, podle niz nicim neomezovana lidska populace poroste rychleji nez zdroje potravy tak dlouho, az jich bude nedostatek. Coz jako prvni odskacou ti nejslabsi.
+
+Ve svych zapiscich ze dne 28. zari 1838 Darwin zminil cetbu Malthuse a dale, aniz by prirodni vyber vyslovene jmenoval, popsal jeho ucinky. „Dalo by se rici, ze existuje sila, ktera se jako tisic klinu snazi vtesnat nejruznejsi adaptovane tvory do mezer v ekonomice prirody, nebo spise tyto mezery vytvari tim, ze vytlacuje tvory slabsi. Puvodni pricinou vsech techto tlaku musi byt snaha vybrat nejvhodnejsi stavbu a prizpusobit ji probihajicim zmenam.“
+
+A mnohem pozdeji ve svem zivotopise – ktery se s kazdodennimi zapisky misty rozchazi – pise: „V rijnu 1838, tedy patnact mesicu pote, co jsem zacal se svym systematickym badanim, jsem si nahodou pro zabavu cetl Malthusuv spis O populaci, a jelikoz dlouhodobe pozorovani zvyklosti zvirat a rostlin mne dukladne pripravilo na ideu neustaleho boje o preziti, okamzite mne napadlo, ze za takovych podminek budou vyhodne odchylky zachovany a nevyhodne zaniknou. Vysledkem bude vznik novych druhu. Konecne jsem tak dospel k teorii, podle ktere jsem mohl stavet.“
+Charles Darwin, fotografie porizena kolem roku 1854. Foto Maull & Fox, volne dilo, CC0 1.0
+
+Proces evoluce je tedy hnan hladem a regulovan prirodnim vyberem.
+
+Jakkoli Darwin uz predtim chapal vyznam druhovych variaci, souvislost mezi prirodnim a umelym vyberem, souboj mezi zivocisnymi druhy o preziti, zjevnou fyziologickou vazbu mezi jednotlivymi druhy i nepredstavitelne dlouhou casovou skalu evolucnich deju, jakkoli vlastne nosil svou ideu evoluce prirodnim vyberem v hlave uz mesice predtim, jeji vznik spojuje ve svych poznamkach prave se dnem 28. zari 1838, kdy zazil onen bajny stav heureka, stav docvaknuti posledniho dilu skladanky. Muzictejsi z historiku to nazyvaji malthusianske prozreni nebo dokonce malthusianske zjeveni.
+Reverend Malthus a jeho -ismus
+
+„Boj o existenci je Malthusova teorie aplikovana v mnohem vetsim meritku na celou zivocisnou a rostlinnou risi,“ napsal Charles Darwin v proslulem spise O vyvoji druhu prirodnim vyberem z roku 1859. (Ano, dvacet let trvalo, nez svoji teorii vypuliroval a odvazil se ji zverejnit.)
+
+Rovnez Darwinuv pritel a vedecky konkurent Alfred Wallace vzpominal: „Mozna tou nejdulezitejsi knihou, kterou jsem precetl (o par let pozdeji nez Darwin, FH), byla Malthusova Populace, kterou jsem velmi obdivoval pro fakta obsazena v knize i pro prislusne logicke zavery. Byla to prvni prace, kterou jsem do te doby precetl, v niz se hovorilo o filosoficke problematice biologie; hlavni zasady jsem si zapamatoval navzdy a o dvacet let pozdeji mi poskytly dlouho hledany klicovy faktor pro teorii evoluce zivych druhu.“ (Wallace a Darwin po dohode zverejnili tuto teorii spolecne, ale vsichni vcetne samotneho Wallace uznali Darwinovu prioritu.)
+
+Thomas Malthus stejne jako Darwin vystudoval v Cambridge teologii (a predtim svoji oblibenou matematiku). Zaroven se zajimal o problemy obyvatelstva v rade evropskych zemi vcetne Ruska. V roce 1797 se – jednatricetilety – stal anglikanskym pastorem, rok nato anonymne vydal spisek Esej o principu populace. Napsal ho velmi vystizne a srozumitelne, vystavel ho na zakladech prisne matematicke logiky (coz bylo v oboru socialnich ved novum). Knizka se stala bestsellerem a do Malthusovy smrti v roce 1834 vysla (uz pod autorovym jmenem) jeste petkrat.
+Titulni strana Eseje o principu populace T.H. Malthuse, vydani z roku 1826. volne dilo, CC0 1.0
+
+Oc v ni slo? Velmi zjednodusene: Clovek nikdy nemuze dosahnout dokonalosti, ponevadz mu to nedovoli hlad. Hlad bude mit proto, ze pocet lidi poroste geometrickou radou (1, 2, 4, 8...), zatimco mnozstvi potravin pouze radou aritmetickou (1, 2, 3...). Existuji dve linie reseni: Te „lidske“ (pohlavni zdrzenlivost, popripade spotrebni skromnost) Malthus moc neveril; soudil, ze lide jako celek jsou od prirody pozivacni a mnozi se nekontrolovatelne. Spis proto spolehal na regulaci takrikajic prirozenou – hladomory, epidemie, valky. Proto take vystupoval proti vsem formam socialnich podpor chudym, obecneji pak proti veskerym regulacnim zasahum statu do ekonomiky. Jeho uceni se zacalo rikat malthusianstvi.
+Thomas Malthus, autor teorie o rustu populace.Foto volne dilo, CC0 1.0
+
+Sam Malthus se presne podle vlastnoustne hlasanych zasad ozenil az ve ctyriceti. Zplodil tri deti, coz se pri tehdejsi umrtnosti asi nejvic blizilo proste reprodukci v jeho vrstve.
+Legrace v misce
+
+Druhy dnesni svatovaclavsky objev je presne dvakrat mladsi nez ten Darwinuv a take mnohem znamejsi, takze jen strucne: Mikrobiolog Alexander Fleming jako pravy Skot oplyval setrnosti a jen velmi nerad veci vyhazoval. Jeho oblibenou vetou pry bylo: „Dejte to nekam bokem. Mohlo by se to hodit.“
+
+Behem prvni poloviny roku 1928 Fleming coby patolog jedne londynske nemocnice studoval bakterie stafylokoku, mikrobu k lidskemu telu bezne neutralnich, avsak schopnych take infekce. Casem se v jeho male laboratori nakupila spousta nadobek s obsahy v ruznem stadiu nechutnosti. Kdyz po navratu z dovolene prece jen musel krapet uklidit pro dalsi praci, narazil 28. zari 1928 na misku s mikroby, kde bujela plisen. Nebylo to nic neobvykleho, plisne se dostanou vsude vzduchem. Kazdy jiny by to vyhodil jako banalitu, jenze Fleming si vsechno, kdyz uz to musel vyhodit, dukladne prohledl. A vsiml si, ze kolem sametovych ostruvku plisne mikroby odumrely. Diky pritomnemu kolegovi se zachoval i Fleminguv bezprostredni komentar: „Tohle je legracni...“
+Profesor Alexander Fleming ve sve londynske laboratori. V roce 1928 zjistil, ze plisen Penicillium notatum zabiji nektere kmeny bakterii.   Foto volne dilo, CC0 1.0
+
+Ze zvedavosti kousek plisne odtrhl a presadil do zivneho roztoku, aby si ji vypestoval vic. Brzy zjistil, ze neznama latka z plisne pusobi i na jine druhy mikrobu nez stafylokoky, a to dokonce i ve velmi zredenem stavu. Kdyz se dalsimi pokusy na ukazalo, ze stava z plisne neni jedovata, odhodlal se ji Fleminguv kolega vypit. Nic se mu nestalo.
+
+V publikaci napresrok v cervnu Fleming podle matecne plisne Penicillium notatum nazval novou ucinnou latku penicilin. V zaverecnem shrnuti pise: „Da se predpokladat, ze muze byt ucinnym antiseptickym prostredkem k pouziti vnejsimu i k injekcni lecbe casti tela infikovanych mikroby, jez jsou citlive na penicilin.“
+
+Zatim ale penicilin neucinkoval. Rusily necistoty, ktere ho zaroven rychle kazily. Tohle Fleming vyresit nedokazal, ukol vycistit penicilin nebyla prace pro bakteriologa. Teprve chemici Ernst Chain a Howard Florey behem druhe svetove valky v Americe dokazali pripravit penicilin dostatecne cisty a ve velkem. Vsichni tri jmenovani dostali v roce 1945 Nobelovu cenu.
+Morfologie objevu
+
+Jako hlavni rozdil mezi pojednavanymi objevy asi vetsinu z nas napadne jejich prospesnost. Zatimco penicilin zachranil miliony zivotu, prirodni evoluce „jen“ odhalila vic o prirode, zivote, cloveku, aniz by vedla k nejakemu primemu konkretnimu uzitku.
+
+Fleminguv pripad je klasickym prikladem, kdy objev nikdo neceka a teprve jim zacne dalsi intenzivni vyzkum. Takovy objev ale nespadne z nebe, potencialni objevitel – receno s Pasteurem – „musi delat veci“, tedy pokusnicit, aktivne hledat, trebas neco jineho. Pro vysledek jiny nez ocekavany se ustalil vyraz serendipita.
+
+Klasickym serendiperem byl Kolumbus – hledal Indii, nasel Ameriku. Fleming zkoumal mikroby, narazil na antibiotikum. Pasteur studoval ucinky mikrobu slepiciho moru na kurata, pricemz nahodou pouzil i starou, oslabenou kulturu – a objevil princip aktivni imunizace. Röntgen chtel dukladneji poznat vlastnosti vybojove trubice a objevil rentgenove zareni. Becquerel patral po dalsich moznych zdrojich rentgenoveho zareni a objevil radioaktivitu. Kammerlingh-Onnes prvni zkapalnil helium a s jeho vyuzitim meril elektricky odpor kovu v blizkosti absolutni nuly. Objevil supravodivost.
+Dobovy plakat na postovni schrance nabizi: Penicilin vyleci kapavku za ctyri dny.   Foto volne dilo, CC0 1.0
+
+Jestlize Fleminguv necekany nalez antibiotickych ucinku plisne proces objevovani penicilinu zahajuje, otevira, Darwinovo malthusianske prozreni naproti tomu objev prirodni evoluce zavrsuje, uzavira. Cesta k takovemu rozhodujicimu, konecnemu objevu byva nezridka trnita, vysledek pracne nahaneny.
+
+Techto pripadu je ve vede mene nez tech flemingovskych, ale najdou se. Podle legend Archimedovi, hledajicimu zpusob mereni cistoty zlata v kralovskem obetnim venci, pomohla k jeho „heureka!“ koupaci vana. Mendelejev se nekolik let usilovne snazil usporadat chemicke prvky do smysluplneho systemu. Velmi se tim trapil. Az jednou slysel ze sousedniho pokoje Schumannuv koncert, uvedomil si funkci oktav v hudbe a – objevil periodicky zakon prvku (tam se vlastnosti zprvu opakuji po osmi prvcich). Kekuleho zase pronasledovala otazka usporadani atomu uhliku v benzenu. Jednoho dne poklimbaval pred krbem, v nemz vselijak tancily plameny, a v duchu uvidel, jak uhliky v benzenu vytvareji kruh.
+Od tuseni k vedeni
+
+Malthus ani Darwin ve sve dobe nemohli vedet to, co my dnes. Oba vsak postihli neco velkeho a hlubokeho. Pritom strategie jejich cest k cili se diametralne lisily. Malthus si polozil dva predpoklady, o nichz predpokladal, ze plati (aritmeticky rust zdroju potravin, geometricky rust poctu hladovych krku) a z nich pak vydedukoval logicky zaver: Bez omezovani populace jednou musi prijit hlad. Naproti tomu Darwin na ceste kolem sveta nasbiral hromadu konkretnich faktu o zviratech a ty pomoci indukce – s podporou Malthusova zaveru coby dulezite cihly do stavby evoluce – uspesne zobecnil do „teorie, na ktere se da stavet“.
+
+Pro lidstvo je malthusianstvi zivotne dulezite, ale pro prirodovedu je jenom jednim stripkem do mozaiky darwinismu.
+
+A kdyz uz jsme u tech teorii, pak i ony mohou stat jak na konci, tak na pocatku procesu poznavani. Necekane objevy svou teorii vzdy predchazeji, pochopitelne. Co Röntgen vedel o elektronovych obalech atomu, ve kterych vznika rentgenove zareni? Co Pasteur vedel o podstate imunity? Co Becquerel o jadernych reakcich?
+
+Cilene dobyvanym objevum naopak teorie alespon castecne predchazi.
+
+Rada chemickych prvku byla predpovedena z mezer v periodicke tabulce. Cerne diry vypocital uz v roce 1916 Schwarzschild, prvni byla objevena az za 56 let. Antihmotu vypocital Dirac v roce 1928, prvni anticastice (pozitron) byla objevena 1932. Pauli predpovedel neutrina roku 1930, objevena byla 1956.
+„Pro lidstvo je malthusianstvi zivotne dulezite, ale pro prirodovedu je jenom jednim stripkem do mozaiky darwinismu.“
+
+ 
+
+Do teto kapitolky spada jeste jeden casty pripad vztahu mezi tusenou existenci neceho a jejim vedeckym dukazem. V nekterych pripadech je totiz prisny pricinny dukaz, jakkoli by byl pro vedu idealni, nedosazitelny. My muzeme pomoci spekter „cist“ v elektronovych obalech atomu a tim kauzalne a kvantitativne vysvetlit rentgenove zareni. Rozhodne ale nedokazeme „cist“ v mozku myslenky a uz vubec ne rozfazovat kroky od vnejsiho popudu k myslence. A tak si pomahame tim, ze sledujeme velky pocet pripadu a vysledek prijmeme za fakt poznany alespon pravdepodobnostne.
+
+Kuprikladu tusime, ze bohatstvi otupuje soucit nebo ze moc korumpuje, ale dokazat to muzeme pouze tak, ze testujeme velky pocet lidi… a potom muzeme rict, ze negativni vztah bohatstvi-soucit plati rekneme u tri ctvrtin lidi. Obrazne receno, my se od prirodo-zpytu ci –zkumu uchylujeme k prirodo-pisu (a v popularizaci vedy – jak prave muzete videt – az k prirodo-pindu). Timto parcialne exaktnim zpusobem se badatelum podarilo potvrdit ci vyvratit ucinky nekterych leku a terapeutickych postupu, ale i rada mouder, rceni, predsudku, sociologickych jevu. Nadhernym prikladem efektu motylich kridel neboli slozite promichane pravdepodobnostni kauzality je predpovidani pocasi z poruznu namerenych hodnot meteorologickych velicin.
+S Darwinem v koncich
+
+Malthusianstvi a darwinismus jsou do sebe pevne zaklesnuty v jakesi podivne smycce. Prvni je jednim z hlavnich dusledku druheho v oblasti lidskeho zivota, druhy by bez ucasti prvniho jako duleziteho clanku pricinneho retezce nefungoval.
+
+Darwinismus v kombinaci s malthusianstvim klade otazky presahujici jednotlive lidske zivoty: Jaci a proc opravdu jsme a kam a proc smerujeme? K zodpovezeni takovych otazek je ale potreba hloubeji zakomponovat jeste jednu vlivnou lidskou risi – kulturu nebo chcete-li civilizaci.
+
+Sam Malthus s ucasti kultury pocital pouze ve svem predpokladu rustu potravin aritmetickou radou (zrejme podle nej melo pribyvat poli, chlevu, pastvin, rybolovu). V polovine 19. stoleti vsak nemecky chemik Liebig vynalezl umela hnojiva, coz produkci zemedelskych plodin znasobilo a zasadilo malthusianstvi prvni ranu – diky vede a technice zacalo potravin pribyvat rychleji nez aritmeticky. Rana druha se zretelneji projevila od 60. let 20. stoleti v podobe tzv. demografickeho paradoxu – cim lip si ziju, tim min mam deti (k cemuz, abychom nezapomneli, podstatne prispel vynalez hormonalni antikoncepce).
+Liebigova chemicka laborator. Odsud vzesla prvni umela hnojiva. Ilustrace pochazi priblizne z roku 1841.  Ilustrace volne dilo, CC0 1.0
+
+Kdesi jsem cetl, ze v ceskych zemich kolem roku 1880 mely rodiny ctyri az pet deti, pred prvni svetovou valkou necele ctyri, v roce 1930 uz jen 2,9. V soucasnosti u nas na jednu zenu pripada asi 1,6 ditete, coz je hluboko pod hranici proste reprodukce. Pocet lidi ve vyspelych zemich tedy neporoste geometricky.
+
+Po tomto zjisteni jako by byl cely Malthus na odpis.
+
+V soucasnosti dalsimu rustu produkce nezavadnych potravin zacina branit stale vetsi vycerpanost a znecisteni prostredi, stagnaci populace zase v rustu spotreby kompenzuji stale vetsi naroky lidi – geneticky ulozeny imperativ „prezit, rozmnozit se, odchovat deti“ transmutoval v bytostnou touhu „mit se co nejlip, maximalne si uzit“ (rozumej protocit co nejvic statku). Zda se, ze v dostatecne mire neplati predpoklad, ze pokud se ma clovek dost dobre, zacne si vedle vlastniho prospechu vic vsimat i druhych, okoli, budoucnosti; soucasti odkazu po prirodnim vyberu totiz je i imperativ „nikdy nemej dost, nevis, kdy se to bude hodit“.
+
+(Ostatne s tim prirodnim vyberem to taky pokulhava: diky vede, technice a humanismu prezivaji stale nezivotaschopnejsi jedinci, malo odolni, leku potrebni, schopni pocit pouze s asistenci mediciny a porodit na operacnim stole cisarskym rezem.)
+Sycek Malthus a kosmicke svetlusky
+
+A tim se dostavame ke stezejnim otazkam tohoto textu: Jaky vlastne je mocensky vztah prirody a kultury? Nakolik je vule podporovana znalostmi a inteligenci schopna blokovat ty negativni z odvekych lidskych pudu, instinktu, emoci – takovych, diky nimz jsme se kdysi za dob ledovych, hladomoru i vselikych pohrom procpali uzkym hrdlem vyvoje, ale ktere dnes pro nas jako celek predstavuji nastroje moralniho hazardu? Do jake miry dokazeme poslouchat svuj rozum? Muze kulturni evoluce preprat to prezile z dedictvi evoluce biologicke? Svedou memy pozmenit geny? Nakolik dokazeme posunout skleneny strop prirozenosti, oddelujici dohlednutelne od dosazitelneho?
+„Smer veletoku pozemske civilizace jako celku, ovlivnovany nikoli jednotlivymi Shakespeary, Einsteiny, Janacky, nybrz davem Smithu, Schmidtu, Smidu, tedy i nadale urcuje biologie, kultura je neco jako vitr nad vodami. “
+
+ 
+
+Exaktne se tohle nikdy nedozvime. Muzeme se jen domyslet z historie, z kazdodenniho zivota a z psychologickych pokusu, pricemz u kazdeho z nas spolupusobi osobni zkusenost a individualni mira sklonu k prijimani sebeklamu, at lichotivych, nebo utesnych. Nicmene vypada to, ze veskera kultura je jen ponekud subtilnejsi a diferencovanejsi projev prirodnich zakonu a ze rozum slouzi hlavne k oduvodnovani nasich vposledku vzdy nejak sobeckych zajmu (vyjimky, budiz jim cest a slava, coby vyvojove maladaptivni zpravidla spatne dopadaji).
+
+Za celou dobu sve existence jsme se hluboko uvnitr moc nezmenili. Mozna v honosnejsich kulisach, mozna s vyspelejsimi nastroji, ale pisnicku hrajeme porad stejnou. A neni vubec zadny objektivni duvod si namlouvat, ze se to v historicky dohledne dobe nejak vyrazneji zlepsi.
+
+Smer veletoku pozemske civilizace jako celku, ovlivnovany nikoli jednotlivymi Shakespeary, Einsteiny, Janacky, nybrz davem Smithu, Schmidtu, Smidu, tedy i nadale urcuje biologie, kultura je neco jako vitr nad vodami. Obcas sice zceri na hladine vlnky, na nichz zijeme sve zivoty, vlnky, ktere lokalne a kratkodobe mohou zamirit i proti proudu. Ne ze by nestaly za usili, v tu chvili treba prospeji jednotlivcum nebo i zastupum, ale konecny smer plynuti neovlivni.
+
+Vsechny kultury, na jejichz vzniku se podilel prirodni vyber, drive ci pozdeji dospeji k nejake obdobe malthusianstvi i jeho spontanniho reseni (nemusi to byt hned valky o tencici se zdroje, staci predcasna umrti z otraveneho prostredi nebo potize s reprodukci). A potom velmi pravdepodobne zkolabuji a zaniknou, rozpusti se v oceanu „nizsich“, divocejsich, odolnejsich forem zivota.
+
+Kopulaci darwinismu a malthusianstvi v me hlave vznikla blazniva predstava: Co asi by spatroval superman schopny libovolne souhlizet vesmir v nekonecnem prostoru i case? Nejspis by pozoroval poruznu se mihotajici svetlusky kosmickych civilizaci tam, kde se pro ne naplnily podminky; registroval by zablesky rozumu tu slabe, jinde a jindy silnejsi, nektere kraticke, jine delsi podle toho, jak se kazda civilizace behem sveho vzestupu vyporadala sama se sebou. Moc, opravdu moc bych si pral videt, kolik by tech svetylek bylo a jak dlouho by zarily.
+
+Evoluce prirodnim vyberem a penicilin. Dva vyrocni „svatovaclavske“ objevy minulosti poodhaluji svet vedy i nasi budoucnost.
+
+Na podzim 1836 se Charles Darwin vratil z temer petilete cesty kolem sveta. Krome podlomeneho zdravi mel nasbirano vedeckeho materialu hned na nekolik zivotu. A co vic, vnitrne se zmenil. Vyplouval jako biblicky pravoverny kreacionista (koneckoncu vystudoval teologii), vracel se jako embryo evolucionisty. „Kdyz jsem se coby prirodnik plavil na lodi Beagle, byl jsem prekvapen jistymi fakty v zemepisnem rozsireni ustrojencu obyvajicich Jizni Ameriku a v geologickych vztazich nynejsich a davnych obyvatel teto pevniny. Tato fakta se zdala vrhat jakesi svetlo na vznik druhu – ono tajemstvi z nejtajnejsich…“
+Lod Beagle na cestach. Dobova ilustrace.Auto Conrad Martens, volne dilo, CC0 1.0
+
+Tusil, ze za „onim tajemstvim“ se skryva pozvolny vyvoj, ale jak funguje? Vic nez rok se prohrabaval nahromadenymi udaji a usilovne o nich premyslel. Vymyslel hypotezy, vazil je a zase zavrhoval, bloudil ve slepych ulickach, vse darmo. Behem roku 1838 – i v souvislosti s vaznymi plany na manzelstvi – se odpovedi priblizil na dosah. Dosel k presvedceni, ze jednim ze zakladu evoluce jsou pocatecni drobne dedicne odchylky. Kdyz je nejaky druh rozdeleny do dvou populaci treba vodnim tokem, obe se postupne vzdaluji tak dlouho, az z nich vzniknou dva rozdilne druhy. Zbyvalo prijit na to, cim je tento proces pohanen a rizen.
+
+Reseni se dostavilo pocatkem podzimu 1838, nahle, necekane. Darwin zrovna cetl slavnou uvahu Thomase Malthuse, podle niz nicim neomezovana lidska populace poroste rychleji nez zdroje potravy tak dlouho, az jich bude nedostatek. Coz jako prvni odskacou ti nejslabsi.
+
+Ve svych zapiscich ze dne 28. zari 1838 Darwin zminil cetbu Malthuse a dale, aniz by prirodni vyber vyslovene jmenoval, popsal jeho ucinky. „Dalo by se rici, ze existuje sila, ktera se jako tisic klinu snazi vtesnat nejruznejsi adaptovane tvory do mezer v ekonomice prirody, nebo spise tyto mezery vytvari tim, ze vytlacuje tvory slabsi. Puvodni pricinou vsech techto tlaku musi byt snaha vybrat nejvhodnejsi stavbu a prizpusobit ji probihajicim zmenam.“
+
+A mnohem pozdeji ve svem zivotopise – ktery se s kazdodennimi zapisky misty rozchazi – pise: „V rijnu 1838, tedy patnact mesicu pote, co jsem zacal se svym systematickym badanim, jsem si nahodou pro zabavu cetl Malthusuv spis O populaci, a jelikoz dlouhodobe pozorovani zvyklosti zvirat a rostlin mne dukladne pripravilo na ideu neustaleho boje o preziti, okamzite mne napadlo, ze za takovych podminek budou vyhodne odchylky zachovany a nevyhodne zaniknou. Vysledkem bude vznik novych druhu. Konecne jsem tak dospel k teorii, podle ktere jsem mohl stavet.“
+Charles Darwin, fotografie porizena kolem roku 1854. Foto Maull & Fox, volne dilo, CC0 1.0
+
+Proces evoluce je tedy hnan hladem a regulovan prirodnim vyberem.
+
+Jakkoli Darwin uz predtim chapal vyznam druhovych variaci, souvislost mezi prirodnim a umelym vyberem, souboj mezi zivocisnymi druhy o preziti, zjevnou fyziologickou vazbu mezi jednotlivymi druhy i nepredstavitelne dlouhou casovou skalu evolucnich deju, jakkoli vlastne nosil svou ideu evoluce prirodnim vyberem v hlave uz mesice predtim, jeji vznik spojuje ve svych poznamkach prave se dnem 28. zari 1838, kdy zazil onen bajny stav heureka, stav docvaknuti posledniho dilu skladanky. Muzictejsi z historiku to nazyvaji malthusianske prozreni nebo dokonce malthusianske zjeveni.
+Reverend Malthus a jeho -ismus
+
+„Boj o existenci je Malthusova teorie aplikovana v mnohem vetsim meritku na celou zivocisnou a rostlinnou risi,“ napsal Charles Darwin v proslulem spise O vyvoji druhu prirodnim vyberem z roku 1859. (Ano, dvacet let trvalo, nez svoji teorii vypuliroval a odvazil se ji zverejnit.)
+
+Rovnez Darwinuv pritel a vedecky konkurent Alfred Wallace vzpominal: „Mozna tou nejdulezitejsi knihou, kterou jsem precetl (o par let pozdeji nez Darwin, FH), byla Malthusova Populace, kterou jsem velmi obdivoval pro fakta obsazena v knize i pro prislusne logicke zavery. Byla to prvni prace, kterou jsem do te doby precetl, v niz se hovorilo o filosoficke problematice biologie; hlavni zasady jsem si zapamatoval navzdy a o dvacet let pozdeji mi poskytly dlouho hledany klicovy faktor pro teorii evoluce zivych druhu.“ (Wallace a Darwin po dohode zverejnili tuto teorii spolecne, ale vsichni vcetne samotneho Wallace uznali Darwinovu prioritu.)
+
+Thomas Malthus stejne jako Darwin vystudoval v Cambridge teologii (a predtim svoji oblibenou matematiku). Zaroven se zajimal o problemy obyvatelstva v rade evropskych zemi vcetne Ruska. V roce 1797 se – jednatricetilety – stal anglikanskym pastorem, rok nato anonymne vydal spisek Esej o principu populace. Napsal ho velmi vystizne a srozumitelne, vystavel ho na zakladech prisne matematicke logiky (coz bylo v oboru socialnich ved novum). Knizka se stala bestsellerem a do Malthusovy smrti v roce 1834 vysla (uz pod autorovym jmenem) jeste petkrat.
+Titulni strana Eseje o principu populace T.H. Malthuse, vydani z roku 1826. volne dilo, CC0 1.0
+
+Oc v ni slo? Velmi zjednodusene: Clovek nikdy nemuze dosahnout dokonalosti, ponevadz mu to nedovoli hlad. Hlad bude mit proto, ze pocet lidi poroste geometrickou radou (1, 2, 4, 8...), zatimco mnozstvi potravin pouze radou aritmetickou (1, 2, 3...). Existuji dve linie reseni: Te „lidske“ (pohlavni zdrzenlivost, popripade spotrebni skromnost) Malthus moc neveril; soudil, ze lide jako celek jsou od prirody pozivacni a mnozi se nekontrolovatelne. Spis proto spolehal na regulaci takrikajic prirozenou – hladomory, epidemie, valky. Proto take vystupoval proti vsem formam socialnich podpor chudym, obecneji pak proti veskerym regulacnim zasahum statu do ekonomiky. Jeho uceni se zacalo rikat malthusianstvi.
+Thomas Malthus, autor teorie o rustu populace.Foto volne dilo, CC0 1.0
+
+Sam Malthus se presne podle vlastnoustne hlasanych zasad ozenil az ve ctyriceti. Zplodil tri deti, coz se pri tehdejsi umrtnosti asi nejvic blizilo proste reprodukci v jeho vrstve.
+Legrace v misce
+
+Druhy dnesni svatovaclavsky objev je presne dvakrat mladsi nez ten Darwinuv a take mnohem znamejsi, takze jen strucne: Mikrobiolog Alexander Fleming jako pravy Skot oplyval setrnosti a jen velmi nerad veci vyhazoval. Jeho oblibenou vetou pry bylo: „Dejte to nekam bokem. Mohlo by se to hodit.“
+
+Behem prvni poloviny roku 1928 Fleming coby patolog jedne londynske nemocnice studoval bakterie stafylokoku, mikrobu k lidskemu telu bezne neutralnich, avsak schopnych take infekce. Casem se v jeho male laboratori nakupila spousta nadobek s obsahy v ruznem stadiu nechutnosti. Kdyz po navratu z dovolene prece jen musel krapet uklidit pro dalsi praci, narazil 28. zari 1928 na misku s mikroby, kde bujela plisen. Nebylo to nic neobvykleho, plisne se dostanou vsude vzduchem. Kazdy jiny by to vyhodil jako banalitu, jenze Fleming si vsechno, kdyz uz to musel vyhodit, dukladne prohledl. A vsiml si, ze kolem sametovych ostruvku plisne mikroby odumrely. Diky pritomnemu kolegovi se zachoval i Fleminguv bezprostredni komentar: „Tohle je legracni...“
+Profesor Alexander Fleming ve sve londynske laboratori. V roce 1928 zjistil, ze plisen Penicillium notatum zabiji nektere kmeny bakterii.   Foto volne dilo, CC0 1.0
+
+Ze zvedavosti kousek plisne odtrhl a presadil do zivneho roztoku, aby si ji vypestoval vic. Brzy zjistil, ze neznama latka z plisne pusobi i na jine druhy mikrobu nez stafylokoky, a to dokonce i ve velmi zredenem stavu. Kdyz se dalsimi pokusy na ukazalo, ze stava z plisne neni jedovata, odhodlal se ji Fleminguv kolega vypit. Nic se mu nestalo.
+
+V publikaci napresrok v cervnu Fleming podle matecne plisne Penicillium notatum nazval novou ucinnou latku penicilin. V zaverecnem shrnuti pise: „Da se predpokladat, ze muze byt ucinnym antiseptickym prostredkem k pouziti vnejsimu i k injekcni lecbe casti tela infikovanych mikroby, jez jsou citlive na penicilin.“
+
+Zatim ale penicilin neucinkoval. Rusily necistoty, ktere ho zaroven rychle kazily. Tohle Fleming vyresit nedokazal, ukol vycistit penicilin nebyla prace pro bakteriologa. Teprve chemici Ernst Chain a Howard Florey behem druhe svetove valky v Americe dokazali pripravit penicilin dostatecne cisty a ve velkem. Vsichni tri jmenovani dostali v roce 1945 Nobelovu cenu.
+Morfologie objevu
+
+Jako hlavni rozdil mezi pojednavanymi objevy asi vetsinu z nas napadne jejich prospesnost. Zatimco penicilin zachranil miliony zivotu, prirodni evoluce „jen“ odhalila vic o prirode, zivote, cloveku, aniz by vedla k nejakemu primemu konkretnimu uzitku.
+
+Fleminguv pripad je klasickym prikladem, kdy objev nikdo neceka a teprve jim zacne dalsi intenzivni vyzkum. Takovy objev ale nespadne z nebe, potencialni objevitel – receno s Pasteurem – „musi delat veci“, tedy pokusnicit, aktivne hledat, trebas neco jineho. Pro vysledek jiny nez ocekavany se ustalil vyraz serendipita.
+
+Klasickym serendiperem byl Kolumbus – hledal Indii, nasel Ameriku. Fleming zkoumal mikroby, narazil na antibiotikum. Pasteur studoval ucinky mikrobu slepiciho moru na kurata, pricemz nahodou pouzil i starou, oslabenou kulturu – a objevil princip aktivni imunizace. Röntgen chtel dukladneji poznat vlastnosti vybojove trubice a objevil rentgenove zareni. Becquerel patral po dalsich moznych zdrojich rentgenoveho zareni a objevil radioaktivitu. Kammerlingh-Onnes prvni zkapalnil helium a s jeho vyuzitim meril elektricky odpor kovu v blizkosti absolutni nuly. Objevil supravodivost.
+Dobovy plakat na postovni schrance nabizi: Penicilin vyleci kapavku za ctyri dny.   Foto volne dilo, CC0 1.0
+
+Jestlize Fleminguv necekany nalez antibiotickych ucinku plisne proces objevovani penicilinu zahajuje, otevira, Darwinovo malthusianske prozreni naproti tomu objev prirodni evoluce zavrsuje, uzavira. Cesta k takovemu rozhodujicimu, konecnemu objevu byva nezridka trnita, vysledek pracne nahaneny.
+
+Techto pripadu je ve vede mene nez tech flemingovskych, ale najdou se. Podle legend Archimedovi, hledajicimu zpusob mereni cistoty zlata v kralovskem obetnim venci, pomohla k jeho „heureka!“ koupaci vana. Mendelejev se nekolik let usilovne snazil usporadat chemicke prvky do smysluplneho systemu. Velmi se tim trapil. Az jednou slysel ze sousedniho pokoje Schumannuv koncert, uvedomil si funkci oktav v hudbe a – objevil periodicky zakon prvku (tam se vlastnosti zprvu opakuji po osmi prvcich). Kekuleho zase pronasledovala otazka usporadani atomu uhliku v benzenu. Jednoho dne poklimbaval pred krbem, v nemz vselijak tancily plameny, a v duchu uvidel, jak uhliky v benzenu vytvareji kruh.
+Od tuseni k vedeni
+
+Malthus ani Darwin ve sve dobe nemohli vedet to, co my dnes. Oba vsak postihli neco velkeho a hlubokeho. Pritom strategie jejich cest k cili se diametralne lisily. Malthus si polozil dva predpoklady, o nichz predpokladal, ze plati (aritmeticky rust zdroju potravin, geometricky rust poctu hladovych krku) a z nich pak vydedukoval logicky zaver: Bez omezovani populace jednou musi prijit hlad. Naproti tomu Darwin na ceste kolem sveta nasbiral hromadu konkretnich faktu o zviratech a ty pomoci indukce – s podporou Malthusova zaveru coby dulezite cihly do stavby evoluce – uspesne zobecnil do „teorie, na ktere se da stavet“.
+
+Pro lidstvo je malthusianstvi zivotne dulezite, ale pro prirodovedu je jenom jednim stripkem do mozaiky darwinismu.
+
+A kdyz uz jsme u tech teorii, pak i ony mohou stat jak na konci, tak na pocatku procesu poznavani. Necekane objevy svou teorii vzdy predchazeji, pochopitelne. Co Röntgen vedel o elektronovych obalech atomu, ve kterych vznika rentgenove zareni? Co Pasteur vedel o podstate imunity? Co Becquerel o jadernych reakcich?
+
+Cilene dobyvanym objevum naopak teorie alespon castecne predchazi.
+
+Rada chemickych prvku byla predpovedena z mezer v periodicke tabulce. Cerne diry vypocital uz v roce 1916 Schwarzschild, prvni byla objevena az za 56 let. Antihmotu vypocital Dirac v roce 1928, prvni anticastice (pozitron) byla objevena 1932. Pauli predpovedel neutrina roku 1930, objevena byla 1956.
+„Pro lidstvo je malthusianstvi zivotne dulezite, ale pro prirodovedu je jenom jednim stripkem do mozaiky darwinismu.“
+
+ 
+
+Do teto kapitolky spada jeste jeden casty pripad vztahu mezi tusenou existenci neceho a jejim vedeckym dukazem. V nekterych pripadech je totiz prisny pricinny dukaz, jakkoli by byl pro vedu idealni, nedosazitelny. My muzeme pomoci spekter „cist“ v elektronovych obalech atomu a tim kauzalne a kvantitativne vysvetlit rentgenove zareni. Rozhodne ale nedokazeme „cist“ v mozku myslenky a uz vubec ne rozfazovat kroky od vnejsiho popudu k myslence. A tak si pomahame tim, ze sledujeme velky pocet pripadu a vysledek prijmeme za fakt poznany alespon pravdepodobnostne.
+
+Kuprikladu tusime, ze bohatstvi otupuje soucit nebo ze moc korumpuje, ale dokazat to muzeme pouze tak, ze testujeme velky pocet lidi… a potom muzeme rict, ze negativni vztah bohatstvi-soucit plati rekneme u tri ctvrtin lidi. Obrazne receno, my se od prirodo-zpytu ci –zkumu uchylujeme k prirodo-pisu (a v popularizaci vedy – jak prave muzete videt – az k prirodo-pindu). Timto parcialne exaktnim zpusobem se badatelum podarilo potvrdit ci vyvratit ucinky nekterych leku a terapeutickych postupu, ale i rada mouder, rceni, predsudku, sociologickych jevu. Nadhernym prikladem efektu motylich kridel neboli slozite promichane pravdepodobnostni kauzality je predpovidani pocasi z poruznu namerenych hodnot meteorologickych velicin.
+S Darwinem v koncich
+
+Malthusianstvi a darwinismus jsou do sebe pevne zaklesnuty v jakesi podivne smycce. Prvni je jednim z hlavnich dusledku druheho v oblasti lidskeho zivota, druhy by bez ucasti prvniho jako duleziteho clanku pricinneho retezce nefungoval.
+
+Darwinismus v kombinaci s malthusianstvim klade otazky presahujici jednotlive lidske zivoty: Jaci a proc opravdu jsme a kam a proc smerujeme? K zodpovezeni takovych otazek je ale potreba hloubeji zakomponovat jeste jednu vlivnou lidskou risi – kulturu nebo chcete-li civilizaci.
+
+Sam Malthus s ucasti kultury pocital pouze ve svem predpokladu rustu potravin aritmetickou radou (zrejme podle nej melo pribyvat poli, chlevu, pastvin, rybolovu). V polovine 19. stoleti vsak nemecky chemik Liebig vynalezl umela hnojiva, coz produkci zemedelskych plodin znasobilo a zasadilo malthusianstvi prvni ranu – diky vede a technice zacalo potravin pribyvat rychleji nez aritmeticky. Rana druha se zretelneji projevila od 60. let 20. stoleti v podobe tzv. demografickeho paradoxu – cim lip si ziju, tim min mam deti (k cemuz, abychom nezapomneli, podstatne prispel vynalez hormonalni antikoncepce).
+Liebigova chemicka laborator. Odsud vzesla prvni umela hnojiva. Ilustrace pochazi priblizne z roku 1841.  Ilustrace volne dilo, CC0 1.0
+
+Kdesi jsem cetl, ze v ceskych zemich kolem roku 1880 mely rodiny ctyri az pet deti, pred prvni svetovou valkou necele ctyri, v roce 1930 uz jen 2,9. V soucasnosti u nas na jednu zenu pripada asi 1,6 ditete, coz je hluboko pod hranici proste reprodukce. Pocet lidi ve vyspelych zemich tedy neporoste geometricky.
+
+Po tomto zjisteni jako by byl cely Malthus na odpis.
+
+V soucasnosti dalsimu rustu produkce nezavadnych potravin zacina branit stale vetsi vycerpanost a znecisteni prostredi, stagnaci populace zase v rustu spotreby kompenzuji stale vetsi naroky lidi – geneticky ulozeny imperativ „prezit, rozmnozit se, odchovat deti“ transmutoval v bytostnou touhu „mit se co nejlip, maximalne si uzit“ (rozumej protocit co nejvic statku). Zda se, ze v dostatecne mire neplati predpoklad, ze pokud se ma clovek dost dobre, zacne si vedle vlastniho prospechu vic vsimat i druhych, okoli, budoucnosti; soucasti odkazu po prirodnim vyberu totiz je i imperativ „nikdy nemej dost, nevis, kdy se to bude hodit“.
+
+(Ostatne s tim prirodnim vyberem to taky pokulhava: diky vede, technice a humanismu prezivaji stale nezivotaschopnejsi jedinci, malo odolni, leku potrebni, schopni pocit pouze s asistenci mediciny a porodit na operacnim stole cisarskym rezem.)
+Sycek Malthus a kosmicke svetlusky
+
+A tim se dostavame ke stezejnim otazkam tohoto textu: Jaky vlastne je mocensky vztah prirody a kultury? Nakolik je vule podporovana znalostmi a inteligenci schopna blokovat ty negativni z odvekych lidskych pudu, instinktu, emoci – takovych, diky nimz jsme se kdysi za dob ledovych, hladomoru i vselikych pohrom procpali uzkym hrdlem vyvoje, ale ktere dnes pro nas jako celek predstavuji nastroje moralniho hazardu? Do jake miry dokazeme poslouchat svuj rozum? Muze kulturni evoluce preprat to prezile z dedictvi evoluce biologicke? Svedou memy pozmenit geny? Nakolik dokazeme posunout skleneny strop prirozenosti, oddelujici dohlednutelne od dosazitelneho?
+„Smer veletoku pozemske civilizace jako celku, ovlivnovany nikoli jednotlivymi Shakespeary, Einsteiny, Janacky, nybrz davem Smithu, Schmidtu, Smidu, tedy i nadale urcuje biologie, kultura je neco jako vitr nad vodami. “
+
+ 
+
+Exaktne se tohle nikdy nedozvime. Muzeme se jen domyslet z historie, z kazdodenniho zivota a z psychologickych pokusu, pricemz u kazdeho z nas spolupusobi osobni zkusenost a individualni mira sklonu k prijimani sebeklamu, at lichotivych, nebo utesnych. Nicmene vypada to, ze veskera kultura je jen ponekud subtilnejsi a diferencovanejsi projev prirodnich zakonu a ze rozum slouzi hlavne k oduvodnovani nasich vposledku vzdy nejak sobeckych zajmu (vyjimky, budiz jim cest a slava, coby vyvojove maladaptivni zpravidla spatne dopadaji).
+
+Za celou dobu sve existence jsme se hluboko uvnitr moc nezmenili. Mozna v honosnejsich kulisach, mozna s vyspelejsimi nastroji, ale pisnicku hrajeme porad stejnou. A neni vubec zadny objektivni duvod si namlouvat, ze se to v historicky dohledne dobe nejak vyrazneji zlepsi.
+
+Smer veletoku pozemske civilizace jako celku, ovlivnovany nikoli jednotlivymi Shakespeary, Einsteiny, Janacky, nybrz davem Smithu, Schmidtu, Smidu, tedy i nadale urcuje biologie, kultura je neco jako vitr nad vodami. Obcas sice zceri na hladine vlnky, na nichz zijeme sve zivoty, vlnky, ktere lokalne a kratkodobe mohou zamirit i proti proudu. Ne ze by nestaly za usili, v tu chvili treba prospeji jednotlivcum nebo i zastupum, ale konecny smer plynuti neovlivni.
+
+Vsechny kultury, na jejichz vzniku se podilel prirodni vyber, drive ci pozdeji dospeji k nejake obdobe malthusianstvi i jeho spontanniho reseni (nemusi to byt hned valky o tencici se zdroje, staci predcasna umrti z otraveneho prostredi nebo potize s reprodukci). A potom velmi pravdepodobne zkolabuji a zaniknou, rozpusti se v oceanu „nizsich“, divocejsich, odolnejsich forem zivota.
+
+Kopulaci darwinismu a malthusianstvi v me hlave vznikla blazniva predstava: Co asi by spatroval superman schopny libovolne souhlizet vesmir v nekonecnem prostoru i case? Nejspis by pozoroval poruznu se mihotajici svetlusky kosmickych civilizaci tam, kde se pro ne naplnily podminky; registroval by zablesky rozumu tu slabe, jinde a jindy silnejsi, nektere kraticke, jine delsi podle toho, jak se kazda civilizace behem sveho vzestupu vyporadala sama se sebou. Moc, opravdu moc bych si pral videt, kolik by tech svetylek bylo a jak dlouho by zarily.
+Frantisek Houdek
