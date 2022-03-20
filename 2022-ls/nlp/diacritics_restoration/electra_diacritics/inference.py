@@ -141,7 +141,6 @@ def dictionary_autocorrect(tokens: List[str], strip_vocab: Dict[str, Dict[str, i
 
         else:
             new_tokens.append(orig_token)
-        c2 += 1
     return new_tokens
 
 def dictionary_autocorrect2(pred_tokens: List[str], vocab: Set[str], strip_dict: Dict[str, str]):
