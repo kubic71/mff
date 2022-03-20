@@ -3,5 +3,5 @@ pandas
 torch
 tqdm
 nltk
-
+transformers
 
