@@ -31,6 +31,15 @@ $ python eval.py
 $ xdg-open accuracy.png
 ```
 
+### Comparing against CZACCENT
+
+```
+$ python compare.py --correct-file dtest_czaccent_gold.txt --pred-file dtest_pred_by_czaccent.txt 
+
+Character accuracy: 14472/14585 = 0.9922523140212547
+Word accuracy: 2159/2257 = 0.9565795303500222
+```
+
 ![](accuracy.png)
 
 ## Interactive Web app
