@@ -1,3 +1,6 @@
 [submodule "2019-zs/operating-systems/00"]
 	path = 2019-zs/operating-systems/00
 	url = https://gitlab.mff.cuni.cz/teaching/nswi004/winter-2019-20/00-student-hejhalj.git
+[submodule "2021-zs/ai_1/practicals/ai_1"]
+	path = 2021-zs/ai_1/practicals/ai_1
+	url = https://github.com/kubic71/ai_1
