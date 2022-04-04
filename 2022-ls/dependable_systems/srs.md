@@ -61,7 +61,6 @@ When the `Start` command is issued on the `/start` topic, the robot starts the L
 
 ## The path planning Use Case
 
-![](https://neobotix-docs.de/ros/_images/move_base_overview_tf.png)
 
 The path planning A* heuristic algorithm is used to periodically compute the best estimate of robot's optimal path.
 
