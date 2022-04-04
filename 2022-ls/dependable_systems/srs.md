@@ -5,7 +5,7 @@ The purpose of this document is to list and document the Software Requirements o
 ## Overview
 The Robot's software is written using ROS framework and shall be running on a Kuboki Linux PC.
 
-THe robot has the following sensors:
+The robot has the following sensors:
 - Gyroscope
 - Cliff sensors: left, center, right
 - Wheel drop sensors: left, right
@@ -29,7 +29,7 @@ The sensor data is published as a ROS message on the topic /kobuki/sensors/<sens
 ## The Motor control and actuation Use Case 
 The speed of the robot is controlled by the motor control system.
 The system is running as a ROS node.
-The robot can be controlled by a ROS message on the topic /kobuki/cmd_vel
+The robot can be controlled by a ROS message on the topic `/kobuki/cmd_vel`
 
 The message has the following structure:
 
@@ -47,18 +47,28 @@ The linear velocity is in m/s and the angular velocity is in rad/s.
 
 The robot estimates its odometry in the world coordinate system using the knowledge of the speed of each wheel and uses it with togeter with the Lidar sensor and the camera to more precisely localize the robot in the world and build the map at the same time.
 
+It publishes the map as ROS service on `/map`.
+
 
 ## Prepare for the race Use Case
 
 When the reset button is pressed, the robots resets its initial state and it prepares for start signal.
 
-## Start Race
+## Start Race Use Case
 
-When the `Start` command is issued, the 
+When the `Start` command is issued on the `/start` topic, the robot starts the Line following algorithm.
 
 
 ## The path planning Use Case
 
 ![](https://neobotix-docs.de/ros/_images/move_base_overview_tf.png)
 
+The path planning A* heuristic algorithm is used to periodically compute the best estimate of robot's optimal path.
+
+Obstacle avoidance is implemented as local cost map heuristic.
+
+It updates the wheel speeds using the `/kobuki/cmd_vel`  topic.
+
+## Emergency stop Use Case
+When the wheel drop sensor triggers, the robot stops immediately and resets its internal state as if the reset button was pressed..
 
