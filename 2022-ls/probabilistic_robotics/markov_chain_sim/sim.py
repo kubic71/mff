@@ -59,7 +59,7 @@ def print_weather(weather: np.ndarray):
 
 # Monday is sunny
 # What's the weather on Thursday?
-weather = markov_chain(trainsition_prob, SUNNY, 3)
+weather = markov_chain(trainsition_prob, RAINY, 3)
 
 # Print the weather on Thursday
 print("Weather on Thursday:")
@@ -96,7 +96,7 @@ path = []
 
 
 # show the evolution for multiple different initial states
-n_initial = 500
+n_initial = 3000
 
 
 states = np.random.rand(n_initial, 3)
@@ -162,7 +162,7 @@ def plot_3d_plotly(data: pd.DataFrame, stationary_dist: np.ndarray):
     fig.show()
 
 
-plot_3d_plotly(data, stationary_dist)
+# plot_3d_plotly(data, stationary_dist)
 
 
 
@@ -249,7 +249,7 @@ def plot_3d(paths: List[np.ndarray], stationary_dist: np.ndarray):
 
 
 # plot_3d(path, stationary_dist)
-# plot_2d(path, stationary_dist)
+plot_2d(path, stationary_dist)
 
 
 
